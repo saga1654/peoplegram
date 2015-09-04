@@ -1,5 +1,6 @@
 package kr.co.people_grame.app;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,6 +10,10 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.util.Log;
 
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import com.loopj.android.http.*;
 
 
@@ -16,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private Intent intent;
     private EditText et_userid, et_userpw;
+    private Context ActivityContext;
 
 
     @Override
@@ -24,8 +30,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         AsyncHttpClient client = HttpClient.getInstance();
-        //PersistentCookieStore myCookieStore = new PersistentCookieStore(this);
-        //client.setCookieStore(myCookieStore);
+        ActivityContext = this;
+
     }
 
     public void btn_login(View v) {
@@ -77,7 +83,57 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(String response)
             {
-                Log.d("people_gram", response);
+
+                JSONArray json;
+                try {
+                    json = new JSONArray(response);
+                    JSONObject jobj = json.getJSONObject(0);
+                    String code = jobj.getString("code");
+
+
+
+                    //Log.d("people_gram", user_data.getString("UID"));
+
+                    switch (code.toString()) {
+                        case "000":
+                            // SharedPreference 넣기
+                            JSONArray array = (JSONArray) jobj.get("user_data");
+                            JSONObject user_data = (JSONObject) array.get(0);
+
+
+                            String uid = user_data.get("UID").toString();
+                            String username = user_data.get("USERNAME").toString();
+
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "uid", uid);
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "username", username);
+
+
+                            intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
+
+                            break;
+
+
+                        case "101":
+                            Log.d("people_gram", "Error");
+                            break;
+                        case "102":
+                            Log.d("people_gram", "Error");
+                            break;
+                        case "999":
+                            Log.d("people_gram", "아이디가 존재하지 않습니다.");
+                            break;
+                        case "998":
+                            Log.d("people_gram", "패스워드가 일치하지 않습니다.");
+                            break;
+                    }
+
+                } catch(JSONException e) {
+                    e.printStackTrace();
+                }
+
+                //Log.d("people_gram", response);
             }
 
         });

@@ -53,6 +53,13 @@
                 android:text="로그인"
                 android:onClick="btn_memberLogin"
                 android:id="@+id/btn_memberLogin" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="임시 질문지"
+                android:onClick="btn_memberQuestion"
+                android:id="@+id/btn_logo_activity_question" />
         </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>

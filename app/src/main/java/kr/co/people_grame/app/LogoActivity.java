@@ -9,32 +9,48 @@ import android.view.View;
 import android.content.DialogInterface;
 import android.app.AlertDialog;
 import android.view.KeyEvent;
+import android.widget.Toast;
 
 public class LogoActivity extends AppCompatActivity {
 
     private Intent intent;
+    private String uid, username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        uid = SharedPreferenceUtil.getSharedPreference(this, "uid");
+        username = SharedPreferenceUtil.getSharedPreference(this, "username");
+        if(!uid.equals("")) {
+            /*
+            intent = new Intent(LogoActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+            */
+        }
+
         setContentView(R.layout.activity_logo);
     }
 
     public void btn_memberJoin(View v)
     {
-        //Log.d("btn", "회원가입버튼");
-
-
         intent = new Intent(LogoActivity.this, MyQuestion_Activity.class);
         startActivity(intent);
-
     }
 
     public void btn_memberLogin(View v) {
-        //Log.d("btn", "로그인 버튼");
-
         intent = new Intent(LogoActivity.this, LoginActivity.class);
         startActivity(intent);
+    }
+
+    public void btn_memberQuestion(View v) {
+        if(uid.equals("")) {
+            Toast.makeText(this, "로그인 후 가능합니다.", Toast.LENGTH_SHORT).show();
+        } else {
+            intent = new Intent(LogoActivity.this, MyQuestion_Activity.class);
+            startActivity(intent);
+        }
     }
 
     @Override
