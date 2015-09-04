@@ -16,7 +16,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private Intent intent;
     private EditText et_userid, et_userpw;
-    private AsyncHttpClient client;
 
 
     @Override
@@ -24,7 +23,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        client = HttpClient.getInstance();
+        AsyncHttpClient client = HttpClient.getInstance();
+        //PersistentCookieStore myCookieStore = new PersistentCookieStore(this);
+        //client.setCookieStore(myCookieStore);
     }
 
     public void btn_login(View v) {
@@ -61,21 +62,22 @@ public class LoginActivity extends AppCompatActivity {
         params.put("userID", et_userid.getText().toString());
         params.put("userPW", et_userpw.getText().toString());
 
+        Log.d("people_gram", "데이터 전송시작");
 
 
-
-        client.post("/users/login", params, new AsyncHttpResponseHandler() {
+        HttpClient.post("/user/loginCheck", params, new AsyncHttpResponseHandler() {
             public void onStart() {
-
+                Log.d("people_gram", "시작");
             }
 
             public void onFinish() {
-
+                Log.d("people_gram", "완료");
             }
 
+            @Override
             public void onSuccess(String response)
             {
-
+                Log.d("people_gram", response);
             }
 
         });
