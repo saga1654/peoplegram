@@ -30,6 +30,10 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main" >
         </activity>
+        <activity
+            android:name=".MemberJoin_Activity"
+            android:label="@string/title_activity_member_join_" >
+        </activity>
     </application>
 
 </manifest>

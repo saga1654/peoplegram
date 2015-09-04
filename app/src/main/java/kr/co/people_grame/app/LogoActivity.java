@@ -20,22 +20,24 @@ public class LogoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        /*
         uid = SharedPreferenceUtil.getSharedPreference(this, "uid");
         username = SharedPreferenceUtil.getSharedPreference(this, "username");
         if(!uid.equals("")) {
-            /*
+
             intent = new Intent(LogoActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
-            */
+
         }
+        */
 
         setContentView(R.layout.activity_logo);
     }
 
     public void btn_memberJoin(View v)
     {
-        intent = new Intent(LogoActivity.this, MyQuestion_Activity.class);
+        intent = new Intent(LogoActivity.this, MemberJoin_Activity.class);
         startActivity(intent);
     }
 
