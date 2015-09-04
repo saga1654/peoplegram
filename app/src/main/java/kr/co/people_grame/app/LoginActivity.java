@@ -112,6 +112,8 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
                             finish();
 
+                            Log.d("people_gram", "로그인 성공");
+
                             break;
 
 
