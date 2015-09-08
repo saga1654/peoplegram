@@ -98,7 +98,7 @@ public class MemberJoin_Activity extends AppCompatActivity {
         Log.d("people_gram", "데이터 전송시작");
 
 
-        HttpClient.post("/user2/memberCheck", params, new AsyncHttpResponseHandler() {
+        HttpClient.post("/user/memberCheck", params, new AsyncHttpResponseHandler() {
             public void onStart() {
                 Log.d("people_gram", "시작");
             }
