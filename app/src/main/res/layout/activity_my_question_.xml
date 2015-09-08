@@ -63,6 +63,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="0.90"
+                android:id="@+id/ll_my_question_activity_layout"
                 android:gravity="center_vertical|center_horizontal">
 
                 <TextView
@@ -104,9 +105,10 @@
             <SeekBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/seekBar"
+                android:id="@+id/sb_my_question_activity_data"
                 android:layout_gravity="center_horizontal"
-                android:max="3" />
+                android:max="100"
+                android:progress="50" />
         </LinearLayout>
     </LinearLayout>
 
