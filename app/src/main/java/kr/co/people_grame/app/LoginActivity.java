@@ -1,5 +1,6 @@
 package kr.co.people_grame.app;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,11 @@ public class LoginActivity extends AppCompatActivity {
     private Context ActivityContext;
 
 
+    private ProgressDialog dialog;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +37,8 @@ public class LoginActivity extends AppCompatActivity {
 
         AsyncHttpClient client = HttpClient.getInstance();
         ActivityContext = this;
+
+
 
     }
 
@@ -65,6 +73,7 @@ public class LoginActivity extends AppCompatActivity {
 
         RequestParams params = new RequestParams();
 
+
         params.put("userID", et_userid.getText().toString());
         params.put("userPW", et_userpw.getText().toString());
 
@@ -73,11 +82,13 @@ public class LoginActivity extends AppCompatActivity {
 
         HttpClient.post("/user/loginCheck", params, new AsyncHttpResponseHandler() {
             public void onStart() {
-                Log.d("people_gram", "시작");
+                //Log.d("people_gram", "시작");
+                dialog = ProgressDialog.show(LoginActivity.this, "", "데이터 수신중");
             }
 
             public void onFinish() {
-                Log.d("people_gram", "완료");
+                //Log.d("people_gram", "완료");
+                dialog.dismiss();
             }
 
             @Override
@@ -108,9 +119,9 @@ public class LoginActivity extends AppCompatActivity {
                             SharedPreferenceUtil.putSharedPreference(ActivityContext, "username", username);
 
 
-                            intent = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(intent);
-                            finish();
+                            //intent = new Intent(LoginActivity.this, MainActivity.class);
+                            //startActivity(intent);
+                            //finish();
 
                             Log.d("people_gram", "로그인 성공");
 
@@ -134,6 +145,8 @@ public class LoginActivity extends AppCompatActivity {
                 } catch(JSONException e) {
                     e.printStackTrace();
                 }
+
+
 
                 //Log.d("people_gram", response);
             }

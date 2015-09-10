@@ -3,9 +3,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.app.AlertDialog;
@@ -30,6 +27,8 @@ public class MemberJoin_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member_join);
         AsyncHttpClient client = HttpClient.getInstance();
+
+        ActivityContext = this;
 
     }
 
@@ -117,6 +116,8 @@ public class MemberJoin_Activity extends AppCompatActivity {
                     JSONObject jobj = json.getJSONObject(0);
                     String code = jobj.getString("code");
 
+                    //String code = jobj.getString("code");
+
 
                     Log.d("people_gram", code);
                     //Log.d("people_gram", user_data.getString("UID"));
@@ -124,6 +125,7 @@ public class MemberJoin_Activity extends AppCompatActivity {
                     switch (code.toString()) {
                         case "000":
                             // SharedPreference 넣기
+                            //Log.d("people_gram", jobj.get("user_data"));
 
                             JSONArray array = (JSONArray) jobj.get("user_data");
                             JSONObject user_data = (JSONObject) array.get(0);
@@ -136,7 +138,6 @@ public class MemberJoin_Activity extends AppCompatActivity {
                             SharedPreferenceUtil.putSharedPreference(ActivityContext, "uid", uid);
                             SharedPreferenceUtil.putSharedPreference(ActivityContext, "userNickName", userNickName);
                             SharedPreferenceUtil.putSharedPreference(ActivityContext, "email", email);
-
 
                             intent = new Intent(MemberJoin_Activity.this, MyQuestion_Activity.class);
                             startActivity(intent);
@@ -163,6 +164,7 @@ public class MemberJoin_Activity extends AppCompatActivity {
 
                     }
 
+
                 } catch(JSONException e) {
                     e.printStackTrace();
                 }
@@ -179,26 +181,4 @@ public class MemberJoin_Activity extends AppCompatActivity {
     }
 
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_member_join, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

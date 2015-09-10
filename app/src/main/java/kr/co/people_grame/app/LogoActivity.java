@@ -47,12 +47,16 @@ public class LogoActivity extends AppCompatActivity {
     }
 
     public void btn_memberQuestion(View v) {
+        /*
         if(uid.equals("")) {
             Toast.makeText(this, "로그인 후 가능합니다.", Toast.LENGTH_SHORT).show();
         } else {
             intent = new Intent(LogoActivity.this, MyQuestion_Activity.class);
             startActivity(intent);
         }
+        */
+        intent = new Intent(LogoActivity.this, MyQuestion_Activity.class);
+        startActivity(intent);
     }
 
     @Override
