@@ -126,7 +126,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="나는"
-                        android:background="@mipmap/myquestion_tooltip"
+                        android:background="@drawable/myquestion_tooltip"
                         android:textSize="10dp"
                         android:textColor="#1d1d26"
                         android:gravity="center">
@@ -149,8 +149,8 @@
                         android:id="@+id/sb_my_question_activity_data"
                         android:layout_gravity="center_horizontal"
                         android:max="100"
-                        android:thumb="@mipmap/myquestion_seek_btn_off"
-                        android:progressDrawable="@mipmap/seekcustom_bg"
+                        android:thumb="@drawable/myquestion_seek_btn_off"
+                        android:progressDrawable="@drawable/seekcustom_bg"
                         android:progress="50" />
 
                 </LinearLayout>
@@ -174,7 +174,7 @@
                     android:id="@+id/imageButton"
                     android:background="@android:color/transparent"
                     android:onClick="btn_prev"
-                    android:src="@mipmap/myquestion_prev_btn" />
+                    android:src="@drawable/myquestion_prev_btn" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
@@ -183,7 +183,7 @@
                     android:background="@android:color/transparent"
                     android:layout_marginLeft="10dp"
                     android:onClick="btn_next"
-                    android:src="@mipmap/myquestion_next_btn" />
+                    android:src="@drawable/myquestion_next_btn" />
             </LinearLayout>
 
 

@@ -18,20 +18,21 @@
     <string name="step10">사람들에게 자신의 생각과 의견을</string>
     <!-- 나의 평가 질문지 END -->
 
-    <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_logo">LogoActivity</string>
-    <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_member_join_">MemberJoin_Activity</string>
     <string name="title_activity_my_type_">MyType_Activity</string>
 
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_example">Example action</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="title_activity_menu">MenuActivity</string>
 
 
 

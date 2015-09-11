@@ -9,6 +9,7 @@ import android.view.View;
 import android.content.DialogInterface;
 import android.app.AlertDialog;
 import android.view.KeyEvent;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class LogoActivity extends AppCompatActivity {
@@ -16,18 +17,22 @@ public class LogoActivity extends AppCompatActivity {
     private Intent intent;
     private String uid, username;
 
+    private LinearLayout login_activity_li_logo, login_activity_li_btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+        login_activity_li_logo = (LinearLayout) findViewById(R.id.login_activity_li_logo);
+        login_activity_li_btn = (LinearLayout) findViewById(R.id.login_activity_li_btn);
+
+        //LinearLayout.LayoutParams logoParams = (LinearLayout.LayoutParams) login_activity_li_logo.getLayoutParams();
         /*
         uid = SharedPreferenceUtil.getSharedPreference(this, "uid");
         username = SharedPreferenceUtil.getSharedPreference(this, "username");
         if(!uid.equals("")) {
 
-            intent = new Intent(LogoActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
 
         }
         */

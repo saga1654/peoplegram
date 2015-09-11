@@ -1,11 +1,12 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="BaseTheme">
+
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+
     </style>
 
-    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
-    </style>
+
+
 
 
 </resources>

@@ -133,7 +133,7 @@ public class PagerContainer extends FrameLayout implements ViewPager.OnPageChang
 
         //선택된 이미지 호출
         ImageView img = (ImageView) findViewById(position);
-        int resID = mContext.getResources().getIdentifier("myquestion_title"+position+"_on", "mipmap", mContext.getPackageName());
+        int resID = mContext.getResources().getIdentifier("myquestion_title"+position+"_on", "drawable", mContext.getPackageName());
         img.setImageResource(resID);
     }
 
@@ -142,7 +142,7 @@ public class PagerContainer extends FrameLayout implements ViewPager.OnPageChang
         for(int i = 1; i<10; i++) {
             int position = i;
             ImageView img = (ImageView) findViewById(position);
-            int resID = mContext.getResources().getIdentifier("myquestion_title"+position+"_off", "mipmap", mContext.getPackageName());
+            int resID = mContext.getResources().getIdentifier("myquestion_title"+position+"_off", "drawable", mContext.getPackageName());
             img.setImageResource(resID);
         }
     }

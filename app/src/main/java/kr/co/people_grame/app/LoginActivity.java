@@ -119,9 +119,6 @@ public class LoginActivity extends AppCompatActivity {
                             SharedPreferenceUtil.putSharedPreference(ActivityContext, "username", username);
 
 
-                            //intent = new Intent(LoginActivity.this, MainActivity.class);
-                            //startActivity(intent);
-                            //finish();
 
                             Log.d("people_gram", "로그인 성공");
 

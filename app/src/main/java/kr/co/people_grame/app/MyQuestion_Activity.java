@@ -166,7 +166,7 @@ public class MyQuestion_Activity extends FragmentActivity {
             /* 이미지 동적 가져오기 */
             ImageView image = new ImageView(MyQuestion_Activity.this);
             image.setId(position);
-            int resID = mcontext.getResources().getIdentifier("myquestion_title"+position+"_off", "mipmap", mcontext.getPackageName());
+            int resID = mcontext.getResources().getIdentifier("myquestion_title"+position+"_off", "drawable", mcontext.getPackageName());
             image.setImageResource(resID);
             container.addView(image);
             return image;
