@@ -32,6 +32,7 @@ public class MemberJoin_Activity extends AppCompatActivity {
 
     }
 
+    /*
     private Boolean emailCheck(CharSequence  email) {
         String mail = "^[_a-zA-Z0-9-\\.]+@[\\.a-zA-Z0-9-]+\\.[a-zA-Z]+$";
         Pattern p = Pattern.compile(mail);
@@ -179,6 +180,7 @@ public class MemberJoin_Activity extends AppCompatActivity {
         //startActivity(intent);
 
     }
+    */
 
 
 }

@@ -10,7 +10,26 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:background="#2f334b"
         android:weightSum="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/login_activity_li_logo"
+            android:layout_weight="0.60"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/login_logo" />
+        </LinearLayout>
+
 
 
         <LinearLayout
@@ -18,46 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="0.80">
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="회원아이디" />
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et_activity_login_userid"
-                    android:layout_weight="1" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="패스워드" />
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:id="@+id/et_activity_login_userpw"
-                    android:layout_weight="1" />
-
-            </LinearLayout>
+            android:layout_weight="0.15">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -74,7 +54,8 @@
                     <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="wrap_content"
-                        android:layout_height="67dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
                         >
                         <ImageView
                         android:layout_width="wrap_content"
@@ -92,17 +73,93 @@
                         <EditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/editText" />
+                            android:paddingBottom="10dp"
+                            android:background="@drawable/login_edittext_bg"
+                            android:id="@+id/et_activity_login_userid"
+                            android:textColorHint="#ffffff"
+                            android:hint="아이디" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        >
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/login_pw_icon" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="20dp">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="10dp"
+                            android:background="@drawable/login_edittext_bg"
+                            android:id="@+id/et_activity_login_userpw"
+                            android:textColorHint="#ffffff"
+                            android:hint="패스워드" />
                     </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>
 
-
-
-
         </LinearLayout>
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.25">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.50">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/login_loginbtn"
+                    android:onClick="btn_login"
+                    android:background="@android:color/transparent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.50">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/login_memberjoin_btn"
+                    android:onClick="btn_memberLogin"
+                    android:background="@android:color/transparent" />
+            </LinearLayout>
+        </LinearLayout>
+        <!--
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -119,5 +176,6 @@
                 android:layout_gravity="center_horizontal" />
 
         </LinearLayout>
+        -->
     </LinearLayout>
 </RelativeLayout>
