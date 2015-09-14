@@ -1,13 +1,24 @@
 package kr.co.people_grame.app;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.util.Log;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.loopj.android.http.*;
 
@@ -21,7 +32,21 @@ import java.util.regex.Pattern;
 public class MemberJoin_Activity extends AppCompatActivity {
     private Intent intent;
     private EditText et_usernickname,et_useremail, et_userpw;
+    private ImageView memberjoin_activity_check1,memberjoin_activity_check2,memberjoin_activity_check3;
+    private BitmapDrawable memberjoin_check_on,memberjoin_check_off;
     private Context ActivityContext;
+
+    /* 닉네임, 이메일, 패스워드 체크 */
+    private Boolean nick_check = false;
+    private Boolean email_check = false;
+    private Boolean pw_check = false;
+
+    private RelativeLayout memberjoin_li_main;
+
+    private boolean index1 = true;
+    private boolean index2 = true;
+    private boolean index3 = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,9 +55,166 @@ public class MemberJoin_Activity extends AppCompatActivity {
 
         ActivityContext = this;
 
+        et_usernickname = (EditText) findViewById(R.id.et_activity_memberjoin_nickname);
+        et_usernickname.setOnFocusChangeListener(EditTextFocus);
+        et_useremail = (EditText) findViewById(R.id.et_activity_memberjoin_email);
+        et_useremail.setOnFocusChangeListener(EditTextFocus);
+        et_userpw = (EditText) findViewById(R.id.et_activity_memberjoin_pw);
+
+        memberjoin_activity_check1 = (ImageView) findViewById(R.id.memberjoin_activity_check1);
+        memberjoin_activity_check2 = (ImageView) findViewById(R.id.memberjoin_activity_check2);
+        memberjoin_activity_check3 = (ImageView) findViewById(R.id.memberjoin_activity_check3);
+        memberjoin_check_on = (BitmapDrawable)getResources().getDrawable(R.drawable.memberjoin_check_on);
+        memberjoin_check_off = (BitmapDrawable)getResources().getDrawable(R.drawable.memberjoin_check_off);
+
+        memberjoin_li_main = (RelativeLayout) findViewById(R.id.memberjoin_li_main);
+
+        /*
+        memberjoin_activity_check1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(index1){
+                    memberjoin_activity_check1.setImageDrawable(memberjoin_check_off);
+                    memberjoin_activity_check2.setImageDrawable(memberjoin_check_off);
+                    memberjoin_activity_check3.setImageDrawable(memberjoin_check_off);
+                        index1 = false;
+                }else{
+                        memberjoin_activity_check1.setImageDrawable(memberjoin_check_on);
+                        memberjoin_activity_check2.setImageDrawable(memberjoin_check_on);
+                        memberjoin_activity_check3.setImageDrawable(memberjoin_check_on);
+                         index1 = true;
+                }
+                Log.d("people_gram",String.valueOf(index1));
+            }
+        });
+
+        memberjoin_activity_check2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(index2){
+                   memberjoin_activity_check2.setImageDrawable(memberjoin_check_off);
+                   index2 = false;
+                }else{
+                    memberjoin_activity_check2.setImageDrawable(memberjoin_check_on);
+                    index2 = true;
+                }
+                Log.d("people_gram",String.valueOf(index2));
+            }
+
+        });
+
+        memberjoin_activity_check3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(index3){
+                    memberjoin_activity_check3.setImageDrawable(memberjoin_check_off);
+                    index3 = false;
+                }else{
+                    memberjoin_activity_check3.setImageDrawable(memberjoin_check_on);
+                    index3 = true;
+                }
+                Log.d("people_gram",String.valueOf(index3));
+            }
+        });
+        */
     }
 
-    /*
+    private View.OnFocusChangeListener EditTextFocus =  new View.OnFocusChangeListener() {
+        public void onFocusChange(View view, boolean gainFocus) {
+
+            if (gainFocus) {
+
+                RequestParams params = new RequestParams();
+
+                params.put("userNickName", et_usernickname.getText().toString());
+                params.put("userID", et_useremail.getText().toString());
+                params.put("userPW", et_userpw.getText().toString());
+                HttpClient.post("/user/nickNameCheck", params, new AsyncHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(String response) {
+                        Log.d("people_gram", "닉네임 받기");
+                        JSONArray json;
+                        try {
+                            json = new JSONArray(response);
+                            JSONObject jobj = json.getJSONObject(0);
+                            String code = jobj.getString("code");
+
+                            switch (code.toString()) {
+                                case "000":
+                                    JSONArray array = (JSONArray) jobj.get("user_data");
+                                    JSONObject user_data = (JSONObject) array.get(0);
+
+                                    String userNickName = user_data.get("USERNICKNAME").toString();
+                                    SharedPreferenceUtil.putSharedPreference(ActivityContext, "userNickName", userNickName);
+
+                                    ImageView img = (ImageView) findViewById(R.id.memberjoin_filed_check1);
+                                    img.setImageResource(R.drawable.memberjoin_filed_check_on);
+                                    nick_check = true;
+                                    break;
+                                case "998":
+                                    Log.d("people_gram", "닉네임이 존재합니다.");
+                                    Toast.makeText(MemberJoin_Activity.this, "닉네임이 존재합니다.", Toast.LENGTH_LONG).show();
+                                    et_usernickname.requestFocus();
+                                    nick_check = false;
+                                    break;
+
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
+                HttpClient.post("/user/emailCheck", params, new AsyncHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(String response) {
+
+                        Log.d("people_gram", "이메일 받기");
+                        JSONArray json;
+                        try {
+                            json = new JSONArray(response);
+                            JSONObject jobj = json.getJSONObject(0);
+                            String code = jobj.getString("code");
+
+                            switch (code.toString()) {
+                                case "000":
+                                    JSONArray array = (JSONArray) jobj.get("user_data");
+                                    JSONObject user_data = (JSONObject) array.get(0);
+
+                                    String email = user_data.get("EMAIL").toString();
+                                    SharedPreferenceUtil.putSharedPreference(ActivityContext, "email", email);
+
+                                    ImageView img = (ImageView) findViewById(R.id.memberjoin_filed_check2);
+                                    img.setImageResource(R.drawable.memberjoin_filed_check_on);
+                                    email_check = true;
+                                    break;
+                                case "999":
+                                    Log.d("people_gram", "동일한 이메일이 존재합니다.");
+                                    Toast.makeText(MemberJoin_Activity.this, "동일한 이메일이 존재합니다.", Toast.LENGTH_LONG).show();
+                                    et_useremail.requestFocus();
+                                    email_check = false;
+                                    break;
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
+
+                Log.d("people_gram", String.valueOf(et_userpw.length()));
+
+            }
+            else {
+                //((EditText) view).setText("");
+
+            }
+
+        };
+    };
+
     private Boolean emailCheck(CharSequence  email) {
         String mail = "^[_a-zA-Z0-9-\\.]+@[\\.a-zA-Z0-9-]+\\.[a-zA-Z]+$";
         Pattern p = Pattern.compile(mail);
@@ -40,54 +222,90 @@ public class MemberJoin_Activity extends AppCompatActivity {
         return m.matches();
     }
 
+    public void btn_agree(View v) {
+        if(index1){
+            memberjoin_activity_check1.setImageDrawable(memberjoin_check_off);
+            memberjoin_activity_check2.setImageDrawable(memberjoin_check_off);
+            memberjoin_activity_check3.setImageDrawable(memberjoin_check_off);
+            index1 = false;
+        }else{
+            memberjoin_activity_check1.setImageDrawable(memberjoin_check_on);
+            memberjoin_activity_check2.setImageDrawable(memberjoin_check_on);
+            memberjoin_activity_check3.setImageDrawable(memberjoin_check_on);
+            index1 = true;
+        }
+        Log.d("people_gram",String.valueOf(index1));
+    }
+
+    public void btn_agreeterm(View v) {
+        if(index2){
+            memberjoin_activity_check2.setImageDrawable(memberjoin_check_off);
+            index2 = false;
+        }else{
+            memberjoin_activity_check2.setImageDrawable(memberjoin_check_on);
+            index2 = true;
+        }
+        Log.d("people_gram",String.valueOf(index2));
+
+    }
+
+    public void btn_agreePerson(View v) {
+        if(index3){
+            memberjoin_activity_check3.setImageDrawable(memberjoin_check_off);
+            index3 = false;
+        }else{
+            memberjoin_activity_check3.setImageDrawable(memberjoin_check_on);
+            index3 = true;
+        }
+        Log.d("people_gram",String.valueOf(index3));
+
+    }
+
+    /* 다음 버튼 */
     public void btn_start(View v) {
-        EditText et_usernickname = (EditText) findViewById(R.id.et_activity_memberjoin_nickname);
-        EditText et_useremail = (EditText) findViewById(R.id.et_activity_memberjoin_email);
-        EditText et_userpw = (EditText) findViewById(R.id.et_activity_memberjoin_pw);
+        //Log.d("people_gram", "버튼클릭");
 
         Boolean email_bool = this.emailCheck(et_useremail.getText().toString());
+
+        if(nick_check == false) {
+            Toast.makeText(MemberJoin_Activity.this, "닉네임을 확인해주세요.", Toast.LENGTH_LONG).show();
+            et_usernickname.requestFocus();
+            return;
+        }
+
+        if(email_check == false) {
+            Toast.makeText(MemberJoin_Activity.this, "이메일을 확인해주세요.", Toast.LENGTH_LONG).show();
+            et_useremail.requestFocus();
+            return;
+        }
+
+
+        if(et_userpw.length() < 6 && et_userpw.length() > 0) {
+            Toast.makeText(MemberJoin_Activity.this, "패스워드는 최소 6자리 이상 이어야 합니다.패스워드를 확인해주세요.", Toast.LENGTH_LONG).show();
+            et_userpw.requestFocus();
+            return;
+        }
+
         if(email_bool == false) {
             Toast.makeText(MemberJoin_Activity.this, "이메일 형식이 올바르지 않습니다.다시 확인하시기 바랍니다.", Toast.LENGTH_LONG).show();
+            et_useremail.requestFocus();
             return;
         }
 
-        if(et_usernickname.getText().toString().equals("")) {
-            AlertDialog.Builder alert = new AlertDialog.Builder(MemberJoin_Activity.this);
-            alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                }
-            });
-            alert.setMessage("닉네임을 입력해주세요.");
-            alert.show();
+        if(index1 == false) {
+            Toast.makeText(MemberJoin_Activity.this, "약관 및 정보수집에 동의하시기 바랍니다.", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if(et_useremail.getText().toString().equals("")) {
-            AlertDialog.Builder alert = new AlertDialog.Builder(MemberJoin_Activity.this);
-            alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                }
-            });
-
-            alert.setMessage("이메일을 입력해주세요.");
-            alert.show();
+        if(index2 == false) {
+            Toast.makeText(MemberJoin_Activity.this, "서비스 이용 약관에 동의하시기 바랍니다.", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if(et_userpw.getText().toString().equals("")) {
-            AlertDialog.Builder alert = new AlertDialog.Builder(MemberJoin_Activity.this);
-            alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                }
-            });
-            alert.setMessage("패스워드를 입력해주세요.");
-            alert.show();
+        if(index3 == false) {
+            Toast.makeText(MemberJoin_Activity.this, "정보수집 및 이용에 동의하시기 바랍니다.", Toast.LENGTH_LONG).show();
             return;
         }
-
 
         RequestParams params = new RequestParams();
 
@@ -154,14 +372,6 @@ public class MemberJoin_Activity extends AppCompatActivity {
                         case "102":
                             Log.d("people_gram", "Error");
                             break;
-                        case "998":
-                            Log.d("people_gram", "닉네임이 존재합니다.");
-                            Toast.makeText(MemberJoin_Activity.this, "닉네임이 존재합니다.", Toast.LENGTH_LONG).show();
-                            break;
-                        case "999":
-                            Log.d("people_gram", "동일한 이메일이 존재합니다.");
-                            Toast.makeText(MemberJoin_Activity.this, "동일한 이메일이 존재합니다.", Toast.LENGTH_LONG).show();
-                            break;
 
                     }
 
@@ -180,7 +390,6 @@ public class MemberJoin_Activity extends AppCompatActivity {
         //startActivity(intent);
 
     }
-    */
 
 
 }

@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/memberjoin_li_main"
     tools:context="kr.co.people_grame.app.MemberJoin_Activity">
 
     <LinearLayout
@@ -84,7 +85,7 @@
                                 android:inputType="textPersonName"
                                 android:ems="10"
                                 android:background="@null"
-                                android:id="@+id/editText"
+                                android:id="@+id/et_activity_memberjoin_nickname"
                                 android:hint="닉네임" />
                         </LinearLayout>
                         <LinearLayout
@@ -96,7 +97,8 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/memberjoin_filed_check_off">
+                                android:src="@drawable/memberjoin_filed_check_off"
+                                android:id="@+id/memberjoin_filed_check1">
                             </ImageView>
                         </LinearLayout>
                     </LinearLayout>
@@ -151,7 +153,8 @@
                                 android:inputType="textPersonName"
                                 android:ems="10"
                                 android:background="@null"
-                                android:hint="이메일" />
+                                android:hint="이메일"
+                                android:id="@+id/et_activity_memberjoin_email" />
                         </LinearLayout>
                         <LinearLayout
                             android:orientation="vertical"
@@ -162,7 +165,8 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/memberjoin_filed_check_off">
+                                android:src="@drawable/memberjoin_filed_check_off"
+                                android:id="@+id/memberjoin_filed_check2">
                             </ImageView>
                         </LinearLayout>
                     </LinearLayout>
@@ -215,23 +219,18 @@
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:inputType="textPersonName"
+                                android:inputType="textPassword"
                                 android:ems="10"
                                 android:background="@null"
-                                android:hint="패스워드" />
+                                android:hint="패스워드(최소 6자리)"
+                                android:id="@+id/et_activity_memberjoin_pw" />
                         </LinearLayout>
                         <LinearLayout
                             android:orientation="vertical"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_weight="0.20"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/memberjoin_filed_check_off">
-                            </ImageView>
-                        </LinearLayout>
+                            android:gravity="center"></LinearLayout>
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="vertical"
@@ -276,6 +275,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/memberjoin_activity_check1"
+                            android:onClick="btn_agree"
                             android:src="@drawable/memberjoin_check_off" />
 
                     </LinearLayout>
@@ -285,7 +285,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="0.80"
                         android:paddingLeft="20dp"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                      >
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -323,6 +324,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/memberjoin_activity_check2"
+                            android:onClick="btn_agreeterm"
                             android:src="@drawable/memberjoin_check_off" />
                     </LinearLayout>
 
@@ -380,7 +382,11 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/memberjoin_check_off" />
+                            android:src="@drawable/memberjoin_check_off"
+                            android:id="@+id/memberjoin_activity_check3"
+                            android:onClick="btn_agreePerson"
+                            />
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -427,10 +433,11 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageButton3"
+                android:id="@+id/btn_memberjoin_activity_start"
                 android:src="@drawable/memberjoin_joinbtn"
                 android:background="@android:color/transparent"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:onClick="btn_start" />
         </LinearLayout>
 
 
