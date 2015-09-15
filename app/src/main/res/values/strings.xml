@@ -27,12 +27,14 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_example">Example action</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">Peoplegram</string>
 
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
     <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_my_question__result_">MyQuestion_Result_Activity</string>
+    <string name="title_activity_main2">Main2Activity</string>
 
 
 

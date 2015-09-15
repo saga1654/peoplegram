@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_item_home"
+            android:title="홈" />
+        <item
+            android:id="@+id/navigation_item_people"
+            android:title="피플" />
+        <item
+            android:id="@+id/navigation_item_have"
+            android:title="공감박스" />
+
+        <item
+            android:id="@+id/navigation_item_mypage"
+            android:title="마에페이지" />
+
+        <item
+            android:id="@+id/navigation_item_setting"
+            android:title="설정" />
+    </group>
+
+    <!--
+    <item android:title="서브내용">
+        <menu>
+            <item
+                android:title="서브1" />
+            <item
+                android:title="서브2" />
+        </menu>
+    </item>
+    -->
+
+</menu>
