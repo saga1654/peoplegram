@@ -16,6 +16,11 @@
         <activity
             android:name=".LogoActivity"
             android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".MyQuestion_Activity"
@@ -29,19 +34,43 @@
             android:name=".MemberJoin_Activity"
             android:label="@string/title_activity_member_join_" >
         </activity>
-        <activity
-            android:name=".MyType_Activity"
-            android:label="@string/title_activity_my_type_" >
+        <activity android:name=".MyType_Activity" >
+
         </activity>
         <activity
             android:name=".MainActivity"
             android:allowBackup="true"
             android:label="@string/title_activity_main" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Setting_NoticeActivity"
+            android:label="@string/title_activity_setting__notice" >
+        </activity>
+        <activity
+            android:name=".Setting_QuestionActivity"
+            android:label="@string/title_activity_setting__question" >
+        </activity>
+        <activity
+            android:name=".NoticeActivity"
+            android:label="@string/title_activity_notice" >
+        </activity>
+        <activity
+            android:name=".Setting_UserAgreeActivity"
+            android:label="@string/title_activity_setting__user_agree" >
+        </activity>
+        <activity
+            android:name=".Setting_UserInfoActivity"
+            android:label="@string/title_activity_setting__user_info" >
+        </activity>
+        <activity
+            android:name=".MyType_Result_Activity"
+            android:label="@string/title_activity_my_type__result_" >
+
+        </activity>
+        <activity
+            android:name=".SubPeopleListPopup_Activity"
+            android:label="@string/title_activity_sub_people_list_popup_">
         </activity>
     </application>
 
