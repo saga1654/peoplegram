@@ -15,7 +15,17 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#32354d" />
+            android:background="#32354d" >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:id="@+id/txtTitle"
+                android:textColor="@android:color/white"
+                android:paddingRight="50dp"
+                android:textSize="16dp"
+                android:text="PEOPLE GRAM" />
+        </android.support.v7.widget.Toolbar>
 
         <FrameLayout
             android:orientation="horizontal"
@@ -35,5 +45,8 @@
         android:layout_gravity="start"
         android:background="#31344d"
         app:headerLayout="@layout/drawer_header"
-        app:menu="@menu/drawer"/>
+        app:menu="@menu/drawer"
+        app:itemIconTint="#ffffff"
+        app:itemTextColor="#ffffff"
+        />
 </android.support.v4.widget.DrawerLayout>

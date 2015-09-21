@@ -1,9 +1,10 @@
 package kr.co.people_grame.app;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -16,6 +17,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -26,11 +28,7 @@ public class MainActivity extends AppCompatActivity {
     ActionBarDrawerToggle dtToggle;
 
     private Intent intent;
-
-    private final String[] fragments = {
-            "kr.co.people.app.Main_Fragment",
-            "kr.co.people.app.People_Fragment"
-    };
+    private TextView txtTitle;
 
     private FragmentManager fragmentManager;
     private FragmentTransaction ft;
@@ -44,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        txtTitle = (TextView) findViewById(R.id.txtTitle);
 
         dlDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -55,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
 
         dtToggle = new ActionBarDrawerToggle(this, dlDrawer, R.string.app_name, R.string.app_name);
         dlDrawer.setDrawerListener(dtToggle);
+
+
+
 
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
@@ -76,12 +78,14 @@ public class MainActivity extends AppCompatActivity {
                         SubMainFragment sub_m_fragment = new SubMainFragment();
                         ft.replace(R.id.fragment_main, sub_m_fragment);
                         ft.commit();
+                        txtTitle.setText("PEOPLE GRAM");
                         break;
 
                     case R.id.navigation_item_people :
                         SubPeopleFragment sub_p_fragment = new SubPeopleFragment();
                         ft.replace(R.id.fragment_main, sub_p_fragment);
                         ft.commit();
+                        txtTitle.setText("피플");
                         break;
 
                     case R.id.navigation_item_mypage:
@@ -89,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                         SubMypageFragment sub_my_fragment = new SubMypageFragment();
                         ft.replace(R.id.fragment_main, sub_my_fragment);
                         ft.commit();
+                        txtTitle.setText("마이페이지");
 
                         break;
 
@@ -96,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
                         SubSettingFragment sub_setting_fragment = new SubSettingFragment();
                         ft.replace(R.id.fragment_main, sub_setting_fragment);
                         ft.commit();
+                        txtTitle.setText("설정");
                         break;
                 }
 

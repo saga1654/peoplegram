@@ -4,20 +4,30 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/navigation_item_home"
+            android:icon="@mipmap/left_menu_04_off"
+            android:textColor="#ffffff"
             android:title="홈" />
         <item
             android:id="@+id/navigation_item_people"
+            android:icon="@mipmap/left_menu_05_off"
+            android:textColor="#ffffff"
             android:title="피플" />
         <item
             android:id="@+id/navigation_item_have"
+            android:icon="@mipmap/left_menu_06_off"
+            android:textColor="#ffffff"
             android:title="공감박스" />
 
         <item
             android:id="@+id/navigation_item_mypage"
-            android:title="마에페이지" />
+            android:icon="@mipmap/left_menu_07_off"
+            android:textColor="#ffffff"
+            android:title="마이페이지" />
 
         <item
             android:id="@+id/navigation_item_setting"
+            android:icon="@mipmap/left_menu_08_off"
+            android:textColor="#ffffff"
             android:title="설정" />
     </group>
 

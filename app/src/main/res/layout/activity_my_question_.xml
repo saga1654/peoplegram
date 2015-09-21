@@ -106,7 +106,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/step1"
-                    android:id="@+id/textView2"
+                    android:id="@+id/tv_my_question_activity_title"
                     android:layout_gravity="center_horizontal"
                     android:textSize="16dp" />
             </LinearLayout>

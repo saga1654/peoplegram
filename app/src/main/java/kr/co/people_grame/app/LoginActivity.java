@@ -95,9 +95,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onSuccess(String response)
             {
 
-                JSONArray json;
                 try {
-                    json = new JSONArray(response);
+                    JSONArray json = new JSONArray(response);
                     JSONObject jobj = json.getJSONObject(0);
                     String code = jobj.getString("code");
 
@@ -113,14 +112,89 @@ public class LoginActivity extends AppCompatActivity {
 
 
                             String uid = user_data.get("UID").toString();
-                            String username = user_data.get("USERNAME").toString();
+                            String username = user_data.get("USERNICKNAME").toString();
+                            String mytype = user_data.get("MYTYPE").toString();
+
 
                             SharedPreferenceUtil.putSharedPreference(ActivityContext, "uid", uid);
                             SharedPreferenceUtil.putSharedPreference(ActivityContext, "username", username);
 
 
 
-                            Log.d("people_gram", "로그인 성공");
+                            if(mytype.equals("N")) {
+                                SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", "");
+                                intent = new Intent(LoginActivity.this, MyQuestion_Activity.class);
+                            } else {
+                                SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", mytype);
+                                intent = new Intent(LoginActivity.this, MainActivity.class);
+                            }
+
+                            startActivity(intent);
+                            finish();
+
+
+
+
+                            break;
+
+
+                        case "101":
+                            Log.d("people_gram", "Error");
+                            break;
+                        case "102":
+                            Log.d("people_gram", "Error");
+                            break;
+                        case "999":
+                            Log.d("people_gram", "아이디가 존재하지 않습니다.");
+                            break;
+                        case "998":
+                            Log.d("people_gram", "패스워드가 일치하지 않습니다.");
+                            break;
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                /*
+                JSONArray json;
+                try {
+                    JSONArray json = new JSONArray(response);
+                    JSONObject jobj = json.getJSONObject(0);
+                    String code = jobj.getString("code");
+
+
+
+                    //Log.d("people_gram", user_data.getString("UID"));
+
+                    switch (code.toString()) {
+                        case "000":
+                            // SharedPreference 넣기
+                            JSONArray array = (JSONArray) jobj.get("user_data");
+                            JSONObject user_data = (JSONObject) array.get(0);
+
+
+                            String uid = user_data.get("UID").toString();
+                            String username = user_data.get("USERNICKNAME").toString();
+                            String mytype = user_data.get("MYTYPE").toString();
+
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "uid", uid);
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "username", username);
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", mytype);
+
+
+                            if(mytype.equals("N")) {
+                                intent = new Intent(LoginActivity.this, MyQuestion_Activity.class);
+                            } else {
+                                intent = new Intent(LoginActivity.this, MainActivity.class);
+                            }
+
+                            startActivity(intent);
+                            finish();
+
+
+
+                            //Log.d("people_gram", "로그인 성공");
 
                             break;
 
@@ -144,9 +218,10 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
 
-
+                */
                 //Log.d("people_gram", response);
             }
+
 
         });
 

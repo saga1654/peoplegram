@@ -103,6 +103,7 @@
     <orderEntry type="library" exported="" name="appcompat-v7-23.0.0" level="project" />
     <orderEntry type="library" exported="" name="support-v4-23.0.0" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-23.0.0" level="project" />
+    <orderEntry type="module" module-name="cordova-2.9.0" exported="" />
     <orderEntry type="module" module-name="android-async-http-1.4.4" exported="" />
   </component>
 </module>
