@@ -42,6 +42,7 @@
     <string name="title_activity_setting__user_info">Setting_UserInfoActivity</string>
     <string name="title_activity_my_type__result_">MyType_Result_Activity</string>
     <string name="title_activity_sub_people_list_popup_">SubPeopleListPopup_Activity</string>
+    <string name="title_activity_sub_people_list_select_">SubPeopleListSelect_Activity</string>
 
 
 

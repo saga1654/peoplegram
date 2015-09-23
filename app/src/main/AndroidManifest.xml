@@ -8,6 +8,9 @@
     <!-- 주소록 READ 권한 -->
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
+    <!-- 네트워크 확인 권한 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -35,13 +38,11 @@
             android:label="@string/title_activity_member_join_" >
         </activity>
         <activity android:name=".MyType_Activity" >
-
         </activity>
         <activity
             android:name=".MainActivity"
             android:allowBackup="true"
             android:label="@string/title_activity_main" >
-
         </activity>
         <activity
             android:name=".Setting_NoticeActivity"
@@ -66,11 +67,16 @@
         <activity
             android:name=".MyType_Result_Activity"
             android:label="@string/title_activity_my_type__result_" >
-
         </activity>
         <activity
             android:name=".SubPeopleListPopup_Activity"
-            android:label="@string/title_activity_sub_people_list_popup_">
+            android:label="@string/title_activity_sub_people_list_popup_"
+            android:theme="@style/TransparentTheme" >
+        </activity>
+        <activity
+            android:name=".SubPeopleListSelect_Activity"
+            android:label="@string/title_activity_sub_people_list_select_" >
+
         </activity>
     </application>
 

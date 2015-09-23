@@ -2,6 +2,8 @@ package kr.co.people_grame.app;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
@@ -130,6 +132,38 @@ public class Utilities {
         int height = dis.getHeight();
         Log.i(TAG, "Screen height = " + height);
         return height;
+    }
+
+
+    /**
+     * 현재 네트워크 상태를 확인할 수 있는 메소드
+     * @return 네트워크 상태
+     *              1 : wifi
+     *              2 : mibile network
+     *              3 : 네트워크 사용불가
+     */
+
+    public static int getNetworkType(Context context) {
+        int NETWORK_WIFI = 1;
+        int NETWORK_MOBILE = 2;
+        int NETWORK_NOT_AVAILABLE = 3;
+
+        int NETWORK_CHECK = 0;
+
+        try {
+            ConnectivityManager conMan = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+            NetworkInfo.State wifi = conMan.getNetworkInfo(1).getState();
+            if (wifi == NetworkInfo.State.CONNECTED || wifi == NetworkInfo.State.CONNECTING)
+                NETWORK_CHECK = NETWORK_WIFI;
+
+            NetworkInfo.State mobile = conMan.getNetworkInfo(0).getState();
+            if (mobile == NetworkInfo.State.CONNECTED || mobile == NetworkInfo.State.CONNECTING)
+                NETWORK_CHECK = NETWORK_MOBILE;
+        } catch (NullPointerException e) {
+            NETWORK_CHECK = NETWORK_NOT_AVAILABLE;
+        }
+        return NETWORK_CHECK;
     }
 
 }

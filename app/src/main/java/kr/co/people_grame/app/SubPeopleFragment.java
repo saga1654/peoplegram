@@ -40,8 +40,10 @@ public class SubPeopleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.sub_fragment_people, container, false);
+        View header = inflater.inflate(R.layout.sub_people_header, null, false);
 
         sf_people_list = (ListView)rootView.findViewById(R.id.sf_people_list);
+        sf_people_list.addHeaderView(header);
 
 
         RequestParams params = new RequestParams();

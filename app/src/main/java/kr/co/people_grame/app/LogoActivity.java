@@ -1,5 +1,8 @@
 package kr.co.people_grame.app;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +12,8 @@ import android.view.View;
 import android.content.DialogInterface;
 import android.app.AlertDialog;
 import android.view.KeyEvent;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -27,6 +32,41 @@ public class LogoActivity extends AppCompatActivity {
         login_activity_li_logo = (LinearLayout) findViewById(R.id.login_activity_li_logo);
         login_activity_li_btn = (LinearLayout) findViewById(R.id.login_activity_li_btn);
 
+        //Log.d("people_gram", SharedPreferenceUtil.getSharedPreference(this, "uid"));
+
+        if(Utilities.getNetworkType(this) == 3) {
+            new AlertDialog.Builder(this)
+                    .setTitle("프로그램 종료")
+                    .setMessage("네트워크가 정상적으로 연결되지 않았습니다.")
+                    .setPositiveButton("예", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                            moveTaskToBack(true);
+                            android.os.Process.killProcess(android.os.Process.myPid());
+                        }
+                    })
+                    .show();
+        }
+
+        if(SharedPreferenceUtil.getSharedPreference(this, "uid") == "") {
+            //login_activity_li_btn.setVisibility(View.VISIBLE);
+        } else {
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                public void run() {
+                    Intent intent = new Intent(LogoActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+                    finish();
+                }
+            }, 3000);
+
+        }
+
+        //if(Utilities.getNetworkType(this) == 3) {
+
+
         //LinearLayout.LayoutParams logoParams = (LinearLayout.LayoutParams) login_activity_li_logo.getLayoutParams();
         /*
         uid = SharedPreferenceUtil.getSharedPreference(this, "uid");
@@ -44,11 +84,13 @@ public class LogoActivity extends AppCompatActivity {
     {
         intent = new Intent(LogoActivity.this, MemberJoin_Activity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
     }
 
     public void btn_memberLogin(View v) {
         intent = new Intent(LogoActivity.this, LoginActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
     }
 
     public void btn_memberQuestion(View v) {

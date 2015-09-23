@@ -1,9 +1,12 @@
 package kr.co.people_grame.app;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
 
 public class SubPeopleListPopup_Activity extends AppCompatActivity {
@@ -13,6 +16,31 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_people_list_popup_);
 
+    }
+
+    public void peopleView_btn(View v)
+    {
+        Intent intent = new Intent(SubPeopleListPopup_Activity.this, SubPeopleListSelect_Activity.class);
+        finish();
+        startActivity(intent);
+        overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+    }
+
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_close_down_info, R.anim.slide_clode_up_info);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                finish();
+                break;
+
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override

@@ -1,24 +1,14 @@
 package kr.co.people_grame.app;
 
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.os.Bundle;
-import android.os.Handler;
-import android.provider.Contacts;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -28,17 +18,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 
-
-/**
- * Created by 광희 on 2015-09-15.
- */
-public class SubMainFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
-
+public class SubPeopleListSelect_Activity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 
     private ProgressDialog dialog;
     private ListView contentList;
@@ -48,22 +29,14 @@ public class SubMainFragment extends Fragment implements SwipeRefreshLayout.OnRe
 
     private SwipeRefreshLayout swipeLayout;
 
-
-    public SubMainFragment() {
-    }
-
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.sub_fragment_main, container, false);
-        View header = inflater.inflate(R.layout.sub_fragment_main_header, null, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sub_people_list_select_);
 
-
-        contentList = (ListView) rootView.findViewById(R.id.mainContent);
-        swipeLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeContainer);
+        contentList = (ListView) findViewById(R.id.mainContent);
+        swipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
         swipeLayout.setOnRefreshListener(this);
-
-        contentList.addHeaderView(header);
 
 
         RequestParams params = new RequestParams();
@@ -71,10 +44,9 @@ public class SubMainFragment extends Fragment implements SwipeRefreshLayout.OnRe
 
         dto = new ArrayList<SubMainListDTO>();
 
-
         HttpClient.post("/people/peopleContentList", params, new AsyncHttpResponseHandler() {
             public void onStart() {
-                dialog = ProgressDialog.show(getActivity(), "", "데이터 수신중");
+                dialog = ProgressDialog.show(SubPeopleListSelect_Activity.this, "", "데이터 수신중");
             }
 
             public void onFinish() {
@@ -87,7 +59,7 @@ public class SubMainFragment extends Fragment implements SwipeRefreshLayout.OnRe
                     JSONArray contest_list = new JSONArray(response);
                     for (int i = 0; i < contest_list.length(); i++) {
                         JSONObject jobj = contest_list.getJSONObject(i);
-                        //Log.d("people_gram", String.valueOf(jobj));
+                        Log.d("people_gram", String.valueOf(jobj));
                         //String my_profile_img, String my_profile_nickname, String my_profile_type, String you_profile_img, String you_profile_nickname, String you_profile_type, String Contents, String insert_datetime, String gonggam_cnt, String comment_cnt
                         //Log.d("people_gram", jobj.getString("MY_PROFILE_NICKNAME"));
 
@@ -106,7 +78,7 @@ public class SubMainFragment extends Fragment implements SwipeRefreshLayout.OnRe
                         ));
 
 
-                        adapter = new SubMainListAdapter(getActivity().getBaseContext(), R.layout.sub_fragment_main_row_list, dto);
+                        adapter = new SubMainListAdapter(SubPeopleListSelect_Activity.this, R.layout.sub_fragment_main_row_list, dto);
                         contentList.setAdapter(adapter);
 
                         //contentList = new SubMainListAdapter(getActivity().getBaseContext(), R.layout.sub_fragment_main_row_list, dto);
@@ -118,25 +90,49 @@ public class SubMainFragment extends Fragment implements SwipeRefreshLayout.OnRe
             }
 
         });
-
-
-
-        return rootView;
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                finish();
+                break;
+
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.end_enter, R.anim.end_exit);
+    }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_sub_people_list_select_, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onRefresh() {
-        new Handler().postDelayed(new Runnable() {
-            @Override public void run() {
-                swipeLayout.setRefreshing(false);
-            }
-        }, 5000);
 
     }
 }
