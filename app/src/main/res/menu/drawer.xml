@@ -6,7 +6,7 @@
             android:id="@+id/navigation_item_home"
             android:icon="@mipmap/left_menu_04_off"
             android:textColor="#ffffff"
-            android:title="홈" />
+            android:title="지금나는" />
         <item
             android:id="@+id/navigation_item_people"
             android:icon="@mipmap/left_menu_05_off"

@@ -43,6 +43,10 @@
     <string name="title_activity_my_type__result_">MyType_Result_Activity</string>
     <string name="title_activity_sub_people_list_popup_">SubPeopleListPopup_Activity</string>
     <string name="title_activity_sub_people_list_select_">SubPeopleListSelect_Activity</string>
+    <string name="title_activity_you_type__actvity_step1">YouType_Actvity_step1</string>
+    <string name="title_activity_you_type__activity_step2">YouType_Activity_step2</string>
+    <string name="title_activity_my_filling">MyFilling</string>
+    <string name="title_activity_my_filling__comment_">MyFilling_Comment_Activity</string>
 
 
 

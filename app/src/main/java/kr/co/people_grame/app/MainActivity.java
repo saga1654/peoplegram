@@ -98,11 +98,12 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId())
                 {
                     case R.id.navigation_item_home :
-                        SubMainFragment sub_m_fragment = new SubMainFragment();
+
+                        SubMyNowFragment sub_m_fragment = new SubMyNowFragment();
                         ft.replace(R.id.fragment_main, sub_m_fragment);
                         ft.addToBackStack(null);
                         ft.commit();
-                        txtTitle.setText("PEOPLE GRAM");
+                        txtTitle.setText("지금 나는");
                         break;
 
                     case R.id.navigation_item_people :
@@ -137,6 +138,46 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void mainmenu_close_btn(View v) {
+        dlDrawer.closeDrawer(Gravity.LEFT);
+    }
+
+    public void peopletype_btn(View v) {
+        dlDrawer.closeDrawer(Gravity.LEFT);
+        fragmentManager = getSupportFragmentManager();
+        ft = fragmentManager.beginTransaction();
+
+        SubPeopleTypeFragment sub_m_fragment = new SubPeopleTypeFragment();
+        ft.replace(R.id.fragment_main, sub_m_fragment);
+        ft.addToBackStack(null);
+        ft.commit();
+        txtTitle.setText("피플타입");
+    }
+
+    public void peoplegram_btn(View v) {
+        dlDrawer.closeDrawer(Gravity.LEFT);
+        fragmentManager = getSupportFragmentManager();
+        ft = fragmentManager.beginTransaction();
+
+        SubMainFragment sub_m_fragment = new SubMainFragment();
+        ft.replace(R.id.fragment_main, sub_m_fragment);
+        ft.addToBackStack(null);
+        ft.commit();
+        txtTitle.setText("PEOPLE GRAM");
+    }
+
+    public void feelling_menu_btn(View v) {
+        dlDrawer.closeDrawer(Gravity.LEFT);
+        fragmentManager = getSupportFragmentManager();
+        ft = fragmentManager.beginTransaction();
+
+        SubFeellingFragment sub_m_fragment = new SubFeellingFragment();
+        ft.replace(R.id.fragment_main, sub_m_fragment);
+        ft.addToBackStack(null);
+        ft.commit();
+        txtTitle.setText("피플필링");
     }
 
 
