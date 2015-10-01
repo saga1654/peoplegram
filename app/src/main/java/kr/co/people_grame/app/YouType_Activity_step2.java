@@ -40,6 +40,7 @@ public class YouType_Activity_step2 extends FragmentActivity {
     /* 변수 private */
     private int questionNum = 1;
     private static String uid = "";
+    private static String people_uid = "";
     private Boolean nextCheck = false;
     private Boolean seekCheck = false;
     private static int dataArray[] = new int[10];
@@ -69,13 +70,11 @@ public class YouType_Activity_step2 extends FragmentActivity {
         setContentView(R.layout.activity_you_type__activity_step2);
 
         ActivityContext = this;
-
-        //질문순서 셋팅
         questionNum = 1;
 
-        //uid = "201509161111AA";
+        Intent intent = getIntent();
+        people_uid = intent.getExtras().getString("people_uid").toString();
         uid = SharedPreferenceUtil.getSharedPreference(this, "uid");
-        Log.d("people_gram", uid);
 
         //Activity mcontext에 담기
         mcontext = this;
@@ -203,35 +202,6 @@ public class YouType_Activity_step2 extends FragmentActivity {
         getQuestionTitle();
     }
 
-    private void readContacts() {
-        ContentResolver cr = getContentResolver();
-        Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
-        String phone = null;
-        Log.d("people_gram", "count="+String.valueOf(cur.getCount()));
-        userdataArray = new String[cur.getCount()];
-        if (cur.getCount() > 0) {
-            int i = 0;
-            while (cur.moveToNext()) {
-                String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
-                String name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-                if (Integer.parseInt(cur.getString(cur.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
-                    Cursor pCur = cr.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?", new String[]{id}, null);
-
-                    while(pCur.moveToNext()) {
-                        name = pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
-                        phone = pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                        userdataArray[i] = name+":::"+phone;
-                    }
-                    pCur.close();
-                }
-                i++;
-            }
-            cur.close();
-        }
-
-        //Log.d("people_gram", userData);
-    }
-
     public void btn_next(View v)
     {
 
@@ -245,20 +215,20 @@ public class YouType_Activity_step2 extends FragmentActivity {
             //Toast.makeText(this, "마지막페이지", Toast.LENGTH_SHORT).show();
 
 
-            dialog = ProgressDialog.show(YouType_Activity_step2.this, "", "데이터 수신중");
-            readContacts();
+
 
             RequestParams params = new RequestParams();
             params.put("uid", uid);
+            params.put("people_uid", people_uid);
             int dataNum = 0;
             for(int i = 0; i<dataArray.length; i++) {
                 dataNum = i + 1;
                 params.put("data"+dataNum, String.valueOf(dataArray[i]));
             }
 
-            HttpClient.post("/user/my_question", params, new AsyncHttpResponseHandler() {
+            HttpClient.post("/user/you_question", params, new AsyncHttpResponseHandler() {
                 public void onStart() {
-
+                    dialog = ProgressDialog.show(YouType_Activity_step2.this, "", "데이터 수신중");
                 }
 
                 public void onFinish() {
@@ -269,8 +239,11 @@ public class YouType_Activity_step2 extends FragmentActivity {
                 public void onSuccess(String response)
                 {
                     dialog.dismiss();
+
+                    intent = new Intent(YouType_Activity_step2.this, YouType_Activity.class);
+                    intent.putExtra("people_uid", people_uid);
+                    intent.putExtra("youtype", response);
                     //SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);
-                    intent = new Intent(YouType_Activity_step2.this, MyType_Activity.class);
                     startActivity(intent);
                     finish();
 
@@ -299,6 +272,7 @@ public class YouType_Activity_step2 extends FragmentActivity {
     /* 질문지 순서 + */
     private void questionNum_plus() {
         questionNum = questionNum + 1;
+        getQuestionTitle();
     }
 
 
@@ -306,6 +280,7 @@ public class YouType_Activity_step2 extends FragmentActivity {
     private void getQuestionNum_minus()
     {
         questionNum = questionNum - 1;
+        getQuestionTitle();
     }
 
 

@@ -60,7 +60,8 @@ public class SubSettingFragment extends Fragment implements View.OnClickListener
             case R.id.sf_setting_btn_notice:
 
                 intent = new Intent(getActivity(), NoticeActivity.class);
-                getActivity().startActivityForResult(intent, 0001);
+                startActivity(intent);
+                //getActivity().startActivityForResult(intent, 0001);
                 getActivity().overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
 
 
@@ -68,7 +69,8 @@ public class SubSettingFragment extends Fragment implements View.OnClickListener
 
             case R.id.sf_setting_btn_question:
                 intent = new Intent(getActivity(), SubQnaActivity.class);
-                getActivity().startActivityForResult(intent, 0001);
+                startActivity(intent);
+                //getActivity().startActivityForResult(intent, 0001);
                 getActivity().overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
 
                 break;

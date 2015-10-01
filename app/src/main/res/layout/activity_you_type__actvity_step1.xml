@@ -56,7 +56,7 @@
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="스테파니79"
                     android:textColor="#1d1d26"
-                    android:id="@+id/textView" />
+                    android:id="@+id/tv_youtype_activity_username" />
             </LinearLayout>
 
         </LinearLayout>

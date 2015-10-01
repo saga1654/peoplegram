@@ -80,15 +80,11 @@ public class HaveWriteActivity extends AppCompatActivity {
                     String name =  getImageNameToUri(data.getData());
 
                     tmpPhoto = BitmapFactory.decodeFile(name);
-                    Bitmap resizeBitmap = Bitmap.createScaledBitmap(tmpPhoto, 1000, 1000, true);
+                    Bitmap resizeBitmap = Bitmap.createScaledBitmap(tmpPhoto, Utilities.getDpToPix(this, 500), Utilities.getDpToPix(this, 500), true);
                     Drawable drawable = (Drawable)(new BitmapDrawable(resizeBitmap));
 
                     ImageView imageView3 = (ImageView) findViewById(R.id.imageView3);
                     imageView3.setImageDrawable(drawable);
-
-
-
-
 
                 } catch (Exception e) {
 

@@ -8,14 +8,14 @@
     <!-- 나의 평가 질문지 START -->
     <string name="step1">다른 사람과 대화할 때</string>
     <string name="step2">기분이나 감정을 사람들에게</string>
-    <string name="step3">어렵고 힘든 상황에 있을 때 사람들에게 하는 행동은</string>
+    <string name="step3">어렵고 힘든 상황에 있을 때\n사람들에게 하는 행동은</string>
     <string name="step4">사람들과 갈등이 생기면</string>
     <string name="step5">대화할 때</string>
     <string name="step6">평소 사람들의 말이나 의견에</string>
     <string name="step7">의사결정이</string>
     <string name="step8">대화할 때 얼굴표정, 목소리 손짓 등에서</string>
-    <string name="step9">평소 사람들에게 감사나 칭찬의 말과 행동을</string>
-    <string name="step10">사람들에게 자신의 생각과 의견을</string>
+    <string name="step9">평소 사람들에게 감사나\n칭찬의 말과 행동을</string>
+    <string name="step10">사람들에게 자신의\n생각과 의견을</string>
     <!-- 나의 평가 질문지 END -->
 
     <string name="title_activity_logo">LogoActivity</string>
@@ -51,6 +51,7 @@
     <string name="title_activity_have_write">HaveWriteActivity</string>
     <string name="title_activity_sub_qna">SubQnaActivity</string>
     <string name="title_activity_sub_qna_write">SubQnaWriteActivity</string>
+    <string name="title_activity_sub_people_contents_">SubPeopleContents_Activity</string>
 
 
 

@@ -13,6 +13,7 @@
 
     <!-- 카메라 사용권한 -->
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature
         android:name="android.hardware.camera.autofocus"
         android:required="false" />
@@ -20,8 +21,8 @@
         android:name="android.hardware.camera"
         android:required="false" />
 
-
     <user-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
@@ -46,81 +47,53 @@
             android:name=".LoginActivity"
             android:label="로그인" >
         </activity>
-        <activity
-            android:name=".MemberJoin_Activity"
-            android:label="@string/title_activity_member_join_" >
+        <activity android:name=".MemberJoin_Activity" >
         </activity>
         <activity android:name=".MyType_Activity" >
         </activity>
         <activity
             android:name=".MainActivity"
-            android:allowBackup="true"
-            android:label="@string/title_activity_main" >
+            android:allowBackup="true" >
         </activity>
-        <activity
-            android:name=".Setting_NoticeActivity"
-            android:label="@string/title_activity_setting__notice" >
+        <activity android:name=".Setting_NoticeActivity" >
         </activity>
-        <activity
-            android:name=".Setting_QuestionActivity"
-            android:label="@string/title_activity_setting__question" >
+        <activity android:name=".Setting_QuestionActivity" >
         </activity>
-        <activity
-            android:name=".NoticeActivity"
-            android:label="@string/title_activity_notice" >
+        <activity android:name=".NoticeActivity" >
         </activity>
-        <activity
-            android:name=".Setting_UserAgreeActivity"
-            android:label="@string/title_activity_setting__user_agree" >
+        <activity android:name=".Setting_UserAgreeActivity" >
         </activity>
-        <activity
-            android:name=".Setting_UserInfoActivity"
-            android:label="@string/title_activity_setting__user_info" >
+        <activity android:name=".Setting_UserInfoActivity" >
         </activity>
-        <activity
-            android:name=".MyType_Result_Activity"
-            android:label="@string/title_activity_my_type__result_" >
+        <activity android:name=".MyType_Result_Activity" >
         </activity>
         <activity
             android:name=".SubPeopleListPopup_Activity"
-            android:label="@string/title_activity_sub_people_list_popup_"
             android:theme="@style/TransparentTheme" >
         </activity>
-        <activity
-            android:name=".SubPeopleListSelect_Activity"
-            android:label="@string/title_activity_sub_people_list_select_" >
+        <activity android:name=".SubPeopleListSelect_Activity" >
+        </activity>
+        <activity android:name=".YouType_Actvity_step1" >
+        </activity>
+        <activity android:name=".YouType_Activity_step2" >
+        </activity>
+        <activity android:name=".YouType_Activity" >
+        </activity>
+        <activity android:name=".MyFilling" >
+        </activity>
+        <activity android:name=".MyFilling_Comment_Activity" >
+        </activity>
+        <activity android:name=".MyNowAcitivity" >
+        </activity>
+        <activity android:name=".HaveWriteActivity" >
+        </activity>
+        <activity android:name=".SubQnaActivity" >
+        </activity>
+        <activity android:name=".SubQnaWriteActivity" >
         </activity>
         <activity
-            android:name=".YouType_Actvity_step1"
-            android:label="@string/title_activity_you_type__actvity_step1" >
-        </activity>
-        <activity
-            android:name=".YouType_Activity_step2"
-            android:label="@string/title_activity_you_type__activity_step2" >
-        </activity>
-        <activity
-            android:name=".MyFilling"
-            android:label="@string/title_activity_my_filling" >
-        </activity>
-        <activity
-            android:name=".MyFilling_Comment_Activity"
-            android:label="@string/title_activity_my_filling__comment_" >
-        </activity>
-        <activity
-            android:name=".MyNowAcitivity"
-            android:label="@string/title_activity_my_now_acitivity" >
-        </activity>
-        <activity
-            android:name=".HaveWriteActivity"
-            android:label="@string/title_activity_have_write" >
-        </activity>
-        <activity
-            android:name=".SubQnaActivity"
-            android:label="@string/title_activity_sub_qna" >
-        </activity>
-        <activity
-            android:name=".SubQnaWriteActivity"
-            android:label="@string/title_activity_sub_qna_write" >
+            android:name=".SubPeopleContents_Activity"
+            android:label="@string/title_activity_sub_people_contents_" >
         </activity>
     </application>
 

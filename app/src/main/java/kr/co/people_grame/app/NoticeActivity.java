@@ -13,6 +13,7 @@ import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ExpandableListView.OnGroupCollapseListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
+import android.widget.LinearLayout;
 
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -34,6 +35,7 @@ public class NoticeActivity extends AppCompatActivity {
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
     private Context mContext;
+
 
 
     @Override
@@ -111,6 +113,16 @@ public class NoticeActivity extends AppCompatActivity {
 
 
         });
+    }
+
+    public void btn_back(View v) {
+        finish();
+    }
+
+    public void fisish()
+    {
+        overridePendingTransition(R.anim.end_enter, R.anim.end_exit);
+        super.finish();
     }
 
     private void prepareListData() {

@@ -78,13 +78,17 @@ public class SubPeopleListAdapter extends BaseAdapter {
             case "D":
                 listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_d);
                 break;
+
             case "":
-                listview_proplelist_img.setVisibility(View.GONE);
+                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_default);
                 break;
+            /*
+
             default:
 
                 listview_proplelist_img.setVisibility(View.GONE);
                 break;
+             */
         }
 
         return convertView;

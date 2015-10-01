@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class YouType_Actvity_step1 extends AppCompatActivity {
 
@@ -17,10 +19,29 @@ public class YouType_Actvity_step1 extends AppCompatActivity {
     private String data1 = "";
     private String data2 = "";
 
+    private String people_uid = "";
+    private String people_username = "";
+
+    private TextView tv_youtype_activity_username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_you_type__actvity_step1);
+
+
+        tv_youtype_activity_username = (TextView) findViewById(R.id.tv_youtype_activity_username);
+
+
+        Intent intent = getIntent();
+
+        if(intent != null) {
+            people_uid = intent.getStringExtra("people_uid");
+            people_username = intent.getStringExtra("people_username");
+
+            tv_youtype_activity_username.setText(people_username);
+        }
+
 
 
         menu1_1 = (ImageButton) findViewById(R.id.menu1_1);
@@ -618,30 +639,21 @@ public class YouType_Actvity_step1 extends AppCompatActivity {
     }
 
     public void btnNext(View v) {
-        Intent intent = new Intent(YouType_Actvity_step1.this, YouType_Activity_step2.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
-    }
+        if(data1.equals("")) {
+            Toast.makeText(this, "구분을 선택해주세요.", Toast.LENGTH_LONG).show();
+        } else if(data2.equals("")) {
+            Toast.makeText(this, "상세 구분을 선택해주세요.", Toast.LENGTH_LONG).show();
+        } else {
+            Intent intent = new Intent(YouType_Actvity_step1.this, YouType_Activity_step2.class);
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_you_type__actvity_step1, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+            intent.putExtra("people_uid", people_uid);
+            intent.putExtra("people_username",people_username);
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            startActivity(intent);
+            overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+
+            finish();
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }

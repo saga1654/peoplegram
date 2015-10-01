@@ -33,6 +33,8 @@ public class SubPeopleFragment extends Fragment {
     private ArrayList<SubPeopleListDTO> people_dto_list;
     private SubPeopleListAdapter people_adapter_list;
 
+    private View mainView;
+
     public SubPeopleFragment() {
         Log.d("people_gram", "Fragment_실행");
     }
@@ -42,48 +44,78 @@ public class SubPeopleFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.sub_fragment_people, container, false);
         View header = inflater.inflate(R.layout.sub_people_header, null, false);
 
+        mainView = rootView;
+
         sf_people_list = (ListView)rootView.findViewById(R.id.sf_people_list);
         sf_people_list.addHeaderView(header);
 
 
-        RequestParams params = new RequestParams();
-        params.put("UID", "");
 
-        people_dto_list = new ArrayList<SubPeopleListDTO>();
+        //peopleList();
+
 
         sf_people_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 SubPeopleListDTO dto = (SubPeopleListDTO) sf_people_list.getItemAtPosition(position);
                 Intent intent = new Intent(getActivity().getBaseContext(), SubPeopleListPopup_Activity.class);
-                startActivityForResult(intent, 000);
+
+                intent.putExtra("people_uid", dto.get_profile_uid());
+                intent.putExtra("people_username", dto.get_profile_username());
+                intent.putExtra("people_mood", dto.get_profile_mood());
+
+                startActivity(intent);
                 getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
-                //Log.d("people_gram", dto.profile_uid + ":::" + dto.profile_username + ":::" + dto.profile_type + ":::" + dto.profile_email);
             }
         });
 
+
+
+        return rootView;
+    }
+
+    private void peopleList()
+    {
+        people_dto_list = new ArrayList<SubPeopleListDTO>();
+        RequestParams params = new RequestParams();
+        params.put("UID", SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid"));
         HttpClient.post("/user/member_people", params, new AsyncHttpResponseHandler() {
             public void onStart() {
                 //Log.d("people_gram", "시작");
                 dialog = ProgressDialog.show(getActivity(), "", "데이터 수신중");
             }
+
             public void onFinish() {
                 dialog.dismiss();
             }
+
             @Override
-            public void onSuccess(String response)
-            {
+            public void onSuccess(String response) {
                 try {
                     JSONArray people_list = new JSONArray(response);
-                    for(int i = 0; i < people_list.length(); i++) {
+                    for (int i = 0; i < people_list.length(); i++) {
                         JSONObject jobj = people_list.getJSONObject(i);
+
+                        Log.d("people_gram", jobj.getString("YOU_TYPE"));
+
+
+                        String email = "";
+                        String type = "";
+                        if (jobj.getString("JOIN_EMAIL") != "null") {
+                            email = jobj.getString("JOIN_EMAIL");
+                        }
+
+                        if (jobj.getString("YOU_TYPE") != "null") {
+                            type = jobj.getString("YOU_TYPE");
+                        }
+
                         people_dto_list.add(new SubPeopleListDTO(
                                 jobj.getString("PEOPLE_UID")
-                                ,""
-                                ,jobj.getString("PEOPLE_USERNAME")
-                                ,"111"
-                                ,""
-                                ,""
+                                , ""
+                                , jobj.getString("PEOPLE_USERNAME")
+                                , email
+                                , type
+                                , ""
                         ));
                     }
 
@@ -96,9 +128,18 @@ public class SubPeopleFragment extends Fragment {
                 }
             }
         });
-
-        return rootView;
     }
 
+    @Override
+    public void onStart()
+    {
+        peopleList();
+        super.onStart();
+    }
 
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+    }
 }

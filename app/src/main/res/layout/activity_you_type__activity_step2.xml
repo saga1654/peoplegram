@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="회원가입"
+                android:text="타인진단"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
                 android:textColor="#ffffff" />
@@ -98,6 +98,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.40"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_gravity="center"
                 android:gravity="center_vertical">
 
 
@@ -107,9 +110,10 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/step1"
                     android:id="@+id/tv_my_question_activity_title"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_gravity="center"
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="16dp"
+                    android:gravity="center" />
             </LinearLayout>
 
 
