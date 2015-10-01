@@ -2,6 +2,7 @@ package kr.co.people_grame.app;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -42,6 +44,7 @@ public class SubMainFragment extends Fragment implements SwipeRefreshLayout.OnRe
 
     private ProgressDialog dialog;
     private ListView contentList;
+    private ImageButton have_write_btn;
 
     private ArrayList<SubMainListDTO> dto;
     private SubMainListAdapter adapter;
@@ -58,6 +61,16 @@ public class SubMainFragment extends Fragment implements SwipeRefreshLayout.OnRe
         View rootView = inflater.inflate(R.layout.sub_fragment_main, container, false);
         View header = inflater.inflate(R.layout.sub_fragment_main_header, null, false);
 
+
+        have_write_btn = (ImageButton) rootView.findViewById(R.id.have_write_btn);
+        have_write_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), HaveWriteActivity.class);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+            }
+        });
 
         contentList = (ListView) rootView.findViewById(R.id.mainContent);
         swipeLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeContainer);

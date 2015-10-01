@@ -8,13 +8,19 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 public class MyFilling_Comment_Activity extends AppCompatActivity {
+
+    private EditText et_comment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_filling__comment_);
+
+
+        et_comment = (EditText) findViewById(R.id.et_comment);
     }
 
     @Override
@@ -37,6 +43,15 @@ public class MyFilling_Comment_Activity extends AppCompatActivity {
     public void finish() {
         super.finish();
         overridePendingTransition(R.anim.slide_close_down_info, R.anim.slide_clode_up_info);
+    }
+
+    public void save_btn(View v)
+    {
+        if(et_comment.getText().toString() == "") {
+
+        } else {
+            MyFilling_data.filling_comment = et_comment.getText().toString();
+        }
     }
 
     @Override

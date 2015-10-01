@@ -11,6 +11,19 @@
     <!-- 네트워크 확인 권한 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <!-- 카메라 사용권한 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+
+    <user-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -88,12 +101,26 @@
         <activity
             android:name=".MyFilling"
             android:label="@string/title_activity_my_filling" >
-
         </activity>
         <activity
             android:name=".MyFilling_Comment_Activity"
             android:label="@string/title_activity_my_filling__comment_" >
-
+        </activity>
+        <activity
+            android:name=".MyNowAcitivity"
+            android:label="@string/title_activity_my_now_acitivity" >
+        </activity>
+        <activity
+            android:name=".HaveWriteActivity"
+            android:label="@string/title_activity_have_write" >
+        </activity>
+        <activity
+            android:name=".SubQnaActivity"
+            android:label="@string/title_activity_sub_qna" >
+        </activity>
+        <activity
+            android:name=".SubQnaWriteActivity"
+            android:label="@string/title_activity_sub_qna_write" >
         </activity>
     </application>
 

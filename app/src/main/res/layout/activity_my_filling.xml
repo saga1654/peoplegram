@@ -3,7 +3,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#47485a">
+    android:background="#47485a"
+    android:weightSum="1">
 
     <LinearLayout
         android:orientation="vertical"
@@ -12,7 +13,8 @@
         android:background="#32354d"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
-        android:paddingLeft="10dp">
+        android:paddingLeft="10dp"
+        android:layout_weight="0.05">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -40,15 +42,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="right"
-        android:paddingTop="20dp"
-        android:paddingRight="20dp">
+        android:gravity="right|center_vertical"
+        android:paddingRight="20dp"
+        android:layout_weight="0.10">
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:onClick="btn_comment"
+            android:paddingTop="10dp"
             android:src="@drawable/myfilling_comment_btn_off"/>
 
     </LinearLayout>
@@ -57,16 +60,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:id="@+id/feelling">
+        android:id="@+id/feelling"
+        android:layout_weight="0.50">
 
     </RelativeLayout>
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="20dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
+        android:layout_weight="0.10"
         >
 
         <LinearLayout
@@ -75,15 +78,77 @@
             android:gravity="center"
             android:paddingTop="40dp"
             android:paddingBottom="40dp"
+            android:id="@+id/filling_no_select"
             android:background="#3a3d55">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="지금 기분을 선택해주세요"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
                 android:textColor="#ffffff"/>
 
         </LinearLayout>
+
+        <!-- 엄청 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:id="@+id/filling_select_btn_view"
+            android:visibility="gone"
+            android:background="#3a3d55">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:onClick="filling_select_btn"
+                android:id="@+id/filling_select_1_btn"
+                android:src="@drawable/myfilling_menu1_1_off"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:paddingLeft="5dp"
+                android:onClick="filling_select_btn"
+                android:id="@+id/filling_select_2_btn"
+                android:src="@drawable/myfilling_menu1_2_off"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:paddingLeft="5dp"
+                android:onClick="filling_select_btn"
+                android:id="@+id/filling_select_3_btn"
+                android:src="@drawable/myfilling_menu1_3_off"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:paddingLeft="5dp"
+                android:onClick="filling_select_btn"
+                android:id="@+id/filling_select_4_btn"
+                android:src="@drawable/myfilling_menu1_4_off"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:paddingLeft="5dp"
+                android:onClick="filling_select_btn"
+                android:id="@+id/filling_select_5_btn"
+                android:src="@drawable/myfilling_menu1_5_off"/>
+
+        </LinearLayout>
+
+
+
 
     </LinearLayout>
 
@@ -91,12 +156,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:paddingTop="40dp">
+        android:layout_weight="0.25">
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
+            android:onClick="myfillng_save"
             android:src="@drawable/myfilling_save_btn"/>
 
     </LinearLayout>
