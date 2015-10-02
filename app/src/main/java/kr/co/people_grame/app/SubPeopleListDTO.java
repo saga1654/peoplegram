@@ -10,12 +10,14 @@ public class SubPeopleListDTO {
     String profile_email = "";
     String profile_type = "";
     String profile_mood = "";
+    String profile_gubun1 = "";
+    String profile_gubun2 = "";
 
     public SubPeopleListDTO() {
 
     }
 
-    public SubPeopleListDTO(String profile_uid, String profile_img, String profile_username, String profile_email, String profile_type, String profile_mood)
+    public SubPeopleListDTO(String profile_uid, String profile_img, String profile_username, String profile_email, String profile_type, String profile_mood, String profile_gubun1, String profile_gubun2)
     {
         this.profile_uid = profile_uid;
         this.profile_img = profile_img;
@@ -23,6 +25,8 @@ public class SubPeopleListDTO {
         this.profile_email = profile_email;
         this.profile_type = profile_type;
         this.profile_mood = profile_mood;
+        this.profile_gubun1 = profile_gubun1;
+        this.profile_gubun2 = profile_gubun2;
     }
 
     public void set_profile_uid(String profile_uid) { this.profile_uid = profile_uid; }
@@ -42,5 +46,11 @@ public class SubPeopleListDTO {
 
     public void set_profile_mood(String profile_mood) { this.profile_username = profile_mood; }
     public String get_profile_mood() { return this.profile_mood; }
+
+    public void set_profile_gubun1(String profile_gubun1) { this.profile_gubun1 = profile_gubun1; }
+    public String get_profile_gubun1() { return this.profile_gubun1; }
+
+    public void set_profile_gubun2(String profile_gubun2) { this.profile_gubun2 = profile_gubun2; }
+    public String get_profile_gubun2() { return this.profile_gubun2; }
 
 }

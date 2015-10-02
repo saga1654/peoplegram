@@ -10,6 +10,8 @@ import android.util.TypedValue;
 import android.view.Display;
 import android.view.WindowManager;
 
+import java.text.DecimalFormat;
+
 /**
  * Created by 광희 on 2015-09-09.
  */
@@ -164,6 +166,15 @@ public class Utilities {
             NETWORK_CHECK = NETWORK_NOT_AVAILABLE;
         }
         return NETWORK_CHECK;
+    }
+
+    public static String comma(int num)
+    {
+        DecimalFormat df = new DecimalFormat("#,##0");
+        String won = String.valueOf(df.format(num));
+
+        return won;
+
     }
 
 }

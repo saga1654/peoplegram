@@ -17,12 +17,20 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class LogoActivity extends AppCompatActivity {
 
     private Intent intent;
     private String uid, username;
 
     private LinearLayout login_activity_li_logo, login_activity_li_btn;
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,15 +60,60 @@ public class LogoActivity extends AppCompatActivity {
         if(SharedPreferenceUtil.getSharedPreference(this, "uid") == "") {
             //login_activity_li_btn.setVisibility(View.VISIBLE);
         } else {
+
+
+
+
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 public void run() {
+
+
+                    /*
                     Intent intent = new Intent(LogoActivity.this, MainActivity.class);
                     startActivity(intent);
                     overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
                     finish();
+                    */
+
+                    RequestParams params = new RequestParams();
+                    params.put("uid", SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "uid"));
+                    HttpClient.post("/user/pointSelect", params, new AsyncHttpResponseHandler() {
+                        public void onStart() {
+                            //Log.d("people_gram", "시작");
+                            dialog = ProgressDialog.show(LogoActivity.this, "", "데이터 수신중");
+                        }
+
+                        public void onFinish() {
+                            //Log.d("people_gram", "완료");
+                            dialog.dismiss();
+                        }
+
+                        @Override
+                        public void onSuccess(String response) {
+                            try {
+                                JSONObject jobj = new JSONObject(response);
+
+                                SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "point", jobj.getString("POINT"));
+                                SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "mytype", jobj.getString("MYTYPE"));
+
+                                Intent intent = new Intent(LogoActivity.this, MainActivity.class);
+                                startActivity(intent);
+                                overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+                                finish();
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+
+                        }
+                    });
+
                 }
             }, 3000);
+
 
         }
 

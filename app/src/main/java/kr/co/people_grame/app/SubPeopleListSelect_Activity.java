@@ -1,6 +1,8 @@
 package kr.co.people_grame.app;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.provider.Contacts;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -13,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -32,6 +35,14 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
     private ImageButton people_click_btn, people_tip_btn, people_now_btn;
 
     private String clickType = "NOW";
+    private PeopleData pd;
+
+
+    private String uid, mood, myname, mytype;
+    private String people_name, people_type, people_mood, people_uid, people_gubun1, people_gubun2;
+
+    private TextView detail_myname, detail_youname;
+
 
 
     @Override
@@ -40,6 +51,28 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_sub_people_list_select_);
 
 
+
+        pd = new PeopleData();
+        uid = SharedPreferenceUtil.getSharedPreference(this, "uid");
+        myname = SharedPreferenceUtil.getSharedPreference(this, "username");
+        mytype = SharedPreferenceUtil.getSharedPreference(this, "mytype");
+
+
+        people_uid = pd.get_people_uid();
+        people_name = pd.get_people_username();
+        people_type = pd.get_people_type();
+        people_mood = pd.get_people_mood();
+        people_gubun1 = pd.get_people_gubun1();
+        people_gubun2 = pd.get_people_gubun2();
+
+
+
+        detail_myname = (TextView) findViewById(R.id.detail_myname);
+        detail_youname = (TextView) findViewById(R.id.detail_youname);
+
+        detail_myname.setText(myname);
+        detail_youname.setText(people_name);
+
         people_click_btn = (ImageButton) findViewById(R.id.people_click_btn);
         people_tip_btn = (ImageButton) findViewById(R.id.people_tip_btn);
         people_now_btn = (ImageButton) findViewById(R.id.people_now_btn);
@@ -47,9 +80,6 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
         people_click_btn.setOnClickListener(onBtnClickListener);
         people_tip_btn.setOnClickListener(onBtnClickListener);
         people_now_btn.setOnClickListener(onBtnClickListener);
-
-        fragmentManager = getSupportFragmentManager();
-        ft = fragmentManager.beginTransaction();
 
         fragmentManager = getSupportFragmentManager();
         ft = fragmentManager.beginTransaction();
@@ -88,7 +118,6 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                     SubPeopleFragment_tip sub_m_fragment = new SubPeopleFragment_tip();
                     ft.replace(R.id.fragment_sub_people, sub_m_fragment);
                     ft.commit();
-
 
                     break;
             }

@@ -45,11 +45,64 @@
         android:paddingTop="20dp"
         android:paddingBottom="20dp">
 
+        <!--
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/left_menu_default_img"
+                    android:weightSum="1">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="right">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/peoplelist_type_a" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+        -->
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@mipmap/left_menu_default_img">
+            android:paddingLeft="10dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/left_menu_default_img"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-15dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/leftmenu_type"
+                    android:src="@mipmap/peoplelist_type_a"/>
+            </RelativeLayout>
+
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -59,6 +112,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#ffffff"
                 android:textSize="18dp"
+                android:id="@+id/leftmenu_username"
                 android:text="스테파니 박"></TextView>
         </LinearLayout>
 
@@ -72,6 +126,7 @@
                 android:layout_height="wrap_content"
                 android:text="1,200P"
                 android:textColor="#ffffff"
+                android:id="@+id/leftmenu_point"
                 android:textSize="24dp"></TextView>
         </LinearLayout>
 

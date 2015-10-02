@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 
 public class SubPeopleFragment_tip extends Fragment {
     private LinearLayout subpeople_menu1, subpeople_menu2, subpeople_menu3, subpeople_menu4, subpeople_menu5, subpeople_menu6;
-
+    private PeopleData pd;
 
     public SubPeopleFragment_tip() {
     }
@@ -58,9 +58,6 @@ public class SubPeopleFragment_tip extends Fragment {
         subpeople_menu6.setOnTouchListener(onBtnTouchListener);
         subpeople_menu6.setOnClickListener(onBtnClickListener);
 
-
-
-
         return rootView;
     }
 
@@ -77,28 +74,37 @@ public class SubPeopleFragment_tip extends Fragment {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent(getActivity().getBaseContext(), SubPeopleContents_Activity.class);
-            getActivity().startActivity(intent);
-            getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+            //intent.putExtra("", "");
+
 
             switch (v.getId()) {
                 case R.id.subpeople_menu1:
+                    intent.putExtra("matchNum","1");
                     break;
 
                 case R.id.subpeople_menu2:
+                    intent.putExtra("matchNum","2");
                     break;
 
                 case R.id.subpeople_menu3:
+                    intent.putExtra("matchNum","3");
                     break;
 
                 case R.id.subpeople_menu4:
+                    intent.putExtra("matchNum","4");
                     break;
 
                 case R.id.subpeople_menu5:
+                    intent.putExtra("matchNum","5");
                     break;
 
                 case R.id.subpeople_menu6:
+                    intent.putExtra("matchNum","6");
                     break;
             }
+
+            getActivity().startActivity(intent);
+            getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
         }
     };
 

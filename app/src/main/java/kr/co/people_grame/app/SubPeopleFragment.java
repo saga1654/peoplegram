@@ -63,6 +63,9 @@ public class SubPeopleFragment extends Fragment {
                 intent.putExtra("people_uid", dto.get_profile_uid());
                 intent.putExtra("people_username", dto.get_profile_username());
                 intent.putExtra("people_mood", dto.get_profile_mood());
+                intent.putExtra("people_type", dto.get_profile_type());
+                intent.putExtra("people_gubun1", dto.get_profile_gubun1());
+                intent.putExtra("people_gubun2", dto.get_profile_gubun2());
 
                 startActivity(intent);
                 getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
@@ -78,7 +81,7 @@ public class SubPeopleFragment extends Fragment {
     {
         people_dto_list = new ArrayList<SubPeopleListDTO>();
         RequestParams params = new RequestParams();
-        params.put("UID", SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid"));
+        params.put("uid", SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid"));
         HttpClient.post("/user/member_people", params, new AsyncHttpResponseHandler() {
             public void onStart() {
                 //Log.d("people_gram", "시작");
@@ -96,17 +99,22 @@ public class SubPeopleFragment extends Fragment {
                     for (int i = 0; i < people_list.length(); i++) {
                         JSONObject jobj = people_list.getJSONObject(i);
 
-                        Log.d("people_gram", jobj.getString("YOU_TYPE"));
-
-
                         String email = "";
                         String type = "";
+                        String gubun1 = "";
+                        String gubun2 = "";
+
                         if (jobj.getString("JOIN_EMAIL") != "null") {
                             email = jobj.getString("JOIN_EMAIL");
                         }
-
                         if (jobj.getString("YOU_TYPE") != "null") {
                             type = jobj.getString("YOU_TYPE");
+                        }
+                        if(jobj.getString("GUBUN1") != "null") {
+                            gubun1 = jobj.getString("GUBUN1");
+                        }
+                        if(jobj.getString("GUBUN2") != "null") {
+                            gubun2 = jobj.getString("GUBUN2");
                         }
 
                         people_dto_list.add(new SubPeopleListDTO(
@@ -116,6 +124,8 @@ public class SubPeopleFragment extends Fragment {
                                 , email
                                 , type
                                 , ""
+                                , gubun1
+                                , gubun2
                         ));
                     }
 

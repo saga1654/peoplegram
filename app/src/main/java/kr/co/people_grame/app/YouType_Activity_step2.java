@@ -41,6 +41,8 @@ public class YouType_Activity_step2 extends FragmentActivity {
     private int questionNum = 1;
     private static String uid = "";
     private static String people_uid = "";
+    private String gubun1 = "";
+    private String gubun2 = "";
     private Boolean nextCheck = false;
     private Boolean seekCheck = false;
     private static int dataArray[] = new int[10];
@@ -75,6 +77,9 @@ public class YouType_Activity_step2 extends FragmentActivity {
         Intent intent = getIntent();
         people_uid = intent.getExtras().getString("people_uid").toString();
         uid = SharedPreferenceUtil.getSharedPreference(this, "uid");
+        gubun1 = intent.getExtras().getString("gubun1");
+        gubun2 = intent.getExtras().getString("gubun2");
+
 
         //Activity mcontext에 담기
         mcontext = this;
@@ -220,6 +225,8 @@ public class YouType_Activity_step2 extends FragmentActivity {
             RequestParams params = new RequestParams();
             params.put("uid", uid);
             params.put("people_uid", people_uid);
+            params.put("gubun1", gubun1);
+            params.put("gubun2", gubun2);
             int dataNum = 0;
             for(int i = 0; i<dataArray.length; i++) {
                 dataNum = i + 1;

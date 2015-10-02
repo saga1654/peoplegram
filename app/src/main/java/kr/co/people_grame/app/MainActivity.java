@@ -22,6 +22,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
     private FragmentTransaction ft;
 
     private Boolean openCheck = false;
+
+    private TextView leftmenu_username, leftmenu_point;
+    private ImageView leftmenu_type;
 
 
     @Override
@@ -58,6 +62,38 @@ public class MainActivity extends AppCompatActivity {
         if (null != ab) {
             ab.setDisplayHomeAsUpEnabled(true);
         }
+
+        leftmenu_username = (TextView) findViewById(R.id.leftmenu_username);
+        leftmenu_username.setText(SharedPreferenceUtil.getSharedPreference(this, "username"));
+
+
+        String Point = Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(this, "point")));
+        leftmenu_point = (TextView) findViewById(R.id.leftmenu_point);
+        leftmenu_point.setText(Point + "P");
+
+
+        leftmenu_type = (ImageView) findViewById(R.id.leftmenu_type);
+        switch (SharedPreferenceUtil.getSharedPreference(this, "mytype")) {
+            case "A":
+                leftmenu_type.setImageResource(R.mipmap.peoplelist_type_a);
+                break;
+            case "I":
+                leftmenu_type.setImageResource(R.mipmap.peoplelist_type_i);
+                break;
+            case "D":
+                leftmenu_type.setImageResource(R.mipmap.peoplelist_type_d);
+                break;
+            case "E":
+                leftmenu_type.setImageResource(R.mipmap.peoplelist_type_e);
+                break;
+            default:
+                leftmenu_type.setImageResource(R.mipmap.peoplelist_type_default);
+                break;
+        }
+
+
+
+        //R.mipmap.peoplelist_type_default);
 
 
         dtToggle = new ActionBarDrawerToggle(this, dlDrawer, R.string.app_name, R.string.app_name) {

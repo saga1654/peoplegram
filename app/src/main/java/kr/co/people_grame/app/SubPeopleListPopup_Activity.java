@@ -1,6 +1,7 @@
 package kr.co.people_grame.app;
 
 import android.content.Intent;
+import android.provider.Contacts;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -8,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class SubPeopleListPopup_Activity extends AppCompatActivity {
@@ -15,8 +17,12 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
     private String people_uid = "";
     private String people_username = "";
     private String people_mood = "";
+    private String people_type = "";
+    private String people_gubun1 = "";
+    private String people_gubun2 = "";
 
     private TextView popup_username, popup_mood;
+    private ImageView popup_type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +32,26 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
         popup_username = (TextView) findViewById(R.id.popup_username);
         popup_mood = (TextView) findViewById(R.id.popup_mood);
+        popup_type = (ImageView) findViewById(R.id.popup_type);
 
         Intent intent = getIntent();
         if(intent != null) {
             people_uid = intent.getStringExtra("people_uid");
             people_username = intent.getStringExtra("people_username");
             people_mood = intent.getStringExtra("people_mood");
+            people_type = intent.getStringExtra("people_type");
+            people_gubun1 = intent.getStringExtra("people_gubun1");
+            people_gubun2 = intent.getStringExtra("people_gubun2");
+
+
+            PeopleData pd = new PeopleData();
+            pd.set_people_uid(people_uid);
+            pd.set_people_username(people_username);
+            pd.set_people_mood(people_mood);
+            pd.set_people_type(people_type);
+            pd.set_people_gubun1(people_gubun1);
+            pd.set_people_gubun2(people_gubun2);
+
 
             popup_username.setText(people_username);
 
@@ -39,6 +59,24 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
                 popup_mood.setText("미설정");
             } else {
                 popup_mood.setText(people_mood);
+            }
+
+            switch (people_type) {
+                case "A":
+                    popup_type.setImageResource(R.mipmap.peoplelist_type_a);
+                    break;
+                case "E":
+                    popup_type.setImageResource(R.mipmap.peoplelist_type_e);
+                    break;
+                case "D":
+                    popup_type.setImageResource(R.mipmap.peoplelist_type_d);
+                    break;
+                case "I":
+                    popup_type.setImageResource(R.mipmap.peoplelist_type_i);
+                    break;
+                default:
+                    popup_type.setImageResource(R.mipmap.peoplelist_type_default);
+                    break;
             }
 
         }
@@ -59,6 +97,13 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
     public void peopleView_btn(View v)
     {
         Intent intent = new Intent(SubPeopleListPopup_Activity.this, SubPeopleListSelect_Activity.class);
+
+        /*
+        intent.putExtra("people_uid", people_uid);
+        intent.putExtra("people_username", people_username);
+        intent.putExtra("people_mood", people_mood);
+        intent.putExtra("people_type", people_type);
+        */
         finish();
         startActivity(intent);
         overridePendingTransition(R.anim.start_enter, R.anim.start_exit);

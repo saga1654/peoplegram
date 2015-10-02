@@ -647,8 +647,49 @@ public class YouType_Actvity_step1 extends AppCompatActivity {
             Intent intent = new Intent(YouType_Actvity_step1.this, YouType_Activity_step2.class);
 
 
+            String gubun1 = "";
+            String gubun2 = "";
+
+            switch(data1) {
+                case "1":
+                    gubun1 = "P";
+                    break;
+                case "2":
+                    gubun1 = "F";
+                    break;
+                case "3":
+                    gubun1 = "L";
+                    break;
+                case "4":
+                    gubun1 = "C";
+                    break;
+                case "5":
+                    gubun1 = "S";
+                    break;
+            }
+
+            switch (data2) {
+                case "1":
+                    gubun2 = "A";
+                    break;
+                case "2":
+                    gubun2 = "B";
+                    break;
+                case "3":
+                    gubun2 = "C";
+                    break;
+                case "4":
+                    gubun2 = "D";
+                    break;
+                case "5":
+                    gubun2 = "E";
+                    break;
+            }
+
             intent.putExtra("people_uid", people_uid);
             intent.putExtra("people_username",people_username);
+            intent.putExtra("gubun1", gubun1);
+            intent.putExtra("gubun2", gubun2);
 
             startActivity(intent);
             overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
