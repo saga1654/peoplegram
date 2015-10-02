@@ -10,6 +10,8 @@ public class PeopleData {
     static String people_username = "";
     static String people_gubun1 = "";
     static String people_gubun2 = "";
+    static int people_speed = 0;
+    static int people_control = 0;
 
 
     public void set_people_uid(String people_uid) { this.people_uid = people_uid; }
@@ -46,5 +48,12 @@ public class PeopleData {
     public String get_people_gubun2() {
         return this.people_gubun2;
     }
+
+    public void set_people_speed(int people_speed) { this.people_speed = people_speed; }
+    public int get_people_speed() { return this.people_speed; }
+
+    public void set_people_control(int people_control) { this.people_control = people_control; }
+    public int get_people_control() { return this.people_control; }
+
 
 }

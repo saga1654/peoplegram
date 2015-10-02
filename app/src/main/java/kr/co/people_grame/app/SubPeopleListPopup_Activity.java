@@ -20,6 +20,8 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
     private String people_type = "";
     private String people_gubun1 = "";
     private String people_gubun2 = "";
+    private int people_speed = 0;
+    private int people_control = 0;
 
     private TextView popup_username, popup_mood;
     private ImageView popup_type;
@@ -42,6 +44,8 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
             people_type = intent.getStringExtra("people_type");
             people_gubun1 = intent.getStringExtra("people_gubun1");
             people_gubun2 = intent.getStringExtra("people_gubun2");
+            people_speed = intent.getIntExtra("people_speed", 0);
+            people_control = intent.getIntExtra("people_control", 0);
 
 
             PeopleData pd = new PeopleData();
@@ -51,6 +55,8 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
             pd.set_people_type(people_type);
             pd.set_people_gubun1(people_gubun1);
             pd.set_people_gubun2(people_gubun2);
+            pd.set_people_speed(people_speed);
+            pd.set_people_control(people_control);
 
 
             popup_username.setText(people_username);

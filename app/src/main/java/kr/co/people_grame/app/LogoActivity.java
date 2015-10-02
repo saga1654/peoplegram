@@ -96,6 +96,8 @@ public class LogoActivity extends AppCompatActivity {
 
                                 SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "point", jobj.getString("POINT"));
                                 SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "mytype", jobj.getString("MYTYPE"));
+                                SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "my_speed", jobj.getString("MY_SPEED"));
+                                SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "my_control", jobj.getString("MY_CONTROL"));
 
                                 Intent intent = new Intent(LogoActivity.this, MainActivity.class);
                                 startActivity(intent);

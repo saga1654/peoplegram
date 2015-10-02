@@ -66,6 +66,8 @@ public class SubPeopleFragment extends Fragment {
                 intent.putExtra("people_type", dto.get_profile_type());
                 intent.putExtra("people_gubun1", dto.get_profile_gubun1());
                 intent.putExtra("people_gubun2", dto.get_profile_gubun2());
+                intent.putExtra("people_speed", dto.get_profile_speed());
+                intent.putExtra("people_control", dto.get_profile_control());
 
                 startActivity(intent);
                 getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
@@ -103,6 +105,8 @@ public class SubPeopleFragment extends Fragment {
                         String type = "";
                         String gubun1 = "";
                         String gubun2 = "";
+                        int speed = 0;
+                        int control = 0;
 
                         if (jobj.getString("JOIN_EMAIL") != "null") {
                             email = jobj.getString("JOIN_EMAIL");
@@ -117,6 +121,13 @@ public class SubPeopleFragment extends Fragment {
                             gubun2 = jobj.getString("GUBUN2");
                         }
 
+                        if(jobj.getString("SPEED") != "null") {
+                            speed = Integer.parseInt(jobj.getString("SPEED"));
+                        }
+                        if(jobj.getString("CONTROL") != "null") {
+                            control = Integer.parseInt(jobj.getString("CONTROL"));
+                        }
+
                         people_dto_list.add(new SubPeopleListDTO(
                                 jobj.getString("PEOPLE_UID")
                                 , ""
@@ -126,6 +137,8 @@ public class SubPeopleFragment extends Fragment {
                                 , ""
                                 , gubun1
                                 , gubun2
+                                , speed
+                                , control
                         ));
                     }
 

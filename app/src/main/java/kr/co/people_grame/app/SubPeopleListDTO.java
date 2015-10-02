@@ -12,12 +12,14 @@ public class SubPeopleListDTO {
     String profile_mood = "";
     String profile_gubun1 = "";
     String profile_gubun2 = "";
+    int profile_speed = 0;
+    int profile_control = 0;
 
     public SubPeopleListDTO() {
 
     }
 
-    public SubPeopleListDTO(String profile_uid, String profile_img, String profile_username, String profile_email, String profile_type, String profile_mood, String profile_gubun1, String profile_gubun2)
+    public SubPeopleListDTO(String profile_uid, String profile_img, String profile_username, String profile_email, String profile_type, String profile_mood, String profile_gubun1, String profile_gubun2, int profile_speed, int profile_control)
     {
         this.profile_uid = profile_uid;
         this.profile_img = profile_img;
@@ -27,6 +29,9 @@ public class SubPeopleListDTO {
         this.profile_mood = profile_mood;
         this.profile_gubun1 = profile_gubun1;
         this.profile_gubun2 = profile_gubun2;
+
+        this.profile_speed = profile_speed;
+        this.profile_control = profile_control;
     }
 
     public void set_profile_uid(String profile_uid) { this.profile_uid = profile_uid; }
@@ -52,5 +57,11 @@ public class SubPeopleListDTO {
 
     public void set_profile_gubun2(String profile_gubun2) { this.profile_gubun2 = profile_gubun2; }
     public String get_profile_gubun2() { return this.profile_gubun2; }
+
+    public void set_profile_speed(int profile_speed) { this.profile_speed = profile_speed; }
+    public int get_profile_speed() { return this.profile_speed; }
+
+    public void set_profile_control(int profile_control) { this.profile_control = profile_control; }
+    public int get_profile_control() { return this.profile_control; }
 
 }

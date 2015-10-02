@@ -174,7 +174,50 @@ public class Utilities {
         String won = String.valueOf(df.format(num));
 
         return won;
+    }
 
+    public static double people_match_int(int my_speed, int you_speed, int my_control, int you_control) {
+        int type_score = 100;
+
+        if(my_speed * you_speed * my_control * you_control < 0) {
+            type_score = 80;
+        } else {
+            if(my_speed * you_speed < 0 && my_control * you_control < 0) {
+                type_score = 60;
+            } else {
+                type_score = 100;
+            }
+        }
+
+        double score_temp = Math.pow((my_speed - you_speed),2) + Math.pow((my_control - you_control),2);
+        double score = 4 * Math.sqrt(2) * Math.sqrt(score_temp);
+
+        double total = type_score - score;
+        return total;
+    }
+
+    private double people_match_temp(int my_speed, int you_speed, int my_control, int you_control)
+    {
+        double temp = Math.pow((my_speed - you_speed),2) + Math.pow((my_control - you_control),2);
+
+        return temp;
+    }
+
+    private int people_match_typescore(int my_speed, int you_speed, int my_control, int you_control)
+    {
+        int type_score = 100;
+
+        if(my_speed * you_speed * my_control * you_control < 0) {
+            type_score = 80;
+        } else {
+            if(my_speed * you_speed < 0 && my_control * you_control < 0) {
+                type_score = 60;
+            } else {
+                type_score = 100;
+            }
+        }
+
+        return type_score;
     }
 
 }

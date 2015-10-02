@@ -39,7 +39,13 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
 
     private String uid, mood, myname, mytype;
+    private int my_speed = 0;
+    private int my_control = 0;
+
+
     private String people_name, people_type, people_mood, people_uid, people_gubun1, people_gubun2;
+    private int people_speed = 0;
+    private int people_control = 0;
 
     private TextView detail_myname, detail_youname;
 
@@ -56,6 +62,8 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
         uid = SharedPreferenceUtil.getSharedPreference(this, "uid");
         myname = SharedPreferenceUtil.getSharedPreference(this, "username");
         mytype = SharedPreferenceUtil.getSharedPreference(this, "mytype");
+        my_control = Integer.parseInt(SharedPreferenceUtil.getSharedPreference(this, "my_control"));
+        my_speed = Integer.parseInt(SharedPreferenceUtil.getSharedPreference(this, "my_speed"));
 
 
         people_uid = pd.get_people_uid();
@@ -64,6 +72,16 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
         people_mood = pd.get_people_mood();
         people_gubun1 = pd.get_people_gubun1();
         people_gubun2 = pd.get_people_gubun2();
+        people_speed = pd.get_people_speed();
+        people_control = pd.get_people_control();
+
+
+
+
+        double total = Utilities.people_match_int(my_speed, people_speed, my_control, people_control);
+
+        Log.d("people_gram", "나의점수=" + my_speed + ":::" + my_control + "///상대방=" + people_speed + ":::" + people_control + "///전체="+total);
+
 
 
 
