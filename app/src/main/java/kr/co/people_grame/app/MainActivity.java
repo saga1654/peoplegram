@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
         //aq.id(R.id.simpleLoadImg).image("http://programmerguru.com/android-tutorial/wp-content/uploads/2014/01/asynctask_thumb.png",false,false);
 
 
