@@ -45,11 +45,14 @@ public class MainActivity extends AppCompatActivity {
     private ImageView leftmenu_type;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        //aq.id(R.id.simpleLoadImg).image("http://programmerguru.com/android-tutorial/wp-content/uploads/2014/01/asynctask_thumb.png",false,false);
 
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -70,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
         String Point = Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(this, "point")));
         leftmenu_point = (TextView) findViewById(R.id.leftmenu_point);
         leftmenu_point.setText(Point + "P");
+
+
 
 
         leftmenu_type = (ImageView) findViewById(R.id.leftmenu_type);
@@ -178,6 +183,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void mainmenu_close_btn(View v) {
         dlDrawer.closeDrawer(Gravity.LEFT);
+    }
+
+    public void mainprofile_btn(View v) {
+        dlDrawer.closeDrawer(Gravity.LEFT);
+
+        Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+        startActivity(intent);
+
     }
 
     public void peopletype_btn(View v) {

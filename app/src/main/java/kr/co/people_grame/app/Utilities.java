@@ -2,6 +2,7 @@ package kr.co.people_grame.app;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.DisplayMetrics;
@@ -218,6 +219,29 @@ public class Utilities {
         }
 
         return type_score;
+    }
+
+    public static int getBitmapOfWidth(String fileName) {
+        try {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(fileName, options);
+            return options.outWidth;
+        } catch(Exception e) {
+            return 0;
+        }
+    }
+
+    public static int getBitmapOfHeight(String fileName) {
+        try {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(fileName, options);
+
+            return options.outHeight;
+        } catch(Exception e) {
+            return 0;
+        }
     }
 
 }

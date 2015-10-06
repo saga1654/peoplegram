@@ -2,6 +2,7 @@ package kr.co.people_grame.app;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -13,6 +14,8 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -20,7 +23,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.InputStream;
 
@@ -32,7 +43,10 @@ public class HaveWriteActivity extends AppCompatActivity {
     Bitmap profilBit = null;
     Bitmap bitmap;
 
-    private EditText have_edit;
+    private EditText have_edit, et_contents;
+    private LinearLayout have_write;
+
+    private ProgressDialog dialog;
 
 
     String selectedImagePath;
@@ -42,7 +56,17 @@ public class HaveWriteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_have_write);
 
-        //have_edit = (EditText) findViewById(R.id.have_edit);
+        have_edit = (EditText) findViewById(R.id.have_edit);
+        et_contents = (EditText) findViewById(R.id.et_contents);
+        have_write = (LinearLayout) findViewById(R.id.have_write);
+
+
+
+        /*
+        Spanned s = Html.fromHtml("<font color=\"red\">테스트</font>");
+        et_contents.setText(s);
+        */
+
     }
 
     public void galleryView(View v) {
@@ -77,14 +101,24 @@ public class HaveWriteActivity extends AppCompatActivity {
                     profilBit = tmpPhoto = Bitmap.createScaledBitmap(profilBit, 100, 100, false);
                     */
 
+
                     String name =  getImageNameToUri(data.getData());
 
                     tmpPhoto = BitmapFactory.decodeFile(name);
-                    Bitmap resizeBitmap = Bitmap.createScaledBitmap(tmpPhoto, Utilities.getDpToPix(this, 500), Utilities.getDpToPix(this, 500), true);
+                    int width = tmpPhoto.getWidth();
+                    int height = tmpPhoto.getHeight();
+                    Bitmap resizeBitmap = Bitmap.createScaledBitmap(tmpPhoto, width, height, true);
                     Drawable drawable = (Drawable)(new BitmapDrawable(resizeBitmap));
 
-                    ImageView imageView3 = (ImageView) findViewById(R.id.imageView3);
-                    imageView3.setImageDrawable(drawable);
+
+                    ImageView im = new ImageView(this);
+                    im.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT));
+                    im.setImageDrawable(drawable);
+
+                    have_write.addView(im);
+
+                    //ImageView imageView3 = (ImageView) findViewById(R.id.imageView3);
+                    //imageView3.setImageDrawable(drawable);
 
                 } catch (Exception e) {
 
@@ -107,6 +141,24 @@ public class HaveWriteActivity extends AppCompatActivity {
         return imgPath;
     }
 
+
+    public void haveSave()
+    {
+        RequestParams params = new RequestParams();
+        HttpClient.post("/people/haveWriteProcess", params, new AsyncHttpResponseHandler() {
+            public void onStart() {
+                dialog = ProgressDialog.show(HaveWriteActivity.this, "", "데이터 수신중");
+            }
+
+            public void onFinish() {
+                dialog.dismiss();
+            }
+
+            @Override
+            public void onSuccess(String response) {
+            }
+        });
+    }
 
     public void closeBtn(View v) {
         //overridePendingTransition(R.anim.slide_close_down_info, R.anim.slide_close_up_info);

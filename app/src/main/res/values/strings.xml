@@ -52,6 +52,7 @@
     <string name="title_activity_sub_qna">SubQnaActivity</string>
     <string name="title_activity_sub_qna_write">SubQnaWriteActivity</string>
     <string name="title_activity_sub_people_contents_">SubPeopleContents_Activity</string>
+    <string name="title_activity_profile">ProfileActivity</string>
 
 
 

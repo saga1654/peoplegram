@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kr.co.people_grame.app"
     android:versionCode="1"
-    android:versionName="0.01">
-
+    android:versionName="0.01" >
 
     <!-- 인터넷 권한 -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -98,8 +97,11 @@
             android:name=".SubPeopleContents_Activity"
             android:label="@string/title_activity_sub_people_contents_" >
         </activity>
+        <activity
+            android:name=".ProfileActivity"
+            android:label="@string/title_activity_profile"
+            android:theme="@style/AppTheme" >
+        </activity>
     </application>
-
-
 
 </manifest>

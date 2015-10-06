@@ -1,11 +1,8 @@
 package kr.co.people_grame.app;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.provider.Contacts;
+import android.os.Handler;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,7 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ListView;
+
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -58,6 +56,8 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
 
 
+
+
         pd = new PeopleData();
         uid = SharedPreferenceUtil.getSharedPreference(this, "uid");
         myname = SharedPreferenceUtil.getSharedPreference(this, "username");
@@ -80,7 +80,32 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
         double total = Utilities.people_match_int(my_speed, people_speed, my_control, people_control);
 
-        Log.d("people_gram", "나의점수=" + my_speed + ":::" + my_control + "///상대방=" + people_speed + ":::" + people_control + "///전체="+total);
+        Log.d("people_gram", "나의점수=" + my_speed + ":::" + my_control + "///상대방=" + people_speed + ":::" + people_control + "///전체=" + total);
+
+        final CircularProgressBar c2 = (CircularProgressBar) findViewById(R.id.circularprogressbar2);
+        c2.setSubTitle("%");
+        c2.animateProgressTo(0, (int) total, new CircularProgressBar.ProgressAnimationListener() {
+
+            @Override
+            public void onAnimationStart() {
+            }
+
+            @Override
+            public void onAnimationProgress(int progress) {
+                c2.setTitle(progress + "");
+            }
+
+            @Override
+            public void onAnimationFinish() {
+                //c2.setSubTitle("done");
+            }
+        });
+
+
+
+
+
+
 
 
 
@@ -107,6 +132,10 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
 
     }
+
+
+
+
 
     private View.OnClickListener onBtnClickListener = new View.OnClickListener() {
         @Override
