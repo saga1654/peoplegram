@@ -37,8 +37,8 @@ public class MyType_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_my_type_);
 
 
-        //myType = SharedPreferenceUtil.getSharedPreference(this, "mytype");
-        myType = "I";
+        myType = SharedPreferenceUtil.getSharedPreference(this, "mytype");
+        //myType = "I";
         mytype_activity_typeImg = (ImageView) findViewById(R.id.mytype_activity_typeImg);
         //myresult_close = (ImageView) findViewById(R.id.myresult_close);
         mytype_li_bg = (LinearLayout) findViewById(R.id.mytype_li_bg);
