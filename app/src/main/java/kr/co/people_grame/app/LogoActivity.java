@@ -13,6 +13,7 @@ import android.content.DialogInterface;
 import android.app.AlertDialog;
 import android.view.KeyEvent;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -40,6 +41,10 @@ public class LogoActivity extends AppCompatActivity {
         login_activity_li_logo = (LinearLayout) findViewById(R.id.login_activity_li_logo);
         login_activity_li_btn = (LinearLayout) findViewById(R.id.login_activity_li_btn);
 
+        login_activity_li_btn.setVisibility(View.GONE);
+
+        AnimationSet set = new AnimationSet(true);
+        
         //Log.d("people_gram", SharedPreferenceUtil.getSharedPreference(this, "uid"));
 
         if(Utilities.getNetworkType(this) == 3) {
