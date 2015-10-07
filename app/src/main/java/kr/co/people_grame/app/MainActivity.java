@@ -6,6 +6,7 @@ import android.content.res.Configuration;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -26,6 +27,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.androidquery.AQuery;
+import com.androidquery.callback.ImageOptions;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
     private TextView leftmenu_username, leftmenu_point;
     private ImageView leftmenu_type;
 
+    private CircularImageView leftmenu_profile_img;
+
+
+    private AQuery aq = new AQuery(this);
+
 
 
     @Override
@@ -52,9 +61,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
-        //aq.id(R.id.simpleLoadImg).image("http://programmerguru.com/android-tutorial/wp-content/uploads/2014/01/asynctask_thumb.png",false,false);
-
+        leftmenu_profile_img = (CircularImageView) findViewById(R.id.leftmenu_profile_img);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         txtTitle = (TextView) findViewById(R.id.txtTitle);
@@ -182,6 +189,27 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    protected void onStart()
+    {
+        profile_img();
+        super.onStart();
+    }
+
+    private void profile_img()
+    {
+        ImageOptions options = new ImageOptions();
+        options.ratio = 1;
+
+        options.memCache = true;
+        options.fileCache = true;
+
+        if(SharedPreferenceUtil.getSharedPreference(MainActivity.this, "profile_image") != "") {
+            String filename = SharedPreferenceUtil.getSharedPreference(MainActivity.this, "profile_image");
+            String imageUrl = "http://121.162.209.41:81/"+filename;
+            aq.id(leftmenu_profile_img).image(imageUrl, options);
+        }
+    }
+
     public void mainmenu_close_btn(View v) {
         dlDrawer.closeDrawer(Gravity.LEFT);
     }
@@ -191,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
         startActivity(intent);
-
+        overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
     }
 
     public void peopletype_btn(View v) {

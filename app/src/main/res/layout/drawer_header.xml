@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -86,10 +87,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp">
+            <!--
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/leftmenu_profile_img"
                 android:src="@mipmap/left_menu_default_img"/>
+                -->
+            <kr.co.people_grame.app.CircularImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/leftmenu_profile_img"
+                android:src="@mipmap/left_menu_default_img"
+                app:border_color="#EEEEEE"
+                app:border_width="2dp"
+                app:shadow="true"/>
 
             <RelativeLayout
                 android:layout_width="wrap_content"

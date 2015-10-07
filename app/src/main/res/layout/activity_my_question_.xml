@@ -97,7 +97,7 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.40"
+                android:layout_weight="0.30"
                 android:gravity="center_vertical">
 
 
@@ -108,6 +108,7 @@
                     android:text="@string/step1"
                     android:id="@+id/tv_my_question_activity_title"
                     android:layout_gravity="center_horizontal"
+                    android:textColor="#000"
                     android:textSize="16dp" />
             </LinearLayout>
 
@@ -119,6 +120,85 @@
                 android:layout_weight="0.30"
                 android:gravity="center_vertical">
 
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="120dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="#f1f1f1"
+
+                        android:id="@+id/myQuestion_left"
+                        android:onClick="myQuestion_left_click"
+                        android:layout_weight="0.45">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:id="@+id/myQuestion_left_textview"
+                            android:text="조용한 편이다"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_weight="0.20">
+
+
+                        <!--
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/vs_icon" />
+
+                        </RelativeLayout>
+                        -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="VS"
+                            android:textColor="#000"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="120dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="#f1f1f1"
+                        android:id="@+id/myQuestion_right"
+                        android:onClick="myQuestion_right_click"
+                        android:layout_weight="0.35">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:id="@+id/myQuestion_right_textview"
+                            android:text="말이 많은 편이다"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!--
                 <RelativeLayout android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <TextView
@@ -132,17 +212,22 @@
                         android:gravity="center">
                     </TextView>
                 </RelativeLayout>
+                -->
 
 
+
+                <!--
                 <LinearLayout
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:paddingTop="5dp"
-                    android:gravity="center_vertical">
-
+                    android:gravity="center_vertical"
+                    android:weightSum="1">
+                    -->
+                    <!--
                     <SeekBar
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -152,8 +237,55 @@
                         android:thumb="@drawable/myquestion_seek_btn_off"
                         android:progressDrawable="@drawable/seekcustom_bg"
                         android:progress="50" />
+                        -->
+                    <!--
+                    <RadioGroup
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/typegroup"
+                        android:gravity="center"
+                        android:weightSum="1">
 
-                </LinearLayout>
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:layout_weight="0.25"
+                                android:id="@+id/type01" />
+
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:layout_weight="0.25"
+                                android:id="@+id/type02" />
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:layout_weight="0.25"
+                                android:id="@+id/type03" />
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:layout_weight="0.25"
+                                android:id="@+id/type04" />
+
+                    </RadioGroup>
+                    -->
+
+
+
+                <!-- </LinearLayout> -->
 
 
 
@@ -165,25 +297,51 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.30"
+                android:layout_weight="0.40"
+                android:weightSum="1"
                 android:gravity="center">
 
-                <ImageButton
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageButton"
-                    android:background="@android:color/transparent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="20dp"
+                    android:gravity="center_vertical|left"
                     android:onClick="btn_prev"
-                    android:src="@drawable/myquestion_prev_btn" />
+                    android:layout_weight="0.50">
 
-                <ImageButton
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageButton"
+                        android:background="@android:color/transparent"
+                        android:onClick="btn_prev"
+                        android:src="@drawable/myquestion_prev_btn" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageButton2"
-                    android:background="@android:color/transparent"
-                    android:layout_marginLeft="10dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|right"
+                    android:paddingRight="20dp"
                     android:onClick="btn_next"
-                    android:src="@drawable/myquestion_next_btn" />
+                    android:layout_weight="0.50">
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageButton2"
+                        android:background="@android:color/transparent"
+                        android:layout_marginLeft="10dp"
+                        android:onClick="btn_next"
+                        android:src="@drawable/myquestion_next_btn" />
+
+
+                </LinearLayout>
+
+
+
             </LinearLayout>
 
 

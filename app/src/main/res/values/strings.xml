@@ -18,6 +18,29 @@
     <string name="step10">사람들에게 자신의\n생각과 의견을</string>
     <!-- 나의 평가 질문지 END -->
 
+
+    <!-- 나의평가 답안지 -->
+    <string name="step1_left">조용한 편이다</string>
+    <string name="step1_right">말이 많은 편이다</string>
+    <string name="step2_left">느리다</string>
+    <string name="step2_right">빠르다</string>
+    <string name="step3_left">다른 사람을\n따르는 편이다</string>
+    <string name="step3_right">다른 사람을\n이끄는 편이다</string>
+    <string name="step4_left">질문을 주로\n하는 편이다</string>
+    <string name="step4_right">자긴의 의견을 주로\n말하는 편이다</string>
+    <string name="step5_left">느리고 신중하다</string>
+    <string name="step5_right">빠르고 행동적이다</string>
+    <string name="step6_left">조용한 편이다</string>
+    <string name="step6_right">말이 많은 편이다</string>
+    <string name="step7_left">조용한 편이다</string>
+    <string name="step7_right">말이 많은 편이다</string>
+    <string name="step8_left">조용한 편이다</string>
+    <string name="step8_right">말이 많은 편이다</string>
+    <string name="step9_left">조용한 편이다</string>
+    <string name="step9_right">말이 많은 편이다</string>
+    <string name="step10_left">조용한 편이다</string>
+    <string name="step10_right">말이 많은 편이다</string>
+
     <string name="title_activity_logo">LogoActivity</string>
     <string name="title_activity_member_join_">MemberJoin_Activity</string>
     <string name="title_activity_my_type_">MyType_Activity</string>
@@ -53,6 +76,7 @@
     <string name="title_activity_sub_qna_write">SubQnaWriteActivity</string>
     <string name="title_activity_sub_people_contents_">SubPeopleContents_Activity</string>
     <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_profile_detail">ProfileDetailActivity</string>
 
 
 

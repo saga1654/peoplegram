@@ -5,6 +5,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.net.Uri;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
@@ -16,6 +17,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -40,15 +42,18 @@ public class MyQuestion_Activity extends FragmentActivity {
     /* 변수 private */
     private int questionNum = 1;
     private static String uid = "";
-    private Boolean nextCheck = false;
-    private Boolean seekCheck = false;
+
+    //private Boolean nextCheck = false;
+    //private Boolean seekCheck = false;
+
+
     private static int dataArray[] = new int[10];
 
     private String userdataArray[];
 
     /* comportment private */
-    private TextView mTxvSeekBarValue, tv_my_question_activity_title;
-    private SeekBar sb_my_question_activity_data;
+    private TextView tv_my_question_activity_title;
+    //private SeekBar sb_my_question_activity_data;
     private Context mcontext;
     private ProgressDialog dialog;
     private Intent intent;
@@ -59,6 +64,13 @@ public class MyQuestion_Activity extends FragmentActivity {
 
     private String userData = "";
     private Context ActivityContext;
+
+
+    private LinearLayout myQuestion_left, myQuestion_right;
+    private Boolean left_onoff = false;
+    private Boolean right_onoff = false;
+
+    private TextView myQuestion_left_textview, myQuestion_right_textview;
 
 
     @Override
@@ -81,24 +93,31 @@ public class MyQuestion_Activity extends FragmentActivity {
         mcontext = this;
 
         /* SeekBar title 가져오기 */
-        mTxvSeekBarValue = (TextView) findViewById(R.id.txvSeekBarValue);
+        //mTxvSeekBarValue = (TextView) findViewById(R.id.txvSeekBarValue);
 
         /* SeekBar value 가져오기 */
-        sb_my_question_activity_data = (SeekBar) findViewById(R.id.sb_my_question_activity_data);
+        //sb_my_question_activity_data = (SeekBar) findViewById(R.id.sb_my_question_activity_data);
         tv_my_question_activity_title = (TextView) findViewById(R.id.tv_my_question_activity_title);
 
 
-        /* SeekBar Tooltip 좌표 설정 */
+        myQuestion_left = (LinearLayout) findViewById(R.id.myQuestion_left);
+        myQuestion_right = (LinearLayout) findViewById(R.id.myQuestion_right);
+
+        myQuestion_left_textview = (TextView) findViewById(R.id.myQuestion_left_textview);
+        myQuestion_right_textview = (TextView) findViewById(R.id.myQuestion_right_textview);
+
+        getQuestionTitle();
+
+
+        /*
         int dp = 250;
         int thumbPos = Utilities.getScreenWidth(mcontext) / 2;
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         params.leftMargin = thumbPos - Utilities.getPxToDp(mcontext, dp);
         mTxvSeekBarValue.setLayoutParams(params);
-        /* ########################## */
 
 
 
-        /* seekBar 드래그 좌표 재 설정 */
         sb_my_question_activity_data.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -140,6 +159,7 @@ public class MyQuestion_Activity extends FragmentActivity {
                 //Log.d("prople_gram", "터치종료="+seekBar.getProgress());
             }
         });
+        */
 
         /* ####### seekBar 드래그 좌표 #####  */
 
@@ -160,6 +180,40 @@ public class MyQuestion_Activity extends FragmentActivity {
             }
         });
         /* ##### navigation 설정 끝 #### */
+    }
+
+    public void myQuestion_default()
+    {
+        left_onoff = false;
+        right_onoff = false;
+        myQuestion_left.setBackgroundColor(Color.rgb(241,241,241));
+        myQuestion_right.setBackgroundColor(Color.rgb(241,241,241));
+    }
+
+    public void myQuestion_left_click(View v) {
+        right_onoff = false;
+        if(left_onoff == false) {
+            left_onoff = true;
+            myQuestion_left.setBackgroundColor(Color.rgb(250,229,4));
+            myQuestion_right.setBackgroundColor(Color.rgb(241,241,241));
+        } else {
+            left_onoff = false;
+            myQuestion_left.setBackgroundColor(Color.rgb(241,241,241));
+            myQuestion_right.setBackgroundColor(Color.rgb(241,241,241));
+        }
+    }
+
+    public void myQuestion_right_click(View v) {
+        left_onoff = false;
+        if(left_onoff == false) {
+            right_onoff = true;
+            myQuestion_left.setBackgroundColor(Color.rgb(241,241,241));
+            myQuestion_right.setBackgroundColor(Color.rgb(250,229,4));
+        } else {
+            right_onoff = false;
+            myQuestion_left.setBackgroundColor(Color.rgb(241,241,241));
+            myQuestion_right.setBackgroundColor(Color.rgb(241,241,241));
+        }
     }
 
     private class MyPagerAdapter extends PagerAdapter {
@@ -201,9 +255,11 @@ public class MyQuestion_Activity extends FragmentActivity {
             //tv_my_question_activity_page.setText(String.valueOf(questionNum) + "/" + "10");
         }
         getQuestionTitle();
+        myQuestion_default();
     }
 
     private void readContacts() {
+        /*
         ContentResolver cr = getContentResolver();
         Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
         String phone = null;
@@ -228,6 +284,7 @@ public class MyQuestion_Activity extends FragmentActivity {
             }
             cur.close();
         }
+        */
 
         //Log.d("people_gram", userData);
     }
@@ -235,10 +292,14 @@ public class MyQuestion_Activity extends FragmentActivity {
     public void btn_next(View v)
     {
 
+
+
+
         if(dataSet() == false) {
             Toast.makeText(this, "선택해주세요.", Toast.LENGTH_SHORT).show();
             return;
         }
+
 
         if(questionNum == 10) {
             Log.d("people_gram", "마지막페이지");
@@ -293,15 +354,9 @@ public class MyQuestion_Activity extends FragmentActivity {
         } else {
             questionNum_plus();
             pager.setCurrentItem(questionNum);
-            nextCheck = true;
-            sb_my_question_activity_data.setMax(100);
-            sb_my_question_activity_data.setProgress(50);
-
-            seekCheck = false;
-            //sb_my_question_activity_data.setMax(100);
-            //sb_my_question_activity_data.setProgress(50);
         }
         getQuestionTitle();
+        myQuestion_default();
 
 
     }
@@ -322,6 +377,20 @@ public class MyQuestion_Activity extends FragmentActivity {
     /* 데이터 셋팅 */
     private Boolean dataSet()
     {
+
+        if(left_onoff == false && right_onoff == false) {
+            return false;
+        } else {
+            if(left_onoff == true) {
+                dataArray[questionNum-1] = -1;
+            }
+
+            if(right_onoff == true) {
+                dataArray[questionNum-1] = 1;
+            }
+            return true;
+        }
+        /*
         if(sb_my_question_activity_data.getProgress() == 50) {
             return false;
         } else {
@@ -331,6 +400,7 @@ public class MyQuestion_Activity extends FragmentActivity {
             }
             return true;
         }
+        */
     }
 
     private void getQuestionTitle() {
@@ -338,33 +408,63 @@ public class MyQuestion_Activity extends FragmentActivity {
         switch (questionNum) {
             case 1:
                 tv_my_question_activity_title.setText(getString(R.string.step1));
+                myQuestion_left_textview.setText(getString(R.string.step1_left));
+                myQuestion_right_textview.setText(getString(R.string.step1_right));
+
                 break;
             case 2:
                 tv_my_question_activity_title.setText(getString(R.string.step2));
+
+                myQuestion_left_textview.setText(getString(R.string.step2_left));
+                myQuestion_right_textview.setText(getString(R.string.step2_right));
                 break;
             case 3:
                 tv_my_question_activity_title.setText(getString(R.string.step3));
+
+                myQuestion_left_textview.setText(getString(R.string.step3_left));
+                myQuestion_right_textview.setText(getString(R.string.step3_right));
                 break;
             case 4:
                 tv_my_question_activity_title.setText(getString(R.string.step4));
+
+                myQuestion_left_textview.setText(getString(R.string.step4_left));
+                myQuestion_right_textview.setText(getString(R.string.step4_right));
                 break;
             case 5:
                 tv_my_question_activity_title.setText(getString(R.string.step5));
+
+                myQuestion_left_textview.setText(getString(R.string.step5_left));
+                myQuestion_right_textview.setText(getString(R.string.step5_right));
                 break;
             case 6:
                 tv_my_question_activity_title.setText(getString(R.string.step6));
+
+                myQuestion_left_textview.setText(getString(R.string.step6_left));
+                myQuestion_right_textview.setText(getString(R.string.step6_right));
                 break;
             case 7:
                 tv_my_question_activity_title.setText(getString(R.string.step7));
+
+                myQuestion_left_textview.setText(getString(R.string.step7_left));
+                myQuestion_right_textview.setText(getString(R.string.step7_right));
                 break;
             case 8:
                 tv_my_question_activity_title.setText(getString(R.string.step8));
+
+                myQuestion_left_textview.setText(getString(R.string.step8_left));
+                myQuestion_right_textview.setText(getString(R.string.step8_right));
                 break;
             case 9:
                 tv_my_question_activity_title.setText(getString(R.string.step9));
+
+                myQuestion_left_textview.setText(getString(R.string.step9_left));
+                myQuestion_right_textview.setText(getString(R.string.step9_right));
                 break;
             case 10:
                 tv_my_question_activity_title.setText(getString(R.string.step10));
+
+                myQuestion_left_textview.setText(getString(R.string.step10_left));
+                myQuestion_right_textview.setText(getString(R.string.step10_right));
                 break;
         }
 

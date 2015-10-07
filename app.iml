@@ -105,5 +105,6 @@
     <orderEntry type="library" exported="" name="support-annotations-23.0.0" level="project" />
     <orderEntry type="module" module-name="cordova-2.9.0" exported="" />
     <orderEntry type="module" module-name="android-async-http-1.4.4" exported="" />
+    <orderEntry type="module" module-name="android-query.0.26.7" exported="" />
   </component>
 </module>

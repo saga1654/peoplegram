@@ -8,6 +8,36 @@
     android:background="#ffffff">
 
     <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#32354d"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingLeft="10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="btn_back" >
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/prev_btn" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="10dp"
+                android:text="프로필 정보"
+                android:layout_gravity="center"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="130dp"
@@ -24,16 +54,10 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:src="@drawable/profile_temp"
+                android:id="@+id/profile_img"
                 app:border_color="#EEEEEE"
                 app:border_width="2dp"
                 app:shadow="true"/>
-
-            <!--
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/bg"/>
-            -->
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -58,6 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000"
+                android:id="@+id/profileView_username"
                 android:text="스테파니 박"
                 android:textStyle="bold" />
 
@@ -73,6 +98,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#000"
                 android:paddingTop="5dp"
+                android:id="@+id/profileView_email"
                 android:text="jccho@gmail.com"/>
 
         </LinearLayout>
@@ -88,66 +114,102 @@
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
         android:paddingLeft="20dp"
-        android:background="#b2b3bb">
-
+        android:background="#b2b3bb"
+        android:onClick="profile_detail_btn"
+        android:weightSum="1">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center">
+            android:layout_weight="0.80">
 
-            <ImageView
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/profile_icon_sex_off"/>
+                android:gravity="center">
 
-            <TextView
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/profile_sex_icon"
+                    android:src="@drawable/profile_icon_sex_off"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:textColor="#1d1d26"
+                    android:id="@+id/profile_sex"
+                    android:text="성별"/>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:textColor="#1d1d26"
-                android:text="성별"/>
+                android:paddingLeft="30dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/profile_icon_age_off"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:textColor="#1d1d26"
+                    android:id="@+id/profile_age"
+                    android:text="연령"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/profile_icon_area_off"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:textColor="#1d1d26"
+                    android:id="@+id/profile_area"
+                    android:text="지역"/>
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="30dp"
+            android:layout_weight="0.20"
             android:gravity="center">
 
-            <ImageView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/profile_icon_age_off"/>
+                android:paddingTop="5dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/preview_next1"/>
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:textColor="#1d1d26"
-                android:text="연령"/>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="30dp"
-            android:gravity="center">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/profile_icon_area_off"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:textColor="#1d1d26"
-                android:text="지역"/>
-
-        </LinearLayout>
 
     </LinearLayout>
 
@@ -155,22 +217,43 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp">
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:weightSum="1">
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="닉네임 : "
-            android:textStyle="bold"
-            android:textColor="#1d1d26"
-            />
+            android:layout_weight="0.88">
 
-        <TextView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="닉네임 : "
+                android:textStyle="bold"
+                android:textColor="#1d1d26"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스테파니 박"
+                android:id="@+id/profile_username"
+                android:textColor="#1d1d26" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="스테파니 박"
-            android:id="@+id/profile_username"
-            android:textColor="#1d1d26" />
+            android:layout_weight="0.12"
+            android:gravity="center">
+
+
+        </LinearLayout>
+
+
 
     </LinearLayout>
     <LinearLayout
@@ -182,21 +265,49 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp">
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:weightSum="1">
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="자기진단타입 : "
-            android:textStyle="bold"
-            android:textColor="#1d1d26"
-            />
+            android:layout_weight="0.88">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="자기진단타입 : "
+                android:textStyle="bold"
+                android:textColor="#1d1d26"
+                />
 
-        <TextView
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/profileView_typeImg"
+                android:paddingLeft="10dp"
+                android:src="@mipmap/peoplelist_type_default"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="우호형"
+                android:id="@+id/profileView_type"
+                android:textColor="#1d1d26" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="우호형"
-            android:textColor="#1d1d26" />
+            android:layout_weight="0.12"
+            android:gravity="center">
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
     <LinearLayout
@@ -223,6 +334,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="피플타입보기"
+            android:id="@+id/profileView_people_type"
             android:textColor="#1d1d26" />
 
     </LinearLayout>
@@ -250,6 +362,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1200 그램"
+            android:id="@+id/profileView_point"
             android:textColor="#1d1d26" />
 
     </LinearLayout>
