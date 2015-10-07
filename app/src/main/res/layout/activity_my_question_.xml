@@ -144,7 +144,8 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:id="@+id/myQuestion_left_textview"
-                            android:text="조용한 편이다"/>
+                            android:text="조용한 편이다"
+                            android:textColor="#1C1C1C" />
 
 
                     </LinearLayout>
@@ -192,7 +193,8 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:id="@+id/myQuestion_right_textview"
-                            android:text="말이 많은 편이다"/>
+                            android:text="말이 많은 편이다"
+                            android:textColor="#1C1C1C" />
 
                     </LinearLayout>
 
