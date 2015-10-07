@@ -403,7 +403,7 @@ public class MyQuestion_Activity extends FragmentActivity {
         */
     }
 
-    private void getQuestionTitle() {
+     private void getQuestionTitle() {
 
         switch (questionNum) {
             case 1:
