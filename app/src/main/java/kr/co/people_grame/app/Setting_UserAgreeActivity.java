@@ -2,8 +2,10 @@ package kr.co.people_grame.app;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class Setting_UserAgreeActivity extends AppCompatActivity {
 
@@ -14,24 +16,27 @@ public class Setting_UserAgreeActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_setting__user_agree, menu);
-        return true;
-    }
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                finish();
+                break;
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            default:
+                break;
         }
 
-        return super.onOptionsItemSelected(item);
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public void agree_prevBtn(View v) {
+        finish();
+    }
+
+    public void finish()
+    {
+        super.finish();
+        overridePendingTransition(R.anim.end_enter, R.anim.end_exit);
     }
 }

@@ -1,2 +1,0 @@
-configurations.create("default")
-artifacts.add("default", file('cordova-2.9.0.jar'))

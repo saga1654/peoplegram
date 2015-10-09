@@ -6,32 +6,60 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#32354d"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
-        android:paddingLeft="10dp"
-        android:id="@+id/linearLayout2">
+        android:id="@+id/linearLayout2"
+        android:background="#32354d">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="btn_back" >
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:weightSum="1">
 
-            <ImageButton
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:src="@drawable/prev_btn" />
+                android:layout_weight="0.10"
+                android:onClick="qna_prevBtn"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/prev_btn" />
 
-            <TextView
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.80"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:text="1:1문의"
+                    android:id="@+id/top_title"
+                    android:textColor="#ffffff"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:paddingLeft="10dp"
-                android:text="1:1문의"
-                android:layout_gravity="center"
-                android:textColor="#ffffff" />
+                android:layout_weight="0.10"
+                android:id="@+id/settingbtn"
+                android:gravity="center">
+
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"

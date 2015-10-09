@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Matrix;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,9 +13,15 @@ import android.view.View;
 import android.content.DialogInterface;
 import android.app.AlertDialog;
 import android.view.KeyEvent;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
+import android.view.animation.Transformation;
+import android.view.animation.TranslateAnimation;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -41,10 +48,23 @@ public class LogoActivity extends AppCompatActivity {
         login_activity_li_logo = (LinearLayout) findViewById(R.id.login_activity_li_logo);
         login_activity_li_btn = (LinearLayout) findViewById(R.id.login_activity_li_btn);
 
-        login_activity_li_btn.setVisibility(View.GONE);
+        //Animation animation = AnimationUtils.loadAnimation(this, R.anim.logo_fade);
+        //login_activity_li_btn.startAnimation(animation);
 
+
+        //login_activity_li_btn.startAnimation(new ViewAnimation());
+
+        //login_activity_li_btn.setVisibility(View.GONE);
+        /*
         AnimationSet set = new AnimationSet(true);
-        
+        set.setInterpolator(new AccelerateInterpolator());
+
+        Animation ani01 = new AlphaAnimation(0.0f, 1.0f);
+        ani01.setDuration(5000);
+
+        login_activity_li_btn.setAnimation(set);
+        */
+
         //Log.d("people_gram", SharedPreferenceUtil.getSharedPreference(this, "uid"));
 
         if(Utilities.getNetworkType(this) == 3) {
@@ -72,14 +92,6 @@ public class LogoActivity extends AppCompatActivity {
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 public void run() {
-
-
-                    /*
-                    Intent intent = new Intent(LogoActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
-                    finish();
-                    */
 
                     RequestParams params = new RequestParams();
                     params.put("uid", SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "uid"));
@@ -121,6 +133,7 @@ public class LogoActivity extends AppCompatActivity {
 
                 }
             }, 3000);
+
 
 
         }

@@ -12,10 +12,7 @@ import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.apache.cordova.Config;
-import org.apache.cordova.CordovaWebView;
-import org.apache.cordova.api.CordovaInterface;
-import org.apache.cordova.api.CordovaPlugin;
+
 
 import java.util.concurrent.ExecutorService;
 

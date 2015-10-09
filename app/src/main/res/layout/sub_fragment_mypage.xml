@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#34374f">
+    android:background="#ffffff">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#717384">
+        android:background="#f1f1f1">
     </LinearLayout>
 
     <LinearLayout
@@ -43,7 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
-                    android:textColor="#ffffff"
+                    android:textColor="#1d1d26"
                     android:text="지금 나는" />
 
             </LinearLayout>
@@ -72,7 +72,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#717384">
+        android:background="#f1f1f1">
     </LinearLayout>
 
 
@@ -109,7 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
-                    android:textColor="#ffffff"
+                    android:textColor="#1d1d26"
                     android:text="자기진단 결과" />
 
             </LinearLayout>
@@ -133,7 +133,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#717384">
+        android:background="#f1f1f1">
     </LinearLayout>
 
 
@@ -169,7 +169,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
-                    android:textColor="#ffffff"
+                    android:textColor="#1d1d26"
                     android:text="피플이 본 타입" />
 
             </LinearLayout>
@@ -193,7 +193,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#717384">
+        android:background="#f1f1f1">
     </LinearLayout>
 
 
@@ -229,7 +229,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
-                    android:textColor="#ffffff"
+                    android:textColor="#1d1d26"
                     android:text="유형별 특징" />
 
             </LinearLayout>
@@ -253,7 +253,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#717384">
+        android:background="#f1f1f1">
     </LinearLayout>
 
 </LinearLayout>

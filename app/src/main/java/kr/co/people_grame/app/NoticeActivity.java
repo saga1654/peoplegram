@@ -14,6 +14,7 @@ import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ExpandableListView.OnGroupCollapseListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -36,12 +37,17 @@ public class NoticeActivity extends AppCompatActivity {
     HashMap<String, List<String>> listDataChild;
     private Context mContext;
 
+    private TextView top_title;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice);
+
+        top_title = (TextView) findViewById(R.id.top_title);
+        top_title.setText("공지사항");
 
 
         expListView = (ExpandableListView) findViewById(R.id.lvExp);
@@ -115,14 +121,19 @@ public class NoticeActivity extends AppCompatActivity {
         });
     }
 
+    public void notice_prevBtn(View v) {
+        finish();
+    }
+
     public void btn_back(View v) {
         finish();
     }
 
-    public void fisish()
+    public void finish()
     {
-        overridePendingTransition(R.anim.end_enter, R.anim.end_exit);
+
         super.finish();
+        overridePendingTransition(R.anim.end_enter, R.anim.end_exit);
     }
 
     private void prepareListData() {

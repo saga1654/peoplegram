@@ -1,11 +1,14 @@
 package kr.co.people_grame.app;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -26,7 +29,13 @@ public class YouType_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_you_type_);
 
-        youType = "I";
+        Intent intent = getIntent();
+
+        if(intent != null) {
+            youType = intent.getStringExtra("youtype");
+        }
+
+
         youtype_activity_typeImg = (ImageView) findViewById(R.id.youtype_activity_typeImg);
         //myresult_close = (ImageView) findViewById(R.id.myresult_close);
         youtype_li_bg = (LinearLayout) findViewById(R.id.youtype_li_bg);
@@ -249,4 +258,29 @@ public class YouType_Activity extends AppCompatActivity {
             }
         }
     };
+
+    public void prevBtn(View v) {
+        finish();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                finish();
+                break;
+
+            default:
+                break;
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public void finish()
+    {
+        super.finish();
+        overridePendingTransition(R.anim.slide_close_down_info, R.anim.slide_clode_up_info);
+    }
 }

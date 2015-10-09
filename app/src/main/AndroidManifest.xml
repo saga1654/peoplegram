@@ -42,6 +42,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+
         </activity>
         <activity
             android:name=".MyQuestion_Activity"
@@ -55,10 +56,7 @@
         <activity android:name=".MemberJoin_Activity" >
         </activity>
         <activity android:name=".MyType_Activity" >
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:allowBackup="true" >
+
         </activity>
         <activity android:name=".Setting_NoticeActivity" >
         </activity>
@@ -97,18 +95,25 @@
         <activity android:name=".SubQnaWriteActivity" >
         </activity>
         <activity
-            android:name=".SubPeopleContents_Activity"
-            android:label="@string/title_activity_sub_people_contents_" >
+            android:name=".SubPeopleContents_Activity">
         </activity>
         <activity
             android:name=".ProfileActivity"
-            android:label="@string/title_activity_profile"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
             android:name=".ProfileDetailActivity"
-            android:label="@string/title_activity_profile_detail"
             android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme" >
+
+        </activity>
+        <activity android:name=".SettingActivity" >
+        </activity>
+
+        <activity android:name=".SubMyType_Activity" >
         </activity>
     </application>
 

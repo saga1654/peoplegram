@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">app</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
 
 
     <!-- 나의 평가 질문지 START -->
@@ -40,43 +38,6 @@
     <string name="step9_right">빠르고 행동적인 편</string>
     <string name="step10_left">영향을 받는 편</string>
     <string name="step10_right">별 영향을 받지 않는 편</string>
-
-    <string name="title_activity_logo">LogoActivity</string>
-    <string name="title_activity_member_join_">MemberJoin_Activity</string>
-    <string name="title_activity_my_type_">MyType_Activity</string>
-
-
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="action_example">Example action</string>
-    <string name="title_activity_main">Peoplegram</string>
-
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
-    <string name="title_activity_menu">MenuActivity</string>
-    <string name="title_activity_my_question__result_">MyQuestion_Result_Activity</string>
-    <string name="title_activity_main2">Main2Activity</string>
-    <string name="title_activity_setting__notice">Setting_NoticeActivity</string>
-    <string name="title_activity_setting__question">Setting_QuestionActivity</string>
-    <string name="title_activity_notice">NoticeActivity</string>
-    <string name="title_activity_setting__user_agree">Setting_UserAgreeActivity</string>
-    <string name="title_activity_setting__user_info">Setting_UserInfoActivity</string>
-    <string name="title_activity_my_type__result_">MyType_Result_Activity</string>
-    <string name="title_activity_sub_people_list_popup_">SubPeopleListPopup_Activity</string>
-    <string name="title_activity_sub_people_list_select_">SubPeopleListSelect_Activity</string>
-    <string name="title_activity_you_type__actvity_step1">YouType_Actvity_step1</string>
-    <string name="title_activity_you_type__activity_step2">YouType_Activity_step2</string>
-    <string name="title_activity_my_filling">MyFilling</string>
-    <string name="title_activity_my_filling__comment_">MyFilling_Comment_Activity</string>
-    <string name="title_activity_my_now_acitivity">MyNowAcitivity</string>
-    <string name="title_activity_have_write">HaveWriteActivity</string>
-    <string name="title_activity_sub_qna">SubQnaActivity</string>
-    <string name="title_activity_sub_qna_write">SubQnaWriteActivity</string>
-    <string name="title_activity_sub_people_contents_">SubPeopleContents_Activity</string>
-    <string name="title_activity_profile">ProfileActivity</string>
-    <string name="title_activity_profile_detail">ProfileDetailActivity</string>
 
 
 

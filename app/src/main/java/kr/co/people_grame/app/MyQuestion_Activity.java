@@ -343,6 +343,7 @@ public class MyQuestion_Activity extends FragmentActivity {
                     SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);
                     intent = new Intent(MyQuestion_Activity.this, MyType_Activity.class);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     finish();
 
                 }

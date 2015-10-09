@@ -297,6 +297,7 @@ public class YouType_Activity_step2 extends FragmentActivity {
                     intent.putExtra("youtype", response);
                     //SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     finish();
 
                 }
