@@ -20,56 +20,6 @@
             android:text="필링작성하기" />
             -->
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-            android:background="#fae504"
-            android:gravity="center">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-
-                <kr.co.people_grame.app.CircularImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/profile_temp"
-                    android:id="@+id/profile_img"
-                    app:border_color="#EEEEEE"
-                    app:border_width="2dp"
-                    app:shadow="true"/>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="-25dp">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/profile_type"
-                        android:src="@mipmap/peoplelist_type_default"/>
-                </RelativeLayout>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/profile_username"
-                    android:text="테스트"
-                    android:textColor="#1d1d26"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -199,7 +149,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="본인 포함 최소 2명 이상 진단된 경우에 볼 수 있습니다."
+                        android:text="본인 제외 최소 3명 이상 진단된 경우에 볼 수 있습니다."
                         android:textSize="9dp"
                         android:textColor="#696969"/>
 
@@ -278,7 +228,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="본인 포함 최소 2명 이상 진단된 경우에 볼 수 있습니다."
+                        android:text="연인으로 설정된 피플이 진단된 경우에 볼 수 있습니다."
                         android:textSize="9dp"
                         android:textColor="#696969"/>
 
@@ -356,7 +306,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="본인 포함 최소 2명 이상 진단된 경우에 볼 수 있습니다."
+                        android:text="본인 제외 최소 3명 이상 진단된 경우에 볼 수 있습니다."
                         android:textSize="9dp"
                         android:textColor="#696969"/>
 
@@ -434,7 +384,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="본인 포함 최소 2명 이상 진단된 경우에 볼 수 있습니다."
+                        android:text="고객으로 설정된 피플이 진단된 경우에 볼 수 있습니다."
                         android:textSize="9dp"
                         android:textColor="#696969"/>
 
