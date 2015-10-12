@@ -23,6 +23,21 @@
         android:name="android.hardware.camera"
         android:required="false" />
 
+    <!-- GCM 등록 권한 -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission
+        android:name="com.example.gcm.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.example.gcm.permission.C2D_MESSAGE" />
+
+    <!-- 진동 권한 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- SD카드 READ 권한 -->
     <user-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -32,22 +47,56 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <!-- [START gcm_receiver] -->
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="net.saltfactory.demo.gcm" />
+            </intent-filter>
+        </receiver>
+        <!-- [END gcm_receiver] -->
+
+        <!-- [START gcm_listener_service] -->
+        <service
+            android:name="kr.co.people_grame.app.MyGcmListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <!-- [END gcm_listener_service] -->
+
+        <!-- [START instanceId_listener_service] -->
+        <service
+            android:name="kr.co.people_grame.app.MyInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        <!-- [END instanceId_listener_service] -->
+
+        <!-- [START gcm_registration_service] -->
+        <service
+            android:name="kr.co.people_grame.app.RegistrationIntentService"
+            android:exported="false"></service>
+        <!-- [END gcm_registration_service] -->
+
         <activity
             android:name=".LogoActivity"
             android:label="@string/app_name" >
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
         <activity
             android:name=".MyQuestion_Activity"
             android:label="질문지" >
-
         </activity>
         <activity
             android:name=".LoginActivity"
@@ -56,7 +105,6 @@
         <activity android:name=".MemberJoin_Activity" >
         </activity>
         <activity android:name=".MyType_Activity" >
-
         </activity>
         <activity android:name=".Setting_NoticeActivity" >
         </activity>
@@ -94,8 +142,7 @@
         </activity>
         <activity android:name=".SubQnaWriteActivity" >
         </activity>
-        <activity
-            android:name=".SubPeopleContents_Activity">
+        <activity android:name=".SubPeopleContents_Activity" >
         </activity>
         <activity
             android:name=".ProfileActivity"
@@ -108,11 +155,9 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme" >
-
         </activity>
         <activity android:name=".SettingActivity" >
         </activity>
-
         <activity android:name=".SubMyType_Activity" >
         </activity>
     </application>

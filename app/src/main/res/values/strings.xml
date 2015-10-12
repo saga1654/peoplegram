@@ -40,5 +40,8 @@
     <string name="step10_right">별 영향을 받지 않는 편</string>
 
 
+    <string name="gcm_defaultSenderId">71013771468</string>
+
+
 
 </resources>
