@@ -34,15 +34,15 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
         View rootView = inflater.inflate(R.layout.sub_fragment_peopletype, container, false);
 
         profile_img = (CircularImageView) rootView.findViewById(R.id.profile_img);
-        profile_username = (TextView) rootView.findViewById(R.id.profile_username);
-        profile_type = (ImageView) rootView.findViewById(R.id.profile_type);
-        aq = new AQuery(getActivity());
+        //profile_username = (TextView) rootView.findViewById(R.id.profile_username);
+        //profile_type = (ImageView) rootView.findViewById(R.id.profile_type);
+       // aq = new AQuery(getActivity());
 
-        String filename = SharedPreferenceUtil.getSharedPreference(getActivity(), "profile_image");
-        profile_img_view(filename);
+        //String filename = SharedPreferenceUtil.getSharedPreference(getActivity(), "profile_image");
+        //profile_img_view(filename);
 
-        profile_username.setText(SharedPreferenceUtil.getSharedPreference(getActivity(), "username"));
-
+        //profile_username.setText(SharedPreferenceUtil.getSharedPreference(getActivity(), "username"));
+/*
         switch (SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype")) {
             case "I":
                 profile_type.setImageResource(R.mipmap.peoplelist_type_i);
@@ -60,7 +60,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                 profile_type.setImageResource(R.mipmap.peoplelist_type_default);
                 break;
         }
-
+*/
         return rootView;
     }
 
