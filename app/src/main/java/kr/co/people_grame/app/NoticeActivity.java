@@ -51,6 +51,7 @@ public class NoticeActivity extends AppCompatActivity {
 
 
         expListView = (ExpandableListView) findViewById(R.id.lvExp);
+        expListView.setGroupIndicator(null);
         //prepareListData();
 
         RequestParams params = new RequestParams();

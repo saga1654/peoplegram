@@ -2,6 +2,7 @@ package kr.co.people_grame.app;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -15,6 +16,12 @@ public class SubQnaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_qna);
+    }
+
+    public void qnaWrite(View v) {
+        Intent intent = new Intent(SubQnaActivity.this, SubQnaWriteActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
     }
 
     @Override
