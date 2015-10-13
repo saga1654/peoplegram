@@ -1,13 +1,11 @@
 package kr.co.people_grame.app;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Matrix;
+import android.graphics.drawable.AnimationDrawable;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,15 +15,10 @@ import android.view.View;
 import android.content.DialogInterface;
 import android.app.AlertDialog;
 import android.view.KeyEvent;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AlphaAnimation;
+import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
-import android.view.animation.Transformation;
-import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -39,13 +32,19 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class LogoActivity extends AppCompatActivity {
 
     private Intent intent;
     private String uid, username;
 
     private LinearLayout login_activity_li_logo, login_activity_li_btn;
+    private ImageView logo_imageView;
     private ProgressDialog dialog;
+    private AnimationDrawable frameAnimation;
+    private Animation animation;
 
     private String token = "";
 
@@ -136,12 +135,19 @@ public class LogoActivity extends AppCompatActivity {
                     //mRegistrationButton.setEnabled(false);
                     String token = intent.getStringExtra("token");
                     SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "token", token);
-                    //Log.d("people_gram", "토큰="+token);
+                    Log.d("people_gram", "토큰=" + token);
                     //mInformationTextView.setText(token);
                 }
 
             }
         };
+    }
+
+    public void onWindowFocusChanged(boolean hasFocus) {
+
+        super.onWindowFocusChanged(hasFocus);
+
+
     }
 
     @Override
@@ -151,40 +157,112 @@ public class LogoActivity extends AppCompatActivity {
         if(SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "token") == "") {
             registBroadcastReceiver();
             getInstanceIdToken();
-        } else {
-
-
         }
 
-        Log.d("people_gram", "토큰저장="+SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "token"));
+        //Log.d("people_gram", "토큰저장="+SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "token"));
+
+
+        if(Utilities.getNetworkType(this) == 3) {
+            new AlertDialog.Builder(this)
+                    .setTitle("프로그램 종료")
+                    .setMessage("네트워크가 정상적으로 연결되지 않았습니다.")
+                    .setPositiveButton("예", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                            moveTaskToBack(true);
+                            android.os.Process.killProcess(android.os.Process.myPid());
+                        }
+                    })
+                    .show();
+        }
+
+        setContentView(R.layout.activity_logo);
+
+        login_activity_li_btn = (LinearLayout) findViewById(R.id.login_activity_li_btn);
+
+        logo_imageView = (ImageView) findViewById(R.id.logo_imageView);
+        logo_imageView.setBackgroundResource(R.drawable.logo_animation);
+        frameAnimation = (AnimationDrawable) logo_imageView.getBackground();
+        frameAnimation.start();
+
+        long totalDuration = 0;
+        for(int i = 0; i < frameAnimation.getNumberOfFrames(); i++) {
+            totalDuration += frameAnimation.getDuration(i);
+        }
+
+        Timer timer = new Timer();
+
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                frameAnimation.stop();
+
+                if(SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "uid") == "") {
+                    Intent intent = new Intent(LogoActivity.this, StartActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+                    finish();
+                    //login_activity_li_btn.setVisibility(View.VISIBLE);
+                } else {
+                    RequestParams params = new RequestParams();
+                    params.put("uid", SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "uid"));
+                    params.put("token", SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "token"));
+                    HttpClient.post("/user/pointSelect", params, new AsyncHttpResponseHandler() {
+                        public void onStart() {
+                        }
+
+                        public void onFinish() {
+                        }
+
+                        @Override
+                        public void onSuccess(String response) {
+
+                            try {
+                                JSONObject jobj = new JSONObject(response);
+
+
+                                SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "point", jobj.getString("POINT"));
+                                SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "mytype", jobj.getString("MYTYPE"));
+                                SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "my_speed", jobj.getString("MY_SPEED"));
+                                SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "my_control", jobj.getString("MY_CONTROL"));
+                                SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "email", jobj.getString("EMAIL"));
+
+
+                                Intent intent = new Intent(LogoActivity.this, MainActivity.class);
+                                startActivity(intent);
+                                overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+                                finish();
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+
+
+
+                        }
+                    });
+                }
+            }
+        };
+        timer.schedule(timerTask, totalDuration);
+
+
+
+        //Log.d("people_gram", "토큰저장="+SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "token"));
 
         //getInstanceIdToken();
 
 
 
 
-        login_activity_li_logo = (LinearLayout) findViewById(R.id.login_activity_li_logo);
-        login_activity_li_btn = (LinearLayout) findViewById(R.id.login_activity_li_btn);
-
-        //Animation animation = AnimationUtils.loadAnimation(this, R.anim.logo_fade);
-        //login_activity_li_btn.startAnimation(animation);
+        //login_activity_li_logo = (LinearLayout) findViewById(R.id.login_activity_li_logo);
+        //login_activity_li_btn = (LinearLayout) findViewById(R.id.login_activity_li_btn);
 
 
-        //login_activity_li_btn.startAnimation(new ViewAnimation());
-
-        //login_activity_li_btn.setVisibility(View.GONE);
         /*
-        AnimationSet set = new AnimationSet(true);
-        set.setInterpolator(new AccelerateInterpolator());
-
-        Animation ani01 = new AlphaAnimation(0.0f, 1.0f);
-        ani01.setDuration(5000);
-
-        login_activity_li_btn.setAnimation(set);
-        */
-
-        //Log.d("people_gram", SharedPreferenceUtil.getSharedPreference(this, "uid"));
-
         if(Utilities.getNetworkType(this) == 3) {
             new AlertDialog.Builder(this)
                     .setTitle("프로그램 종료")
@@ -255,22 +333,10 @@ public class LogoActivity extends AppCompatActivity {
 
 
 
-        }
-
-        //if(Utilities.getNetworkType(this) == 3) {
-
-
-        //LinearLayout.LayoutParams logoParams = (LinearLayout.LayoutParams) login_activity_li_logo.getLayoutParams();
-        /*
-        uid = SharedPreferenceUtil.getSharedPreference(this, "uid");
-        username = SharedPreferenceUtil.getSharedPreference(this, "username");
-        if(!uid.equals("")) {
-
 
         }
         */
 
-        setContentView(R.layout.activity_logo);
     }
 
     public void btn_memberJoin(View v)

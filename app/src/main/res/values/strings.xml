@@ -41,6 +41,7 @@
 
 
     <string name="gcm_defaultSenderId">71013771468</string>
+    <string name="title_activity_start">StartActivity</string>
 
 
 

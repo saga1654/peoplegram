@@ -75,10 +75,11 @@ public class LoginActivity extends AppCompatActivity {
 
         RequestParams params = new RequestParams();
 
+        Log.d("people_gram", SharedPreferenceUtil.getSharedPreference(LoginActivity.this, "token"));
 
         params.put("userID", et_userid.getText().toString());
         params.put("userPW", et_userpw.getText().toString());
-
+        params.put("token", SharedPreferenceUtil.getSharedPreference(LoginActivity.this, "token"));
         Log.d("people_gram", "데이터 전송시작");
 
 
@@ -96,7 +97,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(String response)
             {
-
                 try {
                     JSONArray json = new JSONArray(response);
                     JSONObject jobj = json.getJSONObject(0);
@@ -118,9 +118,9 @@ public class LoginActivity extends AppCompatActivity {
                             String mytype = user_data.get("MYTYPE").toString();
 
 
+
                             SharedPreferenceUtil.putSharedPreference(ActivityContext, "uid", uid);
                             SharedPreferenceUtil.putSharedPreference(ActivityContext, "username", username);
-
 
 
                             if(mytype.equals("N")) {
@@ -133,6 +133,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             startActivity(intent);
                             finish();
+
 
 
 
@@ -158,71 +159,9 @@ public class LoginActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                /*
-                JSONArray json;
-                try {
-                    JSONArray json = new JSONArray(response);
-                    JSONObject jobj = json.getJSONObject(0);
-                    String code = jobj.getString("code");
 
-
-
-                    //Log.d("people_gram", user_data.getString("UID"));
-
-                    switch (code.toString()) {
-                        case "000":
-                            // SharedPreference 넣기
-                            JSONArray array = (JSONArray) jobj.get("user_data");
-                            JSONObject user_data = (JSONObject) array.get(0);
-
-
-                            String uid = user_data.get("UID").toString();
-                            String username = user_data.get("USERNICKNAME").toString();
-                            String mytype = user_data.get("MYTYPE").toString();
-
-                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "uid", uid);
-                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "username", username);
-                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", mytype);
-
-
-                            if(mytype.equals("N")) {
-                                intent = new Intent(LoginActivity.this, MyQuestion_Activity.class);
-                            } else {
-                                intent = new Intent(LoginActivity.this, MainActivity.class);
-                            }
-
-                            startActivity(intent);
-                            finish();
-
-
-
-                            //Log.d("people_gram", "로그인 성공");
-
-                            break;
-
-
-                        case "101":
-                            Log.d("people_gram", "Error");
-                            break;
-                        case "102":
-                            Log.d("people_gram", "Error");
-                            break;
-                        case "999":
-                            Log.d("people_gram", "아이디가 존재하지 않습니다.");
-                            break;
-                        case "998":
-                            Log.d("people_gram", "패스워드가 일치하지 않습니다.");
-                            break;
-                    }
-
-                } catch(JSONException e) {
-                    e.printStackTrace();
-                }
-
-
-                */
-                //Log.d("people_gram", response);
             }
+
 
 
         });

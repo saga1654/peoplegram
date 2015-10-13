@@ -5,7 +5,7 @@
     android:background="#2f334b"
     android:orientation="vertical"
     tools:context="kr.co.people_grame.apppeoplegram.LogoActivity"
-    android:gravity="center">
+    android:weightSum="1">
 
     <!--
     <LinearLayout
@@ -71,20 +71,22 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:id="@+id/login_activity_li_logo"
+        android:layout_weight="0.60"
         android:gravity="center">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/logo_imageView"
+            android:src="@drawable/login_logo1"
             android:layout_gravity="center_horizontal" />
     </LinearLayout>
 
-    <!--
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0.40"
         android:id="@+id/login_activity_li_btn"
         android:layout_gravity="center_horizontal"
         android:gravity="center">
@@ -103,8 +105,6 @@
                 android:onClick="btn_memberLogin"
                 android:background="@android:color/transparent" />
         </LinearLayout>
-
-
 
         <LinearLayout
             android:orientation="vertical"
@@ -140,5 +140,4 @@
 
 
     </LinearLayout>
-    -->
 </LinearLayout>
