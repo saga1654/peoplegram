@@ -40,6 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0.01">
+            <!--
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,6 +57,7 @@
                     android:id="@+id/listview_proplelist_img"
                     android:src="@mipmap/peoplelist_type_a"/>
             </RelativeLayout>
+            -->
 
         </LinearLayout>
 

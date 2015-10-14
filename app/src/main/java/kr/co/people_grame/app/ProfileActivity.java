@@ -110,10 +110,11 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
-
+        /*
         profile_img = (CircularImageView) findViewById(R.id.profile_img);
         String filename = SharedPreferenceUtil.getSharedPreference(ProfileActivity.this, "profile_image");
         profile_img_view(filename);
+        */
     }
 
     public void galleryView(View v) {

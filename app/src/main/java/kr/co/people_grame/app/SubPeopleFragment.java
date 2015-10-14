@@ -10,7 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -49,6 +51,36 @@ public class SubPeopleFragment extends Fragment {
         sf_people_list = (ListView)rootView.findViewById(R.id.sf_people_list);
         sf_people_list.addHeaderView(header);
 
+        ImageView listview_proplelist_img = (ImageView) rootView.findViewById(R.id.listview_proplelist_img);
+        TextView listview_my_people_list_username = (TextView) rootView.findViewById(R.id.listview_my_people_list_username);
+        TextView listview_my_people_list_email = (TextView) rootView.findViewById(R.id.listview_my_people_list_email);
+
+
+        listview_my_people_list_username.setText(SharedPreferenceUtil.getSharedPreference(getActivity(), "username"));
+        listview_my_people_list_email.setText(SharedPreferenceUtil.getSharedPreference(getActivity(), "email"));
+
+        switch (SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype"))
+        {
+            case "A":
+                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_a);
+                break;
+
+            case "I":
+                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_i);
+                break;
+
+            case "D":
+                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_d);
+                break;
+
+            case "E":
+                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_e);
+                break;
+
+            default:
+                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_default);
+                break;
+        }
 
 
         //peopleList();
@@ -57,20 +89,25 @@ public class SubPeopleFragment extends Fragment {
         sf_people_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                SubPeopleListDTO dto = (SubPeopleListDTO) sf_people_list.getItemAtPosition(position);
-                Intent intent = new Intent(getActivity().getBaseContext(), SubPeopleListPopup_Activity.class);
+                if(position == 0) {
 
-                intent.putExtra("people_uid", dto.get_profile_uid());
-                intent.putExtra("people_username", dto.get_profile_username());
-                intent.putExtra("people_mood", dto.get_profile_mood());
-                intent.putExtra("people_type", dto.get_profile_type());
-                intent.putExtra("people_gubun1", dto.get_profile_gubun1());
-                intent.putExtra("people_gubun2", dto.get_profile_gubun2());
-                intent.putExtra("people_speed", dto.get_profile_speed());
-                intent.putExtra("people_control", dto.get_profile_control());
 
-                startActivity(intent);
-                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                } else {
+                    SubPeopleListDTO dto = (SubPeopleListDTO) sf_people_list.getItemAtPosition(position);
+                    Intent intent = new Intent(getActivity().getBaseContext(), SubPeopleListPopup_Activity.class);
+
+                    intent.putExtra("people_uid", dto.get_profile_uid());
+                    intent.putExtra("people_username", dto.get_profile_username());
+                    intent.putExtra("people_mood", dto.get_profile_mood());
+                    intent.putExtra("people_type", dto.get_profile_type());
+                    intent.putExtra("people_gubun1", dto.get_profile_gubun1());
+                    intent.putExtra("people_gubun2", dto.get_profile_gubun2());
+                    intent.putExtra("people_speed", dto.get_profile_speed());
+                    intent.putExtra("people_control", dto.get_profile_control());
+
+                    startActivity(intent);
+                    getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                }
             }
         });
 

@@ -116,17 +116,14 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
         detail_myname.setText(myname);
         detail_youname.setText(people_name);
 
-        people_click_btn = (ImageButton) findViewById(R.id.people_click_btn);
         people_tip_btn = (ImageButton) findViewById(R.id.people_tip_btn);
-        people_now_btn = (ImageButton) findViewById(R.id.people_now_btn);
 
-        people_click_btn.setOnClickListener(onBtnClickListener);
         people_tip_btn.setOnClickListener(onBtnClickListener);
-        people_now_btn.setOnClickListener(onBtnClickListener);
 
         fragmentManager = getSupportFragmentManager();
         ft = fragmentManager.beginTransaction();
-        SubMainFragment sub_m_fragment = new SubMainFragment();
+
+        SubPeopleSelect_MainFragment sub_m_fragment = new SubPeopleSelect_MainFragment();
         ft.replace(R.id.fragment_sub_people, sub_m_fragment);
         ft.commit();
 
@@ -145,17 +142,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
 
             switch (v.getId()) {
-                case R.id.people_click_btn:
-                    people_click_btn.setImageResource(R.drawable.people_click_btn_on);
-                    people_tip_btn.setImageResource(R.drawable.people_tip_btn_off);
-                    people_now_btn.setImageResource(R.drawable.people_now_btn_off);
 
-                    break;
-                case R.id.people_now_btn:
-                    people_click_btn.setImageResource(R.drawable.people_click_btn_off);
-                    people_tip_btn.setImageResource(R.drawable.people_tip_btn_off);
-                    people_now_btn.setImageResource(R.drawable.people_now_btn_on);
-                    break;
                 case R.id.people_tip_btn:
                     people_click_btn.setImageResource(R.drawable.people_click_btn_off);
                     people_tip_btn.setImageResource(R.drawable.people_tip_btn_on);

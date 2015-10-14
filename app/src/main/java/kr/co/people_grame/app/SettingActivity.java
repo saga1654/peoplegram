@@ -22,6 +22,10 @@ public class SettingActivity extends AppCompatActivity {
         top_title.setText("설정");
     }
 
+    public void settingPrev(View v) {
+        finish();
+    }
+
     public void finish()
     {
         super.finish();

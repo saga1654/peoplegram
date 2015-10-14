@@ -41,8 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:weightSum="0.99"
-            android:paddingTop="30dp"
-            android:paddingBottom="10dp">
+            android:paddingTop="10dp">
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -83,8 +82,7 @@
                     android:id="@+id/circularprogressbar2"
                     style="@style/Widget.ProgressBar.Holo.CircularProgressBar"
                     android:layout_width="80dip"
-                    android:layout_height="80dip"
-                    android:layout_marginTop="10dip"
+                    android:layout_height="wrap_content"
                     circular:cpb_subtitle="subtitle"
                     circular:cpb_title="Title" />
 
@@ -146,20 +144,38 @@
 
         <!-- 매칭 피플 Textview -->
         <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingTop="5dp"
-            android:paddingBottom="20dp">
+            android:paddingBottom="5dp"
+            android:paddingLeft="120dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="피플 중 상위 3% 매칭율"
-                android:textSize="10dp"
-                android:textColor="#1d1d26" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="피플 중 상위 3% 매칭율"
+                    android:textSize="10dp"
+                    android:textColor="#1d1d26" />
+
+
+
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:paddingLeft="30dp"
+                    android:id="@+id/people_tip_btn"
+                    android:src="@drawable/people_tip_btn_off"/>
+
+
         </LinearLayout>
 
+
+        <!--
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -196,6 +212,7 @@
 
 
     </LinearLayout>
+    -->
     <!--
     <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
@@ -219,15 +236,15 @@
 
     </android.support.v4.widget.SwipeRefreshLayout>
     -->
-    <FrameLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
-        android:id="@+id/fragment_sub_people"
-        android:layout_centerHorizontal="true">
+        <FrameLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"
+            android:id="@+id/fragment_sub_people"
+            android:layout_centerHorizontal="true">
+        </FrameLayout>
 
-    </FrameLayout>
 
-
+    </LinearLayout>
 </LinearLayout>

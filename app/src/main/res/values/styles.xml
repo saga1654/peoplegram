@@ -10,12 +10,12 @@
         <item name="android:textColorPrimary">#ffffff</item>
         <item name="colorPrimary">#31344d</item>
         <item name="colorPrimaryDark">#31344d</item>
-        <item name="colorAccent">#ffffff</item>
+        <item name="colorAccent">#32354d</item>
         <item name="drawerArrowStyle">@style/MyDrawerArrowToggle</item>
     </style>
 
     <style name="MyDrawerArrowToggle" parent="Widget.AppCompat.DrawerArrowToggle">
-        <item name="color">@android:color/white</item>
+        <item name="color">#32354d</item>
     </style>
 
     <style name="TransparentTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">

@@ -59,6 +59,12 @@ public class YouType_Actvity_step1 extends AppCompatActivity {
 
     }
 
+    public void finish()
+    {
+        super.finish();
+        overridePendingTransition(R.anim.end_enter, R.anim.end_exit);
+    }
+
     public void step1_btn(View v)
     {
         switch (v.getId()) {

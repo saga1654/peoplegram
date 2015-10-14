@@ -32,15 +32,14 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_sub_people_list_popup_);
 
 
+
         popup_username = (TextView) findViewById(R.id.popup_username);
-        popup_mood = (TextView) findViewById(R.id.popup_mood);
         popup_type = (ImageView) findViewById(R.id.popup_type);
 
         Intent intent = getIntent();
         if(intent != null) {
             people_uid = intent.getStringExtra("people_uid");
             people_username = intent.getStringExtra("people_username");
-            people_mood = intent.getStringExtra("people_mood");
             people_type = intent.getStringExtra("people_type");
             people_gubun1 = intent.getStringExtra("people_gubun1");
             people_gubun2 = intent.getStringExtra("people_gubun2");
@@ -51,7 +50,6 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
             PeopleData pd = new PeopleData();
             pd.set_people_uid(people_uid);
             pd.set_people_username(people_username);
-            pd.set_people_mood(people_mood);
             pd.set_people_type(people_type);
             pd.set_people_gubun1(people_gubun1);
             pd.set_people_gubun2(people_gubun2);
@@ -61,31 +59,27 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
             popup_username.setText(people_username);
 
-            if(people_mood.equals("")) {
-                popup_mood.setText("미설정");
-            } else {
-                popup_mood.setText(people_mood);
-            }
 
             switch (people_type) {
                 case "A":
-                    popup_type.setImageResource(R.mipmap.peoplelist_type_a);
+                    popup_type.setImageResource(R.mipmap.people_type_a);
                     break;
                 case "E":
-                    popup_type.setImageResource(R.mipmap.peoplelist_type_e);
+                    popup_type.setImageResource(R.mipmap.people_type_e);
                     break;
                 case "D":
-                    popup_type.setImageResource(R.mipmap.peoplelist_type_d);
+                    popup_type.setImageResource(R.mipmap.people_type_d);
                     break;
                 case "I":
-                    popup_type.setImageResource(R.mipmap.peoplelist_type_i);
+                    popup_type.setImageResource(R.mipmap.people_type_i);
                     break;
                 default:
-                    popup_type.setImageResource(R.mipmap.peoplelist_type_default);
+                    popup_type.setImageResource(R.mipmap.people_type_default);
                     break;
             }
 
         }
+
 
     }
 

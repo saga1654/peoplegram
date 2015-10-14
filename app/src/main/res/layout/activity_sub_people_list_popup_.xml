@@ -56,12 +56,14 @@
                     android:paddingTop="10dp"
                     android:gravity="center"
                     android:paddingBottom="80dp">
-                    <TextView
+
+                    <Switch
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#1d1d26"
-                        android:id="@+id/popup_mood"
-                        android:text="즐거운" />
+                        android:background="@drawable/style_sub_people_list_popup_switch"
+                        android:thumb="@android:color/transparent"
+                        android:track="@android:color/transparent"
+                        />
                 </LinearLayout>
 
                 <LinearLayout
@@ -87,7 +89,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/people_popup_btn1"/>
+                            android:src="@drawable/people_popup_btn1_style"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -98,7 +100,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="peopleType_btn"
-                            android:src="@drawable/people_popup_btn2"/>
+                            android:src="@drawable/people_popup_btn2_style"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -109,7 +111,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="peopleView_btn"
-                            android:src="@drawable/people_popup_btn3"/>
+                            android:src="@drawable/people_popup_btn3_style"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -119,7 +121,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/people_popup_btn4"/>
+                            android:src="@drawable/people_popup_btn4_style"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -128,20 +130,24 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="190dp"
+        android:paddingTop="220dp"
         android:layout_gravity="center_horizontal">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/popup_type"
             android:background="@android:color/transparent"
-            android:src="@drawable/people_popup_bg" />
+            android:src="@mipmap/people_type_default" />
 
     </RelativeLayout>
 
+    <!--
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -154,4 +160,5 @@
             android:id="@+id/popup_type"
             android:src="@mipmap/peoplelist_type_a"/>
     </RelativeLayout>
+    -->
 </RelativeLayout>

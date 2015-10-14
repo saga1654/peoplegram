@@ -58,23 +58,14 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent" >
-                <LinearLayout
+                android:layout_height="match_parent"
+                android:layout_weight="0.05">
+
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/people_content_small_bg">
-
-                </LinearLayout>
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="-15dp">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/listview_proplelist_img"
-                        android:src="@mipmap/peoplelist_type_a"/>
-                </RelativeLayout>
+                    android:id="@+id/listview_proplelist_img"
+                    android:src="@mipmap/peoplelist_type_default"/>
             </LinearLayout>
 
 
@@ -82,7 +73,7 @@
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="0.80"
+                android:layout_weight="0.90"
                 android:gravity="center_vertical"
                 android:paddingLeft="20dp">
                 <TextView
@@ -102,6 +93,24 @@
                     android:textSize="10dp"
                     android:textColor="#a8a8aa"/>
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="0.05">
+
+
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/style_sub_people_list_popup_switch"
+                    android:thumb="@android:color/transparent"
+                    android:track="@android:color/transparent"
+                    android:id="@+id/mytype_switch" />
+            </LinearLayout>
+
 
         </LinearLayout>
 
@@ -125,14 +134,41 @@
             android:layout_height="wrap_content"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
-            android:paddingLeft="15dp">
-            <TextView
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:weightSum="1">
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="#7c7c7f"
-                android:textSize="11dp"
-                android:text="친구" />
+                android:layout_weight="0.50">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#7c7c7f"
+                    android:textSize="11dp"
+                    android:text="친구" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.50"
+                android:gravity="right">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#7c7c7f"
+                    android:textSize="11dp"
+                    android:text="매칭률" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
 .

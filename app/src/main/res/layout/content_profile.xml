@@ -50,6 +50,7 @@
             android:onClick="galleryView">
 
 
+            <!--
             <kr.co.people_grame.app.CircularImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
@@ -58,6 +59,7 @@
                 app:border_color="#EEEEEE"
                 app:border_width="2dp"
                 app:shadow="true"/>
+                -->
 
             <RelativeLayout
                 android:layout_width="wrap_content"

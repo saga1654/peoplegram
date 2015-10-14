@@ -33,7 +33,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.sub_fragment_peopletype, container, false);
 
-        profile_img = (CircularImageView) rootView.findViewById(R.id.profile_img);
+        //profile_img = (CircularImageView) rootView.findViewById(R.id.profile_img);
         //profile_username = (TextView) rootView.findViewById(R.id.profile_username);
         //profile_type = (ImageView) rootView.findViewById(R.id.profile_type);
        // aq = new AQuery(getActivity());
