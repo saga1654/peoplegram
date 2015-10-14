@@ -32,6 +32,7 @@ public class SubPeopleFragment_tip extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.subpeople_fragment, container, false);
 
+        /*
         subpeople_menu1 = (LinearLayout) rootView.findViewById(R.id.subpeople_menu1);
         subpeople_menu2 = (LinearLayout) rootView.findViewById(R.id.subpeople_menu2);
         subpeople_menu3 = (LinearLayout) rootView.findViewById(R.id.subpeople_menu3);
@@ -58,6 +59,7 @@ public class SubPeopleFragment_tip extends Fragment {
         subpeople_menu6.setOnTouchListener(onBtnTouchListener);
         subpeople_menu6.setOnClickListener(onBtnClickListener);
 
+*/
         return rootView;
     }
 

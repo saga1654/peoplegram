@@ -10,9 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -36,6 +39,7 @@ public class SubPeopleFragment extends Fragment {
     private SubPeopleListAdapter people_adapter_list;
 
     private View mainView;
+    private ImageView listview_proplelist_img;
 
     public SubPeopleFragment() {
         Log.d("people_gram", "Fragment_실행");
@@ -51,9 +55,83 @@ public class SubPeopleFragment extends Fragment {
         sf_people_list = (ListView)rootView.findViewById(R.id.sf_people_list);
         sf_people_list.addHeaderView(header);
 
-        ImageView listview_proplelist_img = (ImageView) rootView.findViewById(R.id.listview_proplelist_img);
+        listview_proplelist_img = (ImageView) rootView.findViewById(R.id.listview_proplelist_img);
         TextView listview_my_people_list_username = (TextView) rootView.findViewById(R.id.listview_my_people_list_username);
         TextView listview_my_people_list_email = (TextView) rootView.findViewById(R.id.listview_my_people_list_email);
+
+        Switch listview_mytype_switch = (Switch) rootView.findViewById(R.id.listview_mytype_switch);
+        listview_mytype_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked == false) {
+                    switch (SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype"))
+                    {
+                        case "A":
+                            listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_a);
+                            break;
+
+                        case "I":
+                            listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_i);
+                            break;
+
+                        case "D":
+                            listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_d);
+                            break;
+
+                        case "E":
+                            listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_e);
+                            break;
+
+                        default:
+                            listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_default);
+                            break;
+                    }
+                } else {
+                    RequestParams params = new RequestParams();
+                    params.put("uid", SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid"));
+                    HttpClient.post("/user/profile_people_type", params, new AsyncHttpResponseHandler() {
+                        public void onStart() {
+                            //Log.d("people_gram", "시작");
+                            dialog = ProgressDialog.show(getActivity(), "", "데이터 수신중");
+                        }
+
+                        public void onFinish() {
+                            dialog.dismiss();
+                        }
+
+                        @Override
+                        public void onSuccess(String response) {
+
+                            switch (response)
+                            {
+                                case "A":
+                                    listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_a);
+                                    break;
+
+                                case "I":
+                                    listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_i);
+                                    break;
+
+                                case "D":
+                                    listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_d);
+                                    break;
+
+                                case "E":
+                                    listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_e);
+                                    break;
+
+                                default:
+                                    Toast.makeText(getActivity(), "피플이 귀하를 진단하지 않았습니다.\n피플들에게 요청하세요.", Toast.LENGTH_SHORT).show();
+                                    listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_default);
+                                    break;
+                            }
+                        }
+                    });
+                }
+            }
+        });
+
+
 
 
         listview_my_people_list_username.setText(SharedPreferenceUtil.getSharedPreference(getActivity(), "username"));
@@ -78,6 +156,7 @@ public class SubPeopleFragment extends Fragment {
                 break;
 
             default:
+
                 listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_default);
                 break;
         }

@@ -6,20 +6,64 @@
     tools:context="kr.co.people_grame.app.SubPeopleListSelect_Activity"
     android:orientation="vertical">
 
-    <LinearLayout
+    <LinearLayout android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:paddingLeft="20dp"
-        android:background="#fae504">
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:background="#32354d">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#1d1d26"
-            android:text="매칭피플">
-        </TextView>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.10"
+                android:onClick="settingPrev"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/prev_btn" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.80"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:text="피플매칭"
+                    android:id="@+id/top_title"
+                    android:textColor="#ffffff"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.10"
+                android:gravity="center">
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
 
     </LinearLayout>
 
@@ -47,8 +91,8 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:paddingRight="15dp"
+                    android:gravity="center"
+                    android:paddingLeft="15dp"
                     android:layout_weight="0.33">
                     <LinearLayout
                     android:orientation="vertical"
@@ -57,18 +101,45 @@
                     android:gravity="center">
 
                     <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/peoplelist_user_bg"></LinearLayout>
+                        android:id="@+id/popup_mytype"
+                        android:background="@mipmap/people_type_default"></LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="5dp"
-                        android:textColor="#1d1d26"
-                        android:textSize="10dp"
-                        android:id="@+id/detail_myname"
-                        android:text="제니퍼 루시"></TextView>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp"
+                                android:textColor="#1d1d26"
+                                android:textSize="10dp"
+                                android:id="@+id/detail_myname"
+                                android:text="제니퍼 루시"></TextView>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp">
+                            <Switch
+                                android:layout_width="65dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/popup_type1"
+                                android:thumb="@android:color/transparent"
+                                android:track="@android:color/transparent"
+                                android:id="@+id/listview_mytype_switch" />
+                        </LinearLayout>
+
+
+
+
+
+
 
                 </LinearLayout>
             </LinearLayout>
@@ -108,8 +179,8 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:paddingLeft="15dp"
+                    android:gravity="center"
+                    android:paddingRight="15dp"
                     android:layout_weight="0.33">
 
                     <LinearLayout
@@ -119,20 +190,38 @@
                         android:gravity="center">
 
                         <LinearLayout
+                            android:orientation="vertical"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/peoplelist_user_bg"></LinearLayout>
+                            android:id="@+id/popup_youtype"
+                            android:background="@mipmap/people_type_default"></LinearLayout>
 
-                        <TextView
+                        <LinearLayout
                             android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp"
+                                android:textColor="#1d1d26"
+                                android:textSize="10dp"
+                                android:id="@+id/detail_youname"
+                                android:text="제니퍼 루시"></TextView>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp">
+                        <Switch
+                            android:layout_width="65dp"
                             android:layout_height="wrap_content"
-                            android:paddingTop="5dp"
-                            android:textColor="#1d1d26"
-                            android:textSize="10dp"
-                            android:id="@+id/detail_youname"
-                            android:text="제니퍼 루시"></TextView>
-
-
+                            android:background="@drawable/popup_type2"
+                            android:thumb="@android:color/transparent"
+                            android:track="@android:color/transparent" />
                     </LinearLayout>
 
 
@@ -149,8 +238,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:paddingLeft="120dp">
+            android:paddingBottom="15dp">
 
 
                 <TextView
@@ -159,17 +247,6 @@
                     android:text="피플 중 상위 3% 매칭율"
                     android:textSize="10dp"
                     android:textColor="#1d1d26" />
-
-
-
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:paddingLeft="30dp"
-                    android:id="@+id/people_tip_btn"
-                    android:src="@drawable/people_tip_btn_off"/>
 
 
         </LinearLayout>
@@ -236,6 +313,57 @@
 
     </android.support.v4.widget.SwipeRefreshLayout>
     -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:background="#f1f1f1">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="12dp"
+                android:background="#32354d"
+                android:id="@+id/li_tip1"
+                android:layout_weight="0.50">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:text="상황TIP"
+                    android:id="@+id/tv_tip1"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="#f1f1f1"
+                android:paddingTop="10dp"
+                android:paddingBottom="12dp"
+                android:id="@+id/li_tip2"
+                android:layout_weight="0.50">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:text="관계TIP"
+                    android:id="@+id/tv_tip2"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
         <FrameLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"

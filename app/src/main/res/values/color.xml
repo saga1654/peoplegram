@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="circular_progress_default_progress">#902efc</color>
-    <color name="circular_progress_default_background">#b2b6b9</color>
+    <color name="circular_progress_default_progress">#32354d</color>
+    <color name="circular_progress_default_background">#ffffff</color>
     <color name="circular_progress_default_title">#32354d</color>
     <color name="circular_progress_default_subtitle">#32354d</color>
 </resources>

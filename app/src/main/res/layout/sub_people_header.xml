@@ -108,7 +108,7 @@
                     android:background="@drawable/style_sub_people_list_popup_switch"
                     android:thumb="@android:color/transparent"
                     android:track="@android:color/transparent"
-                    android:id="@+id/mytype_switch" />
+                    android:id="@+id/listview_mytype_switch" />
             </LinearLayout>
 
 
@@ -149,9 +149,10 @@
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#7c7c7f"
                     android:textSize="11dp"
-                    android:text="친구" />
+                    android:text="피플" />
 
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -159,6 +160,7 @@
                 android:layout_weight="0.50"
                 android:gravity="right">
 
+                <!--
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -166,6 +168,7 @@
                     android:textColor="#7c7c7f"
                     android:textSize="11dp"
                     android:text="매칭률" />
+                    -->
 
             </LinearLayout>
 

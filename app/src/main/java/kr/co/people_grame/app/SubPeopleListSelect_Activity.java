@@ -1,5 +1,6 @@
 package kr.co.people_grame.app;
 
+import android.graphics.Color;
 import android.os.Handler;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -12,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -21,6 +23,7 @@ import com.loopj.android.http.RequestParams;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -45,7 +48,10 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
     private int people_speed = 0;
     private int people_control = 0;
 
-    private TextView detail_myname, detail_youname;
+    private TextView detail_myname, detail_youname, tv_tip1, tv_tip2;
+
+    private LinearLayout popup_mytype, popup_youtype, li_tip1, li_tip2;
+
 
 
 
@@ -80,7 +86,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
         double total = Utilities.people_match_int(my_speed, people_speed, my_control, people_control);
 
-        Log.d("people_gram", "나의점수=" + my_speed + ":::" + my_control + "///상대방=" + people_speed + ":::" + people_control + "///전체=" + total);
+        //Log.d("people_gram", "나의점수=" + my_speed + ":::" + my_control + "///상대방=" + people_speed + ":::" + people_control + "///전체=" + total);
 
         final CircularProgressBar c2 = (CircularProgressBar) findViewById(R.id.circularprogressbar2);
         c2.setSubTitle("%");
@@ -103,22 +109,61 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
         detail_myname = (TextView) findViewById(R.id.detail_myname);
         detail_youname = (TextView) findViewById(R.id.detail_youname);
+
+        popup_mytype = (LinearLayout) findViewById(R.id.popup_mytype);
+        popup_youtype = (LinearLayout) findViewById(R.id.popup_youtype);
+
+        li_tip1 = (LinearLayout) findViewById(R.id.li_tip1);
+        li_tip2 = (LinearLayout) findViewById(R.id.li_tip2);
+
+        tv_tip1 = (TextView) findViewById(R.id.tv_tip1);
+        tv_tip2 = (TextView) findViewById(R.id.tv_tip2);
+
+        li_tip1.setOnClickListener(onBtnClickListener);
+        li_tip2.setOnClickListener(onBtnClickListener);
+
+        switch (mytype) {
+            case "A":
+                popup_mytype.setBackgroundResource(R.mipmap.people_type_a);
+                break;
+            case "I":
+                popup_mytype.setBackgroundResource(R.mipmap.people_type_i);
+                break;
+            case "E":
+                popup_mytype.setBackgroundResource(R.mipmap.people_type_e);
+                break;
+            case "D":
+                popup_mytype.setBackgroundResource(R.mipmap.people_type_d);
+                break;
+            default:
+                popup_mytype.setBackgroundResource(R.mipmap.people_type_default);
+                break;
+        }
+
+        switch (people_type) {
+            case "A":
+                popup_youtype.setBackgroundResource(R.mipmap.people_type_a);
+                break;
+            case "I":
+                popup_youtype.setBackgroundResource(R.mipmap.people_type_i);
+                break;
+            case "E":
+                popup_youtype.setBackgroundResource(R.mipmap.people_type_e);
+                break;
+            case "D":
+                popup_youtype.setBackgroundResource(R.mipmap.people_type_d);
+                break;
+            default:
+                popup_youtype.setBackgroundResource(R.mipmap.people_type_default);
+                break;
+        }
 
         detail_myname.setText(myname);
         detail_youname.setText(people_name);
 
-        people_tip_btn = (ImageButton) findViewById(R.id.people_tip_btn);
 
-        people_tip_btn.setOnClickListener(onBtnClickListener);
 
         fragmentManager = getSupportFragmentManager();
         ft = fragmentManager.beginTransaction();
@@ -130,10 +175,49 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
     }
 
+    private View.OnClickListener onBtnClickListener = new View.OnClickListener(){
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.li_tip1:
+                    li_tip1.setBackgroundColor(Color.rgb(50,53,77));
+                    tv_tip1.setTextColor(Color.rgb(255, 255, 255));
+                    li_tip2.setBackgroundColor(Color.rgb(241, 241, 241));
+                    tv_tip2.setTextColor(Color.rgb(0, 0, 0));
+
+                    fragmentManager = getSupportFragmentManager();
+                    ft = fragmentManager.beginTransaction();
+
+                    SubPeopleSelect_MainFragment sub_m_fragment = new SubPeopleSelect_MainFragment();
+                    ft.replace(R.id.fragment_sub_people, sub_m_fragment);
+                    ft.commit();
+
+
+                    break;
+                case R.id.li_tip2:
+                    li_tip1.setBackgroundColor(Color.rgb(241, 241, 241));
+                    tv_tip1.setTextColor(Color.rgb(0, 0, 0));
+                    li_tip2.setBackgroundColor(Color.rgb(50, 53, 77));
+                    tv_tip2.setTextColor(Color.rgb(255, 255, 255));
+
+
+                    fragmentManager = getSupportFragmentManager();
+                    ft = fragmentManager.beginTransaction();
+
+                    SubPeopleFragment_tip sub_tip_fragment = new SubPeopleFragment_tip();
+                    ft.replace(R.id.fragment_sub_people, sub_tip_fragment);
+                    ft.commit();
+                    break;
+            }
+        }
+    };
 
 
 
 
+
+    /*
     private View.OnClickListener onBtnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -157,6 +241,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
             }
         }
     };
+    */
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
