@@ -31,7 +31,8 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:text="1,500g"
-                android:textColor="#fae504"/>
+                android:textColor="#fae504"
+                android:id="@+id/mypage_point" />
 
         </LinearLayout>
 
@@ -65,7 +66,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="자기진단 : 우호형"
-                    android:textColor="#ffffff"/>
+                    android:textColor="#ffffff"
+                    android:id="@+id/mypage_type" />
 
             </LinearLayout>
 
@@ -92,7 +94,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="334dp"
+        android:layout_height="182dp"
         android:weightSum="1"
         android:padding="20dp">
 
@@ -108,13 +110,21 @@
             android:layout_height="62dp"></LinearLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f1f1f1">
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="1"
-        android:padding="20dp">
+        android:padding="20dp"
+        android:id="@+id/mypage_people_btn">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -169,13 +179,21 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f1f1f1">
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="1"
-        android:padding="20dp">
+        android:padding="20dp"
+        android:id="@+id/mypage_gram_store_btn">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -207,12 +225,6 @@
                     android:text="그램스토어" />
 
             </LinearLayout>
-
-
-
-
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -224,9 +236,15 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/setting_next_icon"/>
+                android:src="@drawable/setting_next_icon" />
 
         </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f1f1f1">
 
     </LinearLayout>
 

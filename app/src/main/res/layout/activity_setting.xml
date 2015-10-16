@@ -110,10 +110,19 @@
             android:gravity="right">
 
             <Switch
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/push_switch"
+                android:thumb="@android:color/transparent"
+                android:track="@android:color/transparent"
+                android:id="@+id/push_switch" />
+            <!--
+            <Switch
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
                 android:id="@+id/switch1" />
+                -->
 
         </LinearLayout>
     </LinearLayout>
@@ -139,8 +148,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="1"
-        android:id="@+id/sf_setting_btn_notice"
-        android:onClick="noticeBtn"
+        android:id="@+id/notice_btn"
         android:padding="20dp">
 
         <LinearLayout
@@ -183,7 +191,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="1"
-        android:onClick="agreeBtn"
+        android:id="@+id/agree_btn"
         android:padding="20dp">
 
         <LinearLayout
@@ -226,7 +234,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="1"
-        android:onClick="userinfoBtn"
+        android:id="@+id/userinfo_btn"
         android:padding="20dp">
 
         <LinearLayout
@@ -268,8 +276,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="1"
-        android:id="@+id/sf_setting_btn_question"
-        android:onClick="questionBtn"
+        android:id="@+id/question_btn"
         android:padding="20dp">
 
         <LinearLayout
@@ -312,6 +319,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="1"
+        android:id="@+id/logout_btn"
         android:padding="20dp">
 
         <LinearLayout

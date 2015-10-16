@@ -28,10 +28,13 @@ public class SubPeopleContents_Activity extends AppCompatActivity {
 
         popup_contents_title = (TextView) findViewById(R.id.popup_contents_title);
 
+        /*
         Intent intent = getIntent();
         if(intent != null) {
             matchNum = intent.getStringExtra("matchNum");
         }
+        */
+        matchNum = "3";
 
         switch (matchNum) {
             case "1":
@@ -74,10 +77,11 @@ public class SubPeopleContents_Activity extends AppCompatActivity {
         people_content_webview.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
-                people_content_webview.loadUrl("javascript:nameView('"+myname+"','"+people_name+"')");
+                people_content_webview.loadUrl("javascript:nameView('" + myname + "','" + people_name + "')");
                 super.onPageFinished(view, url);
             }
         });
+
         people_content_webview.loadUrl("file:///android_asset/people_result/" + people_gubun1 + "/" + people_gubun1 + "_" + people_gubun2 + "_" + mytype + people_type + "_" + matchNum + ".html");
 
     }

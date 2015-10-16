@@ -243,6 +243,10 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
     };
     */
 
+    public void prev_btn(View v) {
+        finish();
+    }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 

@@ -376,7 +376,8 @@ public class MyType_Activity extends AppCompatActivity {
 
     public void btn_main(View v)
     {
-        Intent intent = new Intent(MyType_Activity.this, MainActivity.class);
+
+        Intent intent = new Intent(MyType_Activity.this, PeopleSync_Activity.class);
         startActivity(intent);
         finish();
         overridePendingTransition(R.anim.start_enter, R.anim.start_exit);

@@ -1,8 +1,67 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
     tools:context="kr.co.people_grame.app.MyType_Activity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:background="#32354d">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.10"
+                android:onClick="btn_back"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/prev_btn" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.80"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:text="그램포인트"
+                    android:id="@+id/top_title"
+                    android:textColor="#ffffff"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.10"
+                android:id="@+id/settingbtn"
+                android:gravity="center">
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
@@ -12,67 +71,6 @@
         android:layout_centerHorizontal="true"
         android:background="#ffffff"
         android:weightSum="1">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.05"
-            android:background="#32354d"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:weightSum="1">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.50"
-                android:onClick="subtype_prevBtn"
-                android:paddingLeft="20dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/prev_btn"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="   그램스토어"
-                    android:id="@+id/textView" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.50"
-                android:gravity="right"
-                android:paddingRight="20dp">
-
-
-                <!--
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="시작하기"
-                    android:layout_gravity="center_horizontal"
-                    android:paddingLeft="20dp"
-                    android:textColor="#ffffff"
-                    android:onClick="btn_main"
-                    android:gravity="right" />
-                    -->
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-
-
 
         <LinearLayout
             android:orientation="vertical"
@@ -89,7 +87,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="#079ae8"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:paddingBottom="5dp"
@@ -101,7 +98,8 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#ffffff">
+                android:background="#ffffff"
+                >
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
@@ -127,18 +125,29 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="내 포인트"
-                                android:textColor="#1f1f2a" />
+                                android:textColor="#1f1f2a"
+                                />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_weight="0.10"
-                            android:gravity="right"></LinearLayout>
+                            android:gravity="right">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000"
+                                android:id="@+id/mypage_grampoint"
+                                android:text="1500g"/>
+                        </LinearLayout>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="#f3f3f4">
+
+
 
                     </LinearLayout>
 
@@ -160,10 +169,11 @@
                         android:paddingLeft="15dp"
                         android:paddingBottom="15dp"
                         android:paddingRight="15dp"
-                        android:id="@+id/mytype_menu02">
+                        android:id="@+id/pointhistory_btn">
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:gravity="center_vertical"
                             android:layout_weight="0.90">
                             <TextView
                                 android:layout_width="wrap_content"
@@ -181,7 +191,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/spend"
-                                 />
+                                />
                         </LinearLayout>
                     </LinearLayout>
                     <LinearLayout
@@ -207,10 +217,11 @@
                             android:paddingLeft="15dp"
                             android:paddingBottom="15dp"
                             android:paddingRight="15dp"
-                            android:id="@+id/mytype_menu03">
+                            android:id="@+id/pointcoupon_btn">
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
+                                android:gravity="center_vertical"
                                 android:layout_weight="0.90">
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -226,11 +237,13 @@
                                 android:layout_weight="0.10"
                                 android:gravity="right">
 
+                                <!--
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:src="@drawable/coupon"
                                     android:id="@+id/imageView3" />
+                                -->
                             </LinearLayout>
                         </LinearLayout>
                         <LinearLayout
@@ -420,4 +433,4 @@
 
 
     </LinearLayout>
-</RelativeLayout>
+</LinearLayout>

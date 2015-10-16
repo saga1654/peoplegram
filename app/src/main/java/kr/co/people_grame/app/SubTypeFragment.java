@@ -1,6 +1,7 @@
 package kr.co.people_grame.app;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -29,9 +30,16 @@ public class SubTypeFragment extends Fragment {
         type_e = (LinearLayout) rootView.findViewById(R.id.type_e);
         type_a = (LinearLayout) rootView.findViewById(R.id.type_a);
 
+        type_i.setOnTouchListener(onBtnTouchListener);
         type_i.setOnClickListener(onBtnClickListener);
+
+        type_d.setOnTouchListener(onBtnTouchListener);
         type_d.setOnClickListener(onBtnClickListener);
+
+        type_e.setOnTouchListener(onBtnTouchListener);
         type_e.setOnClickListener(onBtnClickListener);
+
+        type_a.setOnTouchListener(onBtnTouchListener);
         type_a.setOnClickListener(onBtnClickListener);
 
 
@@ -42,6 +50,36 @@ public class SubTypeFragment extends Fragment {
     private View.OnTouchListener onBtnTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
+            switch (v.getId()) {
+                case R.id.type_i:
+                    if(event.getAction() == 2) {
+                        type_i.setBackgroundColor(Color.rgb(241, 241, 241));
+                    } else {
+                        type_i.setBackgroundColor(Color.rgb(255,255,255));
+                    }
+                    break;
+                case R.id.type_d:
+                    if(event.getAction() == 2) {
+                        type_d.setBackgroundColor(Color.rgb(241, 241, 241));
+                    } else {
+                        type_d.setBackgroundColor(Color.rgb(255,255,255));
+                    }
+                    break;
+                case R.id.type_e:
+                    if(event.getAction() == 2) {
+                        type_e.setBackgroundColor(Color.rgb(241, 241, 241));
+                    } else {
+                        type_e.setBackgroundColor(Color.rgb(255,255,255));
+                    }
+                    break;
+                case R.id.type_a:
+                    if(event.getAction() == 2) {
+                        type_a.setBackgroundColor(Color.rgb(241, 241, 241));
+                    } else {
+                        type_a.setBackgroundColor(Color.rgb(255,255,255));
+                    }
+                    break;
+            }
             return false;
         }
     };
