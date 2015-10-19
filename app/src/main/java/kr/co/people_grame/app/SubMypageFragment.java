@@ -1,14 +1,22 @@
 package kr.co.people_grame.app;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 /**
@@ -17,8 +25,11 @@ import android.widget.TextView;
 public class SubMypageFragment extends Fragment {
 
     private LinearLayout mypage_people_btn, mypage_gram_store_btn;
+    private LinearLayout mypage_all_btn, mypage_family_btn, mypage_friend_btn, mypage_lover_btn, mypage_job_btn, mypage_client_btn;
+    private TextView et_all, et_family, et_friend, et_lover, et_job, et_client;
 
     private TextView mypage_point, mypage_type;
+    private ProgressDialog dialog;
 
     public SubMypageFragment() {
     }
@@ -31,6 +42,108 @@ public class SubMypageFragment extends Fragment {
         mypage_gram_store_btn = (LinearLayout) rootView.findViewById(R.id.mypage_gram_store_btn);
         mypage_point = (TextView) rootView.findViewById(R.id.mypage_point);
         mypage_type = (TextView) rootView.findViewById(R.id.mypage_type);
+
+        mypage_all_btn = (LinearLayout) rootView.findViewById(R.id.mypage_all_btn);
+        mypage_family_btn = (LinearLayout) rootView.findViewById(R.id.mypage_family_btn);
+        mypage_friend_btn = (LinearLayout) rootView.findViewById(R.id.mypage_friend_btn);
+        mypage_lover_btn = (LinearLayout) rootView.findViewById(R.id.mypage_lover_btn);
+        mypage_job_btn = (LinearLayout) rootView.findViewById(R.id.mypage_job_btn);
+        mypage_client_btn = (LinearLayout) rootView.findViewById(R.id.mypage_client_btn);
+
+
+        et_all = (TextView) rootView.findViewById(R.id.et_all);
+        et_family = (TextView) rootView.findViewById(R.id.et_family);
+        et_friend = (TextView) rootView.findViewById(R.id.et_friend);
+        et_lover = (TextView) rootView.findViewById(R.id.et_lover);
+        et_job = (TextView) rootView.findViewById(R.id.et_job);
+        et_client = (TextView) rootView.findViewById(R.id.et_client);
+
+
+
+        mypage_all_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mypage_all_btn.setBackgroundResource(R.drawable.mypage_btn_on);
+                mypage_family_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_friend_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_lover_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_job_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_client_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+            }
+        });
+
+        mypage_family_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mypage_all_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_family_btn.setBackgroundResource(R.drawable.mypage_btn_on);
+                mypage_friend_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_lover_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_job_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_client_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+            }
+        });
+
+        mypage_friend_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mypage_all_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_family_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_friend_btn.setBackgroundResource(R.drawable.mypage_btn_on);
+                mypage_lover_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_job_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_client_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+            }
+        });
+
+        mypage_lover_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mypage_all_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_family_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_friend_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_lover_btn.setBackgroundResource(R.drawable.mypage_btn_on);
+                mypage_job_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_client_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+            }
+        });
+
+        mypage_job_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mypage_all_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_family_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_friend_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_lover_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_job_btn.setBackgroundResource(R.drawable.mypage_btn_on);
+                mypage_client_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+            }
+        });
+
+        mypage_client_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mypage_all_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_family_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_friend_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_lover_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_job_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_client_btn.setBackgroundResource(R.drawable.mypage_btn_on);
+            }
+        });
+
+        mypage_all_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mypage_all_btn.setBackgroundResource(R.drawable.mypage_btn_on);
+                mypage_family_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_friend_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_lover_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_job_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+                mypage_client_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+            }
+        });
+
 
         String Point = SharedPreferenceUtil.getSharedPreference(getActivity(), "point");
         String Type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
@@ -52,7 +165,6 @@ public class SubMypageFragment extends Fragment {
         }
 
 
-
         mypage_people_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +184,51 @@ public class SubMypageFragment extends Fragment {
         });
 
         return rootView;
+    }
+
+    @Override
+    public void onStart()
+    {
+        countData();
+        super.onStart();
+    }
+
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+    }
+
+    private void countData()
+    {
+        RequestParams params = new RequestParams();
+        params.put("uid", SharedPreferenceUtil.getSharedPreference(getActivity(), "uid"));
+        HttpClient.post("/user/peopleDataCount", params, new AsyncHttpResponseHandler() {
+            public void onStart() {
+                dialog = ProgressDialog.show(getActivity(), "", "데이터 수신중");
+            }
+
+            public void onFinish() {
+                dialog.dismiss();
+            }
+
+            @Override
+            public void onSuccess(String response) {
+                try {
+                    JSONObject jobj = new JSONObject(response);
+
+                    et_all.setText(jobj.getString("TOTAL"));
+                    et_family.setText(jobj.getString("FAMILY"));
+                    et_friend.setText(jobj.getString("FRIEND"));
+                    et_lover.setText(jobj.getString("LOVER"));
+                    et_job.setText(jobj.getString("JOB"));
+                    et_client.setText(jobj.getString("CLIENT"));
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
 }

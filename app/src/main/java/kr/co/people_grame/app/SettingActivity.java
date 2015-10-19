@@ -66,6 +66,8 @@ public class SettingActivity extends AppCompatActivity {
         question_btn.setOnTouchListener(onBtnTouchListener);
         question_btn.setOnClickListener(onBtnClickListener);
 
+        pushdata();
+
 
 
 
@@ -84,7 +86,6 @@ public class SettingActivity extends AppCompatActivity {
                 params.put("push_yn", push_yn);
                 HttpClient.post("/user/pushSetting", params, new AsyncHttpResponseHandler() {
                     public void onStart() {
-                        //Log.d("people_gram", "시작");
                         dialog = ProgressDialog.show(SettingActivity.this, "", "데이터 수신중");
                     }
 
@@ -101,8 +102,30 @@ public class SettingActivity extends AppCompatActivity {
                 });
             }
         });
+    }
 
+    private void pushdata() {
+        RequestParams params = new RequestParams();
 
+        params.put("uid", SharedPreferenceUtil.getSharedPreference(SettingActivity.this, "uid"));
+
+        HttpClient.post("/user/pushSelect", params, new AsyncHttpResponseHandler() {
+            public void onStart() {
+                dialog = ProgressDialog.show(SettingActivity.this, "", "데이터 수신중");
+            }
+
+            public void onFinish() {
+                dialog.dismiss();
+            }
+
+            public void onSuccess(String response) {
+                if(response.equals("Y")) {
+                    push_switch.setChecked(true);
+                } else {
+                    push_switch.setChecked(false);
+                }
+            }
+        });
     }
 
     private View.OnTouchListener onBtnTouchListener = new View.OnTouchListener() {

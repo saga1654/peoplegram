@@ -176,6 +176,7 @@ public class SubPeopleFragment extends Fragment {
                     Intent intent = new Intent(getActivity().getBaseContext(), SubPeopleListPopup_Activity.class);
 
                     intent.putExtra("people_uid", dto.get_profile_uid());
+                    intent.putExtra("people_email", dto.get_profile_email());
                     intent.putExtra("people_username", dto.get_profile_username());
                     intent.putExtra("people_mood", dto.get_profile_mood());
                     intent.putExtra("people_type", dto.get_profile_type());
