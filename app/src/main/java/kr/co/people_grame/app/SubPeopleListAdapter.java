@@ -10,6 +10,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 /**
@@ -57,9 +59,11 @@ public class SubPeopleListAdapter extends BaseAdapter {
         TextView listview_people_list_username = (TextView) convertView.findViewById(R.id.listview_people_list_username);
         TextView listview_people_list_email = (TextView) convertView.findViewById(R.id.listview_people_list_email);
         ImageView listview_proplelist_img = (ImageView) convertView.findViewById(R.id.listview_proplelist_img);
+        TextView listview_people_list_cnt = (TextView) convertView.findViewById(R.id.listview_people_list_cnt);
 
         listview_people_list_username.setText(dto.get_profile_username());
         listview_people_list_email.setText(dto.get_profile_email());
+        listview_people_list_cnt.setText(dto.get_profile_cnt() + "명");
 
         String people_type = dto.get_profile_type();
 

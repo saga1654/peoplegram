@@ -34,9 +34,12 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
     private String people_gubun2 = "";
     private int people_speed = 0;
     private int people_control = 0;
+    private int people_result_count = 0;
+    private int people_friend_count = 0;
     private String people_email = "";
 
-    private TextView popup_username, popup_mood;
+
+    private TextView popup_username, popup_mood, et_people_friend_count, et_people_result_count;
     private ImageView popup_type, people_popup_btn1;
 
     private String request = "";
@@ -51,6 +54,8 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
         popup_username = (TextView) findViewById(R.id.popup_username);
         popup_type = (ImageView) findViewById(R.id.popup_type);
+        et_people_friend_count = (TextView) findViewById(R.id.et_people_friend_count);
+        et_people_result_count = (TextView) findViewById(R.id.et_people_result_count);
 
         people_popup_btn1 = (ImageView) findViewById(R.id.people_popup_btn1);
 
@@ -64,6 +69,12 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
             people_speed = intent.getIntExtra("people_speed", 0);
             people_control = intent.getIntExtra("people_control", 0);
             people_email = intent.getStringExtra("people_email");
+            people_result_count = intent.getIntExtra("people_result_count", 0);
+            people_friend_count = intent.getIntExtra("people_friend_count", 0);
+
+            et_people_friend_count.setText("등록 피플수 : "+people_friend_count+"명");
+            et_people_result_count.setText("진단 피플수 : "+people_result_count+"명");
+
 
             if(people_email.toString().equals("")) {
                 request = "N";
@@ -148,7 +159,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
                 params.put("uid", SharedPreferenceUtil.getSharedPreference(SubPeopleListPopup_Activity.this, "uid"));
                 params.put("people_uid", people_uid);
-                params.put("people_username", people_username);
+                params.put("people_username", SharedPreferenceUtil.getSharedPreference(SubPeopleListPopup_Activity.this, "username"));
                 HttpClient.post("/user/peoplePushSend", params, new AsyncHttpResponseHandler() {
                     public void onStart() {
                         //Log.d("people_gram", "시작");
@@ -181,9 +192,8 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
         overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
     }
 
-    public void peopleView_btn(View v)
-    {
-        Log.d("people_gram", "타입="+people_type.toString());
+    public void peopleView_btn(View v) {
+        Log.d("people_gram", "타입=" + people_type.toString());
         if(people_type.toString().equals("")) {
             AlertDialog.Builder alert = new AlertDialog.Builder(SubPeopleListPopup_Activity.this);
             alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
@@ -227,6 +237,48 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
             overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
 
         }
+    }
+
+    public void peopleDeleteBtn(View v) {
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(SubPeopleListPopup_Activity.this);
+        alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                RequestParams params = new RequestParams();
+                params.put("uid", SharedPreferenceUtil.getSharedPreference(SubPeopleListPopup_Activity.this, "uid"));
+                params.put("people_uid", people_uid);
+                HttpClient.post("/user/peopleDelete", params, new AsyncHttpResponseHandler() {
+                    public void onStart() {
+                    }
+
+                    public void onFinish() {
+                    }
+
+                    @Override
+                    public void onSuccess(String response) {
+                        if(response.equals("000") == false) {
+                            Toast.makeText(SubPeopleListPopup_Activity.this, "잠시후 다시 실행해주세요.", Toast.LENGTH_LONG).show();
+                        } else {
+                            finish();
+                        }
+                    }
+                });
+            }
+        });
+        alert.setMessage("현재 피플리스트에서 삭제 진행을 하려고 합니다.\n맞으면 확인버튼을 눌러주세요.");
+        alert.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        alert.show();
+        return;
+    }
+
+    public void closeBtn(View v) {
+        finish();
     }
 
     public void finish() {

@@ -18,18 +18,43 @@
         </LinearLayout>
 
         <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
-            android:paddingLeft="15dp">
-            <TextView
+            android:paddingLeft="15dp"
+            android:weightSum="1">
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="#7c7c7f"
-                android:textSize="11dp"
-                android:text="내 프로필" />
+                android:layout_weight="0.90">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#7c7c7f"
+                    android:textSize="11dp"
+                    android:text="내 프로필" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:paddingRight="10dp"
+                android:layout_weight="0.10">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/mytype_re_btn"></ImageView>
+
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -117,6 +142,148 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f3f3f4">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="center"
+        android:background="#f1f1f1">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/people_gubun_all"
+            android:background="@drawable/people_gubun_on">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#1d1d26"
+                android:textSize="10dp"
+                android:text="전체" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/people_gubun_family"
+            android:background="@drawable/people_gubun_off">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#1d1d26"
+                android:textSize="10dp"
+                android:text="가족" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/people_gubun_friend"
+            android:background="@drawable/people_gubun_off">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#1d1d26"
+                android:textSize="10dp"
+                android:text="친구" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/people_gubun_lover"
+            android:background="@drawable/people_gubun_off">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#1d1d26"
+                android:textSize="10dp"
+                android:text="연인" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/people_gubun_job"
+            android:background="@drawable/people_gubun_off">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#1d1d26"
+                android:textSize="10dp"
+                android:text="직장" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/people_gubun_client"
+            android:background="@drawable/people_gubun_off">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#1d1d26"
+                android:textSize="10dp"
+                android:text="고객" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/people_gubun_not"
+            android:background="@drawable/people_gubun_off">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#1d1d26"
+                android:textSize="10dp"
+                android:text="미분류" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f3f3f4">
+
+    </LinearLayout>
+
+    <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -141,7 +308,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.50">
+                android:layout_weight="0.80">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -149,6 +316,7 @@
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#7c7c7f"
                     android:textSize="11dp"
+                    android:id="@+id/people_cnt"
                     android:text="피플" />
 
             </LinearLayout>
@@ -157,18 +325,18 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.50"
+                android:layout_weight="0.20"
                 android:gravity="right">
 
-                <!--
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#7c7c7f"
                     android:textSize="11dp"
-                    android:text="매칭률" />
-                    -->
+                    android:text="진단피플수" />
+
 
             </LinearLayout>
 

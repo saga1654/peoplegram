@@ -14,12 +14,14 @@ public class SubPeopleListDTO {
     String profile_gubun2 = "";
     int profile_speed = 0;
     int profile_control = 0;
+    int profile_cnt = 0;
+    int profile_friend_cnt = 0;
 
     public SubPeopleListDTO() {
 
     }
 
-    public SubPeopleListDTO(String profile_uid, String profile_img, String profile_username, String profile_email, String profile_type, String profile_mood, String profile_gubun1, String profile_gubun2, int profile_speed, int profile_control)
+    public SubPeopleListDTO(String profile_uid, String profile_img, String profile_username, String profile_email, String profile_type, String profile_mood, String profile_gubun1, String profile_gubun2, int profile_speed, int profile_control, int profile_cnt, int profile_friend_cnt)
     {
         this.profile_uid = profile_uid;
         this.profile_img = profile_img;
@@ -32,6 +34,8 @@ public class SubPeopleListDTO {
 
         this.profile_speed = profile_speed;
         this.profile_control = profile_control;
+        this.profile_cnt = profile_cnt;
+        this.profile_friend_cnt = profile_friend_cnt;
     }
 
     public void set_profile_uid(String profile_uid) { this.profile_uid = profile_uid; }
@@ -63,5 +67,11 @@ public class SubPeopleListDTO {
 
     public void set_profile_control(int profile_control) { this.profile_control = profile_control; }
     public int get_profile_control() { return this.profile_control; }
+
+    public void set_profile_cnt(int profile_cnt) { this.profile_cnt = profile_cnt; }
+    public int get_profile_cnt() { return this.profile_cnt; }
+
+    public void set_profile_friend_cnt(int profile_cnt) { this.profile_friend_cnt = profile_friend_cnt; }
+    public int get_profile_friend_cnt() { return this.profile_friend_cnt; }
 
 }
