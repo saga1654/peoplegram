@@ -1,5 +1,6 @@
 package kr.co.people_grame.app;
 
+import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.v4.app.FragmentManager;
@@ -11,11 +12,14 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -29,6 +33,7 @@ import java.util.ArrayList;
 
 public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
+    public static AppCompatActivity subpeoplelistselect_Activity;
 
     private FragmentManager fragmentManager;
     private FragmentTransaction ft;
@@ -48,9 +53,12 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
     private int people_speed = 0;
     private int people_control = 0;
 
-    private TextView detail_myname, detail_youname, tv_tip1, tv_tip2;
+    private TextView detail_myname, detail_youname, tv_tip1, tv_tip2, gubun1;
 
     private LinearLayout popup_mytype, popup_youtype, li_tip1, li_tip2;
+
+    private Switch listview_mytype_switch, listview_youtype_switch;
+    private ProgressDialog dialog;
 
 
 
@@ -59,6 +67,8 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_people_list_select_);
+
+        subpeoplelistselect_Activity = this;
 
 
 
@@ -81,6 +91,34 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
         people_speed = pd.get_people_speed();
         people_control = pd.get_people_control();
 
+
+
+
+
+        gubun1 = (TextView) findViewById(R.id.gubun1);
+
+        switch (people_gubun1) {
+            case "P":
+                gubun1.setText("가족 관계");
+                break;
+
+            case "F":
+                gubun1.setText("친구 관계");
+                break;
+
+            case "L":
+                gubun1.setText("연인 관계");
+                break;
+
+            case "C":
+                gubun1.setText("직장 관계");
+                break;
+
+            case "S":
+                gubun1.setText("고객 관계");
+                break;
+
+        }
 
 
 
@@ -123,6 +161,158 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
         li_tip1.setOnClickListener(onBtnClickListener);
         li_tip2.setOnClickListener(onBtnClickListener);
+
+        listview_mytype_switch = (Switch) findViewById(R.id.listview_mytype_switch);
+        listview_youtype_switch = (Switch) findViewById(R.id.listview_youtype_switch);
+
+        listview_mytype_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked == false) {
+                    switch (mytype) {
+                        case "A":
+                            popup_mytype.setBackgroundResource(R.mipmap.people_type_a);
+                            break;
+                        case "I":
+                            popup_mytype.setBackgroundResource(R.mipmap.people_type_i);
+                            break;
+                        case "E":
+                            popup_mytype.setBackgroundResource(R.mipmap.people_type_e);
+                            break;
+                        case "D":
+                            popup_mytype.setBackgroundResource(R.mipmap.people_type_d);
+                            break;
+                        default:
+                            popup_mytype.setBackgroundResource(R.mipmap.people_type_default);
+                            break;
+                    }
+                } else {
+                    RequestParams params = new RequestParams();
+                    params.put("uid", SharedPreferenceUtil.getSharedPreference(SubPeopleListSelect_Activity.this, "uid"));
+                    HttpClient.post("/user/profile_people_type", params, new AsyncHttpResponseHandler() {
+                        public void onStart() {
+                            //Log.d("people_gram", "시작");
+                            dialog = ProgressDialog.show(SubPeopleListSelect_Activity.this, "", "데이터 수신중");
+                        }
+
+                        public void onFinish() {
+                            dialog.dismiss();
+                        }
+
+                        @Override
+                        public void onSuccess(String response) {
+
+                            switch (response) {
+                                case "A":
+                                    popup_mytype.setBackgroundResource(R.mipmap.people_type_a);
+                                    break;
+
+                                case "I":
+                                    popup_mytype.setBackgroundResource(R.mipmap.people_type_i);
+                                    break;
+
+                                case "D":
+                                    popup_mytype.setBackgroundResource(R.mipmap.people_type_d);
+                                    break;
+
+                                case "E":
+                                    popup_mytype.setBackgroundResource(R.mipmap.people_type_e);
+                                    break;
+
+                                default:
+                                    Toast.makeText(SubPeopleListSelect_Activity.this, "피플이 귀하를 진단하지 않았습니다.\n피플들에게 요청하세요.", Toast.LENGTH_SHORT).show();
+                                    popup_mytype.setBackgroundResource(R.mipmap.people_type_default);
+                                    break;
+                            }
+                        }
+                    });
+                }
+            }
+        });
+
+        listview_youtype_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked == false) {
+                    switch (people_type) {
+                        case "A":
+                            popup_youtype.setBackgroundResource(R.mipmap.people_type_a);
+                            break;
+                        case "I":
+                            popup_youtype.setBackgroundResource(R.mipmap.people_type_i);
+                            break;
+                        case "E":
+                            popup_youtype.setBackgroundResource(R.mipmap.people_type_e);
+                            break;
+                        case "D":
+                            popup_youtype.setBackgroundResource(R.mipmap.people_type_d);
+                            break;
+                        default:
+                            popup_youtype.setBackgroundResource(R.mipmap.people_type_default);
+                            break;
+                    }
+                } else {
+                    RequestParams params = new RequestParams();
+                    params.put("uid", SharedPreferenceUtil.getSharedPreference(SubPeopleListSelect_Activity.this, "uid"));
+                    params.put("people_uid", people_uid);
+                    params.put("gubun1", people_gubun1);
+                    HttpClient.post("/user/profile_you_people_type", params, new AsyncHttpResponseHandler() {
+                        public void onStart() {
+                            //Log.d("people_gram", "시작");
+                            dialog = ProgressDialog.show(SubPeopleListSelect_Activity.this, "", "데이터 수신중");
+                        }
+
+                        public void onFinish() {
+                            dialog.dismiss();
+                        }
+
+                        @Override
+                        public void onSuccess(String response) {
+                            if(response.equals("999")) {
+                                switch (people_gubun1) {
+                                    case "P":
+                                        Toast.makeText(SubPeopleListSelect_Activity.this, "본인 포함 최소 2명 이상 진단된 경우에 볼 수 있습니다.", Toast.LENGTH_LONG).show();
+                                        listview_youtype_switch.setChecked(false);
+                                        break;
+                                    case "F":
+                                        Toast.makeText(SubPeopleListSelect_Activity.this, "본인 포함 최소 3명 이상 진단된 경우에 볼 수 있습니다.", Toast.LENGTH_LONG).show();
+                                        listview_youtype_switch.setChecked(false);
+                                        break;
+                                    case "L":
+                                        break;
+                                    case "C":
+                                        Toast.makeText(SubPeopleListSelect_Activity.this, "본인 제외 최소 3명 이상 진단된 경우에 볼 수 있습니다.", Toast.LENGTH_LONG).show();
+                                        listview_youtype_switch.setChecked(false);
+                                        break;
+                                    case "S":
+                                        break;
+                                }
+                            } else {
+                                switch (response) {
+                                    case "A":
+                                        popup_youtype.setBackgroundResource(R.mipmap.people_type_a);
+                                        break;
+                                    case "I":
+                                        popup_youtype.setBackgroundResource(R.mipmap.people_type_i);
+                                        break;
+                                    case "E":
+                                        popup_youtype.setBackgroundResource(R.mipmap.people_type_e);
+                                        break;
+                                    case "D":
+                                        popup_youtype.setBackgroundResource(R.mipmap.people_type_d);
+                                        break;
+                                    default:
+                                        popup_youtype.setBackgroundResource(R.mipmap.people_type_default);
+                                        break;
+                                }
+                            }
+
+                            //Log.d("people_gram", "데이터="+response);
+                        }
+                    });
+                }
+            }
+        });
 
         switch (mytype) {
             case "A":

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -75,9 +76,8 @@ public class SubPeopleFragment extends Fragment {
         listview_mytype_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked == false) {
-                    switch (SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype"))
-                    {
+                if (isChecked == false) {
+                    switch (SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype")) {
                         case "A":
                             listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_a);
                             break;
@@ -114,8 +114,7 @@ public class SubPeopleFragment extends Fragment {
                         @Override
                         public void onSuccess(String response) {
 
-                            switch (response)
-                            {
+                            switch (response) {
                                 case "A":
                                     listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_a);
                                     break;
@@ -174,7 +173,8 @@ public class SubPeopleFragment extends Fragment {
         }
 
 
-        //peopleList();
+        peopleList();
+
 
 
         sf_people_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -425,13 +425,6 @@ public class SubPeopleFragment extends Fragment {
         });
 
 
-    }
-
-    @Override
-    public void onStart()
-    {
-        peopleList();
-        super.onStart();
     }
 
     @Override

@@ -1,9 +1,11 @@
 package kr.co.people_grame.app;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.opengl.Visibility;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -48,11 +50,13 @@ public class SubPeopleListAdapter extends BaseAdapter {
         return position;
     }
 
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null) {
             convertView = inf.inflate(layout, null);
         }
+
 
         SubPeopleListDTO dto = peoplelist.get(position);
 

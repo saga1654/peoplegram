@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,8 @@ import com.loopj.android.http.RequestParams;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Random;
 
 public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
@@ -45,10 +48,15 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
     private String request = "";
     private ProgressDialog dialog;
 
+    private LinearLayout backImg;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_people_list_popup_);
+
+        Random generator = new Random();
+        int random;
 
 
 
@@ -57,6 +65,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
         et_people_friend_count = (TextView) findViewById(R.id.et_people_friend_count);
         et_people_result_count = (TextView) findViewById(R.id.et_people_result_count);
 
+        backImg = (LinearLayout) findViewById(R.id.backImg);
         people_popup_btn1 = (ImageView) findViewById(R.id.people_popup_btn1);
 
         Intent intent = getIntent();
@@ -187,6 +196,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
         intent.putExtra("people_uid", people_uid);
         intent.putExtra("people_username", people_username);
+
 
         startActivity(intent);
         overridePendingTransition(R.anim.start_enter, R.anim.start_exit);

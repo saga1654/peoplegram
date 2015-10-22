@@ -47,5 +47,14 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
+    <style name="listview_off">
+        <item name="android:background">#fff</item>
+    </style>
+
+    <style name="listview_on">
+        <item name="android:background">#f1f1f1</item>
+    </style>
+
+
 </resources>
 

@@ -9,6 +9,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -27,6 +30,7 @@ public class SubMypageFragment extends Fragment {
     private LinearLayout mypage_people_btn, mypage_gram_store_btn;
     private LinearLayout mypage_all_btn, mypage_family_btn, mypage_friend_btn, mypage_lover_btn, mypage_job_btn, mypage_client_btn;
     private TextView et_all, et_family, et_friend, et_lover, et_job, et_client;
+    private WebView chart_webview;
 
     private TextView mypage_point, mypage_type;
     private ProgressDialog dialog;
@@ -58,6 +62,10 @@ public class SubMypageFragment extends Fragment {
         et_job = (TextView) rootView.findViewById(R.id.et_job);
         et_client = (TextView) rootView.findViewById(R.id.et_client);
 
+        chart_webview = (WebView) rootView.findViewById(R.id.chart_webview);
+        WebSettings webSettings = chart_webview.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        chart_webview.loadUrl("http://121.162.209.41:81/mypage/chart?uid="+SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid")+"&type=all");
 
 
         mypage_all_btn.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +77,14 @@ public class SubMypageFragment extends Fragment {
                 mypage_lover_btn.setBackgroundResource(R.drawable.mypage_btn_off);
                 mypage_job_btn.setBackgroundResource(R.drawable.mypage_btn_off);
                 mypage_client_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+
+                WebSettings webSettings = chart_webview.getSettings();
+                webSettings.setJavaScriptEnabled(true);
+                chart_webview.loadUrl("http://121.162.209.41:81/mypage/chart?uid="+SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid")+"&type=all");
+
+
+
+
             }
         });
 
@@ -81,6 +97,13 @@ public class SubMypageFragment extends Fragment {
                 mypage_lover_btn.setBackgroundResource(R.drawable.mypage_btn_off);
                 mypage_job_btn.setBackgroundResource(R.drawable.mypage_btn_off);
                 mypage_client_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+
+
+                WebSettings webSettings = chart_webview.getSettings();
+                webSettings.setJavaScriptEnabled(true);
+                chart_webview.loadUrl("http://121.162.209.41:81/mypage/chart?uid="+SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid")+"&type=family");
+
+
             }
         });
 
@@ -93,6 +116,13 @@ public class SubMypageFragment extends Fragment {
                 mypage_lover_btn.setBackgroundResource(R.drawable.mypage_btn_off);
                 mypage_job_btn.setBackgroundResource(R.drawable.mypage_btn_off);
                 mypage_client_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+
+
+                WebSettings webSettings = chart_webview.getSettings();
+                webSettings.setJavaScriptEnabled(true);
+                chart_webview.loadUrl("http://121.162.209.41:81/mypage/chart?uid="+SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid")+"&type=friend");
+
+
             }
         });
 
@@ -105,6 +135,11 @@ public class SubMypageFragment extends Fragment {
                 mypage_lover_btn.setBackgroundResource(R.drawable.mypage_btn_on);
                 mypage_job_btn.setBackgroundResource(R.drawable.mypage_btn_off);
                 mypage_client_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+
+
+                WebSettings webSettings = chart_webview.getSettings();
+                webSettings.setJavaScriptEnabled(true);
+                chart_webview.loadUrl("http://121.162.209.41:81/mypage/chart?uid="+SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid")+"&type=lover");
             }
         });
 
@@ -117,6 +152,11 @@ public class SubMypageFragment extends Fragment {
                 mypage_lover_btn.setBackgroundResource(R.drawable.mypage_btn_off);
                 mypage_job_btn.setBackgroundResource(R.drawable.mypage_btn_on);
                 mypage_client_btn.setBackgroundResource(R.drawable.mypage_btn_off);
+
+
+                WebSettings webSettings = chart_webview.getSettings();
+                webSettings.setJavaScriptEnabled(true);
+                chart_webview.loadUrl("http://121.162.209.41:81/mypage/chart?uid="+SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid")+"&type=job");
             }
         });
 
@@ -129,20 +169,11 @@ public class SubMypageFragment extends Fragment {
                 mypage_lover_btn.setBackgroundResource(R.drawable.mypage_btn_off);
                 mypage_job_btn.setBackgroundResource(R.drawable.mypage_btn_off);
                 mypage_client_btn.setBackgroundResource(R.drawable.mypage_btn_on);
+                chart_webview.loadUrl("http://121.162.209.41:81/mypage/chart?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=client");
             }
         });
 
-        mypage_all_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mypage_all_btn.setBackgroundResource(R.drawable.mypage_btn_on);
-                mypage_family_btn.setBackgroundResource(R.drawable.mypage_btn_off);
-                mypage_friend_btn.setBackgroundResource(R.drawable.mypage_btn_off);
-                mypage_lover_btn.setBackgroundResource(R.drawable.mypage_btn_off);
-                mypage_job_btn.setBackgroundResource(R.drawable.mypage_btn_off);
-                mypage_client_btn.setBackgroundResource(R.drawable.mypage_btn_off);
-            }
-        });
+
 
 
         String Point = SharedPreferenceUtil.getSharedPreference(getActivity(), "point");

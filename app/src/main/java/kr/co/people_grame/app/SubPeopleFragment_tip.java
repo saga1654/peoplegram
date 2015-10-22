@@ -3,6 +3,7 @@ package kr.co.people_grame.app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -75,8 +76,21 @@ public class SubPeopleFragment_tip extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(getActivity().getBaseContext(), SubPeopleContents_Activity.class);
-            //intent.putExtra("", "");
+            String point_str = SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "point");
+            int point = Integer.parseInt(point_str);
+            Intent intent;
+
+            point = 0;
+
+            /*
+            if(point == 0) {
+                intent = new Intent(getActivity().getBaseContext(), GramPopupNotActivity.class);
+            } else {
+                intent = new Intent(getActivity().getBaseContext(), GramPopupActivity.class);
+            }
+            */
+
+            intent = new Intent(getActivity().getBaseContext(), SubPeopleContents_Activity.class);
 
 
             switch (v.getId()) {
@@ -101,7 +115,7 @@ public class SubPeopleFragment_tip extends Fragment {
                     break;
 
                 case R.id.subpeople_menu6:
-                    intent.putExtra("matchNum","6");
+                    intent.putExtra("matchNum", "6");
                     break;
             }
 

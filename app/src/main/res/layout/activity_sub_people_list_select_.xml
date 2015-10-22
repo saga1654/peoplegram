@@ -217,6 +217,7 @@
                         android:layout_height="wrap_content"
                         android:paddingTop="10dp">
                         <Switch
+                            android:id="@+id/listview_youtype_switch"
                             android:layout_width="65dp"
                             android:layout_height="wrap_content"
                             android:background="@drawable/popup_type2"
@@ -244,8 +245,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="피플 중 상위 3% 매칭율"
-                    android:textSize="10dp"
+                    android:text="친구 관계"
+                    android:id="@+id/gubun1"
+                    android:textSize="12dp"
                     android:textColor="#1d1d26" />
 
 

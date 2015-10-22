@@ -5,44 +5,47 @@
 
     <!-- 나의 평가 질문지 START -->
     <string name="step1">다른 사람과 대화할 때</string>
-    <string name="step2">기분이나 감정을 사람들에게</string>
-    <string name="step3">어떤 목적달성을 위한 선택이</string>
-    <string name="step4">다른 사람에게 이야기를 할 때</string>
-    <string name="step5">모임에서 분위기를</string>
-    <string name="step6">대화 할 때 표정, 손짓이나 목소리가</string>
-    <string name="step7">사람들에게 자신의 생각과 의견을</string>
-    <string name="step8">약속 시간이나 일정에 대해</string>
-    <string name="step9">판단이나 실행이</string>
-    <string name="step10">다른 사람의 말이나 의견에</string>
+    <string name="step2">일단 판단하고 결정한 것은</string>
+    <string name="step3">다른 사람과 대화할 때</string>
+    <string name="step4">자신의 기분이나 감정을 사람들에게</string>
+    <string name="step5">의사 결정이</string>
+    <string name="step6">다른 사람을 대할 때</string>
+    <string name="step7">모임이나 미팅, 회의에서</string>
+    <string name="step8">대화를 할 때 표정, 손짓이나 목소리가</string>
+    <string name="step9">행동이나 실행이</string>
+    <string name="step10">약속 시간이나 기한을</string>
     <!-- 나의 평가 질문지 END -->
 
 
     <!-- 나의평가 답안지 -->
-    <string name="step1_left">말수가 적은 편</string>
-    <string name="step1_right">말이 많은 편</string>
-    <string name="step2_left">자주 표현하는 편 </string>
-    <string name="step2_right">표현하지 않는 편</string>
-    <string name="step3_left">느린 편</string>
-    <string name="step3_right">빠른 편</string>
-    <string name="step4_left">느낌과 감정 위주 전달</string>
-    <string name="step4_right">사실이나 상황 위주 전달</string>
-    <string name="step5_left">따라가는 편</string>
-    <string name="step5_right">주도하는 편</string>
-    <string name="step6_left">다양한 편</string>
-    <string name="step6_right">변화가 거의 없는 편</string>
-    <string name="step7_left">쉽게 말하지 않는 편</string>
-    <string name="step7_right">주저 없이 말하는 편</string>
-    <string name="step8_left">관대한 편</string>
-    <string name="step8_right">매우 중요시 하는 편</string>
+    <string name="step1_left">말이 느린 편</string>
+    <string name="step1_right">말이 빠른 편</string>
+    <string name="step2_left">경우에 따라 바꾸는 편</string>
+    <string name="step2_right">좀처럼 바꾸지 않는 편</string>
+    <string name="step3_left">주로 듣는 편</string>
+    <string name="step3_right">주로 말하는 편</string>
+    <string name="step4_left">자주 표현하는 편</string>
+    <string name="step4_right">표현하지 않는 편</string>
+    <string name="step5_left">느린 편</string>
+    <string name="step5_right">빠른 편</string>
+    <string name="step6_left">친철하고 따뜻하다</string>
+    <string name="step6_right">진지하고 냉정하다</string>
+    <string name="step7_left">따라가는 편</string>
+    <string name="step7_right">주도하는 편</string>
+    <string name="step8_left">다양한 편</string>
+    <string name="step8_right">변화가 거의 없는 편</string>
     <string name="step9_left">느리고 신중한 편</string>
     <string name="step9_right">빠르고 행동적인 편</string>
-    <string name="step10_left">영향을 받는 편</string>
-    <string name="step10_right">별 영향을 받지 않는 편</string>
+    <string name="step10_left">간혹 어기는 편</string>
+    <string name="step10_right">매우 잘 지키는 편</string>
 
 
     <string name="gcm_defaultSenderId">71013771468</string>
     <string name="title_activity_start">StartActivity</string>
     <string name="title_activity_sub_gram_point">SubGramPoint</string>
+    <string name="title_activity_gram_popup">GramPopupActivity</string>
+    <string name="title_activity_gram_popup_not">GramPopupNotActivity</string>
+    <string name="title_activity_test">TestActivity</string>
 
 
 

@@ -310,7 +310,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="182dp"
+        android:layout_height="120dp"
         android:weightSum="1"
         android:paddingLeft="20dp"
         android:paddingRight="20dp">
@@ -319,7 +319,7 @@
         <WebView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/webView2" />
+            android:id="@+id/chart_webview" />
 
     </LinearLayout>
 
