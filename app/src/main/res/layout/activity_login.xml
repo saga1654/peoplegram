@@ -76,6 +76,8 @@
                             android:background="@drawable/login_edittext_bg"
                             android:id="@+id/et_activity_login_userid"
                             android:textColorHint="#ffffff"
+                            android:singleLine="true"
+                            android:lines="1"
                             android:hint="아이디" />
                     </LinearLayout>
                 </LinearLayout>
@@ -110,7 +112,10 @@
                             android:paddingBottom="10dp"
                             android:background="@drawable/login_edittext_bg"
                             android:id="@+id/et_activity_login_userpw"
+                            android:inputType="textPassword"
                             android:textColorHint="#ffffff"
+                            android:singleLine="true"
+                            android:lines="1"
                             android:hint="패스워드" />
                     </LinearLayout>
                 </LinearLayout>

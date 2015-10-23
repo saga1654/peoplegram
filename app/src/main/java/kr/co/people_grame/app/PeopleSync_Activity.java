@@ -28,45 +28,40 @@ public class PeopleSync_Activity extends AppCompatActivity {
     private int totalCnt = 0;
     private int nowCnt = 0;
 
+    private boolean check = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_people_sync_);
 
+        try {
+            Intent intent = getIntent();
+            if (intent != null) {
+                if (intent.getStringExtra("mypage").equals("ok")) {
+                    check = true;
+                } else {
+                    check = false;
+                }
+            }
+        } catch(Exception e) {
+            Log.d("people_gram", "오류");
+            check = false;
+        }
+
         dialog = (ProgressBar) findViewById(R.id.progressBar);
         progressBarTxt = (TextView) findViewById(R.id.progressBarTxt);
         dialog.setVisibility(View.INVISIBLE);
         progressBarTxt.setVisibility(View.INVISIBLE);
-    }
-
-    public void all_people_btn(View v) {
 
         readContacts();
-        /*
-        RequestParams params = new RequestParams();
-        params.put("uid", SharedPreferenceUtil.getSharedPreference(this, "uid"));
-        params.put("people_list", userdataArray);
-        HttpClient.post("/user/contact_people", params, new AsyncHttpResponseHandler() {
-            public void onStart() {
-
-            }
-
-            public void onFinish() {
-                Intent intent = new Intent(PeopleSync_Activity.this, MainActivity.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
-                finish();
-            }
-
-            @Override
-            public void onSuccess(String response) {
-                Log.d("people_gram", response);
-            }
-        });
-        */
-
-        //Intent intent = new Intent(PeopleSync_Activity.this, )
     }
+
+    /*
+    public void all_people_btn(View v) {
+        readContacts();
+    }
+    */
 
     public void select_people_btn(View v) {
         Intent intent = new Intent(PeopleSync_Activity.this, PeopleSyncSelect_Activity.class);
@@ -146,6 +141,8 @@ public class PeopleSync_Activity extends AppCompatActivity {
                             handler.sendEmptyMessage(total);
                             if(total == totalCnt) {
 
+                                SystemClock.sleep(1000L);
+
                                 Log.d("people_gram", "종료");
 
                                 RequestParams params = new RequestParams();
@@ -158,11 +155,14 @@ public class PeopleSync_Activity extends AppCompatActivity {
                                     }
 
                                     public void onFinish() {
-
-                                        Intent intent = new Intent(PeopleSync_Activity.this, MainActivity.class);
-                                        startActivity(intent);
-                                        overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
-                                        finish();
+                                        if(check == false) {
+                                            Intent intent = new Intent(PeopleSync_Activity.this, MainActivity.class);
+                                            startActivity(intent);
+                                            overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+                                            finish();
+                                        } else {
+                                            finish();
+                                        }
 
                                     }
 
@@ -171,7 +171,7 @@ public class PeopleSync_Activity extends AppCompatActivity {
                                         Log.d("people_gram", response);
                                     }
                                 });
-                                SystemClock.sleep(1000L);
+
                             }
 
 

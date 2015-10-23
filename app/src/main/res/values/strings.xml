@@ -49,4 +49,37 @@
 
 
 
+
+    <string name="match_P_A">200</string> <!-- 부모 -->
+    <string name="match_P_B">100</string> <!-- 형재 -->
+    <string name="match_P_C">100</string> <!-- 부부 -->
+    <string name="match_P_D">100</string> <!-- 자녀(18세 이하) -->
+    <string name="match_P_E">100</string> <!-- 자녀(18세 이상) -->
+
+    <!-- 친구 포인트 -->
+    <string name="match_F_A">100</string>
+    <string name="match_F_B">100</string>
+    <string name="match_F_C">100</string>
+    <string name="match_F_D">100</string>
+
+
+    <!-- 연인 포인트 -->
+    <string name="match_L_A">100</string>
+    <string name="match_L_B">100</string>
+    <string name="match_L_C">100</string>
+    <string name="match_L_D">100</string>
+
+
+    <!-- 직장 포인트 -->
+    <string name="match_C_A">200</string>
+    <string name="match_C_B">200</string>
+    <string name="match_C_C">100</string>
+
+    <!-- 고객 포인트 -->
+    <string name="match_S_A">300</string>
+    <string name="match_S_B">300</string>
+    <string name="title_activity_gram_popup_my_type">GramPopupMyTypeActivity</string>
+    <string name="title_activity_sub_my_type_contents_">SubMyTypeContents_Activity</string>
+
+
 </resources>

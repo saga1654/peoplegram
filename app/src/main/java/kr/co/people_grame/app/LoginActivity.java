@@ -56,6 +56,26 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+        et_userid.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == event.KEYCODE_ENTER) {
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        et_userpw.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == event.KEYCODE_ENTER) {
+                    return true;
+                }
+                return false;
+            }
+        });
+
         if(et_userpw.getText().toString().equals("")) {
             AlertDialog.Builder alert = new AlertDialog.Builder(LoginActivity.this);
             alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
@@ -186,6 +206,13 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         return super.onKeyDown(keyCode, event);
+    }
+
+    public void btn_memberLogin(View v) {
+        Intent intent = new Intent(LoginActivity.this, MemberJoin_Activity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+        finish();
     }
 
 }

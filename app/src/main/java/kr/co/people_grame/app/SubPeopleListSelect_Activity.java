@@ -1,6 +1,7 @@
 package kr.co.people_grame.app;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.v4.app.FragmentManager;
@@ -38,6 +39,8 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
     private FragmentManager fragmentManager;
     private FragmentTransaction ft;
 
+    private static final int VIEW_CODE = 100000;
+
     private ImageButton people_click_btn, people_tip_btn, people_now_btn;
 
     private String clickType = "NOW";
@@ -59,6 +62,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
     private Switch listview_mytype_switch, listview_youtype_switch;
     private ProgressDialog dialog;
+    private boolean payment_result = false;
 
 
 
@@ -91,6 +95,8 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
         people_speed = pd.get_people_speed();
         people_control = pd.get_people_control();
 
+
+        paymentResult();
 
 
 
@@ -386,6 +392,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
                     break;
                 case R.id.li_tip2:
+                    /*
                     li_tip1.setBackgroundColor(Color.rgb(241, 241, 241));
                     tv_tip1.setTextColor(Color.rgb(0, 0, 0));
                     li_tip2.setBackgroundColor(Color.rgb(50, 53, 77));
@@ -399,6 +406,74 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                     ft.replace(R.id.fragment_sub_people, sub_tip_fragment);
                     ft.commit();
                     break;
+                    */
+
+                    if(payment_result == true) {
+                        li_tip1.setBackgroundColor(Color.rgb(241, 241, 241));
+                        tv_tip1.setTextColor(Color.rgb(0, 0, 0));
+                        li_tip2.setBackgroundColor(Color.rgb(50, 53, 77));
+                        tv_tip2.setTextColor(Color.rgb(255, 255, 255));
+
+
+                        fragmentManager = getSupportFragmentManager();
+                        ft = fragmentManager.beginTransaction();
+
+                        SubPeopleFragment_tip sub_tip_fragment = new SubPeopleFragment_tip();
+                        ft.replace(R.id.fragment_sub_people, sub_tip_fragment);
+                        ft.commit();
+                        break;
+                    } else {
+                        RequestParams params = new RequestParams();
+                        params.put("uid", SharedPreferenceUtil.getSharedPreference(SubPeopleListSelect_Activity.this, "uid"));
+                        params.put("people_uid", people_uid);
+                        params.put("gubun1", people_gubun1);
+                        params.put("gubun2", people_gubun2);
+                        HttpClient.post("/people/peopleMatchView", params, new AsyncHttpResponseHandler() {
+                            public void onStart() {
+                                dialog = ProgressDialog.show(SubPeopleListSelect_Activity.this, "", "데이터 수신중");
+                            }
+
+                            public void onFinish() {
+                                dialog.dismiss();
+                            }
+
+                            @Override
+                            public void onSuccess(String response) {
+
+                                try {
+                                    JSONObject jobj = new JSONObject(response);
+                                    Log.d("people_gram", jobj.getString("code"));
+                                    if (jobj.getString("code").equals("999")) {
+                                        li_tip1.setBackgroundColor(Color.rgb(241, 241, 241));
+                                        tv_tip1.setTextColor(Color.rgb(0, 0, 0));
+                                        li_tip2.setBackgroundColor(Color.rgb(50, 53, 77));
+                                        tv_tip2.setTextColor(Color.rgb(255, 255, 255));
+
+
+                                        fragmentManager = getSupportFragmentManager();
+                                        ft = fragmentManager.beginTransaction();
+
+                                        SubPeopleFragment_tip sub_tip_fragment = new SubPeopleFragment_tip();
+                                        ft.replace(R.id.fragment_sub_people, sub_tip_fragment);
+                                        ft.commit();
+                                    } else {
+                                        Intent intent = new Intent(SubPeopleListSelect_Activity.this, GramPopupActivity.class);
+                                        intent.putExtra("use_point", jobj.getString("point"));
+                                        intent.putExtra("people_uid", people_uid);
+                                        intent.putExtra("people_username", people_name);
+                                        intent.putExtra("gubun1", people_gubun1);
+                                        intent.putExtra("gubun2", people_gubun2);
+                                        startActivityForResult(intent, 1);
+                                        overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                                    }
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                            }
+                        });
+                    }
             }
         }
     };
@@ -432,6 +507,69 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
         }
     };
     */
+
+
+    private void paymentResult()
+    {
+        RequestParams params = new RequestParams();
+        params.put("uid", SharedPreferenceUtil.getSharedPreference(SubPeopleListSelect_Activity.this, "uid"));
+        params.put("people_uid", people_uid);
+        params.put("gubun1", people_gubun1);
+        params.put("gubun2", people_gubun2);
+
+        HttpClient.post("/people/peopleMatchCheck", params, new AsyncHttpResponseHandler() {
+            public void onStart() {
+                //Log.d("people_gram", "시작");
+                dialog = ProgressDialog.show(SubPeopleListSelect_Activity.this, "", "데이터 수신중");
+            }
+
+            public void onFinish() {
+                dialog.dismiss();
+            }
+
+            @Override
+            public void onSuccess(String response) {
+                if(response.equals("0")) {
+                    Log.d("people_gram", response+"=실패");
+                    payment_result = false;
+                } else {
+                    Log.d("people_gram", response+"=성공");
+                    payment_result = true;
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK) {
+            if (requestCode == 1) {
+                String yn = data.getStringExtra("data_OK");
+                if(yn.equals("OK") == true) {
+                    li_tip1.setBackgroundColor(Color.rgb(241, 241, 241));
+                    tv_tip1.setTextColor(Color.rgb(0, 0, 0));
+                    li_tip2.setBackgroundColor(Color.rgb(50, 53, 77));
+                    tv_tip2.setTextColor(Color.rgb(255, 255, 255));
+
+                    payment_result = true;
+
+
+                    fragmentManager = getSupportFragmentManager();
+                    ft = fragmentManager.beginTransaction();
+
+                    SubPeopleFragment_tip sub_tip_fragment = new SubPeopleFragment_tip();
+                    ft.replace(R.id.fragment_sub_people, sub_tip_fragment);
+                    ft.commit();
+                } else {
+                    payment_result = false;
+                }
+            }
+
+        }
+
+    }
 
     public void prev_btn(View v) {
         finish();

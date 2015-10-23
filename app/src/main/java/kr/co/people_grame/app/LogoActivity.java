@@ -154,12 +154,12 @@ public class LogoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Log.d("people_gram", SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "token"));
+
         if(SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "token") == "") {
             registBroadcastReceiver();
             getInstanceIdToken();
         }
-
-        //Log.d("people_gram", "토큰저장="+SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "token"));
 
 
         if(Utilities.getNetworkType(this) == 3) {

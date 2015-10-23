@@ -190,8 +190,14 @@ public class Utilities {
             }
         }
 
+
+
         double score_temp = Math.pow((my_speed - you_speed),2) + Math.pow((my_control - you_control),2);
         double score = 4 * Math.sqrt(2) * Math.sqrt(score_temp);
+
+        //Log.d("people_gram", "타입스코어="+String.valueOf(type_score));
+        //Log.d("people_gram", "score_temp="+String.valueOf(score_temp));
+        //Log.d("people_gram", "score="+String.valueOf(score));
 
         double total = type_score - score;
         return total;

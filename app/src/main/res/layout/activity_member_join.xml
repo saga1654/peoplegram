@@ -87,6 +87,7 @@
                                 android:ems="10"
                                 android:background="@null"
                                 android:id="@+id/et_activity_memberjoin_nickname"
+                                android:textColorHint="#ffffff"
                                 android:hint="닉네임" />
                         </LinearLayout>
                         <LinearLayout
@@ -94,14 +95,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_weight="0.20"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/memberjoin_filed_check_off"
-                                android:id="@+id/memberjoin_filed_check1">
-                            </ImageView>
-                        </LinearLayout>
+                            android:gravity="center"></LinearLayout>
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="vertical"
@@ -155,6 +149,7 @@
                                 android:ems="10"
                                 android:background="@null"
                                 android:hint="이메일"
+                                android:textColorHint="#ffffff"
                                 android:id="@+id/et_activity_memberjoin_email" />
                         </LinearLayout>
                         <LinearLayout
@@ -162,14 +157,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_weight="0.20"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/memberjoin_filed_check_off"
-                                android:id="@+id/memberjoin_filed_check2">
-                            </ImageView>
-                        </LinearLayout>
+                            android:gravity="center"></LinearLayout>
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="vertical"
@@ -224,6 +212,7 @@
                                 android:ems="10"
                                 android:background="@null"
                                 android:hint="패스워드(최소 6자리)"
+                                android:textColorHint="#ffffff"
                                 android:id="@+id/et_activity_memberjoin_pw" />
                         </LinearLayout>
                         <LinearLayout
@@ -294,6 +283,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:textSize="14dp"
                             android:text="모두 확인, 동의합니다."
+                            android:textColor="#ffffff"
                             android:id="@+id/textView3" />
 
                     </LinearLayout>
@@ -342,6 +332,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:textSize="14dp"
                             android:text="서비스 이용약관 동의"
+                            android:textColor="#ffffff"
                             android:id="@+id/textView4" />
                     </LinearLayout>
 
@@ -402,6 +393,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:textSize="14dp"
+                            android:textColor="#ffffff"
                             android:text="개인정보 수집 및 이용 동의" />
                     </LinearLayout>
 

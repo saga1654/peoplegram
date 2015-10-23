@@ -200,6 +200,7 @@ public class SubMypageFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), PeopleSync_Activity.class);
+                intent.putExtra("mypage","ok");
                 startActivity(intent);
                 getActivity().overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
             }
