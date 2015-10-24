@@ -205,6 +205,16 @@
             android:label="@string/title_activity_sub_my_type_contents_"
             android:theme="@style/AppTheme" >
         </activity>
+        <activity
+            android:name=".SubPeopleTypeContents_Activity"
+            android:label="@string/title_activity_sub_people_type_contents_"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".SubPeopleContentsType_Activity"
+            android:label="@string/title_activity_sub_people_contents_type_"
+            android:theme="@style/AppTheme" >
+        </activity>
     </application>
 
 </manifest>

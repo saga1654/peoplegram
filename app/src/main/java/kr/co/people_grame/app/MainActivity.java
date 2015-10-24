@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity  {
 
     public static AppCompatActivity mainActivity;
 
+    final int SubPeopleTypeFragmentCode = 2;
+
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -107,6 +109,49 @@ public class MainActivity extends AppCompatActivity  {
         adapter.addFrag(new SubTypeFragment(), "TYPE");
         //adapter.addFrag(new ThreeFragment(), "THREE");
         viewPager.setAdapter(adapter);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode==RESULT_OK) {
+            if (requestCode == SubPeopleTypeFragmentCode) {
+                String my_type = SharedPreferenceUtil.getSharedPreference(this, "mytype");
+                String people_type = data.getStringExtra("people_type");
+                String gubun1 = data.getStringExtra("gubun1");
+                //Log.d("people_gram", my_type + ":::" + people_type + ":::" + gubun1);
+
+                Intent intent = new Intent(MainActivity.this, SubPeopleTypeContents_Activity.class);
+                intent.putExtra("mytype", my_type);
+                intent.putExtra("people_type", people_type);
+                intent.putExtra("gubun1", gubun1);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+
+
+                switch (gubun1)
+                {
+                    case "P":
+                        SubPeopleTypeFragment.P_check = true;
+                        break;
+                    case "F":
+                        SubPeopleTypeFragment.F_check = true;
+                        break;
+                    case "L":
+                        SubPeopleTypeFragment.L_check = true;
+                        break;
+                    case "C":
+                        SubPeopleTypeFragment.C_check = true;
+                        break;
+                    case "S":
+                        SubPeopleTypeFragment.S_check = true;
+                        break;
+                }
+            }
+        }
+
+
     }
 
 

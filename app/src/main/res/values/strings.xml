@@ -80,6 +80,8 @@
     <string name="match_S_B">300</string>
     <string name="title_activity_gram_popup_my_type">GramPopupMyTypeActivity</string>
     <string name="title_activity_sub_my_type_contents_">SubMyTypeContents_Activity</string>
+    <string name="title_activity_sub_people_type_contents_">SubPeopleTypeContents_Activity</string>
+    <string name="title_activity_sub_people_contents_type_">SubPeopleContentsType_Activity</string>
 
 
 </resources>

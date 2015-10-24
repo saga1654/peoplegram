@@ -32,20 +32,24 @@ import org.json.JSONObject;
  */
 public class SubPeopleTypeFragment extends Fragment implements View.OnClickListener {
 
+    final int SubPeopleTypeFragmentCode = 2;
+
+
     private CircularImageView profile_img;
     private AQuery aq;
     private TextView profile_username;
     private ImageView profile_type;
+    private String mytype;
 
     private LinearLayout peopletype_menu1, peopletype_menu2, peopletype_menu3, peopletype_menu4, peopletype_menu5;
     private LinearLayout people_menu1, people_menu2, people_menu3, people_menu4, people_menu5;
     private ProgressDialog dialog;
 
-    private Boolean P_check = false;
-    private Boolean F_check = false;
-    private Boolean L_check = false;
-    private Boolean C_check = false;
-    private Boolean S_check = false;
+    public static Boolean P_check = false;
+    public static Boolean F_check = false;
+    public static Boolean L_check = false;
+    public static Boolean C_check = false;
+    public static Boolean S_check = false;
 
     private int P_cnt = 0;
     private int F_cnt = 0;
@@ -164,6 +168,8 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
         people_menu4 = (LinearLayout) rootView.findViewById(R.id.people_menu4);
         people_menu5 = (LinearLayout) rootView.findViewById(R.id.people_menu5);
 
+        mytype = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
+
 
         dataResult();
 
@@ -174,8 +180,6 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
             public void onClick(View v) {
                 if(P_check == false) {
 
-                    P_cnt = 3;
-
                     if(P_cnt < 2) {
                         Toast.makeText(getActivity(), "본인 포함 최소 2명 이상 진단된 경우에 볼 수 있습니다.\n진단 요청해주세요.", Toast.LENGTH_LONG).show();
                     } else {
@@ -183,11 +187,53 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                         Intent intent = new Intent(getActivity(), GramPopupMyTypeActivity.class);
                         intent.putExtra("point", String.valueOf(P_point));
                         intent.putExtra("gubun1", "P");
-                        getActivity().startActivityForResult(intent, 1);
+                        getActivity().startActivityForResult(intent, SubPeopleTypeFragmentCode);
                         getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     }
                 } else {
-                    Log.d("people_gram", "결제함");
+                    RequestParams params = new RequestParams();
+                    params.put("uid", SharedPreferenceUtil.getSharedPreference(getActivity(), "uid"));
+                    params.put("gubun1", "P");
+                    HttpClient.post("/my_type/profile_people_type", params, new AsyncHttpResponseHandler() {
+                        public void onStart() {
+                            //Log.d("people_gram", "시작");
+                            dialog = ProgressDialog.show(getActivity(), "", "데이터 수신중");
+                        }
+
+                        public void onFinish() {
+                            dialog.dismiss();
+                        }
+
+                        @Override
+                        public void onSuccess(String response) {
+
+                            String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
+                            String people_type = response;
+                            String gubun1 = "P";
+                            //Log.d("people_gram", my_type + ":::" + people_type + ":::" + gubun1);
+
+                            if(people_type.equals("999")) {
+                                Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                            } else if(people_type.equals("998")) {
+                                Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                            } else {
+                                Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
+                                intent.putExtra("mytype", my_type);
+                                intent.putExtra("people_type", people_type);
+                                intent.putExtra("gubun1", gubun1);
+                                startActivity(intent);
+                                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                            }
+
+                            /*
+                            intent.putExtra("people_type", response);
+                            intent.putExtra("gubun1", gubun1);
+                            setResult(RESULT_OK, intent);
+                            finish();
+                            */
+
+                        }
+                    });
                 }
             }
         });
@@ -195,14 +241,111 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
         peopletype_menu2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(F_check == false) {
+                    if(F_cnt < 2) {
+                        Toast.makeText(getActivity(), "본인 포함 최소 2명 이상 진단된 경우에 볼 수 있습니다.\n진단 요청해주세요.", Toast.LENGTH_LONG).show();
+                    } else {
+                        Log.d("people_gram", String.valueOf(P_point));
+                        Intent intent = new Intent(getActivity(), GramPopupMyTypeActivity.class);
+                        intent.putExtra("point", String.valueOf(P_point));
+                        intent.putExtra("gubun1", "F");
+                        getActivity().startActivityForResult(intent, SubPeopleTypeFragmentCode);
+                        getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                    }
+                } else {
+                    RequestParams params = new RequestParams();
+                    params.put("uid", SharedPreferenceUtil.getSharedPreference(getActivity(), "uid"));
+                    params.put("gubun1", "F");
+                    HttpClient.post("/my_type/profile_people_type", params, new AsyncHttpResponseHandler() {
+                        public void onStart() {
+                            //Log.d("people_gram", "시작");
+                            dialog = ProgressDialog.show(getActivity(), "", "데이터 수신중");
+                        }
 
+                        public void onFinish() {
+                            dialog.dismiss();
+                        }
+
+                        @Override
+                        public void onSuccess(String response) {
+
+
+                            String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
+                            String people_type = response;
+                            String gubun1 = "F";
+                            //Log.d("people_gram", my_type + ":::" + people_type + ":::" + gubun1);
+
+                            if(people_type.equals("999")) {
+                                Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                            } else if(people_type.equals("998")) {
+                                Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                            } else {
+                                Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
+                                intent.putExtra("mytype", my_type);
+                                intent.putExtra("people_type", people_type);
+                                intent.putExtra("gubun1", gubun1);
+                                startActivity(intent);
+                                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                            }
+                        }
+                    });
+                }
             }
         });
 
         peopletype_menu3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(L_check == false) {
 
+                    if(L_cnt < 1) {
+                        Toast.makeText(getActivity(), "연인으로 진단된 내역이 존재하지 않습니다.\n진단 요청해주세요.", Toast.LENGTH_LONG).show();
+                    } else {
+                        Log.d("people_gram", String.valueOf(P_point));
+                        Intent intent = new Intent(getActivity(), GramPopupMyTypeActivity.class);
+                        intent.putExtra("point", String.valueOf(P_point));
+                        intent.putExtra("gubun1", "L");
+                        getActivity().startActivityForResult(intent, SubPeopleTypeFragmentCode);
+                        getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                    }
+                } else {
+                    RequestParams params = new RequestParams();
+                    params.put("uid", SharedPreferenceUtil.getSharedPreference(getActivity(), "uid"));
+                    params.put("gubun1", "L");
+                    HttpClient.post("/my_type/profile_people_type", params, new AsyncHttpResponseHandler() {
+                        public void onStart() {
+                            //Log.d("people_gram", "시작");
+                            dialog = ProgressDialog.show(getActivity(), "", "데이터 수신중");
+                        }
+
+                        public void onFinish() {
+                            dialog.dismiss();
+                        }
+
+                        @Override
+                        public void onSuccess(String response) {
+
+
+                            String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
+                            String people_type = response;
+                            String gubun1 = "L";
+                            //Log.d("people_gram", my_type + ":::" + people_type + ":::" + gubun1);
+
+                            if(people_type.equals("999")) {
+                                Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                            } else if(people_type.equals("998")) {
+                                Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                            } else {
+                                Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
+                                intent.putExtra("mytype", my_type);
+                                intent.putExtra("people_type", people_type);
+                                intent.putExtra("gubun1", gubun1);
+                                startActivity(intent);
+                                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                            }
+                        }
+                    });
+                }
             }
         });
 
@@ -210,13 +353,114 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
             @Override
             public void onClick(View v) {
 
+                if(C_check == false) {
+
+
+                    if(C_cnt < 3) {
+                        Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                    } else {
+
+                        Log.d("people_gram", String.valueOf(P_point));
+                        Intent intent = new Intent(getActivity(), GramPopupMyTypeActivity.class);
+                        intent.putExtra("point", String.valueOf(P_point));
+                        intent.putExtra("gubun1", "C");
+                        String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
+                        intent.putExtra("mytype", my_type);
+                        getActivity().startActivityForResult(intent, SubPeopleTypeFragmentCode);
+                        getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                    }
+                } else {
+                    RequestParams params = new RequestParams();
+                    params.put("uid", SharedPreferenceUtil.getSharedPreference(getActivity(), "uid"));
+                    params.put("gubun1", "C");
+                    HttpClient.post("/my_type/profile_people_type", params, new AsyncHttpResponseHandler() {
+                        public void onStart() {
+                            //Log.d("people_gram", "시작");
+                            dialog = ProgressDialog.show(getActivity(), "", "데이터 수신중");
+                        }
+
+                        public void onFinish() {
+                            dialog.dismiss();
+                        }
+
+                        @Override
+                        public void onSuccess(String response) {
+                            String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
+                            String people_type = response;
+                            String gubun1 = "C";
+
+
+                            if(people_type.equals("999")) {
+                                Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                            } else if(people_type.equals("998")) {
+                                Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                            } else {
+                                Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
+                                intent.putExtra("mytype", my_type);
+                                intent.putExtra("people_type", people_type);
+                                intent.putExtra("gubun1", gubun1);
+                                startActivity(intent);
+                                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                            }
+                        }
+                    });
+                }
             }
         });
 
         peopletype_menu5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(S_check == false) {
 
+                    if(C_cnt < 1) {
+                        Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                    } else {
+                        Log.d("people_gram", String.valueOf(P_point));
+                        Intent intent = new Intent(getActivity(), GramPopupMyTypeActivity.class);
+                        intent.putExtra("point", String.valueOf(P_point));
+                        intent.putExtra("gubun1", "S");
+                        getActivity().startActivityForResult(intent, SubPeopleTypeFragmentCode);
+                        getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                    }
+                } else {
+                    RequestParams params = new RequestParams();
+                    params.put("uid", SharedPreferenceUtil.getSharedPreference(getActivity(), "uid"));
+                    params.put("gubun1", "S");
+                    HttpClient.post("/my_type/profile_people_type", params, new AsyncHttpResponseHandler() {
+                        public void onStart() {
+                            //Log.d("people_gram", "시작");
+                            dialog = ProgressDialog.show(getActivity(), "", "데이터 수신중");
+                        }
+
+                        public void onFinish() {
+                            dialog.dismiss();
+                        }
+
+                        @Override
+                        public void onSuccess(String response) {
+
+
+                            String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
+                            String people_type = response;
+                            String gubun1 = "S";
+                            //Log.d("people_gram", my_type + ":::" + people_type + ":::" + gubun1);
+
+                            if(people_type.equals("999")) {
+                                Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                            } else if(people_type.equals("998")) {
+                                Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                            } else {
+                                Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
+                                intent.putExtra("mytype", my_type);
+                                intent.putExtra("people_type", people_type);
+                                intent.putExtra("gubun1", gubun1);
+                                startActivity(intent);
+                                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                            }
+                        }
+                    });
+                }
             }
         });
 
@@ -257,19 +501,6 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
 
 
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        Log.d("people_gram", "전송완료");
-        if (resultCode==getActivity().RESULT_OK) {
-            if (requestCode == 1) {
-                String gubun1_return = data.getStringExtra("gubun1_return");
-                Log.d("people_gram", gubun1_return);
-            }
-        }
-
-
-    }
 
 
     private void profile_img_view(String filename)

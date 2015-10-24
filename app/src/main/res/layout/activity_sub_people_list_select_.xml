@@ -330,7 +330,7 @@
                 android:paddingBottom="12dp"
                 android:background="#32354d"
                 android:id="@+id/li_tip1"
-                android:layout_weight="0.50">
+                android:layout_weight="0.33">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -351,7 +351,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="12dp"
                 android:id="@+id/li_tip2"
-                android:layout_weight="0.50">
+                android:layout_weight="0.33">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -359,6 +359,27 @@
                     android:textColor="#000"
                     android:text="관계TIP"
                     android:id="@+id/tv_tip2"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="#f1f1f1"
+                android:paddingTop="10dp"
+                android:paddingBottom="12dp"
+                android:id="@+id/li_tip3"
+                android:layout_weight="0.33">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:text="피플타입"
+                    android:id="@+id/tv_tip3"
                     android:textStyle="bold" />
 
 

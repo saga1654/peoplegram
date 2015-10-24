@@ -54,8 +54,14 @@ public class GramPopupMyTypeActivity extends AppCompatActivity {
             @Override
             public void onSuccess(String response) {
                 if(response.equals("999") == false) {
-                    intent.putExtra("gubun1_return", response);
+                    intent.putExtra("code", "000");
+                    intent.putExtra("people_type", response);
+                    intent.putExtra("gubun1", gubun1);
                     setResult(RESULT_OK, intent);
+                    finish();
+                } else {
+                    intent.putExtra("code", "999");
+                    Toast.makeText(GramPopupMyTypeActivity.this, "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
                     finish();
                 }
             }

@@ -56,9 +56,9 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
     private int people_speed = 0;
     private int people_control = 0;
 
-    private TextView detail_myname, detail_youname, tv_tip1, tv_tip2, gubun1;
+    private TextView detail_myname, detail_youname, tv_tip1, tv_tip2, tv_tip3, gubun1;
 
-    private LinearLayout popup_mytype, popup_youtype, li_tip1, li_tip2;
+    private LinearLayout popup_mytype, popup_youtype, li_tip1, li_tip2, li_tip3;
 
     private Switch listview_mytype_switch, listview_youtype_switch;
     private ProgressDialog dialog;
@@ -161,12 +161,15 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
         li_tip1 = (LinearLayout) findViewById(R.id.li_tip1);
         li_tip2 = (LinearLayout) findViewById(R.id.li_tip2);
+        li_tip3 = (LinearLayout) findViewById(R.id.li_tip3);
 
         tv_tip1 = (TextView) findViewById(R.id.tv_tip1);
         tv_tip2 = (TextView) findViewById(R.id.tv_tip2);
+        tv_tip3 = (TextView) findViewById(R.id.tv_tip3);
 
         li_tip1.setOnClickListener(onBtnClickListener);
         li_tip2.setOnClickListener(onBtnClickListener);
+        li_tip3.setOnClickListener(onBtnClickListener);
 
         listview_mytype_switch = (Switch) findViewById(R.id.listview_mytype_switch);
         listview_youtype_switch = (Switch) findViewById(R.id.listview_youtype_switch);
@@ -381,6 +384,8 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                     tv_tip1.setTextColor(Color.rgb(255, 255, 255));
                     li_tip2.setBackgroundColor(Color.rgb(241, 241, 241));
                     tv_tip2.setTextColor(Color.rgb(0, 0, 0));
+                    li_tip3.setBackgroundColor(Color.rgb(241, 241, 241));
+                    tv_tip3.setTextColor(Color.rgb(0, 0, 0));
 
                     fragmentManager = getSupportFragmentManager();
                     ft = fragmentManager.beginTransaction();
@@ -413,6 +418,8 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                         tv_tip1.setTextColor(Color.rgb(0, 0, 0));
                         li_tip2.setBackgroundColor(Color.rgb(50, 53, 77));
                         tv_tip2.setTextColor(Color.rgb(255, 255, 255));
+                        li_tip3.setBackgroundColor(Color.rgb(241, 241, 241));
+                        tv_tip3.setTextColor(Color.rgb(0, 0, 0));
 
 
                         fragmentManager = getSupportFragmentManager();
@@ -421,7 +428,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                         SubPeopleFragment_tip sub_tip_fragment = new SubPeopleFragment_tip();
                         ft.replace(R.id.fragment_sub_people, sub_tip_fragment);
                         ft.commit();
-                        break;
+
                     } else {
                         RequestParams params = new RequestParams();
                         params.put("uid", SharedPreferenceUtil.getSharedPreference(SubPeopleListSelect_Activity.this, "uid"));
@@ -448,6 +455,8 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                                         tv_tip1.setTextColor(Color.rgb(0, 0, 0));
                                         li_tip2.setBackgroundColor(Color.rgb(50, 53, 77));
                                         tv_tip2.setTextColor(Color.rgb(255, 255, 255));
+                                        li_tip3.setBackgroundColor(Color.rgb(241, 241, 241));
+                                        tv_tip3.setTextColor(Color.rgb(0, 0, 0));
 
 
                                         fragmentManager = getSupportFragmentManager();
@@ -474,6 +483,81 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                             }
                         });
                     }
+
+                    break;
+                case R.id.li_tip3:
+                    if(payment_result == true) {
+                        li_tip1.setBackgroundColor(Color.rgb(241, 241, 241));
+                        tv_tip1.setTextColor(Color.rgb(0, 0, 0));
+                        li_tip2.setBackgroundColor(Color.rgb(241, 241, 241));
+                        tv_tip2.setTextColor(Color.rgb(0, 0, 0));
+                        li_tip3.setBackgroundColor(Color.rgb(50, 53, 77));
+                        tv_tip3.setTextColor(Color.rgb(255, 255, 255));
+
+
+                        fragmentManager = getSupportFragmentManager();
+                        ft = fragmentManager.beginTransaction();
+
+                        SubPeopleFragment_peopletip sub_peopletip_fragment = new SubPeopleFragment_peopletip();
+                        ft.replace(R.id.fragment_sub_people, sub_peopletip_fragment);
+                        ft.commit();
+
+                    } else {
+                        RequestParams params = new RequestParams();
+                        params.put("uid", SharedPreferenceUtil.getSharedPreference(SubPeopleListSelect_Activity.this, "uid"));
+                        params.put("people_uid", people_uid);
+                        params.put("gubun1", people_gubun1);
+                        params.put("gubun2", people_gubun2);
+                        HttpClient.post("/people/peopleMatchView", params, new AsyncHttpResponseHandler() {
+                            public void onStart() {
+                                dialog = ProgressDialog.show(SubPeopleListSelect_Activity.this, "", "데이터 수신중");
+                            }
+
+                            public void onFinish() {
+                                dialog.dismiss();
+                            }
+
+                            @Override
+                            public void onSuccess(String response) {
+
+                                try {
+                                    JSONObject jobj = new JSONObject(response);
+                                    Log.d("people_gram", jobj.getString("code"));
+                                    if (jobj.getString("code").equals("999")) {
+                                        li_tip1.setBackgroundColor(Color.rgb(241, 241, 241));
+                                        tv_tip1.setTextColor(Color.rgb(0, 0, 0));
+                                        li_tip2.setBackgroundColor(Color.rgb(241, 241, 241));
+                                        tv_tip2.setTextColor(Color.rgb(0, 0, 0));
+                                        li_tip3.setBackgroundColor(Color.rgb(50, 53, 77));
+                                        tv_tip3.setTextColor(Color.rgb(255, 255, 255));
+
+
+                                        fragmentManager = getSupportFragmentManager();
+                                        ft = fragmentManager.beginTransaction();
+
+                                        SubPeopleFragment_peopletip sub_peopletip_fragment = new SubPeopleFragment_peopletip();
+                                        ft.replace(R.id.fragment_sub_people, sub_peopletip_fragment);
+                                        ft.commit();
+                                    } else {
+                                        Intent intent = new Intent(SubPeopleListSelect_Activity.this, GramPopupActivity.class);
+                                        intent.putExtra("use_point", jobj.getString("point"));
+                                        intent.putExtra("people_uid", people_uid);
+                                        intent.putExtra("people_username", people_name);
+                                        intent.putExtra("gubun1", people_gubun1);
+                                        intent.putExtra("gubun2", people_gubun2);
+                                        startActivityForResult(intent, 1);
+                                        overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                                    }
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                            }
+                        });
+                    }
+
+                    break;
             }
         }
     };
