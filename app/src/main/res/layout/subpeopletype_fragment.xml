@@ -21,8 +21,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:textSize="11dp"
+                android:textColor="#1d1d26"
+                android:textSize="14dp"
                 android:text="가족 피플이 생각하는 타입" />
 
         </LinearLayout>
@@ -65,8 +65,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:textSize="11dp"
+                android:textColor="#1d1d26"
+                android:textSize="14dp"
                 android:text="친구 피플이 생각하는 타입" />
 
         </LinearLayout>
@@ -109,8 +109,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:textSize="11dp"
+                android:textColor="#1d1d26"
+                android:textSize="14dp"
                 android:text="연인이 생각하는 타입" />
 
         </LinearLayout>
@@ -152,8 +152,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:textSize="11dp"
+                android:textColor="#1d1d26"
+                android:textSize="14dp"
                 android:text="직장 피플이 생각하는 타입" />
 
         </LinearLayout>
@@ -197,8 +197,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:textSize="11dp"
+                android:textColor="#1d1d26"
+                android:textSize="14dp"
                 android:text="고객 피플이 생각하는 타입" />
 
         </LinearLayout>
