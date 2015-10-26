@@ -8,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -23,6 +24,10 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
     private String gubun1 = "";
     private String mytype = "";
     private String peopletype = "";
+    private String my_speed = "";
+    private String my_control = "";
+    private String people_speed = "";
+    private String people_control = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +43,10 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
             mytype = intent.getStringExtra("mytype");
             peopletype = intent.getStringExtra("people_type");
             gubun1 = intent.getStringExtra("gubun1");
+            my_speed = intent.getStringExtra("my_speed");
+            my_control = intent.getStringExtra("my_control");
+            people_speed = intent.getStringExtra("people_speed");
+            people_control = intent.getStringExtra("people_control");
 
         }
 
@@ -48,9 +57,14 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 people_content_webview.loadUrl("javascript:nameView('" + SharedPreferenceUtil.getSharedPreference(SubPeopleTypeContents_Activity.this, "username") + "','')");
+                people_content_webview.loadUrl("javascript:chartLine1('"+my_speed+"','"+my_control+"')");
+                people_content_webview.loadUrl("javascript:chartLine2('"+people_speed+"','"+people_control+"')");
                 super.onPageFinished(view, url);
             }
         });
+
+
+        //og.d("people_gram", "file:///android_asset/peopletype_my/" + gubun1 + "/" + gubun1 + "_MY_" + mytype + peopletype + ".html");
 
 
         people_content_webview.loadUrl("file:///android_asset/peopletype_my/" + gubun1 + "/" + gubun1 + "_MY_" + mytype + peopletype + ".html");

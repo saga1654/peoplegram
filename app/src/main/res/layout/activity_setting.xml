@@ -80,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#ffffff"
-            android:textSize="11dp"
+            android:textSize="13dp"
             android:text="알림"/>
 
     </LinearLayout>
@@ -101,6 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#1d1d26"
+                android:textSize="16dp"
                 android:text="푸시알림" />
 
         </LinearLayout>
@@ -139,7 +140,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#ffffff"
-            android:textSize="11dp"
+            android:textSize="13dp"
             android:text="서비스 문의"/>
 
     </LinearLayout>
@@ -162,6 +163,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#1d1d26"
+                android:textSize="16dp"
                 android:text="공지사항" />
 
         </LinearLayout>
@@ -205,6 +207,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#1d1d26"
+                android:textSize="16dp"
                 android:text="이용약관" />
 
         </LinearLayout>
@@ -248,6 +251,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#1d1d26"
+                android:textSize="16dp"
                 android:text="개인정보취급방침" />
 
         </LinearLayout>
@@ -290,6 +294,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#1d1d26"
+                android:textSize="16dp"
                 android:text="1:1문의" />
 
         </LinearLayout>
@@ -339,6 +344,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:textColor="#1d1d26"
+                android:textSize="16dp"
                 android:text="로그아웃" />
 
         </LinearLayout>

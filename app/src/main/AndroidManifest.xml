@@ -48,7 +48,8 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        android:screenOrientation="portrait">
 
         <!-- [START gcm_receiver] -->
         <receiver
@@ -94,7 +95,8 @@
 
         <activity
             android:name=".LogoActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -103,117 +105,156 @@
         </activity>
         <activity
             android:name=".MyQuestion_Activity"
-            android:label="질문지" >
+            android:label="질문지"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="로그인" >
+            android:label="로그인"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".MemberJoin_Activity" >
+        <activity android:name=".MemberJoin_Activity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".MyType_Activity" >
+        <activity android:name=".MyType_Activity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".Setting_NoticeActivity" >
+        <activity android:name=".Setting_NoticeActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".Setting_QuestionActivity" >
+        <activity android:name=".Setting_QuestionActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".NoticeActivity" >
+        <activity android:name=".NoticeActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".Setting_UserAgreeActivity" >
+        <activity android:name=".Setting_UserAgreeActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".Setting_UserInfoActivity" >
+        <activity android:name=".Setting_UserInfoActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".MyType_Result_Activity" >
+        <activity android:name=".MyType_Result_Activity"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".SubPeopleListPopup_Activity"
-            android:theme="@style/TransparentTheme" >
+            android:theme="@style/TransparentTheme"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".SubPeopleListSelect_Activity" >
+        <activity android:name=".SubPeopleListSelect_Activity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".YouType_Actvity_step1" >
+        <activity android:name=".YouType_Actvity_step1"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".YouType_Activity_step2" >
+        <activity android:name=".YouType_Activity_step2"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".YouType_Activity" >
+        <activity android:name=".YouType_Activity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".MyFilling" >
+        <activity android:name=".MyFilling"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".MyFilling_Comment_Activity" >
+        <activity android:name=".MyFilling_Comment_Activity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".MyNowAcitivity" >
+        <activity android:name=".MyNowAcitivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".HaveWriteActivity" >
+        <activity android:name=".HaveWriteActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".SubQnaActivity" >
+        <activity android:name=".SubQnaActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".SubQnaWriteActivity" >
+        <activity android:name=".SubQnaWriteActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".SubPeopleContents_Activity" >
+        <activity android:name=".SubPeopleContents_Activity"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".ProfileActivity"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".ProfileDetailActivity"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".SettingActivity" >
+        <activity android:name=".SettingActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".SubMyType_Activity" >
+        <activity android:name=".SubMyType_Activity"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".StartActivity"
             android:label="@string/title_activity_start"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".SubGramPoint"
             android:label="@string/title_activity_sub_gram_point"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".PeopleSync_Activity" >
+        <activity android:name=".PeopleSync_Activity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".PeopleSyncSelect_Activity" >
+        <activity android:name=".PeopleSyncSelect_Activity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".SubGramHistory" >
+        <activity android:name=".SubGramHistory"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".GramPopupActivity"
-            android:theme="@style/TransparentTheme" >
+            android:theme="@style/TransparentTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".GramPopupNotActivity"
-            android:theme="@style/TransparentTheme" >
+            android:theme="@style/TransparentTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".TestActivity"
             android:label="@string/title_activity_test"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".GramPopupMyTypeActivity"
-            android:theme="@style/TransparentTheme" >
+            android:theme="@style/TransparentTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".SubMyTypeContents_Activity"
             android:label="@string/title_activity_sub_my_type_contents_"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".SubPeopleTypeContents_Activity"
             android:label="@string/title_activity_sub_people_type_contents_"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".SubPeopleContentsType_Activity"
             android:label="@string/title_activity_sub_people_contents_type_"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

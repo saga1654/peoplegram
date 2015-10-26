@@ -178,6 +178,8 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
         peopletype_menu1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 if(P_check == false) {
 
                     if(P_cnt < 2) {
@@ -207,34 +209,45 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                         @Override
                         public void onSuccess(String response) {
 
-                            String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
-                            String people_type = response;
-                            String gubun1 = "P";
-                            //Log.d("people_gram", my_type + ":::" + people_type + ":::" + gubun1);
+                            try {
+                                JSONObject jobj = new JSONObject(response);
 
-                            if(people_type.equals("999")) {
-                                Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
-                            } else if(people_type.equals("998")) {
-                                Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
-                            } else {
-                                Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
-                                intent.putExtra("mytype", my_type);
-                                intent.putExtra("people_type", people_type);
-                                intent.putExtra("gubun1", gubun1);
-                                startActivity(intent);
-                                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+
+                                if(jobj.getString("code").equals("999")) {
+                                    Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                                } else if(jobj.getString("code").equals("998")) {
+                                    Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                                } else {
+                                    String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
+                                    String people_type = jobj.getString("people_type");
+                                    String my_speed = jobj.getString("my_speed");
+                                    String my_control = jobj.getString("my_control");
+                                    String people_speed = jobj.getString("people_speed");
+                                    String people_control = jobj.getString("people_control");
+                                    String gubun1 = jobj.getString("gubun1");
+
+
+                                    Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
+                                    intent.putExtra("mytype", my_type);
+                                    intent.putExtra("people_type", people_type);
+                                    intent.putExtra("gubun1", gubun1);
+                                    intent.putExtra("my_speed", my_speed);
+                                    intent.putExtra("my_control", my_control);
+                                    intent.putExtra("people_speed", people_speed);
+                                    intent.putExtra("people_control", people_control);
+                                    startActivity(intent);
+                                    getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                                }
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
-
-                            /*
-                            intent.putExtra("people_type", response);
-                            intent.putExtra("gubun1", gubun1);
-                            setResult(RESULT_OK, intent);
-                            finish();
-                            */
-
                         }
                     });
+
                 }
+
             }
         });
 
@@ -242,6 +255,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 if(F_check == false) {
+
                     if(F_cnt < 2) {
                         Toast.makeText(getActivity(), "본인 포함 최소 2명 이상 진단된 경우에 볼 수 있습니다.\n진단 요청해주세요.", Toast.LENGTH_LONG).show();
                     } else {
@@ -269,26 +283,43 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                         @Override
                         public void onSuccess(String response) {
 
+                            try {
+                                JSONObject jobj = new JSONObject(response);
 
-                            String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
-                            String people_type = response;
-                            String gubun1 = "F";
-                            //Log.d("people_gram", my_type + ":::" + people_type + ":::" + gubun1);
 
-                            if(people_type.equals("999")) {
-                                Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
-                            } else if(people_type.equals("998")) {
-                                Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
-                            } else {
-                                Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
-                                intent.putExtra("mytype", my_type);
-                                intent.putExtra("people_type", people_type);
-                                intent.putExtra("gubun1", gubun1);
-                                startActivity(intent);
-                                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                                if(jobj.getString("code").equals("999")) {
+                                    Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                                } else if(jobj.getString("code").equals("998")) {
+                                    Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                                } else {
+                                    String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
+                                    String people_type = jobj.getString("people_type");
+                                    String my_speed = jobj.getString("my_speed");
+                                    String my_control = jobj.getString("my_control");
+                                    String people_speed = jobj.getString("people_speed");
+                                    String people_control = jobj.getString("people_control");
+                                    String gubun1 = jobj.getString("gubun1");
+
+
+                                    Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
+                                    intent.putExtra("mytype", my_type);
+                                    intent.putExtra("people_type", people_type);
+                                    intent.putExtra("gubun1", gubun1);
+                                    intent.putExtra("my_speed", my_speed);
+                                    intent.putExtra("my_control", my_control);
+                                    intent.putExtra("people_speed", people_speed);
+                                    intent.putExtra("people_control", people_control);
+                                    startActivity(intent);
+                                    getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                                }
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
                         }
                     });
+
                 }
             }
         });
@@ -298,7 +329,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
             public void onClick(View v) {
                 if(L_check == false) {
 
-                    if(L_cnt < 1) {
+                    if(L_cnt < 2) {
                         Toast.makeText(getActivity(), "연인으로 진단된 내역이 존재하지 않습니다.\n진단 요청해주세요.", Toast.LENGTH_LONG).show();
                     } else {
                         Log.d("people_gram", String.valueOf(P_point));
@@ -325,27 +356,45 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                         @Override
                         public void onSuccess(String response) {
 
+                            try {
+                                JSONObject jobj = new JSONObject(response);
 
-                            String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
-                            String people_type = response;
-                            String gubun1 = "L";
-                            //Log.d("people_gram", my_type + ":::" + people_type + ":::" + gubun1);
 
-                            if(people_type.equals("999")) {
-                                Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
-                            } else if(people_type.equals("998")) {
-                                Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
-                            } else {
-                                Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
-                                intent.putExtra("mytype", my_type);
-                                intent.putExtra("people_type", people_type);
-                                intent.putExtra("gubun1", gubun1);
-                                startActivity(intent);
-                                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                                if(jobj.getString("code").equals("999")) {
+                                    Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                                } else if(jobj.getString("code").equals("998")) {
+                                    Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                                } else {
+                                    String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
+                                    String people_type = jobj.getString("people_type");
+                                    String my_speed = jobj.getString("my_speed");
+                                    String my_control = jobj.getString("my_control");
+                                    String people_speed = jobj.getString("people_speed");
+                                    String people_control = jobj.getString("people_control");
+                                    String gubun1 = jobj.getString("gubun1");
+
+
+                                    Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
+                                    intent.putExtra("mytype", my_type);
+                                    intent.putExtra("people_type", people_type);
+                                    intent.putExtra("gubun1", gubun1);
+                                    intent.putExtra("my_speed", my_speed);
+                                    intent.putExtra("my_control", my_control);
+                                    intent.putExtra("people_speed", people_speed);
+                                    intent.putExtra("people_control", people_control);
+                                    startActivity(intent);
+                                    getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                                }
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
                         }
                     });
+
                 }
+
             }
         });
 
@@ -355,17 +404,13 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
 
                 if(C_check == false) {
 
-
                     if(C_cnt < 3) {
                         Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
                     } else {
-
                         Log.d("people_gram", String.valueOf(P_point));
                         Intent intent = new Intent(getActivity(), GramPopupMyTypeActivity.class);
                         intent.putExtra("point", String.valueOf(P_point));
                         intent.putExtra("gubun1", "C");
-                        String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
-                        intent.putExtra("mytype", my_type);
                         getActivity().startActivityForResult(intent, SubPeopleTypeFragmentCode);
                         getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     }
@@ -385,25 +430,44 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
 
                         @Override
                         public void onSuccess(String response) {
-                            String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
-                            String people_type = response;
-                            String gubun1 = "C";
+
+                            try {
+                                JSONObject jobj = new JSONObject(response);
 
 
-                            if(people_type.equals("999")) {
-                                Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
-                            } else if(people_type.equals("998")) {
-                                Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
-                            } else {
-                                Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
-                                intent.putExtra("mytype", my_type);
-                                intent.putExtra("people_type", people_type);
-                                intent.putExtra("gubun1", gubun1);
-                                startActivity(intent);
-                                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                                if(jobj.getString("code").equals("999")) {
+                                    Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                                } else if(jobj.getString("code").equals("998")) {
+                                    Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                                } else {
+                                    String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
+                                    String people_type = jobj.getString("people_type");
+                                    String my_speed = jobj.getString("my_speed");
+                                    String my_control = jobj.getString("my_control");
+                                    String people_speed = jobj.getString("people_speed");
+                                    String people_control = jobj.getString("people_control");
+                                    String gubun1 = jobj.getString("gubun1");
+
+
+                                    Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
+                                    intent.putExtra("mytype", my_type);
+                                    intent.putExtra("people_type", people_type);
+                                    intent.putExtra("gubun1", gubun1);
+                                    intent.putExtra("my_speed", my_speed);
+                                    intent.putExtra("my_control", my_control);
+                                    intent.putExtra("people_speed", people_speed);
+                                    intent.putExtra("people_control", people_control);
+                                    startActivity(intent);
+                                    getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                                }
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
                         }
                     });
+
                 }
             }
         });
@@ -411,9 +475,10 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
         peopletype_menu5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if(S_check == false) {
 
-                    if(C_cnt < 1) {
+                    if(S_cnt < 1) {
                         Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
                     } else {
                         Log.d("people_gram", String.valueOf(P_point));
@@ -440,61 +505,46 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                         @Override
                         public void onSuccess(String response) {
 
+                            try {
+                                JSONObject jobj = new JSONObject(response);
 
-                            String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
-                            String people_type = response;
-                            String gubun1 = "S";
-                            //Log.d("people_gram", my_type + ":::" + people_type + ":::" + gubun1);
 
-                            if(people_type.equals("999")) {
-                                Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
-                            } else if(people_type.equals("998")) {
-                                Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
-                            } else {
-                                Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
-                                intent.putExtra("mytype", my_type);
-                                intent.putExtra("people_type", people_type);
-                                intent.putExtra("gubun1", gubun1);
-                                startActivity(intent);
-                                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                                if(jobj.getString("code").equals("999")) {
+                                    Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                                } else if(jobj.getString("code").equals("998")) {
+                                    Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
+                                } else {
+                                    String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
+                                    String people_type = jobj.getString("people_type");
+                                    String my_speed = jobj.getString("my_speed");
+                                    String my_control = jobj.getString("my_control");
+                                    String people_speed = jobj.getString("people_speed");
+                                    String people_control = jobj.getString("people_control");
+                                    String gubun1 = jobj.getString("gubun1");
+
+
+                                    Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
+                                    intent.putExtra("mytype", my_type);
+                                    intent.putExtra("people_type", people_type);
+                                    intent.putExtra("gubun1", gubun1);
+                                    intent.putExtra("my_speed", my_speed);
+                                    intent.putExtra("my_control", my_control);
+                                    intent.putExtra("people_speed", people_speed);
+                                    intent.putExtra("people_control", people_control);
+                                    startActivity(intent);
+                                    getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                                }
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
                         }
                     });
+
                 }
             }
         });
-
-
-
-
-        //profile_img = (CircularImageView) rootView.findViewById(R.id.profile_img);
-        //profile_username = (TextView) rootView.findViewById(R.id.profile_username);
-        //profile_type = (ImageView) rootView.findViewById(R.id.profile_type);
-       // aq = new AQuery(getActivity());
-
-        //String filename = SharedPreferenceUtil.getSharedPreference(getActivity(), "profile_image");
-        //profile_img_view(filename);
-
-        //profile_username.setText(SharedPreferenceUtil.getSharedPreference(getActivity(), "username"));
-/*
-        switch (SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype")) {
-            case "I":
-                profile_type.setImageResource(R.mipmap.peoplelist_type_i);
-                break;
-            case "D":
-                profile_type.setImageResource(R.mipmap.peoplelist_type_d);
-                break;
-            case "E":
-                profile_type.setImageResource(R.mipmap.peoplelist_type_e);
-                break;
-            case "A":
-                profile_type.setImageResource(R.mipmap.peoplelist_type_a);
-                break;
-            default:
-                profile_type.setImageResource(R.mipmap.peoplelist_type_default);
-                break;
-        }
-*/
         return rootView;
     }
 

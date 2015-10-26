@@ -26,8 +26,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:textSize="11dp"
+                android:textColor="#1d1d26"
+                android:textSize="14dp"
                 android:text="○○○님에게 어떤 감사의 말이 좋을까요?" />
 
         </LinearLayout>
@@ -70,8 +70,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:textSize="11dp"
+                android:textColor="#1d1d26"
+                android:textSize="14dp"
                 android:text="○○○님에게 어떤 칭송을 하면 좋을까요?" />
 
         </LinearLayout>
@@ -113,8 +113,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:textSize="11dp"
+                android:textColor="#1d1d26"
+                android:textSize="14dp"
                 android:text="○○○님에게 어떤 선물을 한다면 뭐가 좋을까요?" />
 
         </LinearLayout>
@@ -157,8 +157,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:textSize="11dp"
+                android:textColor="#1d1d26"
+                android:textSize="14dp"
                 android:text="○○○님은 저를 자꾸 무시하는 것 같은데, 어떻게 해야 하나요?" />
 
         </LinearLayout>
@@ -200,8 +200,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:textSize="11dp"
+                android:textColor="#1d1d26"
+                android:textSize="14dp"
                 android:text="계약서 빨리 보내라고 계속 조르는데, 무슨 다른 꿍꿍이가 있나 걱정됩니다." />
 
         </LinearLayout>
@@ -243,8 +243,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:textSize="11dp"
+                android:textColor="#1d1d26"
+                android:textSize="14dp"
                 android:text="계약서 빨리 보내라고 계속 조르는데, 무슨 다른 꿍꿍이가 있나 걱정됩니다." />
         </LinearLayout>
 
