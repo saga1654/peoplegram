@@ -1,6 +1,6 @@
 body { margin:0 auto; background-color:#32354d;}
 .contents{ width:100%;  line-height:1.5em;  color:#1d1d26; background-color:#f5f5f6;}
-.contents table tr th { padding-left:1.5em;  padding-right:1.5em; padding-top:0.5em; padding-bottom:0.5em; background-color:#fae504;}
+.contents table tr th { padding-left:1.5em;  padding-right:1.5em; padding-top:0.5em; padding-bottom:0.5em; background-color:#fae504; text-align:left;}
 .contents table tr td { padding:1.5em; font-size:0.9em; color:#ffffff}
 .contents .contents_Keyword   { width:100%; font-size:0.9em; font-weight:bolder; color:#000000; background-color:#f6f6f6;}
 .contents .contents_Keyword_I { width:100%; font-size:0.9em; font-weight:bolder; color:#29cf04; }
