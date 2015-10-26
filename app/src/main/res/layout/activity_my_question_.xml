@@ -330,6 +330,7 @@
                     android:onClick="btn_next"
                     android:layout_weight="0.50">
 
+                    <!--
                     <ImageButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -338,6 +339,7 @@
                         android:layout_marginLeft="10dp"
                         android:onClick="btn_next"
                         android:src="@drawable/myquestion_next_btn" />
+                        -->
 
 
                 </LinearLayout>

@@ -62,6 +62,8 @@ public class SubMainFragment extends Fragment implements SwipeRefreshLayout.OnRe
         View header = inflater.inflate(R.layout.sub_fragment_main_header, null, false);
 
 
+
+
         have_write_btn = (ImageButton) rootView.findViewById(R.id.have_write_btn);
         have_write_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,7 +89,7 @@ public class SubMainFragment extends Fragment implements SwipeRefreshLayout.OnRe
 
         HttpClient.post("/people/peopleContentList", params, new AsyncHttpResponseHandler() {
             public void onStart() {
-                dialog = ProgressDialog.show(getActivity(), "", "데이터 수신중");
+                dialog = ProgressDialog.show(getActivity(), "", "체크");
             }
 
             public void onFinish() {

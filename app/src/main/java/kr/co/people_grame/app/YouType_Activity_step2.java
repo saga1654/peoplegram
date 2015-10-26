@@ -188,6 +188,7 @@ public class YouType_Activity_step2 extends FragmentActivity {
 
     public void myQuestion_left_click(View v) {
         right_onoff = false;
+
         if(left_onoff == false) {
             left_onoff = true;
             myQuestion_left.setBackgroundColor(Color.rgb(250,229,4));
@@ -197,9 +198,79 @@ public class YouType_Activity_step2 extends FragmentActivity {
             myQuestion_left.setBackgroundColor(Color.rgb(241,241,241));
             myQuestion_right.setBackgroundColor(Color.rgb(241,241,241));
         }
+
+        if(dataSet() == false) {
+            Toast.makeText(this, "선택해주세요.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(questionNum == 10) {
+            Log.d("people_gram", "마지막페이지");
+            //Toast.makeText(this, "마지막페이지", Toast.LENGTH_SHORT).show();
+
+
+            RequestParams params = new RequestParams();
+            params.put("uid", uid);
+            params.put("people_uid", people_uid);
+            params.put("gubun1", gubun1);
+            params.put("gubun2", gubun2);
+            int dataNum = 0;
+            for(int i = 0; i<dataArray.length; i++) {
+                dataNum = i + 1;
+                params.put("data"+dataNum, String.valueOf(dataArray[i]));
+            }
+
+            HttpClient.post("/user/you_question", params, new AsyncHttpResponseHandler() {
+                public void onStart() {
+                    dialog = ProgressDialog.show(YouType_Activity_step2.this, "", "데이터 수신중");
+                }
+
+                public void onFinish() {
+                    dialog.dismiss();
+                }
+
+                @Override
+                public void onSuccess(String response)
+                {
+                    dialog.dismiss();
+
+                    intent = new Intent(YouType_Activity_step2.this, YouType_Activity.class);
+                    intent.putExtra("people_uid", people_uid);
+                    intent.putExtra("youtype", response);
+                    //SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                    finish();
+
+                }
+
+            });
+
+
+
+        } else {
+            questionNum_plus();
+            pager.setCurrentItem(questionNum);
+           /* nextCheck = true;
+            sb_my_question_activity_data.setMax(100);
+            sb_my_question_activity_data.setProgress(50);
+
+            seekCheck = false;
+            //sb_my_question_activity_data.setMax(100);
+            //sb_my_question_activity_data.setProgress(50);
+            */
+        }
+        getQuestionTitle();
+        myQuestion_default();
+
+
+        /*
+
+        */
     }
 
     public void myQuestion_right_click(View v) {
+
         left_onoff = false;
         if(left_onoff == false) {
             right_onoff = true;
@@ -210,6 +281,75 @@ public class YouType_Activity_step2 extends FragmentActivity {
             myQuestion_left.setBackgroundColor(Color.rgb(241, 241, 241));
             myQuestion_right.setBackgroundColor(Color.rgb(241,241,241));
         }
+
+        if(dataSet() == false) {
+            Toast.makeText(this, "선택해주세요.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(questionNum == 10) {
+            Log.d("people_gram", "마지막페이지");
+            //Toast.makeText(this, "마지막페이지", Toast.LENGTH_SHORT).show();
+
+
+            RequestParams params = new RequestParams();
+            params.put("uid", uid);
+            params.put("people_uid", people_uid);
+            params.put("gubun1", gubun1);
+            params.put("gubun2", gubun2);
+            int dataNum = 0;
+            for(int i = 0; i<dataArray.length; i++) {
+                dataNum = i + 1;
+                params.put("data"+dataNum, String.valueOf(dataArray[i]));
+            }
+
+            HttpClient.post("/user/you_question", params, new AsyncHttpResponseHandler() {
+                public void onStart() {
+                    dialog = ProgressDialog.show(YouType_Activity_step2.this, "", "데이터 수신중");
+                }
+
+                public void onFinish() {
+                    dialog.dismiss();
+                }
+
+                @Override
+                public void onSuccess(String response)
+                {
+                    dialog.dismiss();
+
+                    intent = new Intent(YouType_Activity_step2.this, YouType_Activity.class);
+                    intent.putExtra("people_uid", people_uid);
+                    intent.putExtra("youtype", response);
+                    //SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                    finish();
+
+                }
+
+            });
+
+
+
+        } else {
+            questionNum_plus();
+            pager.setCurrentItem(questionNum);
+           /* nextCheck = true;
+            sb_my_question_activity_data.setMax(100);
+            sb_my_question_activity_data.setProgress(50);
+
+            seekCheck = false;
+            //sb_my_question_activity_data.setMax(100);
+            //sb_my_question_activity_data.setProgress(50);
+            */
+        }
+        getQuestionTitle();
+        myQuestion_default();
+
+
+        /*
+
+        */
     }
 
     private class MyPagerAdapter extends PagerAdapter {

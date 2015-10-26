@@ -201,6 +201,70 @@ public class MyQuestion_Activity extends FragmentActivity {
             myQuestion_left.setBackgroundColor(Color.rgb(241,241,241));
             myQuestion_right.setBackgroundColor(Color.rgb(241,241,241));
         }
+
+        if(dataSet() == false) {
+            Toast.makeText(this, "선택해주세요.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
+        if(questionNum == 10) {
+            Log.d("people_gram", "마지막페이지");
+            //Toast.makeText(this, "마지막페이지", Toast.LENGTH_SHORT).show();
+
+
+            dialog = ProgressDialog.show(MyQuestion_Activity.this, "", "데이터 수신중");
+            readContacts();
+
+            RequestParams params = new RequestParams();
+            params.put("uid", uid);
+            int dataNum = 0;
+            for(int i = 0; i<dataArray.length; i++) {
+                dataNum = i + 1;
+                params.put("data"+dataNum, String.valueOf(dataArray[i]));
+            }
+
+            Log.d("people_gram", userData);
+            params.put("userData", userdataArray);
+
+            HttpClient.post("/user/my_question", params, new AsyncHttpResponseHandler() {
+                public void onStart() {
+
+                }
+
+                public void onFinish() {
+                    dialog.dismiss();
+                }
+
+                @Override
+                public void onSuccess(String response)
+                {
+                    dialog.dismiss();
+                    /*
+                    intent = new Intent(MyQuestion_Activity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                    */
+                    //Log.d("people_gram", response);
+
+                    SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);
+                    intent = new Intent(MyQuestion_Activity.this, MyType_Activity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                    finish();
+
+                }
+
+            });
+
+
+
+        } else {
+            questionNum_plus();
+            pager.setCurrentItem(questionNum);
+        }
+        getQuestionTitle();
+        myQuestion_default();
     }
 
     public void myQuestion_right_click(View v) {
@@ -214,6 +278,70 @@ public class MyQuestion_Activity extends FragmentActivity {
             myQuestion_left.setBackgroundColor(Color.rgb(241,241,241));
             myQuestion_right.setBackgroundColor(Color.rgb(241,241,241));
         }
+
+        if(dataSet() == false) {
+            Toast.makeText(this, "선택해주세요.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
+        if(questionNum == 10) {
+            Log.d("people_gram", "마지막페이지");
+            //Toast.makeText(this, "마지막페이지", Toast.LENGTH_SHORT).show();
+
+
+            dialog = ProgressDialog.show(MyQuestion_Activity.this, "", "데이터 수신중");
+            readContacts();
+
+            RequestParams params = new RequestParams();
+            params.put("uid", uid);
+            int dataNum = 0;
+            for(int i = 0; i<dataArray.length; i++) {
+                dataNum = i + 1;
+                params.put("data"+dataNum, String.valueOf(dataArray[i]));
+            }
+
+            Log.d("people_gram", userData);
+            params.put("userData", userdataArray);
+
+            HttpClient.post("/user/my_question", params, new AsyncHttpResponseHandler() {
+                public void onStart() {
+
+                }
+
+                public void onFinish() {
+                    dialog.dismiss();
+                }
+
+                @Override
+                public void onSuccess(String response)
+                {
+                    dialog.dismiss();
+                    /*
+                    intent = new Intent(MyQuestion_Activity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                    */
+                    //Log.d("people_gram", response);
+
+                    SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);
+                    intent = new Intent(MyQuestion_Activity.this, MyType_Activity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                    finish();
+
+                }
+
+            });
+
+
+
+        } else {
+            questionNum_plus();
+            pager.setCurrentItem(questionNum);
+        }
+        getQuestionTitle();
+        myQuestion_default();
     }
 
     private class MyPagerAdapter extends PagerAdapter {

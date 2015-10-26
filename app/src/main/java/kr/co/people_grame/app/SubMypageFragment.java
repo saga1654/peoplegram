@@ -62,6 +62,7 @@ public class SubMypageFragment extends Fragment {
         et_job = (TextView) rootView.findViewById(R.id.et_job);
         et_client = (TextView) rootView.findViewById(R.id.et_client);
 
+
         chart_webview = (WebView) rootView.findViewById(R.id.chart_webview);
         WebSettings webSettings = chart_webview.getSettings();
         webSettings.setJavaScriptEnabled(true);

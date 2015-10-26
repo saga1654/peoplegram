@@ -44,6 +44,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="16dp"
                         android:text="피플그램"
+                        android:id="@+id/mainTitle"
                         android:textColor="#ffffff"/>
 
 
