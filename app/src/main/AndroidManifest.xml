@@ -109,6 +109,11 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
+            android:name=".MyQuestionRe_Activity"
+            android:label="질문지"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
             android:name=".LoginActivity"
             android:label="로그인"
             android:screenOrientation="portrait">

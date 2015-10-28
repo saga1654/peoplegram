@@ -33,6 +33,7 @@ import org.json.JSONObject;
 public class SubPeopleTypeFragment extends Fragment implements View.OnClickListener {
 
     final int SubPeopleTypeFragmentCode = 2;
+    static SubPeopleTypeFragment subpeople_type;
 
 
     private CircularImageView profile_img;
@@ -170,8 +171,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
 
         mytype = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
 
-
-        dataResult();
+        //dataResult();
 
 
 
@@ -210,6 +210,8 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
 
                         @Override
                         public void onSuccess(String response) {
+
+                            Log.d("people_gram", "피플타입");
 
                             try {
                                 JSONObject jobj = new JSONObject(response);
@@ -547,6 +549,10 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                 }
             }
         });
+
+        //dataResult();
+
+
         return rootView;
     }
 

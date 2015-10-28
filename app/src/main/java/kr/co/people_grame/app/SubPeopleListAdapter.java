@@ -9,6 +9,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,7 +21,7 @@ import java.util.ArrayList;
 /**
  * Created by 광희 on 2015-09-18.
  */
-public class SubPeopleListAdapter extends BaseAdapter {
+public class SubPeopleListAdapter extends BaseAdapter{
     private Context mContext;
 
     private int layout;
@@ -30,6 +32,7 @@ public class SubPeopleListAdapter extends BaseAdapter {
     {
         this.mContext = mContext;
         this.layout = layout;
+
         this.peoplelist = peoplelist;
         inf = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View convertView = inf.inflate(layout, null);
@@ -53,6 +56,7 @@ public class SubPeopleListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         if(convertView == null) {
             convertView = inf.inflate(layout, null);
         }
@@ -101,4 +105,5 @@ public class SubPeopleListAdapter extends BaseAdapter {
 
         return convertView;
     }
+
 }

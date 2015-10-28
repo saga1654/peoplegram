@@ -234,6 +234,7 @@ public class SubMypageFragment extends Fragment {
 
     private void countData()
     {
+        Log.d("people_gram", "마이페이지");
         RequestParams params = new RequestParams();
         params.put("uid", SharedPreferenceUtil.getSharedPreference(getActivity(), "uid"));
         HttpClient.post("/user/peopleDataCount", params, new AsyncHttpResponseHandler() {
@@ -247,6 +248,7 @@ public class SubMypageFragment extends Fragment {
 
             @Override
             public void onSuccess(String response) {
+
                 try {
                     JSONObject jobj = new JSONObject(response);
 

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -35,6 +36,8 @@ import java.util.ArrayList;
  */
 public class SubPeopleFragment extends Fragment {
 
+    final int peopleView = 1111;
+
     private ProgressDialog dialog;
     private ListView sf_people_list;
 
@@ -42,7 +45,7 @@ public class SubPeopleFragment extends Fragment {
     private SubPeopleListAdapter people_adapter_list;
 
     private View mainView;
-    private ImageView listview_proplelist_img;
+    private ImageView listview_proplelist_img, btn_question_re;
     private String searchType = "ALL";
 
     private LinearLayout people_gubun_all, people_gubun_family, people_gubun_friend, people_gubun_lover, people_gubun_job, people_gubun_client, people_gubun_not;
@@ -52,6 +55,8 @@ public class SubPeopleFragment extends Fragment {
     private final int ACTIVITY_CODE = 000001;
     private int pos = 0;
 
+    private SearchView serach_view;
+
     public SubPeopleFragment() {
     }
 
@@ -60,14 +65,26 @@ public class SubPeopleFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.sub_fragment_people, container, false);
         View header = inflater.inflate(R.layout.sub_people_header, null, false);
 
-        mainView = rootView;
 
+        mainView = rootView;
 
 
         sf_people_list = (ListView)rootView.findViewById(R.id.sf_people_list);
         sf_people_list.addHeaderView(header);
 
         people_cnt = (TextView) rootView.findViewById(R.id.people_cnt);
+        btn_question_re = (ImageView) header.findViewById(R.id.btn_question_re);
+        btn_question_re.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getActivity(), MyQuestionRe_Activity.class);
+                getActivity().startActivityForResult(intent, peopleView);
+                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+
+            }
+        });
+        //btn_question_re = (ImageView) rootView.findViewById(R.id.btn_question_re);
 
         listview_proplelist_img = (ImageView) rootView.findViewById(R.id.listview_proplelist_img);
         TextView listview_my_people_list_username = (TextView) rootView.findViewById(R.id.listview_my_people_list_username);
@@ -337,8 +354,30 @@ public class SubPeopleFragment extends Fragment {
         return rootView;
     }
 
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         peopleList();
+        switch (SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype")) {
+            case "A":
+                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_a);
+                break;
+
+            case "I":
+                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_i);
+                break;
+
+            case "D":
+                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_d);
+                break;
+
+            case "E":
+                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_e);
+                break;
+
+            default:
+                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_default);
+                break;
+        }
         super.onActivityResult(requestCode, resultCode, data);
     }
 
@@ -355,7 +394,6 @@ public class SubPeopleFragment extends Fragment {
 
             public void onFailure()
             {
-                dialog.dismiss();
             }
 
             public void onFinish()  {
@@ -421,6 +459,7 @@ public class SubPeopleFragment extends Fragment {
 
                     sf_people_list.setSelection(pos);
 
+
                     //dialog.dismiss();
                     //listview_noticeList.setAdapter(notice_adapter);
                 } catch (JSONException e) {
@@ -437,4 +476,6 @@ public class SubPeopleFragment extends Fragment {
     {
         super.onPause();
     }
+
+
 }
