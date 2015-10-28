@@ -1,6 +1,7 @@
 package kr.co.people_grame.app;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity  {
     public static AppCompatActivity mainActivity;
 
     final int SubPeopleTypeFragmentCode = 2;
+    private TextView mainTitle;
 
     private Toolbar toolbar;
     private TabLayout tabLayout;
@@ -57,6 +59,8 @@ public class MainActivity extends AppCompatActivity  {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         */
 
+        mainTitle = (TextView) findViewById(R.id.mainTitle);
+
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
@@ -73,6 +77,7 @@ public class MainActivity extends AppCompatActivity  {
                 overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
+
     }
 
     private void setupTabIcons() {
@@ -109,6 +114,37 @@ public class MainActivity extends AppCompatActivity  {
         adapter.addFrag(new SubTypeFragment(), "TYPE");
         //adapter.addFrag(new ThreeFragment(), "THREE");
         viewPager.setAdapter(adapter);
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                Log.d("people_gram", "선택="+position);
+                switch (position)
+                {
+                    case 0:
+                        mainTitle.setText("피플그램");
+                        break;
+                    case 1:
+                        mainTitle.setText("나를 생각하는 피플타입");
+                        break;
+                    case 2:
+                        mainTitle.setText("마이페이지");
+                        break;
+                    case 3:
+                        mainTitle.setText("유형특징");
+                        break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     @Override
@@ -155,6 +191,7 @@ public class MainActivity extends AppCompatActivity  {
     }
 
 
+
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
@@ -165,7 +202,7 @@ public class MainActivity extends AppCompatActivity  {
 
         @Override
         public Fragment getItem(int position) {
-
+            //Log.d("people_gram", "순서="+String.valueOf(position));
             return mFragmentList.get(position);
         }
 
@@ -181,8 +218,9 @@ public class MainActivity extends AppCompatActivity  {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return null;
-            //return mFragmentTitleList.get(position);
+            //Log.d("people_gram", "순서="+String.valueOf(position));
+            //return null;
+            return mFragmentTitleList.get(position);
         }
     }
 

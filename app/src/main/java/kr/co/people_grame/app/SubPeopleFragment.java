@@ -60,8 +60,9 @@ public class SubPeopleFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.sub_fragment_people, container, false);
         View header = inflater.inflate(R.layout.sub_people_header, null, false);
 
-
         mainView = rootView;
+
+
 
         sf_people_list = (ListView)rootView.findViewById(R.id.sf_people_list);
         sf_people_list.addHeaderView(header);
@@ -173,7 +174,7 @@ public class SubPeopleFragment extends Fragment {
         }
 
 
-        peopleList();
+
 
 
 
@@ -328,6 +329,11 @@ public class SubPeopleFragment extends Fragment {
             }
         });
 
+        TextView mainTitle = (TextView) getActivity().findViewById(R.id.mainTitle);
+        mainTitle.setText("피플그램");
+
+        peopleList();
+
         return rootView;
     }
 
@@ -344,7 +350,6 @@ public class SubPeopleFragment extends Fragment {
         params.put("searchType", searchType);
         HttpClient.post("/user/member_people", params, new AsyncHttpResponseHandler() {
             public void onStart() {
-                //Log.d("people_gram", "시작");
                 dialog = ProgressDialog.show(getActivity(), "", "데이터 수신중");
             }
 
@@ -353,7 +358,7 @@ public class SubPeopleFragment extends Fragment {
                 dialog.dismiss();
             }
 
-            public void onFinish() {
+            public void onFinish()  {
                 dialog.dismiss();
             }
 
@@ -416,7 +421,7 @@ public class SubPeopleFragment extends Fragment {
 
                     sf_people_list.setSelection(pos);
 
-                    dialog.dismiss();
+                    //dialog.dismiss();
                     //listview_noticeList.setAdapter(notice_adapter);
                 } catch (JSONException e) {
                     e.printStackTrace();

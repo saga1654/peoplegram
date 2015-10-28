@@ -33,6 +33,8 @@ public class SubPeopleFragment_tip extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.subpeople_fragment, container, false);
 
+        Log.d("people_gram", "나의 타입");
+
 
         subpeople_menu1 = (LinearLayout) rootView.findViewById(R.id.subpeople_menu1);
         subpeople_menu2 = (LinearLayout) rootView.findViewById(R.id.subpeople_menu2);

@@ -175,6 +175,8 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
 
 
 
+
+
         peopletype_menu1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
