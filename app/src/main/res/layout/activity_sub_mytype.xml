@@ -175,7 +175,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="긍정,부정적인 면"
+                                android:text="긍정적인 면"
                                 android:textColor="#1f1f2a"/>
                         </LinearLayout>
                         <LinearLayout
