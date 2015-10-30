@@ -84,4 +84,54 @@
     <string name="title_activity_sub_people_contents_type_">SubPeopleContentsType_Activity</string>
 
 
+
+    <!-- 매칭텍스트 -->
+    <!-- 가족 -->
+    <string name="p_1">우린 가족이 맞는걸까?</string>
+    <string name="p_2">내가 놓치고 있는건 없는건가?</string>
+    <string name="p_3">덜하지 더하지도...</string>
+    <string name="p_4">이정도면 만족해!</string>
+    <string name="p_5">지금처럼만...</string>
+    <string name="p_6">좋아!!좋아</string>
+    <string name="p_7">환상의 가족~~!!</string>
+
+
+    <!-- 친구 -->
+    <string name="f_1">누구냐~~넌</string>
+    <string name="f_2">좀 더 관심을 그대에게...</string>
+    <string name="f_3">이젠 마음을 줄때</string>
+    <string name="f_4">보고싶다~~친구야</string>
+    <string name="f_5">그땐그랬지</string>
+    <string name="f_6">단짝과 다름없어</string>
+    <string name="f_7">우린 베프</string>
+
+
+    <!-- 연인 -->
+    <string name="l_1">아직 어색한사이</string>
+    <string name="l_2">알아가자 좀더!!</string>
+    <string name="l_3">지금 소홀해진건 아닌지</string>
+    <string name="l_4">보고싶어~~자기야~</string>
+    <string name="l_5">영원하길~~</string>
+    <string name="l_6">사랑해~사랑해</string>
+    <string name="l_7">결혼하자~~우리</string>
+
+
+    <!-- 직장 -->
+    <string name="c_1">힘을내요!! 슈퍼파워</string>
+    <string name="c_2">웃어보자!! 서로</string>
+    <string name="c_3">당신을 믿습니다.</string>
+    <string name="c_4">열정의 힘!!! 할 수 있다</string>
+    <string name="c_5">승승장구</string>
+    <string name="c_6">완벽한 조합</string>
+    <string name="c_7">환상의 케미~~</string>
+
+    <!-- 고객 -->
+    <string name="s_1">난 아직 몰라~!!</string>
+    <string name="s_2">좀 더 좀 더 노력해요</string>
+    <string name="s_3">조심 조심!~~</string>
+    <string name="s_4">신뢰의 힘</string>
+    <string name="s_5">날 믿어요!</string>
+    <string name="s_6">무한신뢰</string>
+    <string name="s_7">인생의 동반자</string>
+
 </resources>

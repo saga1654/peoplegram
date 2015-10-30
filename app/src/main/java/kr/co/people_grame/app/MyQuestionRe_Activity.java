@@ -174,8 +174,8 @@ public class MyQuestionRe_Activity extends FragmentActivity {
     {
         left_onoff = false;
         right_onoff = false;
-        myQuestion_left.setBackgroundColor(Color.rgb(241,241,241));
-        myQuestion_right.setBackgroundColor(Color.rgb(241,241,241));
+        myQuestion_left.setBackgroundColor(Color.rgb(241, 241, 241));
+        myQuestion_right.setBackgroundColor(Color.rgb(241, 241, 241));
     }
 
     public void myQuestion_left_click(View v) {
@@ -417,9 +417,6 @@ public class MyQuestionRe_Activity extends FragmentActivity {
             //Toast.makeText(this, "마지막페이지", Toast.LENGTH_SHORT).show();
 
 
-            dialog = ProgressDialog.show(MyQuestionRe_Activity.this, "", "데이터 수신중");
-            readContacts();
-
             RequestParams params = new RequestParams();
             params.put("uid", uid);
             int dataNum = 0;
@@ -433,7 +430,7 @@ public class MyQuestionRe_Activity extends FragmentActivity {
 
             HttpClient.post("/user/my_question", params, new AsyncHttpResponseHandler() {
                 public void onStart() {
-
+                    dialog = ProgressDialog.show(MyQuestionRe_Activity.this, "", "데이터 수신중");
                 }
 
                 public void onFinish() {
@@ -599,7 +596,8 @@ public class MyQuestionRe_Activity extends FragmentActivity {
     {
         setResult(RESULT_OK, intent);
         super.finish();
-        overridePendingTransition(R.anim.slide_clode_up_info, R.anim.slide_close_down_info);
+        overridePendingTransition(R.anim.slide_close_down_info, R.anim.slide_clode_up_info);
+
     }
 
 }

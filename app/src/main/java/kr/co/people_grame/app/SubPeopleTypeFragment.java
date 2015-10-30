@@ -46,11 +46,11 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
     private LinearLayout people_menu1, people_menu2, people_menu3, people_menu4, people_menu5;
     private ProgressDialog dialog;
 
-    public static Boolean P_check = false;
-    public static Boolean F_check = false;
-    public static Boolean L_check = false;
-    public static Boolean C_check = false;
-    public static Boolean S_check = false;
+    public static Boolean P_check = true;
+    public static Boolean F_check = true;
+    public static Boolean L_check = true;
+    public static Boolean C_check = true;
+    public static Boolean S_check = true;
 
     private int P_cnt = 0;
     private int F_cnt = 0;
@@ -480,9 +480,9 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
             @Override
             public void onClick(View v) {
 
-                if(S_check == false) {
+                if (S_check == false) {
 
-                    if(S_cnt < 1) {
+                    if (S_cnt < 1) {
                         Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
                     } else {
                         Log.d("people_gram", String.valueOf(P_point));
@@ -513,9 +513,9 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                                 JSONObject jobj = new JSONObject(response);
 
 
-                                if(jobj.getString("code").equals("999")) {
+                                if (jobj.getString("code").equals("999")) {
                                     Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
-                                } else if(jobj.getString("code").equals("998")) {
+                                } else if (jobj.getString("code").equals("998")) {
                                     Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n피플들에게 요청해주세요.", Toast.LENGTH_LONG).show();
                                 } else {
                                     String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");

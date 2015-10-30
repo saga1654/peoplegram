@@ -64,6 +64,8 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
     private ProgressDialog dialog;
     private boolean payment_result = false;
 
+    private CircularProgressBar c2;
+
 
 
 
@@ -130,26 +132,9 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
         double total = Utilities.people_match_int(my_speed, people_speed, my_control, people_control);
 
-        //Log.d("people_gram", "나의점수=" + my_speed + ":::" + my_control + "///상대방=" + people_speed + ":::" + people_control + "///전체=" + total);
+        c2 = (CircularProgressBar) findViewById(R.id.circularprogressbar2);
+        graph(total);
 
-        final CircularProgressBar c2 = (CircularProgressBar) findViewById(R.id.circularprogressbar2);
-        c2.setSubTitle("%");
-        c2.animateProgressTo(0, (int) total, new CircularProgressBar.ProgressAnimationListener() {
-
-            @Override
-            public void onAnimationStart() {
-            }
-
-            @Override
-            public void onAnimationProgress(int progress) {
-                c2.setTitle(progress + "");
-            }
-
-            @Override
-            public void onAnimationFinish() {
-                //c2.setSubTitle("done");
-            }
-        });
 
 
 
@@ -198,6 +183,9 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                 } else {
                     RequestParams params = new RequestParams();
                     params.put("uid", SharedPreferenceUtil.getSharedPreference(SubPeopleListSelect_Activity.this, "uid"));
+                    params.put("gubun1", people_gubun1);
+                    params.put("my_control", my_control);
+                    params.put("my_speed", my_speed);
                     HttpClient.post("/user/profile_people_type", params, new AsyncHttpResponseHandler() {
                         public void onStart() {
                             //Log.d("people_gram", "시작");
@@ -210,7 +198,52 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
                         @Override
                         public void onSuccess(String response) {
+                            try {
+                                JSONObject data = new JSONObject(response);
+                                String new_my_type = data.getString("peopleType");
+                                String new_speed = data.getString("sumdata_speed");
+                                String new_control = data.getString("sumdata_control");
 
+                                Log.d("people_gram", new_my_type + ":::" + new_speed + ":::" + new_control);
+
+                                double total = Utilities.people_match_int(Integer.parseInt(new_speed), people_speed, Integer.parseInt(new_control), people_control);
+                                switch (new_my_type) {
+                                    case "A":
+                                        popup_mytype.setBackgroundResource(R.mipmap.people_type_a);
+                                        graph(total);
+                                        break;
+
+                                    case "I":
+                                        popup_mytype.setBackgroundResource(R.mipmap.people_type_i);
+                                        graph(total);
+
+                                        break;
+
+                                    case "D":
+                                        popup_mytype.setBackgroundResource(R.mipmap.people_type_d);
+                                        graph(total);
+
+                                        break;
+
+                                    case "E":
+                                        popup_mytype.setBackgroundResource(R.mipmap.people_type_e);
+                                        graph(total);
+
+
+                                        break;
+
+                                    default:
+                                        listview_mytype_switch.setChecked(false);
+                                        Toast.makeText(SubPeopleListSelect_Activity.this, "피플이 귀하를 진단하지 않았습니다.\n피플들에게 요청하세요.", Toast.LENGTH_SHORT).show();
+                                        //listview_mytype_switchpopup_mytype.setBackgroundResource(R.mipmap.people_type_default);
+                                        break;
+                                }
+
+                                Log.d("people_gram", data.getString("sumdata_speed") + ":::" + data.getString("sumdata_control"));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            /*
                             switch (response) {
                                 case "A":
                                     popup_mytype.setBackgroundResource(R.mipmap.people_type_a);
@@ -233,6 +266,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                                     popup_mytype.setBackgroundResource(R.mipmap.people_type_default);
                                     break;
                             }
+                            */
                         }
                     });
                 }
@@ -562,7 +596,26 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
         }
     };
 
+    private void graph(double total)
+    {
+        c2.setSubTitle("%");
+        c2.animateProgressTo(0, (int) total, new CircularProgressBar.ProgressAnimationListener() {
 
+            @Override
+            public void onAnimationStart() {
+            }
+
+            @Override
+            public void onAnimationProgress(int progress) {
+                c2.setTitle(progress + "");
+            }
+
+            @Override
+            public void onAnimationFinish() {
+                //c2.setSubTitle("done");
+            }
+        });
+    }
 
 
 

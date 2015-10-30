@@ -181,10 +181,10 @@ public class Utilities {
         int type_score = 100;
 
         if(my_speed * you_speed * my_control * you_control < 0) {
-            type_score = 80;
+            type_score = 90;
         } else {
             if(my_speed * you_speed < 0 && my_control * you_control < 0) {
-                type_score = 60;
+                type_score = 80;
             } else {
                 type_score = 100;
             }
@@ -215,10 +215,10 @@ public class Utilities {
         int type_score = 100;
 
         if(my_speed * you_speed * my_control * you_control < 0) {
-            type_score = 80;
+            type_score = 90;
         } else {
             if(my_speed * you_speed < 0 && my_control * you_control < 0) {
-                type_score = 60;
+                type_score = 80;
             } else {
                 type_score = 100;
             }

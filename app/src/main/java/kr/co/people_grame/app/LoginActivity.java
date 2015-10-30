@@ -148,6 +148,10 @@ public class LoginActivity extends AppCompatActivity {
                                 intent = new Intent(LoginActivity.this, MainActivity.class);
                             }
 
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "point", user_data.get("POINT").toString());
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_speed", "");
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_control", "");
+
                             startActivity(intent);
                             finish();
 

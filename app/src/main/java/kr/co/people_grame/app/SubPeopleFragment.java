@@ -38,10 +38,19 @@ public class SubPeopleFragment extends Fragment {
 
     final int peopleView = 1111;
 
+    int all_cnt = 0;
+    int p_cnt = 0;
+    int f_cnt = 0;
+    int l_cnt = 0;
+    int c_cnt = 0;
+    int s_cnt = 0;
+    int n_cnt = 0;
+
     private ProgressDialog dialog;
     private ListView sf_people_list;
 
     private ArrayList<SubPeopleListDTO> people_dto_list;
+    private ArrayList<SubPeopleListDTO_Temp> people_dto_list_temp;
     private SubPeopleListAdapter people_adapter_list;
 
     private View mainView;
@@ -49,11 +58,17 @@ public class SubPeopleFragment extends Fragment {
     private String searchType = "ALL";
 
     private LinearLayout people_gubun_all, people_gubun_family, people_gubun_friend, people_gubun_lover, people_gubun_job, people_gubun_client, people_gubun_not;
-    private TextView people_cnt;
+    private TextView people_cnt, et_all_cnt, et_p_cnt, et_f_cnt, et_l_cnt, et_c_cnt, et_s_cnt, et_n_cnt;
 
 
     private final int ACTIVITY_CODE = 000001;
     private int pos = 0;
+
+    private static boolean reFresh = false;
+
+
+    private TextView my_profile_i_now_cnt, my_profile_i_up_cnt, my_profile_d_now_cnt, my_profile_d_up_cnt, my_profile_e_now_cnt, my_profile_e_up_cnt, my_profile_a_now_cnt, my_profile_a_up_cnt;
+    private ImageView my_profile_i_up_icon, my_profile_d_up_icon, my_profile_e_up_icon, my_profile_a_up_icon;
 
     private SearchView serach_view;
 
@@ -67,6 +82,14 @@ public class SubPeopleFragment extends Fragment {
 
 
         mainView = rootView;
+
+        people_dto_list_temp = new ArrayList<SubPeopleListDTO_Temp>();
+
+        /*
+        private TextView my_profile_i_now_cnt, my_profile_i_up_cnt, my_profile_d_now_cnt, my_profile_d_up_cnt, my_profile_e_now_cnt, my_profile_e_up_cnt, my_profile_a_now_cnt, my_profile_a_up_cnt;
+        private ImageView my_profile_i_up_icon, my_profile_d_up_icon, my_profile_e_up_icon, my_profile_a_up_icon;
+        */
+
 
 
         sf_people_list = (ListView)rootView.findViewById(R.id.sf_people_list);
@@ -248,7 +271,35 @@ public class SubPeopleFragment extends Fragment {
                 people_gubun_client.setBackgroundResource(R.drawable.people_gubun_off);
                 people_gubun_not.setBackgroundResource(R.drawable.people_gubun_off);
                 pos = 0;
-                peopleList();
+                //peopleList();
+
+                people_dto_list = new ArrayList<SubPeopleListDTO>();
+                people_dto_list.clear();
+
+                for (int i = 0; i < people_dto_list_temp.size(); i++) {
+                    SubPeopleListDTO_Temp dto = people_dto_list_temp.get(i);
+                    people_dto_list.add(new SubPeopleListDTO(
+                            dto.get_profile_uid()
+                            , ""
+                            , dto.get_profile_username()
+                            , dto.get_profile_email()
+                            , dto.get_profile_type()
+                            , ""
+                            , dto.get_profile_gubun1()
+                            , dto.get_profile_gubun2()
+                            , dto.get_profile_speed()
+                            , dto.get_profile_control()
+                            , dto.get_profile_cnt()
+                            , dto.get_profile_friend_cnt()
+                            , dto.get_profile_new_cnt()
+                    ));
+
+                }
+
+                people_adapter_list = new SubPeopleListAdapter(getActivity().getBaseContext(), R.layout.sub_people_row_list, people_dto_list);
+                sf_people_list.setAdapter(people_adapter_list);
+
+                people_cnt.setText("피플 (" + String.valueOf(all_cnt) + "명)");
 
             }
         });
@@ -264,7 +315,37 @@ public class SubPeopleFragment extends Fragment {
                 people_gubun_client.setBackgroundResource(R.drawable.people_gubun_off);
                 people_gubun_not.setBackgroundResource(R.drawable.people_gubun_off);
                 pos = 0;
-                peopleList();
+
+
+                people_dto_list = new ArrayList<SubPeopleListDTO>();
+                people_dto_list.clear();
+
+                for(int i = 0; i<people_dto_list_temp.size(); i++) {
+                    SubPeopleListDTO_Temp dto = people_dto_list_temp.get(i);
+                    if(dto.get_profile_gubun1().equals("P"))
+                    people_dto_list.add(new SubPeopleListDTO(
+                            dto.get_profile_uid()
+                            , ""
+                            , dto.get_profile_username()
+                            , dto.get_profile_email()
+                            , dto.get_profile_type()
+                            , ""
+                            , dto.get_profile_gubun1()
+                            , dto.get_profile_gubun2()
+                            , dto.get_profile_speed()
+                            , dto.get_profile_control()
+                            , dto.get_profile_cnt()
+                            , dto.get_profile_friend_cnt()
+                            , dto.get_profile_new_cnt()
+                    ));
+
+                }
+
+                people_adapter_list = new SubPeopleListAdapter(getActivity().getBaseContext(), R.layout.sub_people_row_list, people_dto_list);
+                sf_people_list.setAdapter(people_adapter_list);
+                //peopleList();
+
+                people_cnt.setText("피플 (" + String.valueOf(p_cnt) + "명)");
             }
         });
         people_gubun_friend.setOnClickListener(new View.OnClickListener() {
@@ -279,7 +360,13 @@ public class SubPeopleFragment extends Fragment {
                 people_gubun_client.setBackgroundResource(R.drawable.people_gubun_off);
                 people_gubun_not.setBackgroundResource(R.drawable.people_gubun_off);
                 pos = 0;
-                peopleList();
+
+                repeopleList();
+
+                people_cnt.setText("피플 (" + String.valueOf(f_cnt) + "명)");
+                //peopleList();
+
+
             }
         });
         people_gubun_lover.setOnClickListener(new View.OnClickListener() {
@@ -294,7 +381,11 @@ public class SubPeopleFragment extends Fragment {
                 people_gubun_client.setBackgroundResource(R.drawable.people_gubun_off);
                 people_gubun_not.setBackgroundResource(R.drawable.people_gubun_off);
                 pos = 0;
-                peopleList();
+
+                repeopleList();
+
+                people_cnt.setText("피플 (" + String.valueOf(l_cnt) + "명)");
+                //peopleList();
             }
         });
 
@@ -310,7 +401,11 @@ public class SubPeopleFragment extends Fragment {
                 people_gubun_client.setBackgroundResource(R.drawable.people_gubun_off);
                 people_gubun_not.setBackgroundResource(R.drawable.people_gubun_off);
                 pos = 0;
-                peopleList();
+
+                repeopleList();
+
+                people_cnt.setText("피플 (" + String.valueOf(c_cnt) + "명)");
+                //peopleList();
             }
         });
 
@@ -326,14 +421,18 @@ public class SubPeopleFragment extends Fragment {
                 people_gubun_client.setBackgroundResource(R.drawable.people_gubun_on);
                 people_gubun_not.setBackgroundResource(R.drawable.people_gubun_off);
                 pos = 0;
-                peopleList();
+
+                repeopleList();
+
+                people_cnt.setText("피플 (" + String.valueOf(s_cnt) + "명)");
+                //peopleList();
             }
         });
 
         people_gubun_not.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                searchType = "N";
+                searchType = "";
                 people_gubun_all.setBackgroundResource(R.drawable.people_gubun_off);
                 people_gubun_family.setBackgroundResource(R.drawable.people_gubun_off);
                 people_gubun_friend.setBackgroundResource(R.drawable.people_gubun_off);
@@ -342,14 +441,49 @@ public class SubPeopleFragment extends Fragment {
                 people_gubun_client.setBackgroundResource(R.drawable.people_gubun_off);
                 people_gubun_not.setBackgroundResource(R.drawable.people_gubun_on);
                 pos = 0;
-                peopleList();
+                repeopleList();
+
+                people_cnt.setText("피플 (" + String.valueOf(n_cnt) + "명)");
+                //peopleList();
             }
         });
 
         TextView mainTitle = (TextView) getActivity().findViewById(R.id.mainTitle);
         mainTitle.setText("피플그램");
 
+
+        et_all_cnt = (TextView) rootView.findViewById(R.id.all_cnt);
+        et_p_cnt = (TextView) rootView.findViewById(R.id.p_cnt);
+        et_f_cnt = (TextView) rootView.findViewById(R.id.f_cnt);
+        et_l_cnt = (TextView) rootView.findViewById(R.id.l_cnt);
+        et_c_cnt = (TextView) rootView.findViewById(R.id.c_cnt);
+        et_s_cnt = (TextView) rootView.findViewById(R.id.s_cnt);
+        et_n_cnt = (TextView) rootView.findViewById(R.id.n_cnt);
+
+
+        my_profile_i_now_cnt = (TextView) rootView.findViewById(R.id.my_profile_i_now_cnt);
+        my_profile_d_now_cnt = (TextView) rootView.findViewById(R.id.my_profile_d_now_cnt);
+        my_profile_e_now_cnt = (TextView) rootView.findViewById(R.id.my_profile_e_now_cnt);
+        my_profile_a_now_cnt = (TextView) rootView.findViewById(R.id.my_profile_a_now_cnt);
+
+        my_profile_i_up_cnt = (TextView) rootView.findViewById(R.id.my_profile_i_up_cnt);
+        my_profile_d_up_cnt = (TextView) rootView.findViewById(R.id.my_profile_d_up_cnt);
+        my_profile_e_up_cnt = (TextView) rootView.findViewById(R.id.my_profile_e_up_cnt);
+        my_profile_a_up_cnt = (TextView) rootView.findViewById(R.id.my_profile_a_up_cnt);
+
+        my_profile_i_up_icon = (ImageView) rootView.findViewById(R.id.my_profile_i_up_icon);
+        my_profile_d_up_icon = (ImageView) rootView.findViewById(R.id.my_profile_d_up_icon);
+        my_profile_e_up_icon = (ImageView) rootView.findViewById(R.id.my_profile_e_up_icon);
+        my_profile_a_up_icon = (ImageView) rootView.findViewById(R.id.my_profile_a_up_icon);
+
+
+
+
+
         peopleList();
+
+
+
 
         return rootView;
     }
@@ -381,6 +515,36 @@ public class SubPeopleFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+    private void repeopleList()
+    {
+        people_dto_list = new ArrayList<SubPeopleListDTO>();
+        people_dto_list.clear();
+
+        for(int i = 0; i<people_dto_list_temp.size(); i++) {
+            SubPeopleListDTO_Temp dto = people_dto_list_temp.get(i);
+            if(dto.get_profile_gubun1().equals(searchType))
+                people_dto_list.add(new SubPeopleListDTO(
+                        dto.get_profile_uid()
+                        , ""
+                        , dto.get_profile_username()
+                        , dto.get_profile_email()
+                        , dto.get_profile_type()
+                        , ""
+                        , dto.get_profile_gubun1()
+                        , dto.get_profile_gubun2()
+                        , dto.get_profile_speed()
+                        , dto.get_profile_control()
+                        , dto.get_profile_cnt()
+                        , dto.get_profile_friend_cnt()
+                        , dto.get_profile_new_cnt()
+                ));
+
+        }
+
+        people_adapter_list = new SubPeopleListAdapter(getActivity().getBaseContext(), R.layout.sub_people_row_list, people_dto_list);
+        sf_people_list.setAdapter(people_adapter_list);
+    }
+
     private void peopleList()
     {
         people_dto_list = new ArrayList<SubPeopleListDTO>();
@@ -403,7 +567,80 @@ public class SubPeopleFragment extends Fragment {
             @Override
             public void onSuccess(String response) {
                 try {
-                    JSONArray people_list = new JSONArray(response);
+
+                    JSONObject data = new JSONObject(response);
+                    JSONObject my_profile = data.getJSONObject("my");
+                    JSONArray people_list = data.getJSONArray("people");
+
+                    //JSONArray people_list = new JSONArray(response);
+
+                    String i_total = my_profile.getString("MY_I_TOTAL");
+                    String d_total = my_profile.getString("MY_D_TOTAL");
+                    String e_total = my_profile.getString("MY_E_TOTAL");
+                    String a_total = my_profile.getString("MY_A_TOTAL");
+
+                    String my_i_now_total = my_profile.getString("MY_I_NOW_MAX");
+                    String my_d_now_total = my_profile.getString("MY_D_NOW_MAX");
+                    String my_e_now_total = my_profile.getString("MY_E_NOW_MAX");
+                    String my_a_now_total = my_profile.getString("MY_A_NOW_MAX");
+
+                    Log.d("people_gram", i_total + ":::" + d_total + ":::" + e_total + ":::" + a_total);
+
+                    my_profile_i_now_cnt.setText(i_total);
+                    my_profile_d_now_cnt.setText(d_total);
+                    my_profile_e_now_cnt.setText(e_total);
+                    my_profile_a_now_cnt.setText(a_total);
+
+                    if(my_i_now_total.equals("0")) {
+                        my_profile_i_up_icon.setVisibility(View.GONE);
+                        my_profile_i_up_cnt.setVisibility(View.GONE);
+                    } else {
+                        my_profile_i_up_cnt.setText(my_i_now_total);
+                    }
+
+                    if(my_d_now_total.equals("0")) {
+                        my_profile_d_up_icon.setVisibility(View.GONE);
+                        my_profile_d_up_cnt.setVisibility(View.GONE);
+                    } else {
+                        my_profile_d_up_cnt.setText(my_d_now_total);
+                    }
+
+                    if(my_e_now_total.equals("0")) {
+                        my_profile_e_up_icon.setVisibility(View.GONE);
+                        my_profile_e_up_cnt.setVisibility(View.GONE);
+                    } else {
+                        my_profile_e_up_cnt.setText(my_e_now_total);
+                    }
+
+                    if(my_a_now_total.equals("0")) {
+                        my_profile_a_up_icon.setVisibility(View.GONE);
+                        my_profile_a_up_cnt.setVisibility(View.GONE);
+                    } else {
+                        my_profile_a_up_cnt.setText(my_a_now_total);
+                    }
+
+
+                    /*
+                    my_profile_i_up_icon = (ImageView) rootView.findViewById(R.id.my_profile_i_up_icon);
+                    my_profile_d_up_icon = (ImageView) rootView.findViewById(R.id.my_profile_d_up_icon);
+                    my_profile_e_up_icon = (ImageView) rootView.findViewById(R.id.my_profile_e_up_icon);
+                    my_profile_a_up_icon = (ImageView) rootView.findViewById(R.id.my_profile_a_up_icon);
+                    */
+
+
+                    /*
+                    my_profile_i_now_cnt = (TextView) rootView.findViewById(R.id.my_profile_i_now_cnt);
+
+                    my_profile_d_now_cnt = (TextView) rootView.findViewById(R.id.my_profile_d_now_cnt);
+                    my_profile_e_now_cnt = (TextView) rootView.findViewById(R.id.my_profile_e_now_cnt);
+                    my_profile_a_now_cnt = (TextView) rootView.findViewById(R.id.my_profile_a_now_cnt);
+
+                    my_profile_i_up_cnt = (TextView) rootView.findViewById(R.id.my_profile_i_up_cnt);
+                    my_profile_d_up_cnt = (TextView) rootView.findViewById(R.id.my_profile_d_up_cnt);
+                    my_profile_e_up_cnt = (TextView) rootView.findViewById(R.id.my_profile_e_up_cnt);
+                    my_profile_a_up_cnt = (TextView) rootView.findViewById(R.id.my_profile_a_up_cnt);
+                    */
+
 
                     people_cnt.setText("피플 (" + people_list.length() + "명)");
                     for (int i = 0; i < people_list.length(); i++) {
@@ -438,6 +675,22 @@ public class SubPeopleFragment extends Fragment {
                             control = Integer.parseInt(jobj.getString("CONTROL"));
                         }
 
+                        all_cnt++;
+
+                        if(gubun1.equals("P")) {
+                            p_cnt++;
+                        } else if(gubun1.equals("F")) {
+                            f_cnt++;
+                        } else if(gubun1.equals("L")) {
+                            l_cnt++;
+                        } else if(gubun1.equals("C")) {
+                            c_cnt++;
+                        } else if(gubun1.equals("S")) {
+                            s_cnt++;
+                        } else {
+                            n_cnt++;
+                        }
+
                         people_dto_list.add(new SubPeopleListDTO(
                                 jobj.getString("PEOPLE_UID")
                                 , ""
@@ -451,13 +704,45 @@ public class SubPeopleFragment extends Fragment {
                                 , control
                                 , jobj.getInt("TOTAL_COUNT")
                                 , jobj.getInt("FRIEND_COUNT")
+                                , jobj.getInt("NOW_MAX")
                         ));
+
+                        people_dto_list_temp.add(new SubPeopleListDTO_Temp(
+                                jobj.getString("PEOPLE_UID")
+                                , ""
+                                , jobj.getString("PEOPLE_USERNAME")
+                                , email
+                                , type
+                                , ""
+                                , gubun1
+                                , gubun2
+                                , speed
+                                , control
+                                , jobj.getInt("TOTAL_COUNT")
+                                , jobj.getInt("FRIEND_COUNT")
+                                , jobj.getInt("NOW_MAX")
+                        ));
+
+                        //Log.d("people_gram", jobj.getInt("NOW_CHECK") + ":::" + jobj.getInt("NOW_MAX"));
                     }
 
                     people_adapter_list = new SubPeopleListAdapter(getActivity().getBaseContext(), R.layout.sub_people_row_list, people_dto_list);
                     sf_people_list.setAdapter(people_adapter_list);
 
                     sf_people_list.setSelection(pos);
+
+
+
+                    et_all_cnt.setText(String.valueOf(all_cnt));
+                    et_p_cnt.setText(String.valueOf(p_cnt));
+                    et_f_cnt.setText(String.valueOf(f_cnt));
+                    et_l_cnt.setText(String.valueOf(l_cnt));
+                    et_c_cnt.setText(String.valueOf(c_cnt));
+                    et_s_cnt.setText(String.valueOf(s_cnt));
+                    et_n_cnt.setText(String.valueOf(n_cnt));
+
+
+                    //Log.d("people_gram", all_cnt + "::" + p_cnt + "::" + f_cnt + "::" + c_cnt + "::" + c_cnt + ":::" + s_cnt + "::" + n_cnt);
 
 
                     //dialog.dismiss();
@@ -476,6 +761,7 @@ public class SubPeopleFragment extends Fragment {
     {
         super.onPause();
     }
+
 
 
 }
