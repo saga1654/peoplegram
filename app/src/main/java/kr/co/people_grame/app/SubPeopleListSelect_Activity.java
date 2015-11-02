@@ -443,7 +443,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.li_tip1:
-                    li_tip1.setBackgroundColor(Color.rgb(50,53,77));
+                    li_tip1.setBackgroundColor(Color.rgb(77,77,77));
                     tv_tip1.setTextColor(Color.rgb(255, 255, 255));
                     li_tip2.setBackgroundColor(Color.rgb(241, 241, 241));
                     tv_tip2.setTextColor(Color.rgb(0, 0, 0));
@@ -479,7 +479,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                     if(payment_result == true) {
                         li_tip1.setBackgroundColor(Color.rgb(241, 241, 241));
                         tv_tip1.setTextColor(Color.rgb(0, 0, 0));
-                        li_tip2.setBackgroundColor(Color.rgb(50, 53, 77));
+                        li_tip2.setBackgroundColor(Color.rgb(77, 77, 77));
                         tv_tip2.setTextColor(Color.rgb(255, 255, 255));
                         li_tip3.setBackgroundColor(Color.rgb(241, 241, 241));
                         tv_tip3.setTextColor(Color.rgb(0, 0, 0));
@@ -516,7 +516,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                                     if (jobj.getString("code").equals("999")) {
                                         li_tip1.setBackgroundColor(Color.rgb(241, 241, 241));
                                         tv_tip1.setTextColor(Color.rgb(0, 0, 0));
-                                        li_tip2.setBackgroundColor(Color.rgb(50, 53, 77));
+                                        li_tip2.setBackgroundColor(Color.rgb(77, 77, 77));
                                         tv_tip2.setTextColor(Color.rgb(255, 255, 255));
                                         li_tip3.setBackgroundColor(Color.rgb(241, 241, 241));
                                         tv_tip3.setTextColor(Color.rgb(0, 0, 0));
@@ -554,7 +554,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                         tv_tip1.setTextColor(Color.rgb(0, 0, 0));
                         li_tip2.setBackgroundColor(Color.rgb(241, 241, 241));
                         tv_tip2.setTextColor(Color.rgb(0, 0, 0));
-                        li_tip3.setBackgroundColor(Color.rgb(50, 53, 77));
+                        li_tip3.setBackgroundColor(Color.rgb(77, 77, 77));
                         tv_tip3.setTextColor(Color.rgb(255, 255, 255));
 
 
@@ -591,7 +591,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                                         tv_tip1.setTextColor(Color.rgb(0, 0, 0));
                                         li_tip2.setBackgroundColor(Color.rgb(241, 241, 241));
                                         tv_tip2.setTextColor(Color.rgb(0, 0, 0));
-                                        li_tip3.setBackgroundColor(Color.rgb(50, 53, 77));
+                                        li_tip3.setBackgroundColor(Color.rgb(77, 77, 77));
                                         tv_tip3.setTextColor(Color.rgb(255, 255, 255));
 
 
@@ -753,7 +753,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                 if(yn.equals("OK") == true) {
                     li_tip1.setBackgroundColor(Color.rgb(241, 241, 241));
                     tv_tip1.setTextColor(Color.rgb(0, 0, 0));
-                    li_tip2.setBackgroundColor(Color.rgb(50, 53, 77));
+                    li_tip2.setBackgroundColor(Color.rgb(77, 77, 77));
                     tv_tip2.setTextColor(Color.rgb(255, 255, 255));
 
                     payment_result = true;
