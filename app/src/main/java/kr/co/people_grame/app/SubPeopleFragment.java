@@ -113,6 +113,7 @@ public class SubPeopleFragment extends Fragment {
         TextView listview_my_people_list_username = (TextView) rootView.findViewById(R.id.listview_my_people_list_username);
         TextView listview_my_people_list_email = (TextView) rootView.findViewById(R.id.listview_my_people_list_email);
 
+        /*
         Switch listview_mytype_switch = (Switch) rootView.findViewById(R.id.listview_mytype_switch);
         listview_mytype_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -182,6 +183,7 @@ public class SubPeopleFragment extends Fragment {
                 }
             }
         });
+        */
 
 
 
