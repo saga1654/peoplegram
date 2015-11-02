@@ -140,7 +140,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="peopleReType_btn"
+                            android:onClick="kakao_btn"
                             android:id="@+id/people_popup_btn1"
                             android:src="@drawable/people_popup_btn1_retype_style"/>
                     </LinearLayout>

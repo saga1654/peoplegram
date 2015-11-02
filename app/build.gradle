@@ -21,9 +21,7 @@ android {
 }
 
 dependencies {
-
     compile fileTree(dir: 'libs', include: ['*.jar'])
-
     compile project(':android-async-http-1.4.4')
     //compile 'com.googlecode.android-query:android-query:0.26.8'
     compile project(':android-query.0.26.7')
@@ -32,8 +30,6 @@ dependencies {
     compile 'com.android.support:design:23.0.1'
     compile 'com.android.support:cardview-v7:23.0.1'
     compile 'com.google.android.gms:play-services:7.5.+'
-
-
 
 }
 

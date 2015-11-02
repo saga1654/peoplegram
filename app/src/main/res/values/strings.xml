@@ -40,6 +40,9 @@
     <string name="step10_right">매우 잘 지키는 편</string>
 
 
+    <string name="text_for_login_kakao_account">Log in with Kakao</string>
+
+
     <string name="gcm_defaultSenderId">71013771468</string>
     <string name="title_activity_start">StartActivity</string>
     <string name="title_activity_sub_gram_point">SubGramPoint</string>
