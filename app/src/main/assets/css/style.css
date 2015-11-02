@@ -1,4 +1,5 @@
 body { margin:0 auto; background-color:#f5f5f6;}
+.type { border:2px solid #ccc; background-color:#fff; font-size:0.8em; padding:1em; }
 .contents{ width:100%;  line-height:1.5em;  color:#1d1d26; background-color:#f5f5f6;}
 .contents table tr th { padding-left:1.5em;  padding-right:1.5em; padding-top:0.5em; padding-bottom:0.5em; background-color:#fae504; text-align:left;}
 .contents table tr td { padding:1.5em; font-size:0.9em; }
