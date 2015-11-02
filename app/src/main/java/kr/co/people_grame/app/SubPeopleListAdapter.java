@@ -9,7 +9,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -19,7 +22,7 @@ import java.util.ArrayList;
 /**
  * Created by 광희 on 2015-09-18.
  */
-public class SubPeopleListAdapter extends BaseAdapter {
+public class SubPeopleListAdapter extends BaseAdapter{
     private Context mContext;
 
     private int layout;
@@ -30,6 +33,7 @@ public class SubPeopleListAdapter extends BaseAdapter {
     {
         this.mContext = mContext;
         this.layout = layout;
+
         this.peoplelist = peoplelist;
         inf = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View convertView = inf.inflate(layout, null);
@@ -53,6 +57,7 @@ public class SubPeopleListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         if(convertView == null) {
             convertView = inf.inflate(layout, null);
         }
@@ -65,9 +70,23 @@ public class SubPeopleListAdapter extends BaseAdapter {
         ImageView listview_proplelist_img = (ImageView) convertView.findViewById(R.id.listview_proplelist_img);
         TextView listview_people_list_cnt = (TextView) convertView.findViewById(R.id.listview_people_list_cnt);
 
+        LinearLayout new_cnt = (LinearLayout) convertView.findViewById(R.id.new_cnt);
+
+        TextView listview_people_list_new_cnt = (TextView) convertView.findViewById(R.id.listview_people_list_new_cnt);
+
         listview_people_list_username.setText(dto.get_profile_username());
         listview_people_list_email.setText(dto.get_profile_email());
         listview_people_list_cnt.setText(dto.get_profile_cnt() + "명");
+
+        //Log.d("people_gram", String.valueOf(dto.get_profile_new_cnt()));
+        listview_people_list_new_cnt.setText(String.valueOf(dto.get_profile_new_cnt()));
+
+        if(dto.get_profile_new_cnt() == 0) {
+            new_cnt.setVisibility(View.GONE);
+        } else {
+            new_cnt.setVisibility(View.VISIBLE);
+        }
+
 
         String people_type = dto.get_profile_type();
 
@@ -101,4 +120,5 @@ public class SubPeopleListAdapter extends BaseAdapter {
 
         return convertView;
     }
+
 }

@@ -434,7 +434,7 @@ public class MyQuestion_Activity extends FragmentActivity {
             //Toast.makeText(this, "마지막페이지", Toast.LENGTH_SHORT).show();
 
 
-            dialog = ProgressDialog.show(MyQuestion_Activity.this, "", "데이터 수신중");
+
             readContacts();
 
             RequestParams params = new RequestParams();
@@ -450,7 +450,7 @@ public class MyQuestion_Activity extends FragmentActivity {
 
             HttpClient.post("/user/my_question", params, new AsyncHttpResponseHandler() {
                 public void onStart() {
-
+                    dialog = ProgressDialog.show(MyQuestion_Activity.this, "", "데이터 수신중");
                 }
 
                 public void onFinish() {

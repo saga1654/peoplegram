@@ -67,6 +67,8 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
         //og.d("people_gram", "file:///android_asset/peopletype_my/" + gubun1 + "/" + gubun1 + "_MY_" + mytype + peopletype + ".html");
 
 
+
+
         people_content_webview.loadUrl("file:///android_asset/peopletype_my/" + gubun1 + "/" + gubun1 + "_MY_" + mytype + peopletype + ".html");
 
     }

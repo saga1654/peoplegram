@@ -48,21 +48,33 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
 
     private String uid, mood, myname, mytype;
+    private String my_code = "000";
     private int my_speed = 0;
+    private int my_sub_speed = 0;
+    private String my_sub_type = "";
     private int my_control = 0;
+    private int my_sub_control = 0;
 
 
     private String people_name, people_type, people_mood, people_uid, people_gubun1, people_gubun2;
     private int people_speed = 0;
     private int people_control = 0;
 
-    private TextView detail_myname, detail_youname, tv_tip1, tv_tip2, tv_tip3, gubun1;
+    private String people_sub_type = "";
+
+    private String people_code = "000";
+    private int people_sub_speed = 0;
+    private int people_sub_control = 0;
+
+    private TextView detail_myname, detail_youname, tv_tip1, tv_tip2, tv_tip3, gubun1, peopleTextView;
 
     private LinearLayout popup_mytype, popup_youtype, li_tip1, li_tip2, li_tip3;
 
     private Switch listview_mytype_switch, listview_youtype_switch;
     private ProgressDialog dialog;
     private boolean payment_result = false;
+
+    private CircularProgressBar c2;
 
 
 
@@ -127,29 +139,13 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
         }
 
 
-
+        c2 = (CircularProgressBar) findViewById(R.id.circularprogressbar2);
+        peopleTextView = (TextView) findViewById(R.id.peopleTextView);
         double total = Utilities.people_match_int(my_speed, people_speed, my_control, people_control);
+        graph(total);
 
-        //Log.d("people_gram", "나의점수=" + my_speed + ":::" + my_control + "///상대방=" + people_speed + ":::" + people_control + "///전체=" + total);
+        peopleTextView.setText(Utilities.peopleContectView(SubPeopleListSelect_Activity.this, people_gubun1, total));
 
-        final CircularProgressBar c2 = (CircularProgressBar) findViewById(R.id.circularprogressbar2);
-        c2.setSubTitle("%");
-        c2.animateProgressTo(0, (int) total, new CircularProgressBar.ProgressAnimationListener() {
-
-            @Override
-            public void onAnimationStart() {
-            }
-
-            @Override
-            public void onAnimationProgress(int progress) {
-                c2.setTitle(progress + "");
-            }
-
-            @Override
-            public void onAnimationFinish() {
-                //c2.setSubTitle("done");
-            }
-        });
 
 
 
@@ -178,6 +174,20 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked == false) {
+
+                    if(listview_youtype_switch.isChecked() == false) {
+                        double total = Utilities.people_match_int(my_speed, people_speed, my_control, people_control);
+                        graph(total);
+
+                        peopleTextView.setText(Utilities.peopleContectView(SubPeopleListSelect_Activity.this, people_gubun1, total));
+                    } else {
+
+                        double total = Utilities.people_match_int(my_speed, people_sub_speed, my_control, people_sub_control);
+                        graph(total);
+
+                        peopleTextView.setText(Utilities.peopleContectView(SubPeopleListSelect_Activity.this, people_gubun1, total));
+
+                    }
                     switch (mytype) {
                         case "A":
                             popup_mytype.setBackgroundResource(R.mipmap.people_type_a);
@@ -196,45 +206,79 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                             break;
                     }
                 } else {
-                    RequestParams params = new RequestParams();
-                    params.put("uid", SharedPreferenceUtil.getSharedPreference(SubPeopleListSelect_Activity.this, "uid"));
-                    HttpClient.post("/user/profile_people_type", params, new AsyncHttpResponseHandler() {
-                        public void onStart() {
-                            //Log.d("people_gram", "시작");
-                            dialog = ProgressDialog.show(SubPeopleListSelect_Activity.this, "", "데이터 수신중");
-                        }
+                    switch (my_sub_type) {
+                        case "A":
+                            if (listview_youtype_switch.isChecked() == false) {
+                                double total = Utilities.people_match_int(my_sub_speed, people_speed, my_sub_control, people_control);
+                                graph(total);
+                            } else {
+                                double total = Utilities.people_match_int(my_sub_speed, people_sub_speed, my_sub_control, people_sub_control);
+                                graph(total);
+                            }
+                            popup_mytype.setBackgroundResource(R.mipmap.people_type_a);
+                            break;
+                        case "I":
+                            if (listview_youtype_switch.isChecked() == false) {
+                                double total = Utilities.people_match_int(my_sub_speed, people_speed, my_sub_control, people_control);
+                                graph(total);
+                            } else {
+                                double total = Utilities.people_match_int(my_sub_speed, people_sub_speed, my_sub_control, people_sub_control);
+                                graph(total);
+                            }
+                            popup_mytype.setBackgroundResource(R.mipmap.people_type_i);
+                            break;
+                        case "E":
+                            if (listview_youtype_switch.isChecked() == false) {
+                                double total = Utilities.people_match_int(my_sub_speed, people_speed, my_sub_control, people_control);
+                                graph(total);
+                            } else {
+                                double total = Utilities.people_match_int(my_sub_speed, people_sub_speed, my_sub_control, people_sub_control);
+                                graph(total);
+                            }
+                            popup_mytype.setBackgroundResource(R.mipmap.people_type_e);
+                            break;
+                        case "D":
+                            if (listview_youtype_switch.isChecked() == false) {
+                                double total = Utilities.people_match_int(my_sub_speed, people_speed, my_sub_control, people_control);
+                                graph(total);
+                            } else {
+                                double total = Utilities.people_match_int(my_sub_speed, people_sub_speed, my_sub_control, people_sub_control);
+                                graph(total);
+                            }
+                            popup_mytype.setBackgroundResource(R.mipmap.people_type_d);
+                            break;
+                        default:
+                            listview_mytype_switch.setChecked(false);
 
-                        public void onFinish() {
-                            dialog.dismiss();
-                        }
+                            Toast.makeText(SubPeopleListSelect_Activity.this, "피플들에게 나의 진단을 요청해주세요.", Toast.LENGTH_LONG).show();
 
-                        @Override
-                        public void onSuccess(String response) {
-
-                            switch (response) {
+                            switch (mytype) {
                                 case "A":
                                     popup_mytype.setBackgroundResource(R.mipmap.people_type_a);
                                     break;
-
                                 case "I":
                                     popup_mytype.setBackgroundResource(R.mipmap.people_type_i);
                                     break;
-
-                                case "D":
-                                    popup_mytype.setBackgroundResource(R.mipmap.people_type_d);
-                                    break;
-
                                 case "E":
                                     popup_mytype.setBackgroundResource(R.mipmap.people_type_e);
                                     break;
-
+                                case "D":
+                                    popup_mytype.setBackgroundResource(R.mipmap.people_type_d);
+                                    break;
                                 default:
-                                    Toast.makeText(SubPeopleListSelect_Activity.this, "피플이 귀하를 진단하지 않았습니다.\n피플들에게 요청하세요.", Toast.LENGTH_SHORT).show();
                                     popup_mytype.setBackgroundResource(R.mipmap.people_type_default);
                                     break;
                             }
-                        }
-                    });
+
+                            /*
+                            if(my_sub_type.equals("") != false) {
+
+                            }
+                            */
+
+                    }
+
+
                 }
             }
         });
@@ -260,65 +304,84 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                             popup_youtype.setBackgroundResource(R.mipmap.people_type_default);
                             break;
                     }
+
+                    if(listview_mytype_switch.isChecked() == true) {
+                        double total = Utilities.people_match_int(my_sub_speed, people_speed, my_sub_control, people_control);
+                        graph(total);
+
+                        peopleTextView.setText(Utilities.peopleContectView(SubPeopleListSelect_Activity.this, people_gubun1, total));
+                    } else {
+                        double total = Utilities.people_match_int(my_speed, people_speed, my_control, people_control);
+                        graph(total);
+
+                        peopleTextView.setText(Utilities.peopleContectView(SubPeopleListSelect_Activity.this, people_gubun1, total));
+                    }
+
                 } else {
-                    RequestParams params = new RequestParams();
-                    params.put("uid", SharedPreferenceUtil.getSharedPreference(SubPeopleListSelect_Activity.this, "uid"));
-                    params.put("people_uid", people_uid);
-                    params.put("gubun1", people_gubun1);
-                    HttpClient.post("/user/profile_you_people_type", params, new AsyncHttpResponseHandler() {
-                        public void onStart() {
-                            //Log.d("people_gram", "시작");
-                            dialog = ProgressDialog.show(SubPeopleListSelect_Activity.this, "", "데이터 수신중");
-                        }
-
-                        public void onFinish() {
-                            dialog.dismiss();
-                        }
-
-                        @Override
-                        public void onSuccess(String response) {
-                            if(response.equals("999")) {
-                                switch (people_gubun1) {
-                                    case "P":
-                                        Toast.makeText(SubPeopleListSelect_Activity.this, "본인 포함 최소 2명 이상 진단된 경우에 볼 수 있습니다.", Toast.LENGTH_LONG).show();
-                                        listview_youtype_switch.setChecked(false);
-                                        break;
-                                    case "F":
-                                        Toast.makeText(SubPeopleListSelect_Activity.this, "본인 포함 최소 3명 이상 진단된 경우에 볼 수 있습니다.", Toast.LENGTH_LONG).show();
-                                        listview_youtype_switch.setChecked(false);
-                                        break;
-                                    case "L":
-                                        break;
-                                    case "C":
-                                        Toast.makeText(SubPeopleListSelect_Activity.this, "본인 제외 최소 3명 이상 진단된 경우에 볼 수 있습니다.", Toast.LENGTH_LONG).show();
-                                        listview_youtype_switch.setChecked(false);
-                                        break;
-                                    case "S":
-                                        break;
-                                }
+                    switch (people_sub_type) {
+                        case "A":
+                            if (listview_mytype_switch.isChecked() == false) {
+                                double total = Utilities.people_match_int(my_speed, people_sub_speed, my_control, people_sub_control);
+                                graph(total);
+                                peopleTextView.setText(Utilities.peopleContectView(SubPeopleListSelect_Activity.this, people_gubun1, total));
                             } else {
-                                switch (response) {
-                                    case "A":
-                                        popup_youtype.setBackgroundResource(R.mipmap.people_type_a);
-                                        break;
-                                    case "I":
-                                        popup_youtype.setBackgroundResource(R.mipmap.people_type_i);
-                                        break;
-                                    case "E":
-                                        popup_youtype.setBackgroundResource(R.mipmap.people_type_e);
-                                        break;
-                                    case "D":
-                                        popup_youtype.setBackgroundResource(R.mipmap.people_type_d);
-                                        break;
-                                    default:
-                                        popup_youtype.setBackgroundResource(R.mipmap.people_type_default);
-                                        break;
-                                }
+                                double total = Utilities.people_match_int(my_sub_speed, people_sub_speed, my_sub_control, people_sub_control);
+                                graph(total);
+                                peopleTextView.setText(Utilities.peopleContectView(SubPeopleListSelect_Activity.this, people_gubun1, total));
                             }
 
-                            //Log.d("people_gram", "데이터="+response);
-                        }
-                    });
+
+                            popup_youtype.setBackgroundResource(R.mipmap.people_type_a);
+                            break;
+                        case "I":
+                            popup_youtype.setBackgroundResource(R.mipmap.people_type_i);
+                            if (listview_mytype_switch.isChecked() == false) {
+                                double total = Utilities.people_match_int(my_speed, people_sub_speed, my_control, people_sub_control);
+                                graph(total);
+                                peopleTextView.setText(Utilities.peopleContectView(SubPeopleListSelect_Activity.this, people_gubun1, total));
+                            } else {
+                                double total = Utilities.people_match_int(my_sub_speed, people_sub_speed, my_sub_control, people_sub_control);
+                                graph(total);
+                                peopleTextView.setText(Utilities.peopleContectView(SubPeopleListSelect_Activity.this, people_gubun1, total));
+                            }
+                            break;
+                        case "E":
+                            popup_youtype.setBackgroundResource(R.mipmap.people_type_e);
+                            if (listview_mytype_switch.isChecked() == false) {
+                                double total = Utilities.people_match_int(my_speed, people_sub_speed, my_control, people_sub_control);
+                                graph(total);
+                                peopleTextView.setText(Utilities.peopleContectView(SubPeopleListSelect_Activity.this, people_gubun1, total));
+                            } else {
+                                double total = Utilities.people_match_int(my_sub_speed, people_sub_speed, my_sub_control, people_sub_control);
+                                graph(total);
+                                peopleTextView.setText(Utilities.peopleContectView(SubPeopleListSelect_Activity.this, people_gubun1, total));
+                            }
+                            break;
+                        case "D":
+                            popup_youtype.setBackgroundResource(R.mipmap.people_type_d);
+                            if (listview_mytype_switch.isChecked() == false) {
+                                double total = Utilities.people_match_int(my_speed, people_sub_speed, my_control, people_sub_control);
+                                graph(total);
+                                peopleTextView.setText(Utilities.peopleContectView(SubPeopleListSelect_Activity.this, people_gubun1, total));
+                            } else {
+                                double total = Utilities.people_match_int(my_sub_speed, people_sub_speed, my_sub_control, people_sub_control);
+                                graph(total);
+                                peopleTextView.setText(Utilities.peopleContectView(SubPeopleListSelect_Activity.this, people_gubun1, total));
+                            }
+                            break;
+                        default:
+                            popup_youtype.setBackgroundResource(R.mipmap.people_type_default);
+                            if (listview_mytype_switch.isChecked() == false) {
+                                double total = Utilities.people_match_int(my_speed, people_sub_speed, my_control, people_sub_control);
+                                graph(total);
+                                peopleTextView.setText(Utilities.peopleContectView(SubPeopleListSelect_Activity.this, people_gubun1, total));
+                            } else {
+                                double total = Utilities.people_match_int(my_sub_speed, people_sub_speed, my_sub_control, people_sub_control);
+                                graph(total);
+                                peopleTextView.setText(Utilities.peopleContectView(SubPeopleListSelect_Activity.this, people_gubun1, total));
+                            }
+                            break;
+                    }
                 }
             }
         });
@@ -562,7 +625,26 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
         }
     };
 
+    private void graph(double total)
+    {
+        c2.setSubTitle("%");
+        c2.animateProgressTo(0, (int) total, new CircularProgressBar.ProgressAnimationListener() {
 
+            @Override
+            public void onAnimationStart() {
+            }
+
+            @Override
+            public void onAnimationProgress(int progress) {
+                c2.setTitle(progress + "");
+            }
+
+            @Override
+            public void onAnimationFinish() {
+                //c2.setSubTitle("done");
+            }
+        });
+    }
 
 
 
@@ -603,7 +685,6 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
         HttpClient.post("/people/peopleMatchCheck", params, new AsyncHttpResponseHandler() {
             public void onStart() {
-                //Log.d("people_gram", "시작");
                 dialog = ProgressDialog.show(SubPeopleListSelect_Activity.this, "", "데이터 수신중");
             }
 
@@ -613,6 +694,43 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
             @Override
             public void onSuccess(String response) {
+                try {
+                    JSONObject jobj = new JSONObject(response);
+                    JSONObject my_obj = new JSONObject(jobj.getString("my_data"));
+                    JSONObject people_obj = new JSONObject(jobj.getString("you_data"));
+                    if(my_obj.getString("code").equals("000")) {
+                        my_sub_control = Integer.parseInt(my_obj.getString("sumdata_control"));
+                        my_sub_speed = Integer.parseInt(my_obj.getString("sumdata_speed"));
+                        my_sub_type = my_obj.getString("peopleType");
+
+                    } else {
+                        my_sub_speed = 0;
+                        my_sub_control = 0;
+                        my_sub_type = "";
+                    }
+
+                    if(people_obj.getString("code").equals("000")) {
+                        people_sub_control = Integer.parseInt(people_obj.getString("sumdata_control"));
+                        people_sub_speed = Integer.parseInt(people_obj.getString("sumdata_speed"));
+                        people_sub_type = people_obj.getString("peopleType");
+
+                    } else {
+                        people_sub_control = 0;
+                        people_sub_speed = 0;
+                        people_sub_type = "";
+                    }
+
+                    Log.d("people_gram", my_sub_control + ":::" + my_sub_speed + ":::" + people_sub_speed + ":::" + people_sub_control + ":::"+ my_sub_type + ":::" + people_sub_type);
+
+                    if(jobj.getString("view_cnt").equals("0")) {
+                        payment_result = false;
+                    } else {
+                        payment_result = true;
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                /*
                 if(response.equals("0")) {
                     Log.d("people_gram", response+"=실패");
                     payment_result = false;
@@ -620,6 +738,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                     Log.d("people_gram", response+"=성공");
                     payment_result = true;
                 }
+                */
             }
         });
     }

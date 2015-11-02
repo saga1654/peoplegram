@@ -368,8 +368,13 @@ public class MemberJoin_Activity extends AppCompatActivity {
                             //Log.d("people_gram", uid + ":::" + userNickName + ":::" + email);
 
                             SharedPreferenceUtil.putSharedPreference(ActivityContext, "uid", uid);
-                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "userNickName", userNickName);
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "username", userNickName);
                             SharedPreferenceUtil.putSharedPreference(ActivityContext, "email", email);
+
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "point", "");
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", "");
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_speed", "");
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_control", "");
 
                             intent = new Intent(MemberJoin_Activity.this, MyQuestion_Activity.class);
                             startActivity(intent);

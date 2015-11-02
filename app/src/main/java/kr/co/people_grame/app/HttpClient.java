@@ -20,7 +20,7 @@ public class HttpClient {
 
     public static void post(String url, RequestParams params, AsyncHttpResponseHandler responseHandler)
     {
-        client.setTimeout(3000);
+        client.setTimeout(5000);
         client.post(getAbsoluteUrl(url), params, responseHandler);
     }
 

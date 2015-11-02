@@ -62,7 +62,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
         popup_username = (TextView) findViewById(R.id.popup_username);
         popup_type = (ImageView) findViewById(R.id.popup_type);
-        et_people_friend_count = (TextView) findViewById(R.id.et_people_friend_count);
+        //et_people_friend_count = (TextView) findViewById(R.id.et_people_friend_count);
         et_people_result_count = (TextView) findViewById(R.id.et_people_result_count);
 
         backImg = (LinearLayout) findViewById(R.id.backImg);
@@ -81,7 +81,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
             people_result_count = intent.getIntExtra("people_result_count", 0);
             people_friend_count = intent.getIntExtra("people_friend_count", 0);
 
-            et_people_friend_count.setText("등록 피플수 : "+people_friend_count+"명");
+            //et_people_friend_count.setText("등록 피플수 : "+people_friend_count+"명");
             et_people_result_count.setText("진단 피플수 : "+people_result_count+"명");
 
 
