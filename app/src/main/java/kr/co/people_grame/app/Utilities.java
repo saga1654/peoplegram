@@ -250,4 +250,98 @@ public class Utilities {
         }
     }
 
+    public static String peopleContectView(Context context, String gubun, double total_num)
+    {
+        String text = "";
+        switch (gubun) {
+            case "P":
+                if(total_num <= 10) {
+                    text = context.getString(R.string.p_1).toString();
+                } else if(total_num > 10 && total_num <= 20) {
+                    text = context.getString(R.string.p_2).toString();
+                } else if(total_num > 20 && total_num <= 40) {
+                    text = context.getString(R.string.p_3).toString();
+                } else if(total_num > 40 && total_num <= 60) {
+                    text = context.getString(R.string.p_4).toString();
+                } else if(total_num > 60 && total_num <= 75) {
+                    text = context.getString(R.string.p_5).toString();
+                } else if(total_num > 75 && total_num <= 89) {
+                    text = context.getString(R.string.p_6).toString();
+                } else {
+                    text = context.getString(R.string.p_7).toString();
+                }
+                break;
+            case "F":
+                if(total_num <= 10) {
+                    text = context.getString(R.string.f_1).toString();
+                } else if(total_num > 10 && total_num <= 20) {
+                    text = context.getString(R.string.f_2).toString();
+                } else if(total_num > 20 && total_num <= 40) {
+                    text = context.getString(R.string.f_3).toString();
+                } else if(total_num > 40 && total_num <= 60) {
+                    text = context.getString(R.string.f_4).toString();
+                } else if(total_num > 60 && total_num <= 75) {
+                    text = context.getString(R.string.f_5).toString();
+                } else if(total_num > 75 && total_num <= 89) {
+                    text = context.getString(R.string.f_6).toString();
+                } else {
+                    text = context.getString(R.string.f_7).toString();
+                }
+                break;
+            case "L":
+                if(total_num <= 10) {
+                    text = context.getString(R.string.l_1).toString();
+                } else if(total_num > 10 && total_num <= 20) {
+                    text = context.getString(R.string.l_2).toString();
+                } else if(total_num > 20 && total_num <= 40) {
+                    text = context.getString(R.string.l_3).toString();
+                } else if(total_num > 40 && total_num <= 60) {
+                    text = context.getString(R.string.l_4).toString();
+                } else if(total_num > 60 && total_num <= 75) {
+                    text = context.getString(R.string.l_5).toString();
+                } else if(total_num > 75 && total_num <= 89) {
+                    text = context.getString(R.string.l_6).toString();
+                } else {
+                    text = context.getString(R.string.l_7).toString();
+                }
+                break;
+            case "C":
+                if(total_num <= 10) {
+                    text = context.getString(R.string.c_1).toString();
+                } else if(total_num > 10 && total_num <= 20) {
+                    text = context.getString(R.string.c_2).toString();
+                } else if(total_num > 20 && total_num <= 40) {
+                    text = context.getString(R.string.c_3).toString();
+                } else if(total_num > 40 && total_num <= 60) {
+                    text = context.getString(R.string.c_4).toString();
+                } else if(total_num > 60 && total_num <= 75) {
+                    text = context.getString(R.string.c_5).toString();
+                } else if(total_num > 75 && total_num <= 89) {
+                    text = context.getString(R.string.c_6).toString();
+                } else {
+                    text = context.getString(R.string.c_7).toString();
+                }
+                break;
+            case "S":
+                if(total_num <= 10) {
+                    text = context.getString(R.string.s_1).toString();
+                } else if(total_num > 10 && total_num <= 20) {
+                    text = context.getString(R.string.s_2).toString();
+                } else if(total_num > 20 && total_num <= 40) {
+                    text = context.getString(R.string.s_3).toString();
+                } else if(total_num > 40 && total_num <= 60) {
+                    text = context.getString(R.string.s_4).toString();
+                } else if(total_num > 60 && total_num <= 75) {
+                    text = context.getString(R.string.s_5).toString();
+                } else if(total_num > 75 && total_num <= 89) {
+                    text = context.getString(R.string.s_6).toString();
+                } else {
+                    text = context.getString(R.string.s_7).toString();
+                }
+                break;
+        }
+
+        return text;
+    }
+
 }
