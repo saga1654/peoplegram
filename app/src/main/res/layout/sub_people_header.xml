@@ -132,13 +132,66 @@
 
 
 
-                <Switch
-                    android:layout_width="65dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/style_sub_people_list_popup_switch"
-                    android:thumb="@android:color/transparent"
-                    android:track="@android:color/transparent"
-                    android:id="@+id/listview_mytype_switch" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.05"
+                    android:weightSum="1"
+                    android:gravity="center">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:id="@+id/new_cnt"
+                        android:visibility="invisible"
+                        android:layout_weight="0.50">
+
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/people_up_icon"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10"
+                            android:textSize="12dp"
+                            android:paddingLeft="5dp"
+                            android:id="@+id/listview_people_list_new_cnt"
+                            android:textColor="#000" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.50">
+
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/people_cnt_icon"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="5dp"
+                            android:text="10명"
+                            android:textSize="12dp"
+                            android:id="@+id/listview_people_list_cnt"
+                            android:textColor="#000" />
+
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
             </LinearLayout>
 
 
