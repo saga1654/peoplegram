@@ -71,29 +71,6 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.50">
-
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/people_cnt_icon"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="5dp"
-                        android:text="10명"
-                        android:textSize="12dp"
-                        android:id="@+id/listview_people_list_cnt"
-                        android:textColor="#000" />
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
                     android:id="@+id/new_cnt"
                     android:visibility="invisible"
@@ -116,6 +93,31 @@
                         android:textColor="#000" />
 
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.50">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/people_cnt_icon"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="10명"
+                        android:textSize="12dp"
+                        android:id="@+id/listview_people_list_cnt"
+                        android:textColor="#000" />
+
+                </LinearLayout>
+
+
+
 
 
             </LinearLayout>
