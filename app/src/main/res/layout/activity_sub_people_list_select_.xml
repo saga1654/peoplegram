@@ -220,7 +220,7 @@
                             android:id="@+id/listview_youtype_switch"
                             android:layout_width="65dp"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/popup_type2"
+                            android:background="@drawable/popup_type1"
                             android:thumb="@android:color/transparent"
                             android:track="@android:color/transparent" />
                     </LinearLayout>
@@ -347,7 +347,7 @@
                 android:gravity="center"
                 android:paddingTop="10dp"
                 android:paddingBottom="12dp"
-                android:background="#32354d"
+                android:background="#4D4D4D"
                 android:id="@+id/li_tip1"
                 android:layout_weight="0.33">
 
