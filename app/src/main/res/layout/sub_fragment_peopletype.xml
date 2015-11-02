@@ -223,7 +223,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="친구들이 생각하는 타입"
+                                android:text="친구들이 생각하는 나의 타입"
                                 android:textColor="#1d1d26" />
 
                         </LinearLayout>
@@ -396,7 +396,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="연인이 생각하는 타입"
+                                android:text="연인이 생각하는 나의 타입"
                                 android:textColor="#1d1d26" />
 
                         </LinearLayout>
@@ -567,7 +567,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="직장에서 생각하는 타입"
+                                android:text="직장에서 생각하는 나의 타입"
                                 android:textColor="#1d1d26" />
 
                         </LinearLayout>
@@ -738,7 +738,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="고객들이 생각하는 타입"
+                                android:text="고객들이 생각하는 나의 타입"
                                 android:textColor="#1d1d26" />
 
                         </LinearLayout>
