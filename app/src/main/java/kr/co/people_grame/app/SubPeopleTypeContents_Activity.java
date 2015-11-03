@@ -50,6 +50,8 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
 
         }
 
+        Log.d("people_gram", my_speed + ":::" + my_control + ":::" + people_speed + "::" + people_control);
+
         people_content_webview = (WebView) findViewById(R.id.people_content_webview);
         WebSettings webSettings = people_content_webview.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -57,8 +59,9 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 people_content_webview.loadUrl("javascript:nameView('" + SharedPreferenceUtil.getSharedPreference(SubPeopleTypeContents_Activity.this, "username") + "','')");
-                people_content_webview.loadUrl("javascript:chartLine1('"+my_speed+"','"+my_control+"')");
-                people_content_webview.loadUrl("javascript:chartLine2('"+people_speed+"','"+people_control+"')");
+                people_content_webview.loadUrl("javascript:type_chart(" + my_speed + ", "+my_control+","+people_speed+","+people_control+")");
+                //people_content_webview.loadUrl("javascript:chartLine1('"+my_speed+"','"+my_control+"')");
+                //people_content_webview.loadUrl("javascript:chartLine2('"+people_speed+"','"+people_control+"')");
                 super.onPageFinished(view, url);
             }
         });

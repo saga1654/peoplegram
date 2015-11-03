@@ -8,8 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#4D4D4D"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
         android:paddingLeft="20dp"
         android:weightSum="1">
 
@@ -44,23 +44,11 @@
             android:gravity="right"
             android:paddingRight="20dp">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/people_result_btn"/>
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="80dp"
-                android:paddingTop="10dp">
+                android:gravity="right">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -119,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:text="전체"
                     android:textColor="#1d1d26"
-                    android:textSize="14dp" />
+                    android:textSize="12dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -127,7 +115,7 @@
                     android:text="3506"
                     android:textColor="#1d1d26"
                     android:id="@+id/et_all"
-                    android:textSize="14dp" />
+                    android:textSize="12dp" />
 
 
             </LinearLayout>
@@ -154,7 +142,7 @@
                     android:layout_height="wrap_content"
                     android:text="가족"
                     android:textColor="#1d1d26"
-                    android:textSize="14dp" />
+                    android:textSize="12dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -162,7 +150,7 @@
                     android:text="2"
                     android:textColor="#1d1d26"
                     android:id="@+id/et_family"
-                    android:textSize="14dp" />
+                    android:textSize="12dp" />
 
             </LinearLayout>
 
@@ -188,7 +176,7 @@
                     android:layout_height="wrap_content"
                     android:text="친구"
                     android:textColor="#1d1d26"
-                    android:textSize="14dp" />
+                    android:textSize="12dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -196,7 +184,7 @@
                     android:text="2"
                     android:textColor="#1d1d26"
                     android:id="@+id/et_friend"
-                    android:textSize="14dp" />
+                    android:textSize="12dp" />
 
 
             </LinearLayout>
@@ -222,7 +210,7 @@
                     android:layout_height="wrap_content"
                     android:text="연인"
                     android:textColor="#1d1d26"
-                    android:textSize="14dp" />
+                    android:textSize="12dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -230,7 +218,7 @@
                     android:text="2"
                     android:textColor="#1d1d26"
                     android:id="@+id/et_lover"
-                    android:textSize="14dp" />
+                    android:textSize="12dp" />
 
 
             </LinearLayout>
@@ -256,7 +244,7 @@
                     android:layout_height="wrap_content"
                     android:text="직장"
                     android:textColor="#1d1d26"
-                    android:textSize="14dp" />
+                    android:textSize="12dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -264,7 +252,7 @@
                     android:text="2"
                     android:textColor="#1d1d26"
                     android:id="@+id/et_job"
-                    android:textSize="14dp" />
+                    android:textSize="12dp" />
 
 
             </LinearLayout>
@@ -291,7 +279,7 @@
                     android:layout_height="wrap_content"
                     android:text="고객"
                     android:textColor="#1d1d26"
-                    android:textSize="14dp" />
+                    android:textSize="12dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -299,7 +287,7 @@
                     android:text="2"
                     android:textColor="#1d1d26"
                     android:id="@+id/et_client"
-                    android:textSize="14dp" />
+                    android:textSize="12dp" />
 
 
             </LinearLayout>
@@ -312,9 +300,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:weightSum="1"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:weightSum="1">
 
 
         <WebView
@@ -455,13 +441,20 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f1f1f1">
+
+    </LinearLayout>
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="1"
-        android:padding="20dp"
-        android:id="@+id/mypage_gram_store_btn">
+        android:padding="20dp">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -477,8 +470,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/point_icon"
-                    android:id="@+id/imageView" />
+                    android:src="@mipmap/point_icon" />
             </LinearLayout>
 
             <LinearLayout

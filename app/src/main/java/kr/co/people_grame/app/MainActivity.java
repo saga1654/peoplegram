@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -48,6 +49,9 @@ public class MainActivity extends AppCompatActivity  {
             R.mipmap.top_04_off
     };
 
+    private ImageView menu_icon1, menu_icon2, menu_icon3, menu_icon4;
+    private LinearLayout menu1, menu2, menu3, menu4, menu_line1, menu_line2, menu_line3, menu_line4;
+
     private LinearLayout settingbtn;
 
     @Override
@@ -66,9 +70,138 @@ public class MainActivity extends AppCompatActivity  {
         mainTitle = (TextView) findViewById(R.id.mainTitle);
 
 
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
+
+
+        menu_icon1 = (ImageView) findViewById(R.id.menu_icon1);
+        menu_icon2 = (ImageView) findViewById(R.id.menu_icon2);
+        menu_icon3 = (ImageView) findViewById(R.id.menu_icon3);
+        menu_icon4 = (ImageView) findViewById(R.id.menu_icon4);
+
+
+        menu_line1 = (LinearLayout) findViewById(R.id.menu_line1);
+        menu_line2 = (LinearLayout) findViewById(R.id.menu_line2);
+        menu_line3 = (LinearLayout) findViewById(R.id.menu_line3);
+        menu_line4 = (LinearLayout) findViewById(R.id.menu_line4);
+
+        menu1 = (LinearLayout) findViewById(R.id.menu1);
+        menu2 = (LinearLayout) findViewById(R.id.menu2);
+        menu3 = (LinearLayout) findViewById(R.id.menu3);
+        menu4 = (LinearLayout) findViewById(R.id.menu4);
+
+        menu1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //menu_icon1.setImageResource(R.mipmap.top_01_on);
+                menu_line1.setBackgroundColor(Color.rgb(50, 53, 77));
+
+                //menu_icon2.setImageResource(R.mipmap.top_02_off);
+                menu_line2.setBackgroundColor(Color.rgb(220, 220, 221));
+
+                //menu_icon3.setImageResource(R.mipmap.top_03_off);
+                menu_line3.setBackgroundColor(Color.rgb(220,220,221));
+
+                //menu_icon4.setImageResource(R.mipmap.top_04_off);
+                menu_line4.setBackgroundColor(Color.rgb(220,220,221));
+
+                fragmentManager = getSupportFragmentManager();
+                ft = fragmentManager.beginTransaction();
+
+                SubPeopleFragment subpeople_fragment = new SubPeopleFragment();
+                ft.replace(R.id.viewpager, subpeople_fragment);
+                ft.commit();
+            }
+        });
+
+        menu2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //menu_icon1.setImageResource(R.mipmap.top_01_off);
+                menu_line1.setBackgroundColor(Color.rgb(220, 220, 221));
+
+                //menu_icon2.setImageResource(R.mipmap.top_02_on);
+                menu_line2.setBackgroundColor(Color.rgb(50, 53, 77));
+
+                //menu_icon3.setImageResource(R.mipmap.top_03_off);
+                menu_line3.setBackgroundColor(Color.rgb(220, 220, 221));
+
+                //menu_icon4.setImageResource(R.mipmap.top_04_off);
+                menu_line4.setBackgroundColor(Color.rgb(220,220,221));
+
+                fragmentManager = getSupportFragmentManager();
+                ft = fragmentManager.beginTransaction();
+
+                SubPeopleTypeFragment subpeopletype_fragment = new SubPeopleTypeFragment();
+                ft.replace(R.id.viewpager, subpeopletype_fragment);
+                ft.commit();
+            }
+        });
+
+        menu3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //menu_icon1.setImageResource(R.mipmap.top_01_off);
+                menu_line1.setBackgroundColor(Color.rgb(220, 220, 221));
+
+                //menu_icon2.setImageResource(R.mipmap.top_02_off);
+                menu_line2.setBackgroundColor(Color.rgb(220, 220, 221));
+
+                //menu_icon3.setImageResource(R.mipmap.top_03_on);
+                menu_line3.setBackgroundColor(Color.rgb(50, 53, 77));
+
+                //menu_icon4.setImageResource(R.mipmap.top_04_off);
+                menu_line4.setBackgroundColor(Color.rgb(220,220,221));
+
+                fragmentManager = getSupportFragmentManager();
+                ft = fragmentManager.beginTransaction();
+
+                SubMypageFragment submypage_fragment = new SubMypageFragment();
+                ft.replace(R.id.viewpager, submypage_fragment);
+                ft.commit();
+            }
+        });
+
+        menu4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //menu_icon1.setImageResource(R.mipmap.top_01_off);
+                menu_line1.setBackgroundColor(Color.rgb(220, 220, 221));
+
+                //menu_icon2.setImageResource(R.mipmap.top_02_off);
+                menu_line2.setBackgroundColor(Color.rgb(220,220,221));
+
+                //menu_icon3.setImageResource(R.mipmap.top_03_off);
+                menu_line3.setBackgroundColor(Color.rgb(220, 220, 221));
+
+                //menu_icon4.setImageResource(R.mipmap.top_04_on);
+                menu_line4.setBackgroundColor(Color.rgb(50,53,77));
+
+
+                fragmentManager = getSupportFragmentManager();
+                ft = fragmentManager.beginTransaction();
+
+                SubTypeFragment subtype_fragment = new SubTypeFragment();
+                ft.replace(R.id.viewpager, subtype_fragment);
+                ft.commit();
+            }
+        });
+
+
+
+
+
+        //viewPager = (ViewPager) findViewById(R.id.viewpager);
+
+        fragmentManager = getSupportFragmentManager();
+        ft = fragmentManager.beginTransaction();
+
+        SubPeopleFragment subpeople_fragment = new SubPeopleFragment();
+        ft.replace(R.id.viewpager, subpeople_fragment);
+        ft.commit();
+        /*
         setupViewPager(viewPager);
-        viewPager.invalidate();
+        viewPager.setOffscreenPageLimit(1);
+        //viewPager.invalidate();
+
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
@@ -82,7 +215,72 @@ public class MainActivity extends AppCompatActivity  {
                 overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
+        */
 
+    }
+
+    private void menu1(View v) {
+        /*
+        menu_icon1.setImageResource(R.mipmap.top_01_on);
+        menu_line1.setBackgroundColor(Color.rgb(50,53,77));
+
+        menu_icon2.setImageResource(R.mipmap.top_02_off);
+        menu_line2.setBackgroundColor(Color.rgb(220,220,221));
+
+        menu_icon3.setImageResource(R.mipmap.top_03_off);
+        menu_line3.setBackgroundColor(Color.rgb(220,220,221));
+
+        menu_icon4.setImageResource(R.mipmap.top_04_off);
+        menu_line4.setBackgroundColor(Color.rgb(220,220,221));
+        */
+    }
+
+    private void menu2(View v) {
+        /*
+        menu_icon1.setImageResource(R.mipmap.top_01_off);
+        menu_line1.setBackgroundColor(Color.rgb(220,220,221));
+
+        menu_icon2.setImageResource(R.mipmap.top_02_on);
+        menu_line2.setBackgroundColor(Color.rgb(50,53,77));
+
+        menu_icon3.setImageResource(R.mipmap.top_03_off);
+        menu_line3.setBackgroundColor(Color.rgb(220,220,221));
+
+        menu_icon4.setImageResource(R.mipmap.top_04_off);
+        menu_line4.setBackgroundColor(Color.rgb(220,220,221));
+        */
+    }
+
+    private void menu3(View v) {
+        /*
+        menu_icon1.setImageResource(R.mipmap.top_01_off);
+        menu_line1.setBackgroundColor(Color.rgb(220,220,221));
+
+        menu_icon2.setImageResource(R.mipmap.top_02_off);
+        menu_line2.setBackgroundColor(Color.rgb(220,220,221));
+
+        menu_icon3.setImageResource(R.mipmap.top_03_on);
+        menu_line3.setBackgroundColor(Color.rgb(50,53,77));
+
+        menu_icon4.setImageResource(R.mipmap.top_04_off);
+        menu_line4.setBackgroundColor(Color.rgb(220,220,221));
+        */
+    }
+
+    private void menu4(View v) {
+        /*
+        menu_icon1.setImageResource(R.mipmap.top_01_off);
+        menu_line1.setBackgroundColor(Color.rgb(220,220,221));
+
+        menu_icon2.setImageResource(R.mipmap.top_02_off);
+        menu_line2.setBackgroundColor(Color.rgb(220,220,221));
+
+        menu_icon3.setImageResource(R.mipmap.top_03_off);
+        menu_line3.setBackgroundColor(Color.rgb(220,220,221));
+
+        menu_icon4.setImageResource(R.mipmap.top_04_on);
+        menu_line4.setBackgroundColor(Color.rgb(50,53,77));
+        */
     }
 
     private void setupTabIcons() {
@@ -117,8 +315,6 @@ public class MainActivity extends AppCompatActivity  {
         adapter.addFrag(new SubPeopleTypeFragment(), "PEOPLE_TYPE");
         adapter.addFrag(new SubMypageFragment(), "MYPAGE");
         adapter.addFrag(new SubTypeFragment(), "TYPE");
-        //adapter.addFrag(new ThreeFragment(), "THREE");
-        //adapter.notifyDataSetChanged();
         viewPager.setAdapter(adapter);
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -199,8 +395,6 @@ public class MainActivity extends AppCompatActivity  {
 
     }
 
-
-
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
@@ -208,6 +402,8 @@ public class MainActivity extends AppCompatActivity  {
         public ViewPagerAdapter(FragmentManager manager) {
             super(manager);
         }
+
+
 
         @Override
         public Fragment getItem(int position) {

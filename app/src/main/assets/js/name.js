@@ -249,7 +249,7 @@
 
     		
 
-    		console.log(my_per_up + ":::" + my_per_down + ":::" + people_per_up + ":::" + people_per_down);
+    		//console.log(my_per_up + ":::" + my_per_down + ":::" + people_per_up + ":::" + people_per_down);
 
 
 			/*

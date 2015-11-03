@@ -229,6 +229,8 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     C_code = c_data.getString("code");
                     C_cnt = Integer.parseInt(c_data.getString("people_total"));
 
+                    Log.d("people_gram", String.valueOf(c_data));
+
 
 
                     people4_cnt.setText(String.valueOf(C_cnt));

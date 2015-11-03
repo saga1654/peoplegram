@@ -54,6 +54,7 @@ public class SubPeopleContentsType_Activity extends AppCompatActivity {
                 @Override
                 public void onPageFinished(WebView view, String url) {
                     people_content_webview.loadUrl("javascript:nameView('" + SharedPreferenceUtil.getSharedPreference(SubPeopleContentsType_Activity.this, "username") + "','" + people_name + "')");
+                    //people_content_webview.loadUrl("javascript:type_chart(" + my_speed + ", "+my_control+","+people_speed+","+people_control+")");
                     super.onPageFinished(view, url);
                 }
             });
