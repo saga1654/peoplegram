@@ -331,7 +331,7 @@ public class MainActivity extends AppCompatActivity  {
                         mainTitle.setText("피플그램");
                         break;
                     case 1:
-                        mainTitle.setText("나를 생각하는 피플타입");
+                        mainTitle.setText("피플들이 생각하는 나의타입");
 
 
                         break;
