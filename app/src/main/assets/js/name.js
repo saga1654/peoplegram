@@ -89,8 +89,8 @@
 
 
     		if(my_speed > 0 && my_control > 0) {
-    			$("#type1_bg_color").css({"background-color" : "#059be8"});
-    			$("#type1_text").css({"color":"#059be8"});
+    			$("#type1_bg_color").css({"background-color" : "#ff8a55"});
+    			$("#type1_text").css({"color":"#ff8a55"});
 
     			if(my_speed <= 5 && my_control <= 1){
     			   	if(my_speed == 1 && my_control == 1){
@@ -105,8 +105,8 @@
     			}
     		}
     		if(my_speed > 0 && my_control < 0) {
-    			$("#type1_bg_color").css({"background-color" : "#923cf2"});
-    			$("#type1_text").css({"color":"#923cf2"});
+    			$("#type1_bg_color").css({"background-color" : "#37afec"});
+    			$("#type1_text").css({"color":"#37afec"});
 
     			if(my_speed <= 5 && my_control >= -1){
     				if(my_speed == 1 && my_control == -1){
@@ -121,8 +121,8 @@
 				}
     		}
     		if(my_speed < 0 && my_control > 0) {
-    			$("#type1_bg_color").css({"background-color" : "#059be8"});
-    			$("#type1_text").css({"color":"#059be8"});
+    			$("#type1_bg_color").css({"background-color" : "#52d935"});
+    			$("#type1_text").css({"color":"#52d935"});
 
     			if(my_speed >= -5 && my_control <= 1){
     				if(my_speed == -1 && my_control == 1){
@@ -137,8 +137,8 @@
 				}
     		}
     		if(my_speed < 0 && my_control < 0) {
-    			$("#type1_bg_color").css({"background-color" : "#26ce04"});
-    			$("#type1_text").css({"color":"#26ce04"});
+    			$("#type1_bg_color").css({"background-color" : "#aa64f8"});
+    			$("#type1_text").css({"color":"#aa64f8"});
 
     			if(my_speed >= -5 && people_control >= -1){
 					if(my_speed == -1 && my_control == -1){
@@ -155,8 +155,8 @@
 
 
     		if(people_speed > 0 && people_control > 0) {
-    			$("#type2_bg_color").css({"background-color" : "#059be8"});
-    			$("#type2_text").css({"color":"#059be8"});
+    			$("#type2_bg_color").css({"background-color" : "#ff8a55"});
+    			$("#type2_text").css({"color":"#ff8a55"});
 
     			if(my_speed <= 5 && my_control <= 1){
 					if(my_speed == 1 && my_control == 1){
@@ -171,8 +171,8 @@
 				}
     		}
     		if(people_speed > 0 && people_control < 0) {
-    			$("#type2_bg_color").css({"background-color" : "#923cf2"});
-    			$("#type2_text").css({"color":"#923cf2"});
+    			$("#type2_bg_color").css({"background-color" : "#37afec"});
+    			$("#type2_text").css({"color":"#37afec"});
 
     			if(people_speed <= 5 && people_control >= -1){
 					if(people_speed == 1 && people_control == -1){
@@ -187,8 +187,8 @@
 				}
     		}
     		if(people_speed < 0 && people_control > 0) {
-    			$("#type2_bg_color").css({"background-color" : "#059be8"});
-    			$("#type2_text").css({"color":"#059be8"});
+    			$("#type2_bg_color").css({"background-color" : "#52d935"});
+    			$("#type2_text").css({"color":"#52d935"});
 
     			if(people_speed >= -5 && people_control <= 1){
 					if(people_speed == -1 && people_control == 1){
@@ -203,8 +203,8 @@
 				}
     		}
     		if(people_speed < 0 && people_control < 0) {
-    			$("#type2_bg_color").css({"background-color" : "#26ce04"});
-    			$("#type2_text").css({"color":"#26ce04"});
+    			$("#type2_bg_color").css({"background-color" : "#aa64f8"});
+    			$("#type2_text").css({"color":"#aa64f8"});
 
     			if(people_speed >= -5 && people_control >= -1){
 					if(people_speed == -1 && people_control == -1){
