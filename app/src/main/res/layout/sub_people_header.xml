@@ -182,7 +182,7 @@
                             android:paddingLeft="5dp"
                             android:text="10명"
                             android:textSize="12dp"
-                            android:id="@+id/listview_people_list_cnt"
+                            android:id="@+id/listview_people_all_cnt"
                             android:textColor="#000" />
 
                     </LinearLayout>

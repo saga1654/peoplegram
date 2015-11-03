@@ -110,9 +110,6 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
         paymentResult();
 
-
-
-
         gubun1 = (TextView) findViewById(R.id.gubun1);
 
         switch (people_gubun1) {

@@ -29,6 +29,7 @@ import com.loopj.android.http.RequestParams;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -70,6 +71,7 @@ public class SubPeopleFragment extends Fragment {
 
 
     private TextView my_profile_i_now_cnt, my_profile_i_up_cnt, my_profile_d_now_cnt, my_profile_d_up_cnt, my_profile_e_now_cnt, my_profile_e_up_cnt, my_profile_a_now_cnt, my_profile_a_up_cnt;
+    private TextView listview_people_all_cnt;
     private ImageView my_profile_i_up_icon, my_profile_d_up_icon, my_profile_e_up_icon, my_profile_a_up_icon;
     private EditText serachText;
 
@@ -95,6 +97,8 @@ public class SubPeopleFragment extends Fragment {
 
         sf_people_list = (ListView)rootView.findViewById(R.id.sf_people_list);
         sf_people_list.addHeaderView(header);
+
+        listview_people_all_cnt = (TextView) rootView.findViewById(R.id.listview_people_all_cnt);
 
 
 
@@ -578,7 +582,7 @@ public class SubPeopleFragment extends Fragment {
                     JSONArray people_list = data.getJSONArray("people");
 
                     //JSONArray people_list = new JSONArray(response);
-
+                    String all_total = my_profile.getString("MY_ALL_TOTAL");
                     String i_total = my_profile.getString("MY_I_TOTAL");
                     String d_total = my_profile.getString("MY_D_TOTAL");
                     String e_total = my_profile.getString("MY_E_TOTAL");
@@ -591,6 +595,8 @@ public class SubPeopleFragment extends Fragment {
 
                     Log.d("people_gram", i_total + ":::" + d_total + ":::" + e_total + ":::" + a_total);
 
+
+                    listview_people_all_cnt.setText(all_total);
                     my_profile_i_now_cnt.setText(i_total);
                     my_profile_d_now_cnt.setText(d_total);
                     my_profile_e_now_cnt.setText(e_total);

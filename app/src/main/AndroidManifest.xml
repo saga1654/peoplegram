@@ -262,6 +262,10 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity android:name=".SubPeopleSelect_TipActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
     </application>
 
 </manifest>
