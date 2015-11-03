@@ -19,7 +19,8 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
 
                 <!-- 가족 피플이 생각하는 타입 -->
                 <LinearLayout
@@ -30,18 +31,20 @@
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/peopletype_icon1"
                             android:src="@drawable/peopletype_icon1"/>
 
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:paddingLeft="10dp">
 
@@ -53,6 +56,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="가족들이 생각하는 나의 타입"
+                                android:textSize="12dp"
                                 android:textColor="#1d1d26" />
 
                         </LinearLayout>
@@ -72,17 +76,40 @@
                         </LinearLayout>
 
 
+
                     </LinearLayout>
 
                     <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical|right">
 
-                        <ImageView
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/peopletype_btn_open"/>
+                            android:paddingLeft="10dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/people_cnt_icon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="5dp"
+                                android:text="10"
+                                android:textSize="9dp"
+                                android:id="@+id/people1_cnt"
+                                android:textColor="#000"/>
+
+                        </LinearLayout>
+
+
+
 
                     </LinearLayout>
 
@@ -90,97 +117,6 @@
                 <!-- 가족 피플이 생각하는 타입 -->
 
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/people_menu1"
-                    android:visibility="gone"
-                    android:background="#f3f3f4">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#d4d5da"></LinearLayout>
-
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="20dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:background="@drawable/point_bg">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="10g"
-                                android:textSize="20dp"
-                                android:textColor="#1d1d26"/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="right|center_vertical">
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
-
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/point_people" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="#000"
-                                    android:paddingLeft="10dp"
-                                    android:text="3명" />
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingTop="10dp">
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="#000"
-                                    android:paddingLeft="10dp"
-                                    android:text="2015-09-10" />
-
-
-                            </LinearLayout>
-
-
-
-
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#d4d5da"></LinearLayout>
-
-                </LinearLayout>
 
 
                 <!-- 가족 피플이 생각하는 타입 라인 -->
@@ -206,6 +142,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/peopletype_icon2"
                             android:src="@drawable/peopletype_icon2"/>
 
                     </LinearLayout>
@@ -223,6 +160,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:textSize="12dp"
                                 android:text="친구들이 생각하는 나의 타입"
                                 android:textColor="#1d1d26" />
 
@@ -246,14 +184,36 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical|right">
 
-                        <ImageView
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/peopletype_btn_open"/>
+                            android:paddingLeft="10dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/people_cnt_icon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="5dp"
+                                android:text="10"
+                                android:textSize="9dp"
+                                android:id="@+id/people2_cnt"
+                                android:textColor="#000"/>
+
+                        </LinearLayout>
+
+
+
 
                     </LinearLayout>
 
@@ -261,97 +221,6 @@
                 <!-- 친구 피플이 생각하는 타입 -->
 
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/people_menu2"
-                    android:visibility="gone"
-                    android:background="#f3f3f4">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#d4d5da"></LinearLayout>
-
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="20dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:background="@drawable/point_bg">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="10g"
-                                android:textSize="20dp"
-                                android:textColor="#1d1d26"/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="right|center_vertical">
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
-
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/point_people" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="#000"
-                                    android:paddingLeft="10dp"
-                                    android:text="3명" />
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingTop="10dp">
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="#000"
-                                    android:paddingLeft="10dp"
-                                    android:text="2015-09-10" />
-
-
-                            </LinearLayout>
-
-
-
-
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#d4d5da"></LinearLayout>
-
-                </LinearLayout>
 
                 <!-- 친구 피플이 생각하는 타입 라인 -->
                 <LinearLayout
@@ -379,6 +248,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/peopletype_icon3"
                             android:src="@drawable/peopletype_icon3"/>
 
                     </LinearLayout>
@@ -396,6 +266,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:textSize="14dp"
                                 android:text="연인이 생각하는 나의 타입"
                                 android:textColor="#1d1d26" />
 
@@ -419,112 +290,41 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical|right">
 
-                        <ImageView
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/peopletype_btn_open"/>
+                            android:paddingLeft="10dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/people_cnt_icon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="5dp"
+                                android:text="10"
+                                android:textSize="9dp"
+                                android:id="@+id/people3_cnt"
+                                android:textColor="#000"/>
+
+                        </LinearLayout>
+
+
+
 
                     </LinearLayout>
 
                 </LinearLayout>
                 <!-- 연인이 생각하는 타입 -->
-
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/people_menu3"
-                    android:visibility="gone"
-                    android:background="#f3f3f4">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#d4d5da"></LinearLayout>
-
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="20dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:background="@drawable/point_bg">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="10g"
-                                android:textSize="20dp"
-                                android:textColor="#1d1d26"/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="right|center_vertical">
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
-
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/point_people" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="#000"
-                                    android:paddingLeft="10dp"
-                                    android:text="3명" />
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingTop="10dp">
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="#000"
-                                    android:paddingLeft="10dp"
-                                    android:text="2015-09-10" />
-
-
-                            </LinearLayout>
-
-
-
-
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#d4d5da"></LinearLayout>
-
-                </LinearLayout>
 
 
 
@@ -550,6 +350,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/peopletype_icon4"
                             android:src="@drawable/peopletype_icon4"/>
 
                     </LinearLayout>
@@ -567,6 +368,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:textSize="12dp"
                                 android:text="직장에서 생각하는 나의 타입"
                                 android:textColor="#1d1d26" />
 
@@ -590,14 +392,36 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical|right">
 
-                        <ImageView
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/peopletype_btn_open"/>
+                            android:paddingLeft="10dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/people_cnt_icon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="5dp"
+                                android:text="10"
+                                android:textSize="9dp"
+                                android:id="@+id/people4_cnt"
+                                android:textColor="#000"/>
+
+                        </LinearLayout>
+
+
+
 
                     </LinearLayout>
 
@@ -614,97 +438,7 @@
                 <!-- 직장피플 생각하는 타입 라인 -->
 
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/people_menu4"
-                    android:visibility="gone"
-                    android:background="#f3f3f4">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#d4d5da"></LinearLayout>
-
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="20dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:background="@drawable/point_bg">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="10g"
-                                android:textSize="20dp"
-                                android:textColor="#1d1d26"/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="right|center_vertical">
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
-
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/point_people" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="#000"
-                                    android:paddingLeft="10dp"
-                                    android:text="3명" />
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingTop="10dp">
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="#000"
-                                    android:paddingLeft="10dp"
-                                    android:text="2015-09-10" />
-
-
-                            </LinearLayout>
-
-
-
-
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#d4d5da"></LinearLayout>
-
-                </LinearLayout>
 
 
                 <!-- 고객 피플이 생각하는 타입 -->
@@ -721,6 +455,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/peopletype_icon5"
                             android:src="@drawable/peopletype_icon5"/>
 
                     </LinearLayout>
@@ -738,6 +473,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:textSize="12dp"
                                 android:text="고객들이 생각하는 나의 타입"
                                 android:textColor="#1d1d26" />
 
@@ -761,14 +497,36 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical|right">
 
-                        <ImageView
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/peopletype_btn_open"/>
+                            android:paddingLeft="10dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/people_cnt_icon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="5dp"
+                                android:text="10"
+                                android:textSize="9dp"
+                                android:id="@+id/people5_cnt"
+                                android:textColor="#000"/>
+
+                        </LinearLayout>
+
+
+
 
                     </LinearLayout>
 
@@ -784,98 +542,6 @@
                     android:background="#f1f1f1"></LinearLayout>
                 <!-- 고객 피플이 생각하는 타입 라인 -->
 
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/people_menu5"
-                    android:visibility="gone"
-                    android:background="#f3f3f4">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#d4d5da"></LinearLayout>
-
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="20dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:background="@drawable/point_bg">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="10g"
-                                android:textSize="20dp"
-                                android:textColor="#1d1d26"/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="right|center_vertical">
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
-
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/point_people" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="#000"
-                                    android:paddingLeft="10dp"
-                                    android:text="3명" />
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingTop="10dp">
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="#000"
-                                    android:paddingLeft="10dp"
-                                    android:text="2015-09-10" />
-
-
-                            </LinearLayout>
-
-
-
-
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#d4d5da"></LinearLayout>
-
-                </LinearLayout>
 
 
             </LinearLayout>

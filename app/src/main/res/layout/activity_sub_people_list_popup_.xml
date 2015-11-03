@@ -61,13 +61,6 @@
                     android:paddingBottom="20dp"
                     android:gravity="center">
 
-                    <Switch
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/style_sub_people_list_popup_switch"
-                        android:thumb="@android:color/transparent"
-                        android:track="@android:color/transparent"
-                        />
                 </LinearLayout>
 
                 <LinearLayout
@@ -152,6 +145,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/peopleType_btn"
                             android:onClick="peopleType_btn"
                             android:src="@drawable/people_popup_btn2_style"/>
                     </LinearLayout>
