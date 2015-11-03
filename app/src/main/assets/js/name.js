@@ -109,7 +109,7 @@
     			$("#type1_text").css({"color":"#923cf2"});
 
     			if(my_speed <= 5 && my_control >= -1){
-    				if(my_speed = 1 && my_control = -1){
+    				if(my_speed == 1 && my_control == -1){
 						$("#type1_text").html("주도형,표출형 특징을 가진 분석형");
 					}else{
 						$("#type1_text").html("주도형 특징을 가진 분석형");
@@ -125,7 +125,7 @@
     			$("#type1_text").css({"color":"#059be8"});
 
     			if(my_speed >= -5 && my_control <= 1){
-    				if(my_speed = -1 && my_control = 1){
+    				if(my_speed == -1 && my_control == 1){
 						$("#type1_text").html("주도형,표출형 특징을 숨긴 우호형");
 					}else{
 						$("#type1_text").html("표출형 특징을 가진 우호형");
@@ -141,7 +141,7 @@
     			$("#type1_text").css({"color":"#26ce04"});
 
     			if(my_speed >= -5 && people_control >= -1){
-					if(my_speed = -1 && my_control = -1){
+					if(my_speed == -1 && my_control == -1){
 						$("#type1_text").html("우호형,분석형 특징을 가진 표출형");
 					}else{
 						$("#type1_text").html("우호형 특징을 가진 표출형");
@@ -159,7 +159,7 @@
     			$("#type2_text").css({"color":"#059be8"});
 
     			if(my_speed <= 5 && my_control <= 1){
-					if(my_speed = 1 && my_control = 1){
+					if(my_speed == 1 && my_control == 1){
 						$("#type1_text").html("분석형,우호형 특징을 가진 주도형");
 					}else{
 						$("#type1_text").html("분석형 특징을 가진 주도형");
@@ -175,7 +175,7 @@
     			$("#type2_text").css({"color":"#923cf2"});
 
     			if(people_speed <= 5 && people_control >= -1){
-					if(people_speed = 1 && people_control = -1){
+					if(people_speed == 1 && people_control == -1){
 						$("#type2_text").html("주도형,표출형 특징을 가진 분석형");
 					}else{
 						$("#type2_text").html("주도형 특징을 가진 분석형");
@@ -191,7 +191,7 @@
     			$("#type2_text").css({"color":"#059be8"});
 
     			if(people_speed >= -5 && people_control <= 1){
-					if(people_speed = -1 && people_control = 1){
+					if(people_speed == -1 && people_control == 1){
 						$("#type2_text").html("주도형,표출형 특징을 숨긴 우호형");
 					}else{
 						$("#type2_text").html("표출형 특징을 가진 우호형");
@@ -207,7 +207,7 @@
     			$("#type2_text").css({"color":"#26ce04"});
 
     			if(people_speed >= -5 && people_control >= -1){
-					if(people_speed = -1 && people_control = -1){
+					if(people_speed == -1 && people_control == -1){
 						$("#type2_text").html("우호형,분석형 특징을 가진 표출형");
 					}else{
 						$("#type2_text").html("우호형 특징을 가진 표출형");
