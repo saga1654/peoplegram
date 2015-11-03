@@ -43,7 +43,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
 
     private TextView popup_username, popup_mood, et_people_friend_count, et_people_result_count;
-    private ImageView popup_type, people_popup_btn1;
+    private ImageView popup_type, people_popup_btn1, peopleType_btn;
 
     private String request = "";
     private ProgressDialog dialog;
@@ -67,6 +67,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
         backImg = (LinearLayout) findViewById(R.id.backImg);
         people_popup_btn1 = (ImageView) findViewById(R.id.people_popup_btn1);
+        peopleType_btn = (ImageView) findViewById(R.id.peopleType_btn);
 
         Intent intent = getIntent();
         if(intent != null) {
@@ -107,6 +108,12 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
             pd.set_people_gubun2(people_gubun2);
             pd.set_people_speed(people_speed);
             pd.set_people_control(people_control);
+
+            if(people_type.equals("") == false) {
+                peopleType_btn.setImageResource(R.drawable.people_popup_btn2_re_style);
+            } else {
+                peopleType_btn.setImageResource(R.drawable.people_popup_btn2_style);
+            }
 
 
             popup_username.setText(people_username);

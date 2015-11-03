@@ -9,6 +9,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
@@ -33,6 +35,8 @@ public class MainActivity extends AppCompatActivity  {
 
     final int SubPeopleTypeFragmentCode = 2;
     private TextView mainTitle;
+    private FragmentManager fragmentManager;
+    private FragmentTransaction ft;
 
     private Toolbar toolbar;
     private TabLayout tabLayout;
@@ -64,6 +68,7 @@ public class MainActivity extends AppCompatActivity  {
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
+        viewPager.invalidate();
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
@@ -107,12 +112,13 @@ public class MainActivity extends AppCompatActivity  {
 
 
     private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        final ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new SubPeopleFragment(), "PEOPLE_LIST");
         adapter.addFrag(new SubPeopleTypeFragment(), "PEOPLE_TYPE");
         adapter.addFrag(new SubMypageFragment(), "MYPAGE");
         adapter.addFrag(new SubTypeFragment(), "TYPE");
         //adapter.addFrag(new ThreeFragment(), "THREE");
+        //adapter.notifyDataSetChanged();
         viewPager.setAdapter(adapter);
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -122,7 +128,7 @@ public class MainActivity extends AppCompatActivity  {
 
             @Override
             public void onPageSelected(int position) {
-                Log.d("people_gram", "선택="+position);
+                adapter.notifyDataSetChanged();
                 switch (position)
                 {
                     case 0:
@@ -130,6 +136,8 @@ public class MainActivity extends AppCompatActivity  {
                         break;
                     case 1:
                         mainTitle.setText("나를 생각하는 피플타입");
+
+
                         break;
                     case 2:
                         mainTitle.setText("마이페이지");
@@ -138,6 +146,8 @@ public class MainActivity extends AppCompatActivity  {
                         mainTitle.setText("유형특징");
                         break;
                 }
+
+
             }
 
             @Override
@@ -156,7 +166,6 @@ public class MainActivity extends AppCompatActivity  {
                 String my_type = SharedPreferenceUtil.getSharedPreference(this, "mytype");
                 String people_type = data.getStringExtra("people_type");
                 String gubun1 = data.getStringExtra("gubun1");
-                //Log.d("people_gram", my_type + ":::" + people_type + ":::" + gubun1);
 
                 Intent intent = new Intent(MainActivity.this, SubPeopleTypeContents_Activity.class);
                 intent.putExtra("mytype", my_type);
@@ -202,9 +211,9 @@ public class MainActivity extends AppCompatActivity  {
 
         @Override
         public Fragment getItem(int position) {
-            //Log.d("people_gram", "순서="+String.valueOf(position));
             return mFragmentList.get(position);
         }
+
 
         @Override
         public int getCount() {
@@ -218,10 +227,14 @@ public class MainActivity extends AppCompatActivity  {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            //Log.d("people_gram", "순서="+String.valueOf(position));
-            //return null;
             return mFragmentTitleList.get(position);
         }
+
+        public int getItemPosition(Object object) {
+            return POSITION_NONE;
+        }
+
+
     }
 
     @Override

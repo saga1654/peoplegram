@@ -62,6 +62,8 @@ public class SubMypageFragment extends Fragment {
         et_job = (TextView) rootView.findViewById(R.id.et_job);
         et_client = (TextView) rootView.findViewById(R.id.et_client);
 
+        countData();
+
 
         chart_webview = (WebView) rootView.findViewById(R.id.chart_webview);
         WebSettings webSettings = chart_webview.getSettings();
@@ -222,7 +224,7 @@ public class SubMypageFragment extends Fragment {
     @Override
     public void onStart()
     {
-        countData();
+        //countData();
         super.onStart();
     }
 
@@ -234,16 +236,15 @@ public class SubMypageFragment extends Fragment {
 
     private void countData()
     {
-        Log.d("people_gram", "마이페이지");
         RequestParams params = new RequestParams();
         params.put("uid", SharedPreferenceUtil.getSharedPreference(getActivity(), "uid"));
         HttpClient.post("/user/peopleDataCount", params, new AsyncHttpResponseHandler() {
             public void onStart() {
-                dialog = ProgressDialog.show(getActivity(), "", "데이터 수신중");
+                //dialog = ProgressDialog.show(getActivity(), "", "데이터 수신중");
             }
 
             public void onFinish() {
-                dialog.dismiss();
+                //dialog.dismiss();
             }
 
             @Override
