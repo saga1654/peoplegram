@@ -674,8 +674,10 @@
             android:weightSum="1">
 
             <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:layout_weight="0.80">
 
                 <TextView
@@ -686,6 +688,12 @@
                     android:textSize="14dp"
                     android:id="@+id/people_cnt"
                     android:text="피플" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:src="@drawable/q_btn" />
 
             </LinearLayout>
 
