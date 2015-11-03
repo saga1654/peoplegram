@@ -112,11 +112,14 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
         HttpClient.post("/my_type/myTypeSelect", params, new AsyncHttpResponseHandler() {
             public void onStart() {
                 //Log.d("people_gram", "시작");
-                //dialog = ProgressDialog.show(getActivity(), "", "데이터 수신중");
+                dialog = ProgressDialog.show(getActivity(), "", "데이터 수신중");
             }
 
             public void onFinish() {
-                //dialog.dismiss();
+
+
+
+                dialog.dismiss();
             }
 
             @Override

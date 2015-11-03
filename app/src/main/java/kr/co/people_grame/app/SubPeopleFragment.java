@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.SearchView;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -69,8 +71,7 @@ public class SubPeopleFragment extends Fragment {
 
     private TextView my_profile_i_now_cnt, my_profile_i_up_cnt, my_profile_d_now_cnt, my_profile_d_up_cnt, my_profile_e_now_cnt, my_profile_e_up_cnt, my_profile_a_now_cnt, my_profile_a_up_cnt;
     private ImageView my_profile_i_up_icon, my_profile_d_up_icon, my_profile_e_up_icon, my_profile_a_up_icon;
-
-    private SearchView serach_view;
+    private EditText serachText;
 
     public SubPeopleFragment() {
     }
@@ -94,6 +95,8 @@ public class SubPeopleFragment extends Fragment {
 
         sf_people_list = (ListView)rootView.findViewById(R.id.sf_people_list);
         sf_people_list.addHeaderView(header);
+
+
 
         people_cnt = (TextView) rootView.findViewById(R.id.people_cnt);
         btn_question_re = (ImageView) header.findViewById(R.id.btn_question_re);
@@ -645,6 +648,14 @@ public class SubPeopleFragment extends Fragment {
 
 
                     people_cnt.setText("피플 (" + people_list.length() + "명)");
+
+                    all_cnt = 0;
+                    p_cnt = 0;
+                    f_cnt = 0;
+                    l_cnt = 0;
+                    c_cnt = 0;
+                    s_cnt = 0;
+                    n_cnt = 0;
                     for (int i = 0; i < people_list.length(); i++) {
                         JSONObject jobj = people_list.getJSONObject(i);
 

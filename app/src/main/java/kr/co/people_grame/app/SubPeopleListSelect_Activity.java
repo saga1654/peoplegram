@@ -685,11 +685,11 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
         HttpClient.post("/people/peopleMatchCheck", params, new AsyncHttpResponseHandler() {
             public void onStart() {
-                dialog = ProgressDialog.show(SubPeopleListSelect_Activity.this, "", "데이터 수신중");
+                //dialog = ProgressDialog.show(SubPeopleListSelect_Activity.this, "", "데이터 수신중");
             }
 
             public void onFinish() {
-                dialog.dismiss();
+                //dialog.dismiss();
             }
 
             @Override
