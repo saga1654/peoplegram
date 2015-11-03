@@ -91,37 +91,132 @@
     		if(my_speed > 0 && my_control > 0) {
     			$("#type1_bg_color").css({"background-color" : "#059be8"});
     			$("#type1_text").css({"color":"#059be8"});
-    			$("#type1_text").html("1111");
+
+    			if(my_speed <= 5 && my_control <= 1){
+    			   	if(my_speed = 1 && my_control = 1){
+    			   		$("#type1_text").html("분석형,우호형 특징을 가진 주도형");
+    			   	}else{
+    					$("#type1_text").html("분석형 특징을 가진 주도형");
+    				}
+    			}else if(my_speed <= 1 && my_control <= 5){
+    				$("#type1_text").html("우호형 특성을 가진 주도형");
+    			}else{
+    				$("#type1_text").html("확실한 주도형");
+    			}
     		}
     		if(my_speed > 0 && my_control < 0) {
     			$("#type1_bg_color").css({"background-color" : "#923cf2"});
     			$("#type1_text").css({"color":"#923cf2"});
+
+    			if(my_speed <= 5 && my_control >= -1){
+    				if(my_speed = 1 && my_control = -1){
+						$("#type1_text").html("주도형,표출형 특징을 가진 분석형");
+					}else{
+						$("#type1_text").html("주도형 특징을 가진 분석형");
+					}
+				}else if(my_speed <= 1 && my_control >= -5){
+					$("#type1_text").html("표출형 특징을 가진 분석형");
+				}else{
+					$("#type1_text").html("철저한 분석형");
+				}
     		}
     		if(my_speed < 0 && my_control > 0) {
     			$("#type1_bg_color").css({"background-color" : "#059be8"});
     			$("#type1_text").css({"color":"#059be8"});
+
+    			if(my_speed >= -5 && my_control <= 1){
+    				if(my_speed = -1 && my_control = 1){
+						$("#type1_text").html("주도형,표출형 특징을 숨긴 우호형");
+					}else{
+						$("#type1_text").html("표출형 특징을 가진 우호형");
+					}
+				}else if(my_speed >= -1 && my_control <= 5){
+					$("#type1_text").html("주도형 특징을 숨긴 우호형");
+				}else{
+					$("#type1_text").html("스마일 우호형");
+				}
     		}
     		if(my_speed < 0 && my_control < 0) {
     			$("#type1_bg_color").css({"background-color" : "#26ce04"});
     			$("#type1_text").css({"color":"#26ce04"});
+
+    			if(my_speed >= -5 && people_control >= -1){
+					if(my_speed = -1 && my_control = -1){
+						$("#type1_text").html("우호형,분석형 특징을 가진 표출형");
+					}else{
+						$("#type1_text").html("우호형 특징을 가진 표출형");
+					}
+				}else if(my_speed >= -1 && my_control >= -5){
+					$("#type1_text").html("분석형 특징을 가진 표출형");
+				}else{
+					$("#type1_text").html("시원한 표출형");
+				}
     		}
 
 
     		if(people_speed > 0 && people_control > 0) {
     			$("#type2_bg_color").css({"background-color" : "#059be8"});
     			$("#type2_text").css({"color":"#059be8"});
+
+    			if(my_speed <= 5 && my_control <= 1){
+					if(my_speed = 1 && my_control = 1){
+						$("#type1_text").html("분석형,우호형 특징을 가진 주도형");
+					}else{
+						$("#type1_text").html("분석형 특징을 가진 주도형");
+					}
+				}else if(my_speed <= 1 && my_control <= 5){
+					$("#type1_text").html("우호형 특성을 가진 주도형");
+				}else{
+					$("#type1_text").html("확실한 주도형");
+				}
     		}
     		if(people_speed > 0 && people_control < 0) {
     			$("#type2_bg_color").css({"background-color" : "#923cf2"});
     			$("#type2_text").css({"color":"#923cf2"});
+
+    			if(people_speed <= 5 && people_control >= -1){
+					if(people_speed = 1 && people_control = -1){
+						$("#type2_text").html("주도형,표출형 특징을 가진 분석형");
+					}else{
+						$("#type2_text").html("주도형 특징을 가진 분석형");
+					}
+				}else if(people_speed <= 1 && people_control >= -5){
+					$("#type2_text").html("표출형 특징을 가진 분석형");
+				}else{
+					$("#type2_text").html("철저한 분석형");
+				}
     		}
     		if(people_speed < 0 && people_control > 0) {
     			$("#type2_bg_color").css({"background-color" : "#059be8"});
     			$("#type2_text").css({"color":"#059be8"});
+
+    			if(people_speed >= -5 && people_control <= 1){
+					if(people_speed = -1 && people_control = 1){
+						$("#type2_text").html("주도형,표출형 특징을 숨긴 우호형");
+					}else{
+						$("#type2_text").html("표출형 특징을 가진 우호형");
+					}
+				}else if(people_speed >= -1 && people_control <= 5){
+					$("#type2_text").html("주도형 특징을 숨긴 우호형");
+				}else{
+					$("#type2_text").html("스마일 우호형");
+				}
     		}
     		if(people_speed < 0 && people_control < 0) {
     			$("#type2_bg_color").css({"background-color" : "#26ce04"});
     			$("#type2_text").css({"color":"#26ce04"});
+
+    			if(people_speed >= -5 && people_control >= -1){
+					if(people_speed = -1 && people_control = -1){
+						$("#type2_text").html("우호형,분석형 특징을 가진 표출형");
+					}else{
+						$("#type2_text").html("우호형 특징을 가진 표출형");
+					}
+				}else if(people_speed >= -1 && people_control >= -5){
+					$("#type2_text").html("분석형 특징을 가진 표출형");
+				}else{
+					$("#type2_text").html("시원한 표출형");
+				}
     		}
 
 
