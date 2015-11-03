@@ -61,6 +61,11 @@
                     android:paddingBottom="20dp"
                     android:gravity="center">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/q_btn"
+                        android:id="@+id/q_popup" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -70,7 +75,8 @@
                     android:background="#fff100"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:weightSum="1">
+                    android:weightSum="1"
+                    android:id="@+id/">
 
 
                     <!--
