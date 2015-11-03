@@ -93,7 +93,7 @@
     			$("#type1_text").css({"color":"#059be8"});
 
     			if(my_speed <= 5 && my_control <= 1){
-    			   	if(my_speed = 1 && my_control = 1){
+    			   	if(my_speed == 1 && my_control == 1){
     			   		$("#type1_text").html("분석형,우호형 특징을 가진 주도형");
     			   	}else{
     					$("#type1_text").html("분석형 특징을 가진 주도형");
