@@ -161,6 +161,61 @@
     <string name="tip2_cb">동료 [you_name]님과 함께 일할 때 주의할 부분이 있나요?</string>
     <string name="tip2_cc">부하직원 [you_name]님과 함께 일할 때 주의할 부분이 있나요?</string>
 
+    <string name="tip3_pa">부모 [you_name]님이 열심히 해오던 일에 실패를 했어요. 위로를 해 주고 싶은데 어떻게 해야 하죠?</string>
+    <string name="tip3_pb">[you_name]님이 열심히 해오던 일에 실패를 했어요. 위로를 해 주고 싶은데 어떻게 해야 하죠?</string>
+    <string name="tip3_pc">[you_name]님과 대화를 하면 어김없이 싸우는 일이 생겨요. 왜 그럴까요?</string>
+    <string name="tip3_pd">자녀가 친구와 크게 싸운 것 같은데, 얘기를 하지 않아요. 어떻게 하면 같이 얘기를 할 수 있을까요?</string>
+    <string name="tip3_pe">자녀 [you_name]님이 열심히 해오던 일에 실패를 했어요. 위로를 해 주고 싶은데 어떻게 해야 하죠?</string>
+    <string name="tip3_f">친구 [you_name]님에게 기억에 남는 밥을 한 번 살까 하는데요, 어떤 게 좋을까요?</string>
+    <string name="tip3_l">연인 [you_name]님과 서로의 마음은 확인했는데, 스킨십을 어떻게 할 지 고민됩니다. 조언 좀 부탁해요.</string>
+    <string name="tip3_ca">상사 [you_name]님과 인간적으로 가까워지고 싶은데 어떻게 해야 하죠?</string>
+    <string name="tip3_cb">동료 [you_name]님이 저를 도와줘서 제가 일을 잘 마무리 할 수 있었어요. 저녁을 대접하고 싶은데 어떤 게 좋을까요?</string>
+    <string name="tip3_cc">부하직원 [you_name]님과 둘이서 격려 차원의 저녁을 하고 싶은데 어떤 게 좋을까요?</string>
+
+    <string name="tip4_pa">부모 [you_name]님과 대화를 안 한 지 좀 오래 된 것 같아요. 좋은 대화 방법은 뭐가 있을까요?</string>
+    <string name="tip4_pb">별 일도 아닌데 [you_name]님과 크게 다퉜어요. 풀고 싶은데 어떻게 해야 하죠?</string>
+    <string name="tip4_pc">[you_name]님과 단 둘이 여행을 다녀오고 싶은데요, 여행 준비를 어떻게 하면 좋을까요?</string>
+    <string name="tip4_pd">자녀가 원하던 학교에 가지 못해 낙심하고 있어요. 위로를 해 주고 싶은데 어떻게 해야 하죠?</string>
+    <string name="tip4_pe">자녀 [you_name]이 가족 내에서 아주 훌륭한 일을 했어요. 칭찬을 해 주고 싶은데 어떻게 해야 하죠?</string>
+    <string name="tip4_f">만약 친구 [you_name]님에게 무엇인가 위로를 해 주어야하는 상황인데 어떻게 해야 하죠?</string>
+    <string name="tip4_l">연인 [you_name]님과 단 둘이 여행을 다녀오고 싶은데요, 여행 준비를 어떻게 하면 좋을까요?</string>
+    <string name="tip4_ca">상사 [you_name]님이 개인적으로 매우 힘든 일을 도와주었어요. 저녁을 대접하고 싶은데 어떤 게 좋을까요?</string>
+    <string name="tip4_cb">동료 [you_name]이 진행하던 프로젝트 결과가 좋지 않게 끝났어요. 위로를 해 주고 싶은데 어떻게 해야 하죠?</string>
+    <string name="tip4_cc">부하직원 [you_name]이 진행하던 프로젝트 결과가 좋지 않게 끝났어요. 위로를 해 주고 싶은데 어떻게 해야 하죠?</string>
+
+    <string name="tip5_pa">부모 [you_name]님과 대화를 하면 어김없이 싸우는 일이 생겨요. 왜 그럴까요?</string>
+    <string name="tip5_pb">[you_name]님에게서 중요한 부탁을 좀 하고 싶은데 거절할 것 같아요. 어떻게 하면 부탁을 들어 줄 수 있게 할 수 있을까요?</string>
+    <string name="tip5_pc">별 일도 아닌데 [you_name]님과 크게 다퉜어요. 풀고 싶은데 어떻게 해야 하죠?</string>
+    <string name="tip5_pd">별 일도 아닌데 자녀에게 짜증을 내고 심하게 다퉜어요. 부모로서 풀고 싶은데 어떻게 해야 하죠?</string>
+    <string name="tip5_pe">자녀 [you_name]님과 대화를 안 한 지 좀 오래 된 것 같아요. 좋은 대화 방법은 뭐가 있을까요?</string>
+    <string name="tip5_f">별 일도 아닌데 친구 [you_name]님과 크게 다퉜어요. 풀고 싶은데 어떻게 해야 하죠?</string>
+    <string name="tip5_l">별 일도 아닌데 연인 [you_name]님과 크게 다퉜어요. 풀고 싶은데 어떻게 해야 하죠?</string>
+    <string name="tip5_ca">상사 [you_name]님이 일에서 상사로서 큰 실수를 했습니다. 어떻게 해야 하죠?</string>
+    <string name="tip5_cb">동료 [you_name]님과 인간적으로 가까워지고 싶은데 어떻게 해야 하죠?</string>
+    <string name="tip5_cc">부하직원 [you_name]님이 일에서 큰 실수를 했습니다. 어떻게 해야 하죠?</string>
+
+    <string name="tip6_pa">별 일도 아닌데 부모님에게 짜증을 내고 심하게 다퉜어요. 자녀로서 풀고 싶은데 어떻게 해야 하죠?</string>
+    <string name="tip6_pb">[you_name]님이 가족 내에서 아주 훌륭한 일을 했어요. 칭찬을 해 주고 싶은데 어떻게 해야 하죠?</string>
+    <string name="tip6_pc">[you_name]님의 생일이 다가와서 단 둘이 기억에 남는 외식을 할까 하는데요, 어떤 게 좋을까요?</string>
+    <string name="tip6_pd">자녀 [you_name]이 공부를 안해도 너무 안해요. 어떻게 해야 할까요?</string>
+    <string name="tip6_pe">자녀 [you_name]님과 대화를 하면 어김없이 싸우는 일이 생겨요. 왜 그럴까요?</string>
+    <string name="tip6_f">친구 [you_name]님를 오랜만에 만나러 가는데, 어떤 옷차림이 좋을까요?</string>
+    <string name="tip6_l">연인 [you_name]님에게 기억에 남는 외식을 할까 하는데요, 어떤 게 좋을까요?</string>
+    <string name="tip6_ca">상사 [you_name]님과 보고 회의가 있는데 어떻게 하는 게 가장 좋을까요?</string>
+    <string name="tip6_cb">동료 [you_name]님은 일을 할 때 무엇을 가장 중요하게 생각하나요?</string>
+    <string name="tip6_cc">부하직원 [you_name]님은 일의 수행에서 어떤 부분이 가장 큰 장점인가요?</string>
+
+    <string name="tip7_pa">부모 [you_name]님에게서 중요한 부탁을 좀 하고 싶은데 거절할 것 같아요. 어떻게 하면 부탁을 들어 줄 수 있게 할 수 있을까요?</string>
+    <string name="tip7_pb"></string>
+    <string name="tip7_pc">[you_name]이 열심히 해오던 일에 실패를 했어요. 위로를 해 주고 싶은데 어떻게 해야 하죠?</string>
+    <string name="tip7_pd">자녀 [you_name]이 친구를 잘 못사귀어요. 어떤 조언과 도움을 주어야 할까요?</string>
+    <string name="tip7_pe">별 일도 아닌데 [you_name]에게 짜증을 내고 심하게 다퉜어요. 부모로서 풀고 싶은데 어떻게 해야 하죠?</string>
+    <string name="tip7_f">친구 [you_name]님에게서 돈을 좀 빌리고 싶은데 거절할 것 같아요. 어떻게 하면 돈을 빌릴 수 있을까요?</string>
+    <string name="tip7_l">연인 [you_name]이 열심히 해오던 일에 실패를 했어요. 위로를 해 주고 싶은데 어떻게 해야 하죠?</string>
+    <string name="tip7_ca">제가 상사 [you_name]님께 보고한 업무 일정을 도저히 맞출 수가 없습니다. 어떻게 하는 게 좋을까요?</string>
+    <string name="tip7_cb">동료 [you_name]님과 팀 회식이 있는데 술자리를 가질 것 같습니다. 주의해야 할 점이 있나요?</string>
+    <string name="tip7_cc">팀 회식(술자리)이 있는데 부하직원 [you_name]님과 관계에서 주의해야 할 점이 있나요?</string>
+
 
 
 
