@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity  {
     private ImageView menu_icon1, menu_icon2, menu_icon3, menu_icon4;
     private LinearLayout menu1, menu2, menu3, menu4, menu_line1, menu_line2, menu_line3, menu_line4;
 
-    private LinearLayout settingbtn;
+    private LinearLayout searchbtn, settingbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -216,6 +216,28 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
         */
+
+        searchbtn = (LinearLayout) findViewById(R.id.searchbtn);
+        searchbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SubPeopleSearch_Activity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+            }
+        });
+
+        settingbtn = (LinearLayout) findViewById(R.id.settingbtn);
+        settingbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+            }
+        });
+
+
 
     }
 

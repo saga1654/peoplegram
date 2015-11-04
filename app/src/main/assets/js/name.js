@@ -90,7 +90,7 @@
 
 			$('#type1_per').jQuerySimpleCounter({
             	end:my_per,
-            	duration: 4000
+            	duration: 2000
             });
 
     		if(my_speed > 0 && my_control > 0) {
@@ -176,7 +176,7 @@
 
 			$('#type2_per').jQuerySimpleCounter({
             	end:people_per,
-                duration: 4000
+                duration: 2000
             });
 				
     		
