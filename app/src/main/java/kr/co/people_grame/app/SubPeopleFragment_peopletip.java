@@ -15,6 +15,9 @@ import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 /**
  * Created by 광희 on 2015-09-15.
@@ -150,7 +153,37 @@ public class SubPeopleFragment_peopletip extends Fragment {
 
                 @Override
                 public void onSuccess(String response) {
+                    try {
+                        JSONObject jobj = new JSONObject(response);
+                        String code = jobj.getString("code");
+                        String my_speed = jobj.getString("my_speed");
+                        String my_control = jobj.getString("my_control");
+                        people_type = jobj.getString("people_type");
+                        String people_speed = jobj.getString("people_speed");
+                        String people_control = jobj.getString("people_control");
+
+                        if (code.equals("000")) {
+                            Intent intent = new Intent(getActivity(), SubPeopleContentsType_Activity.class);
+                            intent.putExtra("gubun", gubun1);
+                            intent.putExtra("youtype", people_type);
+                            intent.putExtra("my_speed", my_speed);
+                            intent.putExtra("my_control", my_control);
+                            intent.putExtra("people_name", people_name);
+                            intent.putExtra("people_youtype", people_type);
+                            intent.putExtra("people_speed", people_speed);
+                            intent.putExtra("people_control", people_control);
+
+                            getActivity().startActivity(intent);
+                            getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                        } else {
+                            Toast.makeText(getActivity(), "진단한 내용이 존재하지 않습니다.\n추후 다시 시도해주세요.", Toast.LENGTH_LONG).show();
+                        }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                     Log.d("people_gram", response);
+                    /*
                     if (response.equals("998")) {
                         Toast.makeText(getActivity(), "진단한 내용이 존재하지 않습니다.\n추후 다시 시도해주세요.", Toast.LENGTH_LONG).show();
                     } else if (response.equals("999")) {
@@ -164,6 +197,7 @@ public class SubPeopleFragment_peopletip extends Fragment {
                         getActivity().startActivity(intent);
                         getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     }
+                    */
                 }
             });
 

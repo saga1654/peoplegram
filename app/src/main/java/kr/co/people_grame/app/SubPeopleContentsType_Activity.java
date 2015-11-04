@@ -26,6 +26,7 @@ public class SubPeopleContentsType_Activity extends AppCompatActivity {
 
     private WebView people_content_webview;
     private String gubun, youtype, people_youtype, people_name;
+    private String my_speed, my_control, people_speed, people_control;
     private ProgressDialog dialog;
 
     @Override
@@ -43,6 +44,12 @@ public class SubPeopleContentsType_Activity extends AppCompatActivity {
             people_name = intent.getStringExtra("people_name");
             gubun = intent.getStringExtra("gubun");
 
+            my_speed = intent.getStringExtra("my_speed");
+            my_control = intent.getStringExtra("my_control");
+
+            people_speed = intent.getStringExtra("people_speed");
+            people_control = intent.getStringExtra("people_control");
+
             Log.d("people_gram", youtype+ ":::" + people_youtype + ":::" + gubun);
 
             people_content_webview = (WebView) findViewById(R.id.people_content_webview);
@@ -54,7 +61,7 @@ public class SubPeopleContentsType_Activity extends AppCompatActivity {
                 @Override
                 public void onPageFinished(WebView view, String url) {
                     people_content_webview.loadUrl("javascript:nameView('" + SharedPreferenceUtil.getSharedPreference(SubPeopleContentsType_Activity.this, "username") + "','" + people_name + "')");
-                    //people_content_webview.loadUrl("javascript:type_chart(" + my_speed + ", "+my_control+","+people_speed+","+people_control+")");
+                    people_content_webview.loadUrl("javascript:type_chart(" + my_speed + ", "+my_control+","+people_speed+","+people_control+")");
                     super.onPageFinished(view, url);
                 }
             });

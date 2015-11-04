@@ -177,7 +177,7 @@ public class Utilities {
         return won;
     }
 
-    public static double people_match_int(int my_speed, int you_speed, int my_control, int you_control) {
+    public static double people_match_int(float my_speed, float you_speed, float my_control, float you_control) {
         int type_score = 100;
 
         if(my_speed * you_speed * my_control * you_control < 0) {
@@ -195,22 +195,19 @@ public class Utilities {
         double score_temp = Math.pow((my_speed - you_speed),2) + Math.pow((my_control - you_control),2);
         double score = 4 * Math.sqrt(2) * Math.sqrt(score_temp);
 
-        //Log.d("people_gram", "타입스코어="+String.valueOf(type_score));
-        //Log.d("people_gram", "score_temp="+String.valueOf(score_temp));
-        //Log.d("people_gram", "score="+String.valueOf(score));
 
         double total = type_score - score;
         return total;
     }
 
-    private double people_match_temp(int my_speed, int you_speed, int my_control, int you_control)
+    private double people_match_temp(float my_speed, float you_speed, float my_control, float you_control)
     {
         double temp = Math.pow((my_speed - you_speed),2) + Math.pow((my_control - you_control),2);
 
         return temp;
     }
 
-    private int people_match_typescore(int my_speed, int you_speed, int my_control, int you_control)
+    private int people_match_typescore(float my_speed, float you_speed, float my_control, float you_control)
     {
         int type_score = 100;
 

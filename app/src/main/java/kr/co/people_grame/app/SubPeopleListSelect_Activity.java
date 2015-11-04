@@ -50,21 +50,21 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
     private String uid, mood, myname, mytype;
     private String my_code = "000";
     private int my_speed = 0;
-    private int my_sub_speed = 0;
+    private float my_sub_speed = 0;
     private String my_sub_type = "";
     private int my_control = 0;
-    private int my_sub_control = 0;
+    private float my_sub_control = 0;
 
 
     private String people_name, people_type, people_mood, people_uid, people_gubun1, people_gubun2;
-    private int people_speed = 0;
-    private int people_control = 0;
+    private float people_speed = 0;
+    private float people_control = 0;
 
     private String people_sub_type = "";
 
     private String people_code = "000";
-    private int people_sub_speed = 0;
-    private int people_sub_control = 0;
+    private float people_sub_speed = 0;
+    private float people_sub_control = 0;
 
     private TextView detail_myname, detail_youname, tv_tip1, tv_tip2, tv_tip3, gubun1, peopleTextView;
 
@@ -680,6 +680,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
         params.put("gubun1", people_gubun1);
         params.put("gubun2", people_gubun2);
 
+
         HttpClient.post("/people/peopleMatchCheck", params, new AsyncHttpResponseHandler() {
             public void onStart() {
                 //dialog = ProgressDialog.show(SubPeopleListSelect_Activity.this, "", "데이터 수신중");
@@ -691,13 +692,14 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
             @Override
             public void onSuccess(String response) {
+                Log.d("people_gram", response);
                 try {
                     JSONObject jobj = new JSONObject(response);
                     JSONObject my_obj = new JSONObject(jobj.getString("my_data"));
                     JSONObject people_obj = new JSONObject(jobj.getString("you_data"));
                     if(my_obj.getString("code").equals("000")) {
-                        my_sub_control = Integer.parseInt(my_obj.getString("sumdata_control"));
-                        my_sub_speed = Integer.parseInt(my_obj.getString("sumdata_speed"));
+                        my_sub_control = Float.valueOf(my_obj.getString("sumdata_control"));
+                        my_sub_speed = Float.valueOf(my_obj.getString("sumdata_speed"));
                         my_sub_type = my_obj.getString("peopleType");
 
                     } else {
@@ -707,8 +709,8 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                     }
 
                     if(people_obj.getString("code").equals("000")) {
-                        people_sub_control = Integer.parseInt(people_obj.getString("sumdata_control"));
-                        people_sub_speed = Integer.parseInt(people_obj.getString("sumdata_speed"));
+                        people_sub_control = Float.valueOf(people_obj.getString("sumdata_control"));
+                        people_sub_speed = Float.valueOf(people_obj.getString("sumdata_speed"));
                         people_sub_type = people_obj.getString("peopleType");
 
                     } else {
