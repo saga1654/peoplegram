@@ -142,16 +142,6 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
     }
 
-    /*
-    private void help(View v) {
-        View popupView = getLayoutInflater().inflate(R.layout.popup_window, null);
-        View mPopupWindow = new PopupWindow(popupView,
-                RelativeLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-
-        mPopupWindow.setAnimationStyle(-1);
-    }
-    */
-
     public void peopleReType_btn(View v) {
 
 

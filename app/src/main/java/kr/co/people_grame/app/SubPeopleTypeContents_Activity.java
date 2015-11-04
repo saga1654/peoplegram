@@ -50,7 +50,7 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
 
         }
 
-        Log.d("people_gram", my_speed + ":::" + my_control + ":::" + people_speed + "::" + people_control);
+        Log.d("people_gram", "데이터전달=" + my_speed + ":::" + my_control + ":::" + people_speed + "::" + people_control);
 
         people_content_webview = (WebView) findViewById(R.id.people_content_webview);
         WebSettings webSettings = people_content_webview.getSettings();
