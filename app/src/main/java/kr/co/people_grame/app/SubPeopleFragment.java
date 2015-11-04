@@ -18,6 +18,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,6 +41,7 @@ import java.util.ArrayList;
  */
 public class SubPeopleFragment extends Fragment {
 
+    private PopupWindow mPopupWindow;
     final int peopleView = 1111;
 
     int all_cnt = 0;
@@ -76,6 +79,19 @@ public class SubPeopleFragment extends Fragment {
     private EditText serachText;
 
     public SubPeopleFragment() {
+    }
+
+    public void help(View v) {
+
+        /*
+        View popupView = getActivity().getLayoutInflater().inflate(R.layout.popup_window, null);
+        mPopupWindow = new PopupWindow(popupView,
+                    RelativeLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+
+        mPopupWindow.setAnimationStyle(-1);
+        */
+
+
     }
 
     @Override

@@ -87,9 +87,12 @@
     		var my_type = "";
 
 			$("#type1_title").css({"color":"#fff","background-color":"#32354d","font-size":"0.85em","padding-top":"1.0em","padding-bottom":"1.0em","text-align":"center"});	
-			$("#type1_per").html(my_per+"%");			
 
-			
+			$('#type1_per').jQuerySimpleCounter({
+            	end:my_per,
+            	duration: 4000
+            });
+
     		if(my_speed > 0 && my_control > 0) {
     			//$("#type1_bg_color").css({"background-color" : "#ff8a55"});
     			
@@ -170,6 +173,11 @@
 
 			$("#type2_title").css({"color":"#fff","background-color":"#32354d","font-size":"0.85em","padding-top":"1.0em","padding-bottom":"1.0em","text-align":"center"});
 			$("#type2_per").html(people_per+"%");
+
+			$('#type2_per').jQuerySimpleCounter({
+            	end:people_per,
+                duration: 4000
+            });
 				
     		
     			if(people_speed > 0 && people_control > 0) {
