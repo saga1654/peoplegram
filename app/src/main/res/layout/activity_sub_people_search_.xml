@@ -20,6 +20,8 @@
             android:textColorHint="#afafb0"
             android:padding="10dp"
             android:hint="이름으로 검색해주세요."
+            android:id="@+id/serachET"
+            android:singleLine="true"
             android:background="@drawable/search_round" />
 
     </LinearLayout>
@@ -28,5 +30,15 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#ccc"></LinearLayout>
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:background="@drawable/listview_onoff"
+        android:id="@+id/sf_people_list" />
+
+
 
 </LinearLayout>
