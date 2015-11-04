@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,7 +69,9 @@ public class SubPeopleFragment extends Fragment {
     private TextView listview_people_all_cnt;
     private ImageView my_profile_i_up_icon, my_profile_d_up_icon, my_profile_e_up_icon, my_profile_a_up_icon;
     private EditText serachText;
+    private ImageView help_btn;
 
+    /*
     public void help_people(View v) {
         View popupView = getActivity().getLayoutInflater().inflate(R.layout.activity_help_people, null);
 
@@ -78,6 +81,7 @@ public class SubPeopleFragment extends Fragment {
         mPopupWindow.showAsDropDown(q_btn, 50, 50);
 
     }
+    */
     public SubPeopleFragment() {
     }
 
@@ -102,6 +106,17 @@ public class SubPeopleFragment extends Fragment {
         sf_people_list.addHeaderView(header);
 
         listview_people_all_cnt = (TextView) rootView.findViewById(R.id.listview_people_all_cnt);
+        help_btn = (ImageView) rootView.findViewById(R.id.help_btn);
+        help_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                View popupView = getActivity().getLayoutInflater().inflate(R.layout.activity_help_people, null);
+                PopupWindow mPopupWindow = new PopupWindow(popupView, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+                mPopupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
+                //mPopupWindow.setAnimationStyle(-1);
+                //mPopupWindow.showAsDropDown(q_btn, 50, 50);
+            }
+        });
 
 
 
