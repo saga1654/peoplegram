@@ -49,7 +49,7 @@ public class SubPeopleFragment extends Fragment {
     private ListView sf_people_list;
     private Button q_btn;
     private ArrayList<SubPeopleListDTO> people_dto_list;
-    private ArrayList<SubPeopleListDTO_Temp> people_dto_list_temp;
+    public static ArrayList<SubPeopleListDTO_Temp> people_dto_list_temp;
     private SubPeopleListAdapter people_adapter_list;
 
     private View mainView;
