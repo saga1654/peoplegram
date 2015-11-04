@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="1"
+        android:id="@+id/tip1_btn"
         android:padding="20dp">
 
         <LinearLayout
@@ -28,6 +29,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#1d1d26"
                 android:textSize="14dp"
+                android:id="@+id/tip1_text"
                 android:text="○○○님에게 어떤 감사의 말이 좋을까요?" />
 
         </LinearLayout>
@@ -59,6 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="1"
+        android:id="@+id/tip2_btn"
         android:padding="20dp">
 
         <LinearLayout
@@ -72,6 +75,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#1d1d26"
                 android:textSize="14dp"
+                android:id="@+id/tip2_text"
                 android:text="○○○님에게 어떤 칭송을 하면 좋을까요?" />
 
         </LinearLayout>
@@ -102,6 +106,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="1"
+        android:id="@+id/tip3_btn"
         android:padding="20dp">
 
         <LinearLayout
@@ -115,6 +120,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#1d1d26"
                 android:textSize="14dp"
+                android:id="@+id/tip3_text"
                 android:text="○○○님에게 어떤 선물을 한다면 뭐가 좋을까요?" />
 
         </LinearLayout>
@@ -146,6 +152,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="1"
+        android:id="@+id/tip4_btn"
         android:padding="20dp">
 
         <LinearLayout
@@ -159,6 +166,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#1d1d26"
                 android:textSize="14dp"
+                android:id="@+id/tip4_text"
                 android:text="○○○님은 저를 자꾸 무시하는 것 같은데, 어떻게 해야 하나요?" />
 
         </LinearLayout>
@@ -189,6 +197,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="1"
+        android:id="@+id/tip5_btn"
         android:padding="20dp">
 
         <LinearLayout
@@ -202,6 +211,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#1d1d26"
                 android:textSize="14dp"
+                android:id="@+id/tip5_text"
                 android:text="계약서 빨리 보내라고 계속 조르는데, 무슨 다른 꿍꿍이가 있나 걱정됩니다." />
 
         </LinearLayout>
@@ -232,6 +242,7 @@
         android:layout_height="wrap_content"
         android:weightSum="1"
         android:padding="20dp"
+        android:id="@+id/tip6_btn"
         android:layout_gravity="center_horizontal">
 
         <LinearLayout
@@ -245,6 +256,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#1d1d26"
                 android:textSize="14dp"
+                android:id="@+id/tip6_text"
                 android:text="계약서 빨리 보내라고 계속 조르는데, 무슨 다른 꿍꿍이가 있나 걱정됩니다." />
         </LinearLayout>
 
@@ -259,6 +271,56 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/setting_next_icon" />
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f1f1f1">
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:padding="20dp"
+        android:id="@+id/tip7_btn"
+        android:layout_gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="20dp"
+            android:layout_weight="0.70" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#1d1d26"
+                android:textSize="14dp"
+                android:id="@+id/tip7_text"
+                android:text="계약서 빨리 보내라고 계속 조르는데, 무슨 다른 꿍꿍이가 있나 걱정됩니다." />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.30"
+            android:gravity="right|center" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/setting_next_icon" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f1f1f1">
     </LinearLayout>
 
 
