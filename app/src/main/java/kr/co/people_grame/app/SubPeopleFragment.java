@@ -2,6 +2,7 @@ package kr.co.people_grame.app;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -57,6 +58,9 @@ public class SubPeopleFragment extends Fragment {
 
     private LinearLayout people_gubun_all, people_gubun_family, people_gubun_friend, people_gubun_lover, people_gubun_job, people_gubun_client, people_gubun_not;
     private TextView people_cnt, et_all_cnt, et_p_cnt, et_f_cnt, et_l_cnt, et_c_cnt, et_s_cnt, et_n_cnt;
+    private TextView et_all_title, et_p_title, et_f_title, et_l_title, et_c_title, et_s_title, et_n_title;
+
+    private LinearLayout people_gubun_all_line, people_gubun_family_line, people_gubun_friend_line, people_gubun_lover_line, people_gubun_job_line, people_gubun_client_line, people_gubun_not_line;
 
 
     private final int ACTIVITY_CODE = 000001;
@@ -71,17 +75,6 @@ public class SubPeopleFragment extends Fragment {
     private EditText serachText;
     private ImageView help_btn;
 
-    /*
-    public void help_people(View v) {
-        View popupView = getActivity().getLayoutInflater().inflate(R.layout.activity_help_people, null);
-
-        PopupWindow mPopupWindow = new PopupWindow(popupView, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
-
-        mPopupWindow.setAnimationStyle(-1);
-        mPopupWindow.showAsDropDown(q_btn, 50, 50);
-
-    }
-    */
     public SubPeopleFragment() {
     }
 
@@ -286,17 +279,65 @@ public class SubPeopleFragment extends Fragment {
         people_gubun_client = (LinearLayout) rootView.findViewById(R.id.people_gubun_client);
         people_gubun_not = (LinearLayout) rootView.findViewById(R.id.people_gubun_not);
 
+        people_gubun_all_line = (LinearLayout) rootView.findViewById(R.id.people_gubun_all_line);
+        people_gubun_family_line = (LinearLayout) rootView.findViewById(R.id.people_gubun_family_line);
+        people_gubun_friend_line = (LinearLayout) rootView.findViewById(R.id.people_gubun_friend_line);
+        people_gubun_lover_line = (LinearLayout) rootView.findViewById(R.id.people_gubun_lover_line);
+        people_gubun_job_line = (LinearLayout) rootView.findViewById(R.id.people_gubun_job_line);
+        people_gubun_client_line = (LinearLayout) rootView.findViewById(R.id.people_gubun_client_line);
+        people_gubun_not_line = (LinearLayout) rootView.findViewById(R.id.people_gubun_not_line);
+
+
+        et_all_cnt = (TextView) rootView.findViewById(R.id.all_cnt);
+        et_p_cnt = (TextView) rootView.findViewById(R.id.p_cnt);
+        et_f_cnt = (TextView) rootView.findViewById(R.id.f_cnt);
+        et_l_cnt = (TextView) rootView.findViewById(R.id.l_cnt);
+        et_c_cnt = (TextView) rootView.findViewById(R.id.c_cnt);
+        et_s_cnt = (TextView) rootView.findViewById(R.id.s_cnt);
+        et_n_cnt = (TextView) rootView.findViewById(R.id.n_cnt);
+
+        et_all_title = (TextView) rootView.findViewById(R.id.all_title);
+        et_p_title = (TextView) rootView.findViewById(R.id.p_title);
+        et_f_title = (TextView) rootView.findViewById(R.id.f_title);
+        et_l_title = (TextView) rootView.findViewById(R.id.l_title);
+        et_c_title = (TextView) rootView.findViewById(R.id.c_title);
+        et_s_title = (TextView) rootView.findViewById(R.id.s_title);
+        et_n_title = (TextView) rootView.findViewById(R.id.n_title);
+
+
+
+        //people_gubun_all_line, people_gubun_family_line, people_gubun_friend_line, people_gubun_lover_line, people_gubun_job_line, people_gubun_client_line, people_gubun_not_line;
+
         people_gubun_all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 searchType = "ALL";
-                people_gubun_all.setBackgroundResource(R.drawable.people_gubun_on);
-                people_gubun_family.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_friend.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_lover.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_job.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_client.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_not.setBackgroundResource(R.drawable.people_gubun_off);
+
+                people_gubun_all_line.setBackgroundColor(Color.rgb(254, 23, 5));
+                people_gubun_family_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_friend_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_lover_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_job_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_client_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_not_line.setBackgroundColor(Color.rgb(241, 241, 241));
+
+                et_all_title.setTextColor(Color.rgb(254, 23, 5));
+                et_p_title.setTextColor(Color.rgb(29, 29, 38));
+                et_f_title.setTextColor(Color.rgb(29, 29, 38));
+                et_l_title.setTextColor(Color.rgb(29, 29, 38));
+                et_c_title.setTextColor(Color.rgb(29, 29, 38));
+                et_s_title.setTextColor(Color.rgb(29, 29, 38));
+                et_n_title.setTextColor(Color.rgb(29, 29, 38));
+
+                et_all_cnt.setTextColor(Color.rgb(254, 23, 5));
+                et_p_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_f_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_l_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_c_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_s_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_n_cnt.setTextColor(Color.rgb(29, 29, 38));
+
+
                 pos = 0;
                 //peopleList();
 
@@ -334,6 +375,7 @@ public class SubPeopleFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 searchType = "P";
+                /*
                 people_gubun_all.setBackgroundResource(R.drawable.people_gubun_off);
                 people_gubun_family.setBackgroundResource(R.drawable.people_gubun_on);
                 people_gubun_friend.setBackgroundResource(R.drawable.people_gubun_off);
@@ -341,6 +383,34 @@ public class SubPeopleFragment extends Fragment {
                 people_gubun_job.setBackgroundResource(R.drawable.people_gubun_off);
                 people_gubun_client.setBackgroundResource(R.drawable.people_gubun_off);
                 people_gubun_not.setBackgroundResource(R.drawable.people_gubun_off);
+                */
+
+
+                people_gubun_all_line.setBackgroundColor(Color.rgb(241,241,241));
+                people_gubun_family_line.setBackgroundColor(Color.rgb(254,23,5));
+                people_gubun_friend_line.setBackgroundColor(Color.rgb(241,241,241));
+                people_gubun_lover_line.setBackgroundColor(Color.rgb(241,241,241));
+                people_gubun_job_line.setBackgroundColor(Color.rgb(241,241,241));
+                people_gubun_client_line.setBackgroundColor(Color.rgb(241,241,241));
+                people_gubun_not_line.setBackgroundColor(Color.rgb(241,241,241));
+
+                et_all_title.setTextColor(Color.rgb(29, 29, 38));
+                et_p_title.setTextColor(Color.rgb(254, 23, 5));
+                et_f_title.setTextColor(Color.rgb(29, 29, 38));
+                et_l_title.setTextColor(Color.rgb(29, 29, 38));
+                et_c_title.setTextColor(Color.rgb(29, 29, 38));
+                et_s_title.setTextColor(Color.rgb(29, 29, 38));
+                et_n_title.setTextColor(Color.rgb(29, 29, 38));
+
+                et_all_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_p_cnt.setTextColor(Color.rgb(254, 23, 5));
+                et_f_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_l_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_c_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_s_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_n_cnt.setTextColor(Color.rgb(29, 29, 38));
+
+
                 pos = 0;
 
 
@@ -379,13 +449,31 @@ public class SubPeopleFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 searchType = "F";
-                people_gubun_all.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_family.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_friend.setBackgroundResource(R.drawable.people_gubun_on);
-                people_gubun_lover.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_job.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_client.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_not.setBackgroundResource(R.drawable.people_gubun_off);
+                people_gubun_all_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_family_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_friend_line.setBackgroundColor(Color.rgb(254, 23, 5));
+                people_gubun_lover_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_job_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_client_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_not_line.setBackgroundColor(Color.rgb(241, 241, 241));
+
+                et_all_title.setTextColor(Color.rgb(29, 29, 38));
+                et_p_title.setTextColor(Color.rgb(29, 29, 38));
+                et_f_title.setTextColor(Color.rgb(254, 23, 5));
+                et_l_title.setTextColor(Color.rgb(29, 29, 38));
+                et_c_title.setTextColor(Color.rgb(29, 29, 38));
+                et_s_title.setTextColor(Color.rgb(29, 29, 38));
+                et_n_title.setTextColor(Color.rgb(29, 29, 38));
+
+                et_all_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_p_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_f_cnt.setTextColor(Color.rgb(254, 23, 5));
+                et_l_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_c_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_s_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_n_cnt.setTextColor(Color.rgb(29, 29, 38));
+
+
                 pos = 0;
 
                 repeopleList();
@@ -400,13 +488,31 @@ public class SubPeopleFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 searchType = "L";
-                people_gubun_all.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_family.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_friend.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_lover.setBackgroundResource(R.drawable.people_gubun_on);
-                people_gubun_job.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_client.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_not.setBackgroundResource(R.drawable.people_gubun_off);
+                people_gubun_all_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_family_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_friend_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_lover_line.setBackgroundColor(Color.rgb(254, 23, 5));
+                people_gubun_job_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_client_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_not_line.setBackgroundColor(Color.rgb(241, 241, 241));
+
+                et_all_title.setTextColor(Color.rgb(29, 29, 38));
+                et_p_title.setTextColor(Color.rgb(29, 29, 38));
+                et_f_title.setTextColor(Color.rgb(29, 29, 38));
+                et_l_title.setTextColor(Color.rgb(254, 23, 5));
+                et_c_title.setTextColor(Color.rgb(29, 29, 38));
+                et_s_title.setTextColor(Color.rgb(29, 29, 38));
+                et_n_title.setTextColor(Color.rgb(29, 29, 38));
+
+                et_all_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_p_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_f_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_l_cnt.setTextColor(Color.rgb(254, 23, 5));
+                et_c_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_s_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_n_cnt.setTextColor(Color.rgb(29, 29, 38));
+
+
                 pos = 0;
 
                 repeopleList();
@@ -420,13 +526,31 @@ public class SubPeopleFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 searchType = "C";
-                people_gubun_all.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_family.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_friend.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_lover.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_job.setBackgroundResource(R.drawable.people_gubun_on);
-                people_gubun_client.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_not.setBackgroundResource(R.drawable.people_gubun_off);
+                people_gubun_all_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_family_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_friend_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_lover_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_job_line.setBackgroundColor(Color.rgb(254, 23, 5));
+                people_gubun_client_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_not_line.setBackgroundColor(Color.rgb(241, 241, 241));
+
+                et_all_title.setTextColor(Color.rgb(29, 29, 38));
+                et_p_title.setTextColor(Color.rgb(29, 29, 38));
+                et_f_title.setTextColor(Color.rgb(29, 29, 38));
+                et_l_title.setTextColor(Color.rgb(29, 29, 38));
+                et_c_title.setTextColor(Color.rgb(254, 23, 5));
+                et_s_title.setTextColor(Color.rgb(29, 29, 38));
+                et_n_title.setTextColor(Color.rgb(29, 29, 38));
+
+                et_all_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_p_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_f_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_l_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_c_cnt.setTextColor(Color.rgb(254, 23, 5));
+                et_s_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_n_cnt.setTextColor(Color.rgb(29, 29, 38));
+
+
                 pos = 0;
 
                 repeopleList();
@@ -440,13 +564,31 @@ public class SubPeopleFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 searchType = "S";
-                people_gubun_all.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_family.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_friend.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_lover.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_job.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_client.setBackgroundResource(R.drawable.people_gubun_on);
-                people_gubun_not.setBackgroundResource(R.drawable.people_gubun_off);
+                people_gubun_all_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_family_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_friend_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_lover_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_job_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_client_line.setBackgroundColor(Color.rgb(254, 23, 5));
+                people_gubun_not_line.setBackgroundColor(Color.rgb(241, 241, 241));
+
+                et_all_title.setTextColor(Color.rgb(29, 29, 38));
+                et_p_title.setTextColor(Color.rgb(29, 29, 38));
+                et_f_title.setTextColor(Color.rgb(29, 29, 38));
+                et_l_title.setTextColor(Color.rgb(29, 29, 38));
+                et_c_title.setTextColor(Color.rgb(29, 29, 38));
+                et_s_title.setTextColor(Color.rgb(254, 23, 5));
+                et_n_title.setTextColor(Color.rgb(29, 29, 38));
+
+                et_all_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_p_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_f_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_l_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_c_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_s_cnt.setTextColor(Color.rgb(254, 23, 5));
+                et_n_cnt.setTextColor(Color.rgb(29, 29, 38));
+
+
                 pos = 0;
 
                 repeopleList();
@@ -460,13 +602,31 @@ public class SubPeopleFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 searchType = "";
-                people_gubun_all.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_family.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_friend.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_lover.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_job.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_client.setBackgroundResource(R.drawable.people_gubun_off);
-                people_gubun_not.setBackgroundResource(R.drawable.people_gubun_on);
+                people_gubun_all_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_family_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_friend_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_lover_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_job_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_client_line.setBackgroundColor(Color.rgb(241, 241, 241));
+                people_gubun_not_line.setBackgroundColor(Color.rgb(254, 23, 5));
+
+                et_all_title.setTextColor(Color.rgb(29, 29, 38));
+                et_p_title.setTextColor(Color.rgb(29, 29, 38));
+                et_f_title.setTextColor(Color.rgb(29, 29, 38));
+                et_l_title.setTextColor(Color.rgb(29, 29, 38));
+                et_c_title.setTextColor(Color.rgb(29, 29, 38));
+                et_s_title.setTextColor(Color.rgb(29, 29, 38));
+                et_n_title.setTextColor(Color.rgb(254, 23, 5));
+
+                et_all_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_p_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_f_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_l_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_c_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_s_cnt.setTextColor(Color.rgb(29, 29, 38));
+                et_n_cnt.setTextColor(Color.rgb(254, 23, 5));
+
+
                 pos = 0;
                 repeopleList();
 
@@ -479,13 +639,9 @@ public class SubPeopleFragment extends Fragment {
         mainTitle.setText("피플그램");
 
 
-        et_all_cnt = (TextView) rootView.findViewById(R.id.all_cnt);
-        et_p_cnt = (TextView) rootView.findViewById(R.id.p_cnt);
-        et_f_cnt = (TextView) rootView.findViewById(R.id.f_cnt);
-        et_l_cnt = (TextView) rootView.findViewById(R.id.l_cnt);
-        et_c_cnt = (TextView) rootView.findViewById(R.id.c_cnt);
-        et_s_cnt = (TextView) rootView.findViewById(R.id.s_cnt);
-        et_n_cnt = (TextView) rootView.findViewById(R.id.n_cnt);
+
+
+
 
 
         my_profile_i_now_cnt = (TextView) rootView.findViewById(R.id.my_profile_i_now_cnt);
