@@ -1,35 +1,29 @@
 package kr.co.people_grame.app;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.SearchView;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.CompoundButton;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Switch;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.plus.internal.model.moments.ItemScopeEntity;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -51,7 +45,7 @@ public class SubPeopleFragment extends Fragment {
 
     private ProgressDialog dialog;
     private ListView sf_people_list;
-
+    private Button q_btn;
     private ArrayList<SubPeopleListDTO> people_dto_list;
     private ArrayList<SubPeopleListDTO_Temp> people_dto_list_temp;
     private SubPeopleListAdapter people_adapter_list;
@@ -75,6 +69,15 @@ public class SubPeopleFragment extends Fragment {
     private ImageView my_profile_i_up_icon, my_profile_d_up_icon, my_profile_e_up_icon, my_profile_a_up_icon;
     private EditText serachText;
 
+    public void help_people(View v) {
+        View popupView = getActivity().getLayoutInflater().inflate(R.layout.activity_help_people, null);
+
+        PopupWindow mPopupWindow = new PopupWindow(popupView, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+
+        mPopupWindow.setAnimationStyle(-1);
+        mPopupWindow.showAsDropDown(q_btn, 50, 50);
+
+    }
     public SubPeopleFragment() {
     }
 
