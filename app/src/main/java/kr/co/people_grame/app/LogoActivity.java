@@ -229,6 +229,7 @@ public class LogoActivity extends AppCompatActivity {
                                 SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "email", jobj.getString("EMAIL"));
 
 
+
                                 Intent intent = new Intent(LogoActivity.this, MainActivity.class);
                                 startActivity(intent);
                                 overridePendingTransition(R.anim.start_enter, R.anim.start_exit);

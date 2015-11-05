@@ -131,77 +131,7 @@ public class SubPeopleFragment extends Fragment {
         TextView listview_my_people_list_username = (TextView) rootView.findViewById(R.id.listview_my_people_list_username);
         TextView listview_my_people_list_email = (TextView) rootView.findViewById(R.id.listview_my_people_list_email);
 
-        /*
-        Switch listview_mytype_switch = (Switch) rootView.findViewById(R.id.listview_mytype_switch);
-        listview_mytype_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked == false) {
-                    switch (SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype")) {
-                        case "A":
-                            listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_a);
-                            break;
 
-                        case "I":
-                            listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_i);
-                            break;
-
-                        case "D":
-                            listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_d);
-                            break;
-
-                        case "E":
-                            listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_e);
-                            break;
-
-                        default:
-                            listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_default);
-                            break;
-                    }
-                } else {
-                    RequestParams params = new RequestParams();
-                    params.put("uid", SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid"));
-                    HttpClient.post("/user/profile_people_type", params, new AsyncHttpResponseHandler() {
-                        public void onStart() {
-                            //Log.d("people_gram", "시작");
-                            dialog = ProgressDialog.show(getActivity(), "", "데이터 수신중");
-                        }
-
-                        public void onFinish() {
-                            dialog.dismiss();
-                        }
-
-                        @Override
-                        public void onSuccess(String response) {
-
-                            switch (response) {
-                                case "A":
-                                    listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_a);
-                                    break;
-
-                                case "I":
-                                    listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_i);
-                                    break;
-
-                                case "D":
-                                    listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_d);
-                                    break;
-
-                                case "E":
-                                    listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_e);
-                                    break;
-
-                                default:
-                                    Toast.makeText(getActivity(), "피플이 귀하를 진단하지 않았습니다.\n피플들에게 요청하세요.", Toast.LENGTH_SHORT).show();
-                                    listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_default);
-                                    break;
-                            }
-                        }
-                    });
-                }
-            }
-        });
-        */
 
 
 
@@ -245,27 +175,54 @@ public class SubPeopleFragment extends Fragment {
 
 
                 } else {
-                    SubPeopleListDTO dto = (SubPeopleListDTO) sf_people_list.getItemAtPosition(position);
-                    Intent intent = new Intent(getActivity().getBaseContext(), SubPeopleListPopup_Activity.class);
+
+                    final SubPeopleListDTO dto = (SubPeopleListDTO) sf_people_list.getItemAtPosition(position);
+
 
                     pos = sf_people_list.getFirstVisiblePosition();
 
                     Log.d("people_gram", "현재위치="+pos);
 
-                    intent.putExtra("people_uid", dto.get_profile_uid());
-                    intent.putExtra("people_email", dto.get_profile_email());
-                    intent.putExtra("people_username", dto.get_profile_username());
-                    intent.putExtra("people_mood", dto.get_profile_mood());
-                    intent.putExtra("people_type", dto.get_profile_type());
-                    intent.putExtra("people_gubun1", dto.get_profile_gubun1());
-                    intent.putExtra("people_gubun2", dto.get_profile_gubun2());
-                    intent.putExtra("people_speed", dto.get_profile_speed());
-                    intent.putExtra("people_control", dto.get_profile_control());
-                    intent.putExtra("people_result_count", dto.get_profile_cnt());
-                    intent.putExtra("people_friend_count", dto.get_profile_friend_cnt());
 
-                    startActivityForResult(intent, ACTIVITY_CODE);
-                    getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+
+
+                    RequestParams params = new RequestParams();
+                    params.put("uid", SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid"));
+                    params.put("people_uid", dto.get_profile_uid());
+                    HttpClient.post("/people/peoplePopupView", params, new AsyncHttpResponseHandler() {
+                        public void onStart() {
+                            dialog = ProgressDialog.show(getActivity(), "", "데이터 수신중");
+                        }
+
+                        public void onFailure()
+                        {
+                        }
+
+                        public void onFinish()  {
+                            dialog.dismiss();
+                        }
+
+                        @Override
+                        public void onSuccess(String response) {
+                            //Log.d("people_gram", response);
+                            Intent intent = new Intent(getActivity().getBaseContext(), SubPeopleListPopup_Activity.class);
+                            intent.putExtra("people_uid", dto.get_profile_uid());
+                            intent.putExtra("people_email", dto.get_profile_email());
+                            intent.putExtra("people_username", dto.get_profile_username());
+                            intent.putExtra("people_mood", dto.get_profile_mood());
+                            intent.putExtra("people_type", dto.get_profile_type());
+                            intent.putExtra("people_gubun1", dto.get_profile_gubun1());
+                            intent.putExtra("people_gubun2", dto.get_profile_gubun2());
+                            intent.putExtra("people_speed", dto.get_profile_speed());
+                            intent.putExtra("people_control", dto.get_profile_control());
+                            intent.putExtra("people_result_count", dto.get_profile_cnt());
+                            intent.putExtra("people_friend_count", dto.get_profile_friend_cnt());
+                            intent.putExtra("people_coaching", response);
+
+                            startActivityForResult(intent, ACTIVITY_CODE);
+                            getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                        }
+                    });
                 }
             }
         });
@@ -733,7 +690,7 @@ public class SubPeopleFragment extends Fragment {
         people_dto_list = new ArrayList<SubPeopleListDTO>();
         RequestParams params = new RequestParams();
         params.put("uid", SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid"));
-        params.put("searchType", searchType);
+        //params.put("searchType", searchType);
         HttpClient.post("/user/member_people", params, new AsyncHttpResponseHandler() {
             public void onStart() {
                 dialog = ProgressDialog.show(getActivity(), "", "데이터 수신중");

@@ -40,9 +40,10 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
     private int people_result_count = 0;
     private int people_friend_count = 0;
     private String people_email = "";
+    private String people_coaching = "";
 
 
-    private TextView popup_username, popup_mood, et_people_friend_count, et_people_result_count;
+    private TextView popup_username, popup_mood, et_people_friend_count, et_people_result_count, today_coaching;
     private ImageView popup_type, people_popup_btn1, peopleType_btn;
 
     private String request = "";
@@ -56,7 +57,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_sub_people_list_popup_);
 
         Random generator = new Random();
-        int random;
+
 
 
 
@@ -64,6 +65,8 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
         popup_type = (ImageView) findViewById(R.id.popup_type);
         //et_people_friend_count = (TextView) findViewById(R.id.et_people_friend_count);
         et_people_result_count = (TextView) findViewById(R.id.et_people_result_count);
+        today_coaching = (TextView) findViewById(R.id.today_coaching);
+
 
         backImg = (LinearLayout) findViewById(R.id.backImg);
         people_popup_btn1 = (ImageView) findViewById(R.id.people_popup_btn1);
@@ -81,6 +84,12 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
             people_email = intent.getStringExtra("people_email");
             people_result_count = intent.getIntExtra("people_result_count", 0);
             people_friend_count = intent.getIntExtra("people_friend_count", 0);
+            people_coaching = intent.getStringExtra("people_coaching");
+
+            int resID = getResources().getIdentifier("@string/co_"+people_coaching, "string", getPackageName());
+            today_coaching.setText(resID);
+            today_coaching.setText("오늘의 코칭  :  " + String.valueOf(today_coaching.getText()));
+
 
             //et_people_friend_count.setText("등록 피플수 : "+people_friend_count+"명");
             et_people_result_count.setText("진단 피플수 : "+people_result_count+"명");
