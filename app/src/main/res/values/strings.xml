@@ -217,12 +217,107 @@
     <string name="tip7_CC">팀 회식(술자리)이 있는데 부하직원 [you_name]님과 관계에서 주의해야 할 점이 있나요?</string>
 
 
-
-
-
-
-
-
+    <!-- 코칭 -->
+    <string name='co_1'>아마도</string>
+    <string name='co_2'>하지마라</string>
+    <string name='co_3'>말도 안되는 일은 시도하지 마라</string>
+    <string name='co_4'>아무것도 기대하지 마라</string>
+    <string name='co_5'>다른 사람을 찾아보아라</string>
+    <string name='co_6'>한가지에만 열정을 쏟아 부어라</string>
+    <string name='co_7'>후회하지 마라</string>
+    <string name='co_8'>원하는 것을 얻을 수도 …</string>
+    <string name='co_9'>마지막으로 시도해 보라</string>
+    <string name='co_10'>바꾸지 말고 말해봐라</string>
+    <string name='co_11'>고맙다고 표현하라</string>
+    <string name='co_12'>즐거움을 공유하라</string>
+    <string name='co_13'>좀 더 재밌는 일을 찾아봐라</string>
+    <string name='co_14'>호기심을 가져라</string>
+    <string name='co_15'>좀 더 깊은 곳을 보라</string>
+    <string name='co_16'>한걸음한걸음씩 차근차근</string>
+    <string name='co_17'>목소리를 높여라</string>
+    <string name='co_18'>망설이지마라</string>
+    <string name='co_19'>결정을 바꿔라</string>
+    <string name='co_20'>새로운 계획도 나쁘지 않다</string>
+    <string name='co_21'>움직여라</string>
+    <string name='co_22'>이익을 바라지마라</string>
+    <string name='co_23'>환경을 바꿔바라</string>
+    <string name='co_24'>마음을 추스려라</string>
+    <string name='co_25'>관점을 바꿔봐라</string>
+    <string name='co_26'>중요하다</string>
+    <string name='co_27'>원하는 것이 무엇인가</string>
+    <string name='co_28'>무엇이 더 중요한가</string>
+    <string name='co_29'>실패하면 어때</string>
+    <string name='co_30'>실행하지 않는가</string>
+    <string name='co_31'>한가지만 있는 것은 아니다</string>
+    <string name='co_32'>결정한것에 후회하지마라</string>
+    <string name='co_33'>기대한것에 부흥하라</string>
+    <string name='co_34'>아이디어를 더 찾아봐라</string>
+    <string name='co_35'>책임감을 가져라</string>
+    <string name='co_36'>최고로 하라</string>
+    <string name='co_37'>나중에 계산하라</string>
+    <string name='co_38'>다른사람을 선택하라</string>
+    <string name='co_39'>왜 그런가</string>
+    <string name='co_40'>바꿔바라</string>
+    <string name='co_41'>목소리를 들어라</string>
+    <string name='co_42'>갈망하지 마라</string>
+    <string name='co_43'>초대에 응하라</string>
+    <string name='co_44'>약속하라</string>
+    <string name='co_45'>더 좋은 정보를 얻어라</string>
+    <string name='co_46'>진짜 생각을 믿어라</string>
+    <string name='co_47'>다르게 생각해봐라</string>
+    <string name='co_48'>기회를 잡아라</string>
+    <string name='co_49'>장애물을 제거하라</string>
+    <string name='co_50'>일에 집중하라</string>
+    <string name='co_51'>기뻐하라</string>
+    <string name='co_52'>감사하라</string>
+    <string name='co_53'>웃어라</string>
+    <string name='co_54'>익숙하다</string>
+    <string name='co_55'>먼저 끝내라</string>
+    <string name='co_56'>새로운 것을 선택하라</string>
+    <string name='co_57'>그만</string>
+    <string name='co_58'>멈춰라</string>
+    <string name='co_59'>불확실한 상황</string>
+    <string name='co_60'>좀더 노력하라</string>
+    <string name='co_61'>휴식하라</string>
+    <string name='co_62'>기회는 오지 않을 수도…</string>
+    <string name='co_63'>좀 더 다가가라</string>
+    <string name='co_64'>객관적으로 생각하라</string>
+    <string name='co_65'>이해하라</string>
+    <string name='co_66'>좋은 것으로 주라</string>
+    <string name='co_67'>곧 이루리라</string>
+    <string name='co_68'>따라가라</string>
+    <string name='co_69'>믿어주라</string>
+    <string name='co_70'>명확하게 보라</string>
+    <string name='co_71'>다른것을 선택하라</string>
+    <string name='co_72'>지금이다</string>
+    <string name='co_73'>할수있다</string>
+    <string name='co_74'>과하지마라</string>
+    <string name='co_75'>마지막인 것처럼 시도하라</string>
+    <string name='co_76'>유지하라</string>
+    <string name='co_77'>닫아라</string>
+    <string name='co_78'>지불하라</string>
+    <string name='co_79'>흥미 찾아라</string>
+    <string name='co_80'>연습하라</string>
+    <string name='co_81'>확실하게</string>
+    <string name='co_82'>대충대충</string>
+    <string name='co_83'>신경쓰지마라</string>
+    <string name='co_84'>뒤를 돌아보라</string>
+    <string name='co_85'>뒤를 돌아보지마라</string>
+    <string name='co_86'>긍정적으로 보라</string>
+    <string name='co_87'>긍정적으로만 보지마라</string>
+    <string name='co_88'>무엇이든 상관없다</string>
+    <string name='co_89'>끝을 보자</string>
+    <string name='co_90'>함께하자</string>
+    <string name='co_91'>다른 것은 버리자</string>
+    <string name='co_92'>구체화하자</string>
+    <string name='co_93'>완벽을 기대하자</string>
+    <string name='co_94'>완벽을 기대하지마라</string>
+    <string name='co_95'>중요하지 않다</string>
+    <string name='co_96'>말하라</string>
+    <string name='co_97'>말하지마라</string>
+    <string name='co_98'>결과만 보지마라</string>
+    <string name='co_99'>결과만 보라</string>
+    <string name='co_100'>마음을 열어라</string>
 
 
 
