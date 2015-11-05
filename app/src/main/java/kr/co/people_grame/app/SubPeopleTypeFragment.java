@@ -102,6 +102,74 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
     private int C_point = 0;
     private int S_point = 0;
 
+    private int MY_DATA1 = 0;
+    private int MY_DATA2 = 0;
+    private int MY_DATA3 = 0;
+    private int MY_DATA4 = 0;
+    private int MY_DATA5 = 0;
+    private int MY_DATA6 = 0;
+    private int MY_DATA7 = 0;
+    private int MY_DATA8 = 0;
+    private int MY_DATA9 = 0;
+    private int MY_DATA10 = 0;
+
+    private String P_DATA1 = "0";
+    private String P_DATA2 = "0";
+    private String P_DATA3 = "0";
+    private String P_DATA4 = "0";
+    private String P_DATA5 = "0";
+    private String P_DATA6 = "0";
+    private String P_DATA7 = "0";
+    private String P_DATA8 = "0";
+    private String P_DATA9 = "0";
+    private String P_DATA10 = "0";
+
+    private String F_DATA1 = "0";
+    private String F_DATA2 = "0";
+    private String F_DATA3 = "0";
+    private String F_DATA4 = "0";
+    private String F_DATA5 = "0";
+    private String F_DATA6 = "0";
+    private String F_DATA7 = "0";
+    private String F_DATA8 = "0";
+    private String F_DATA9 = "0";
+    private String F_DATA10 = "0";
+
+    private String C_DATA1 = "0";
+    private String C_DATA2 = "0";
+    private String C_DATA3 = "0";
+    private String C_DATA4 = "0";
+    private String C_DATA5 = "0";
+    private String C_DATA6 = "0";
+    private String C_DATA7 = "0";
+    private String C_DATA8 = "0";
+    private String C_DATA9 = "0";
+    private String C_DATA10 = "0";
+
+    private String L_DATA1 = "0";
+    private String L_DATA2 = "0";
+    private String L_DATA3 = "0";
+    private String L_DATA4 = "0";
+    private String L_DATA5 = "0";
+    private String L_DATA6 = "0";
+    private String L_DATA7 = "0";
+    private String L_DATA8 = "0";
+    private String L_DATA9 = "0";
+    private String L_DATA10 = "0";
+
+
+    private String S_DATA1 = "0";
+    private String S_DATA2 = "0";
+    private String S_DATA3 = "0";
+    private String S_DATA4 = "0";
+    private String S_DATA5 = "0";
+    private String S_DATA6 = "0";
+    private String S_DATA7 = "0";
+    private String S_DATA8 = "0";
+    private String S_DATA9 = "0";
+    private String S_DATA10 = "0";
+
+
 
     private TextView people1_cnt, people2_cnt, people3_cnt, people4_cnt, people5_cnt;
 
@@ -124,9 +192,12 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
 
             @Override
             public void onSuccess(String response) {
+                Log.d("people_gram", response);
+
 
                 try {
                     JSONObject jobj = new JSONObject(response);
+                    JSONObject jobj_my = new JSONObject(jobj.getString("my_type"));
                     JSONObject jobj_p = new JSONObject(jobj.getString("P_cnt"));
                     JSONObject jobj_f = new JSONObject(jobj.getString("F_cnt"));
                     JSONObject jobj_l = new JSONObject(jobj.getString("L_cnt"));
@@ -141,6 +212,17 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     JSONObject s_data = new JSONObject(jobj_s.getString("data"));
 
                     Log.d("people_gram", String.valueOf(p_data));
+
+                    MY_DATA1 = Integer.parseInt(jobj_my.getString("MY_DATA1"));
+                    MY_DATA2 = Integer.parseInt(jobj_my.getString("MY_DATA2"));
+                    MY_DATA3 = Integer.parseInt(jobj_my.getString("MY_DATA3"));
+                    MY_DATA4 = Integer.parseInt(jobj_my.getString("MY_DATA4"));
+                    MY_DATA5 = Integer.parseInt(jobj_my.getString("MY_DATA5"));
+                    MY_DATA6 = Integer.parseInt(jobj_my.getString("MY_DATA6"));
+                    MY_DATA7 = Integer.parseInt(jobj_my.getString("MY_DATA7"));
+                    MY_DATA8 = Integer.parseInt(jobj_my.getString("MY_DATA8"));
+                    MY_DATA9 = Integer.parseInt(jobj_my.getString("MY_DATA9"));
+                    MY_DATA10 = Integer.parseInt(jobj_my.getString("MY_DATA10"));
 
 
                     if(jobj_p.getString("p_code").equals("000")) {
@@ -164,6 +246,18 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     P_people_speed = p_data.getString("people_speed");
 
 
+                    P_DATA1 = p_data.getString("DATA1");
+                    P_DATA2 = p_data.getString("DATA2");
+                    P_DATA3 = p_data.getString("DATA3");
+                    P_DATA4 = p_data.getString("DATA4");
+                    P_DATA5 = p_data.getString("DATA5");
+                    P_DATA6 = p_data.getString("DATA6");
+                    P_DATA7 = p_data.getString("DATA7");
+                    P_DATA8 = p_data.getString("DATA8");
+                    P_DATA9 = p_data.getString("DATA9");
+                    P_DATA10 = p_data.getString("DATA10");
+
+
 
                     if(P_code.equals("000") == false) {
                         peopletype_icon1.setImageResource(R.drawable.item_no_key);
@@ -179,6 +273,18 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
 
                     F_code = f_data.getString("code");
                     F_cnt = Integer.parseInt(f_data.getString("people_total"));
+
+
+                    F_DATA1 = f_data.getString("DATA1");
+                    F_DATA2 = f_data.getString("DATA2");
+                    F_DATA3 = f_data.getString("DATA3");
+                    F_DATA4 = f_data.getString("DATA4");
+                    F_DATA5 = f_data.getString("DATA5");
+                    F_DATA6 = f_data.getString("DATA6");
+                    F_DATA7 = f_data.getString("DATA7");
+                    F_DATA8 = f_data.getString("DATA8");
+                    F_DATA9 = f_data.getString("DATA9");
+                    F_DATA10 = f_data.getString("DATA10");
 
                     people2_cnt.setText(String.valueOf(F_cnt));
 
@@ -212,6 +318,18 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     L_people_control = l_data.getString("people_control");
                     L_people_speed = l_data.getString("people_speed");
 
+
+                    L_DATA1 = l_data.getString("DATA1");
+                    L_DATA2 = l_data.getString("DATA2");
+                    L_DATA3 = l_data.getString("DATA3");
+                    L_DATA4 = l_data.getString("DATA4");
+                    L_DATA5 = l_data.getString("DATA5");
+                    L_DATA6 = l_data.getString("DATA6");
+                    L_DATA7 = l_data.getString("DATA7");
+                    L_DATA8 = l_data.getString("DATA8");
+                    L_DATA9 = l_data.getString("DATA9");
+                    L_DATA10 = l_data.getString("DATA10");
+
                     if(L_code.equals("000") == false) {
                         peopletype_icon3.setImageResource(R.drawable.item_no_key);
                     }
@@ -244,6 +362,17 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     C_people_control = c_data.getString("people_control");
                     C_people_speed = c_data.getString("people_speed");
 
+                    C_DATA1 = c_data.getString("DATA1");
+                    C_DATA2 = c_data.getString("DATA2");
+                    C_DATA3 = c_data.getString("DATA3");
+                    C_DATA4 = c_data.getString("DATA4");
+                    C_DATA5 = c_data.getString("DATA5");
+                    C_DATA6 = c_data.getString("DATA6");
+                    C_DATA7 = c_data.getString("DATA7");
+                    C_DATA8 = c_data.getString("DATA8");
+                    C_DATA9 = c_data.getString("DATA9");
+                    C_DATA10 = c_data.getString("DATA10");
+
                     if(C_code.equals("000") == false) {
                         peopletype_icon4.setImageResource(R.drawable.item_no_key);
                     }
@@ -272,9 +401,22 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     S_people_speed = s_data.getString("people_speed");
 
 
+                    S_DATA1 = s_data.getString("DATA1");
+                    S_DATA2 = s_data.getString("DATA2");
+                    S_DATA3 = s_data.getString("DATA3");
+                    S_DATA4 = s_data.getString("DATA4");
+                    S_DATA5 = s_data.getString("DATA5");
+                    S_DATA6 = s_data.getString("DATA6");
+                    S_DATA7 = s_data.getString("DATA7");
+                    S_DATA8 = s_data.getString("DATA8");
+                    S_DATA9 = s_data.getString("DATA9");
+                    S_DATA10 = s_data.getString("DATA10");
+
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
 
             }
         });
@@ -352,12 +494,32 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
 
                         Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
                         intent.putExtra("mytype", my_type);
+                        intent.putExtra("my_data1", MY_DATA1);
+                        intent.putExtra("my_data2", MY_DATA2);
+                        intent.putExtra("my_data3", MY_DATA3);
+                        intent.putExtra("my_data4", MY_DATA4);
+                        intent.putExtra("my_data5", MY_DATA5);
+                        intent.putExtra("my_data6", MY_DATA6);
+                        intent.putExtra("my_data7", MY_DATA7);
+                        intent.putExtra("my_data8", MY_DATA8);
+                        intent.putExtra("my_data9", MY_DATA9);
+                        intent.putExtra("my_data10", MY_DATA10);
                         intent.putExtra("people_type", people_type);
                         intent.putExtra("gubun1", gubun1);
                         intent.putExtra("my_speed", my_speed);
                         intent.putExtra("my_control", my_control);
                         intent.putExtra("people_speed", people_speed);
                         intent.putExtra("people_control", people_control);
+                        intent.putExtra("people_data1", P_DATA1);
+                        intent.putExtra("people_data2", P_DATA2);
+                        intent.putExtra("people_data3", P_DATA3);
+                        intent.putExtra("people_data4", P_DATA4);
+                        intent.putExtra("people_data5", P_DATA5);
+                        intent.putExtra("people_data6", P_DATA6);
+                        intent.putExtra("people_data7", P_DATA7);
+                        intent.putExtra("people_data8", P_DATA8);
+                        intent.putExtra("people_data9", P_DATA9);
+                        intent.putExtra("people_data10", P_DATA10);
                         startActivity(intent);
                         getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     }
@@ -486,12 +648,32 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
 
                         Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
                         intent.putExtra("mytype", my_type);
+                        intent.putExtra("my_data1", MY_DATA1);
+                        intent.putExtra("my_data2", MY_DATA2);
+                        intent.putExtra("my_data3", MY_DATA3);
+                        intent.putExtra("my_data4", MY_DATA4);
+                        intent.putExtra("my_data5", MY_DATA5);
+                        intent.putExtra("my_data6", MY_DATA6);
+                        intent.putExtra("my_data7", MY_DATA7);
+                        intent.putExtra("my_data8", MY_DATA8);
+                        intent.putExtra("my_data9", MY_DATA9);
+                        intent.putExtra("my_data10", MY_DATA10);
                         intent.putExtra("people_type", people_type);
                         intent.putExtra("gubun1", gubun1);
                         intent.putExtra("my_speed", my_speed);
                         intent.putExtra("my_control", my_control);
                         intent.putExtra("people_speed", people_speed);
                         intent.putExtra("people_control", people_control);
+                        intent.putExtra("people_data1", C_DATA1);
+                        intent.putExtra("people_data2", C_DATA2);
+                        intent.putExtra("people_data3", C_DATA3);
+                        intent.putExtra("people_data4", C_DATA4);
+                        intent.putExtra("people_data5", C_DATA5);
+                        intent.putExtra("people_data6", C_DATA6);
+                        intent.putExtra("people_data7", C_DATA7);
+                        intent.putExtra("people_data8", C_DATA8);
+                        intent.putExtra("people_data9", C_DATA9);
+                        intent.putExtra("people_data10", C_DATA10);
                         startActivity(intent);
                         getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     }
