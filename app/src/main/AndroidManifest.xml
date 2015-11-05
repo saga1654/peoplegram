@@ -224,13 +224,11 @@
         </activity>
         <activity
             android:name=".StartActivity"
-            android:label="@string/title_activity_start"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
             android:name=".SubGramPoint"
-            android:label="@string/title_activity_sub_gram_point"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>
@@ -258,7 +256,6 @@
         </activity>
         <activity
             android:name=".TestActivity"
-            android:label="@string/title_activity_test"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>
@@ -291,7 +288,6 @@
         </activity>
         <activity
             android:name=".SubPeopleSearch_Activity"
-            android:label="@string/title_activity_sub_people_search_"
             android:theme="@style/AppTheme" >
         </activity>
     </application>

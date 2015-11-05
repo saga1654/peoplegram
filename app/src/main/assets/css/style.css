@@ -27,4 +27,4 @@ body { margin:0 auto; background-color:#f5f5f6;}
 
 
 .subtitle1 { font-size:0.6em; color:#3d3b2a; }
-.subtitle2 { font-size:0.8em; color:#3d3b2a; font-weight:bold; }
+.subtitle2 { font-size:0.8em; color:#3d3b2a; font-weight:bold; padding-top:0.5em; padding-bottom:0.5em; }
