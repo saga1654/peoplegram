@@ -17,12 +17,13 @@
         android:weightSum="1">
 
         <LinearLayout
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:background="#67676d"
             android:weightSum="1">
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -45,21 +46,41 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="20dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textColor="#fff"
-                    android:textSize="20dp"
-                    android:text="돼지패널이란?"></TextView>
 
-                <TextView
+
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:text="아래 기초 프로파일을 통해 가격 얻기를 하시면 2,000그램을 받으시고 추후 여러 가지 간단한 여론조사에 참여하여 그램포인트를 받을 수 있는 기회를 얻게 됩니다."
-                    android:textColor="#fff"/>
+                    android:layout_height="wrap_content">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/pg_icon"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="10dp"
+                        android:textColor="#fff"
+                        android:textSize="15dp"
+                        android:text="돼지패널이란?"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="아래 기초 프로파일을 통해 가격 얻기를 하시면 2,000그램을 받으시고 추후 여러 가지 간단한 여론조사에 참여하여 그램포인트를 받을 수 있는 기회를 얻게 됩니다."
+                        android:textColor="#fff"/>
+
+                </LinearLayout>
             </LinearLayout>
 
 
