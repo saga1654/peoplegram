@@ -21,6 +21,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -131,7 +132,58 @@ public class SubPeopleFragment extends Fragment {
                             break;
                     }
                 } else {
+                    RequestParams params = new RequestParams();
+                    params.put("uid", SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid"));
+                    HttpClient.post("/user/profile_my_people_type", params, new AsyncHttpResponseHandler() {
+                        public void onStart() {
+                            dialog = ProgressDialog.show(getActivity(), "", "데이터 수신중");
+                        }
 
+                        public void onFailure()
+                        {
+                        }
+
+                        public void onFinish()  {
+                            dialog.dismiss();
+                        }
+
+                        @Override
+                        public void onSuccess(String response) {
+                            try {
+                                JSONObject data = new JSONObject(response);
+
+                                if(data.getString("code").equals("000")) {
+                                    switch (data.getString("peopleType")) {
+                                        case "A":
+                                            listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_a);
+                                            break;
+
+                                        case "I":
+                                            listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_i);
+                                            break;
+
+                                        case "D":
+                                            listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_d);
+                                            break;
+
+                                        case "E":
+                                            listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_e);
+                                            break;
+
+                                        default:
+
+                                            listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_default);
+                                            break;
+                                    }
+                                } else {
+                                    Toast.makeText(getActivity().getBaseContext(), "피플들에게 진단요청해주세요.", Toast.LENGTH_LONG).show();
+                                }
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
                 }
             }
         });
