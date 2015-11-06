@@ -87,7 +87,7 @@
     		var my_per = parseInt((my_total * 4));
     		var my_type = "";
 
-		/*
+
 			$('#type1_per').jQuerySimpleCounter({
             	end:my_per,
             	duration: 2000
@@ -182,74 +182,86 @@
     			if(people_speed > 0 && people_control > 0) {
 					//$("#type1_bg_color").css({"background-color" : "#ff8a55"});
 
-					$("#type2_per").css({"color":"#ff8a55"});
+					//$("#type2_per").css({"color":"#ff8a55"});
 					$("#type2_text").css({"color":"#ff8a55"});
 
 					if(people_speed <= 5 && people_control <= 1){
-						if(people_speed == 1 && people_control == 1){
-							$("#type2_text").html("분석형,표출형 특징을 가진 주도형");
+						if(people_speed <= 1 && people_control <= 1){
+							$("#type2_per").html("분석형,표출형 특징을 가진");
+							$("#type2_text").html("주도형");
 						}else{
-							$("#type2_text").html("표출형 특징을 가진 주도형");
+							$("#type2_per").html("표출형 특징을 가진");
+							$("#type2_text").html("주도형");
 						}
 					}else if(people_speed <= 1 && people_control <= 5){
-						$("#type2_text").html("분석형 특성을 가진 주도형");
+						$("#type2_per").html("분석형 특성을 가진");
+						$("#type2_text").html("주도형");
 					}else{
-						$("#type2_text").html("확실한 주도형");
+						$("#type2_text").html("주도형");
 					}
 				}
 				if(people_speed > 0 && people_control < 0) {
 					//$("#type1_bg_color").css({"background-color" : "#37afec"});
 
-					$("#type2_per").css({"color":"#aa64f8"});
+					//$("#type2_per").css({"color":"#aa64f8"});
 					$("#type2_text").css({"color":"#aa64f8"});
 
 
 					if(people_speed <= 5 && people_control >= -1){
-						if(people_speed == 1 && people_control == -1){
-							$("#type2_text").html("주도형,우호형 특징을 가진 표출형");
+						if(people_speed <= 1 && people_control >= -1){
+							$("#type2_per").html("주도형,우호형 특징을 가진");
+							$("#type2_text").html("표출형");
 						}else{
-							$("#type2_text").html("주도형 특징을 가진 표출형");
+							$("#type2_per").html("주도형 특징을 가진");
+							$("#type2_text").html("표출형");
 						}
 					}else if(people_speed <= 1 && people_control >= -5){
-						$("#type2_text").html("우호형 특징을 가진 표출형");
+						$("#type2_per").html("우호형 특징을 가진");
+						$("#type2_text").html("표출형");
 					}else{
-						$("#type2_text").html("유쾌한 표출형");
+						$("#type2_text").html("표출형");
 					}
 				}
 				if(people_speed < 0 && people_control > 0) {
 					//$("#type1_bg_color").css({"background-color" : "#52d935"});
 
-					$("#type2_per").css({"color":"#37afec"});
+					//$("#type2_per").css({"color":"#37afec"});
 					$("#type2_text").css({"color":"#37afec"});
 
 					if(people_speed >= -5 && people_control <= 1){
-						if(people_speed == -1 && people_control == 1){
-							$("#type2_text").html("주도형,우호형 특징을 숨긴 분석형");
+						if(people_speed >= -1 && people_control <= 1){
+							$("#type2_per").html("주도형,우호형 특징을 가긴");
+							$("#type2_text").html("분석형");
 						}else{
-							$("#type2_text").html("우호형 특징을 가진 분석형");
+							$("#type2_per").html("우호형 특징을 가진");
+							$("#type2_text").html("분석형");
 						}
 					}else if(people_speed >= -1 && people_control <= 5){
-						$("#type2_text").html("주도형 특징을 숨긴 분석형");
+						$("#type2_per").html("주도형 특징을 가진");
+						$("#type2_text").html("분석형");
 					}else{
-						$("#type2_text").html("철저한 분석형");
+						$("#type2_text").html("분석형");
 					}
 				}
 				if(people_speed < 0 && people_control < 0) {
 					//$("#type1_bg_color").css({"background-color" : "#aa64f8"});
 
-					$("#type2_per").css({"color":"#52d935"});
+					//$("#type2_per").css({"color":"#52d935"});
 					$("#type2_text").css({"color":"#52d935"});
 
 					if(people_speed >= -5 && people_control >= -1){
-						if(people_speed == -1 && people_control == -1){
-							$("#type2_text").html("분석형,표출형 특징을 가진 우호형");
+						if(people_speed >= -1 && people_control >= -1){
+							$("#type2_per").html("분석형,표출형 특징을 가진");
+							$("#type2_text").html("우호형");
 						}else{
-							$("#type2_text").html("분석형 특징을 가진 우호형");
+							$("#type2_per").html("분석형 특징을 가진");
+							$("#type2_text").html("우호형");
 						}
 					}else if(people_speed >= -1 && people_control >= -5){
-						$("#type2_text").html("표출형 특징을 가진 우호형");
+						$("#type2_per").html("표출형 특징을 가진");
+						$("#type2_text").html("우호형");
 					}else{
-						$("#type2_text").html("스마일 우호형");
+						$("#type2_text").html("우호형");
 					}
 				}
 
@@ -355,8 +367,8 @@
 					}
 
 					if(id == "6"){
-						left_title = "냉정";
-						right_title = "따뜻";
+						left_title = "냉정하다";
+						right_title = "따뜻하다";
 					}
 
 					if(id == "7"){
@@ -366,7 +378,7 @@
 
 					if(id == "8"){
 						left_title = "없는편";
-						right_title = "다양";
+						right_title = "다양편";
 					}
 
 					if(id == "9"){
@@ -382,7 +394,7 @@
         			$("#left"+id).css({"width":per_left+"%"});
         			$("#right"+id).css({"width":per_right+"%"});
 
-        			$("#left"+id+"_title").html(left_title+":"+per_left+"%)");
-        			$("#right"+id+"_title").html(right_title+":"+per_right+"%)");
+        			$("#left"+id+"_title").html(left_title+"("+per_left+"%)");
+        			$("#right"+id+"_title").html(right_title+"("+per_right+"%)");
 
         		}
