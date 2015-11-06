@@ -290,6 +290,10 @@
             android:name=".SubPeopleSearch_Activity"
             android:theme="@style/AppTheme" >
         </activity>
+        <activity
+            android:name=".PanelActivity"
+            android:theme="@style/AppTheme" >
+        </activity>
     </application>
 
 </manifest>

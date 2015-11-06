@@ -69,6 +69,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
     private TextView detail_myname, detail_youname, tv_tip1, tv_tip2, tv_tip3, gubun1, peopleTextView;
 
     private LinearLayout popup_mytype, popup_youtype, li_tip1, li_tip2, li_tip3;
+    private LinearLayout tip1_line, tip2_line, tip3_line;
 
     private Switch listview_mytype_switch, listview_youtype_switch;
     private ProgressDialog dialog;
@@ -163,6 +164,11 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
         li_tip1.setOnClickListener(onBtnClickListener);
         li_tip2.setOnClickListener(onBtnClickListener);
         li_tip3.setOnClickListener(onBtnClickListener);
+
+        tip1_line = (LinearLayout) findViewById(R.id.tip1_line);
+        tip2_line = (LinearLayout) findViewById(R.id.tip2_line);
+        tip3_line = (LinearLayout) findViewById(R.id.tip3_line);
+
 
         listview_mytype_switch = (Switch) findViewById(R.id.listview_mytype_switch);
         listview_youtype_switch = (Switch) findViewById(R.id.listview_youtype_switch);
@@ -440,12 +446,12 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.li_tip1:
-                    li_tip1.setBackgroundColor(Color.rgb(77,77,77));
-                    tv_tip1.setTextColor(Color.rgb(255, 255, 255));
-                    li_tip2.setBackgroundColor(Color.rgb(241, 241, 241));
+                    tv_tip1.setTextColor(Color.rgb(254, 23, 5));
                     tv_tip2.setTextColor(Color.rgb(0, 0, 0));
-                    li_tip3.setBackgroundColor(Color.rgb(241, 241, 241));
                     tv_tip3.setTextColor(Color.rgb(0, 0, 0));
+                    tip1_line.setBackgroundColor(Color.rgb(254, 23, 5));
+                    tip2_line.setBackgroundColor(Color.rgb(255, 255, 255));
+                    tip3_line.setBackgroundColor(Color.rgb(255,255,255));
 
                     fragmentManager = getSupportFragmentManager();
                     ft = fragmentManager.beginTransaction();
@@ -474,12 +480,21 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                     */
 
                     if(payment_result == true) {
+                        /*
                         li_tip1.setBackgroundColor(Color.rgb(241, 241, 241));
                         tv_tip1.setTextColor(Color.rgb(0, 0, 0));
                         li_tip2.setBackgroundColor(Color.rgb(77, 77, 77));
                         tv_tip2.setTextColor(Color.rgb(255, 255, 255));
                         li_tip3.setBackgroundColor(Color.rgb(241, 241, 241));
                         tv_tip3.setTextColor(Color.rgb(0, 0, 0));
+                        */
+
+                        tv_tip1.setTextColor(Color.rgb(0,0,0));
+                        tv_tip2.setTextColor(Color.rgb(254, 23, 5));
+                        tv_tip3.setTextColor(Color.rgb(0, 0, 0));
+                        tip1_line.setBackgroundColor(Color.rgb(255, 255, 255));
+                        tip2_line.setBackgroundColor(Color.rgb(254, 23, 5));
+                        tip3_line.setBackgroundColor(Color.rgb(255,255,255));
 
 
                         fragmentManager = getSupportFragmentManager();
@@ -511,12 +526,12 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                                     JSONObject jobj = new JSONObject(response);
                                     Log.d("people_gram", jobj.getString("code"));
                                     if (jobj.getString("code").equals("999")) {
-                                        li_tip1.setBackgroundColor(Color.rgb(241, 241, 241));
                                         tv_tip1.setTextColor(Color.rgb(0, 0, 0));
-                                        li_tip2.setBackgroundColor(Color.rgb(77, 77, 77));
-                                        tv_tip2.setTextColor(Color.rgb(255, 255, 255));
-                                        li_tip3.setBackgroundColor(Color.rgb(241, 241, 241));
+                                        tv_tip2.setTextColor(Color.rgb(254, 23, 5));
                                         tv_tip3.setTextColor(Color.rgb(0, 0, 0));
+                                        tip1_line.setBackgroundColor(Color.rgb(255, 255, 255));
+                                        tip2_line.setBackgroundColor(Color.rgb(254, 23, 5));
+                                        tip3_line.setBackgroundColor(Color.rgb(255, 255, 255));
 
 
                                         fragmentManager = getSupportFragmentManager();
@@ -547,12 +562,21 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                     break;
                 case R.id.li_tip3:
                     if(payment_result == true) {
+                        /*
                         li_tip1.setBackgroundColor(Color.rgb(241, 241, 241));
                         tv_tip1.setTextColor(Color.rgb(0, 0, 0));
                         li_tip2.setBackgroundColor(Color.rgb(241, 241, 241));
                         tv_tip2.setTextColor(Color.rgb(0, 0, 0));
                         li_tip3.setBackgroundColor(Color.rgb(77, 77, 77));
                         tv_tip3.setTextColor(Color.rgb(255, 255, 255));
+                        */
+
+                        tv_tip1.setTextColor(Color.rgb(0,0,0));
+                        tv_tip2.setTextColor(Color.rgb(0, 0, 0));
+                        tv_tip3.setTextColor(Color.rgb(254, 23, 5));
+                        tip1_line.setBackgroundColor(Color.rgb(255, 255, 255));
+                        tip2_line.setBackgroundColor(Color.rgb(255,255,255));
+                        tip3_line.setBackgroundColor(Color.rgb(254, 23, 5));
 
 
                         fragmentManager = getSupportFragmentManager();
@@ -584,12 +608,12 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                                     JSONObject jobj = new JSONObject(response);
                                     Log.d("people_gram", jobj.getString("code"));
                                     if (jobj.getString("code").equals("999")) {
-                                        li_tip1.setBackgroundColor(Color.rgb(241, 241, 241));
                                         tv_tip1.setTextColor(Color.rgb(0, 0, 0));
-                                        li_tip2.setBackgroundColor(Color.rgb(241, 241, 241));
                                         tv_tip2.setTextColor(Color.rgb(0, 0, 0));
-                                        li_tip3.setBackgroundColor(Color.rgb(77, 77, 77));
-                                        tv_tip3.setTextColor(Color.rgb(255, 255, 255));
+                                        tv_tip3.setTextColor(Color.rgb(254, 23, 5));
+                                        tip1_line.setBackgroundColor(Color.rgb(255, 255, 255));
+                                        tip2_line.setBackgroundColor(Color.rgb(255,255,255));
+                                        tip3_line.setBackgroundColor(Color.rgb(254, 23, 5));
 
 
                                         fragmentManager = getSupportFragmentManager();
