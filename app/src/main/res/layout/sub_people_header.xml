@@ -184,9 +184,19 @@
                         android:layout_weight="0.50">
 
 
+                        <Switch
+                            android:id="@+id/listview_youtype_switch"
+                            android:layout_width="65dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/popup_type1"
+                            android:thumb="@android:color/transparent"
+                            android:track="@android:color/transparent" />
+
+
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
                             android:src="@drawable/people_cnt_icon"/>
 
                         <TextView

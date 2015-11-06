@@ -12,12 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -75,6 +77,8 @@ public class SubPeopleFragment extends Fragment {
     private EditText serachText;
     private ImageView help_btn;
 
+    private Switch listview_youtype_switch;
+
     public SubPeopleFragment() {
     }
 
@@ -97,6 +101,40 @@ public class SubPeopleFragment extends Fragment {
 
         sf_people_list = (ListView)rootView.findViewById(R.id.sf_people_list);
         sf_people_list.addHeaderView(header);
+
+        listview_youtype_switch = (Switch) rootView.findViewById(R.id.listview_youtype_switch);
+        listview_youtype_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked == false) {
+                    switch (SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype"))
+                    {
+                        case "A":
+                            listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_a);
+                            break;
+
+                        case "I":
+                            listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_i);
+                            break;
+
+                        case "D":
+                            listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_d);
+                            break;
+
+                        case "E":
+                            listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_e);
+                            break;
+
+                        default:
+
+                            listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_default);
+                            break;
+                    }
+                } else {
+
+                }
+            }
+        });
 
         listview_people_all_cnt = (TextView) rootView.findViewById(R.id.listview_people_all_cnt);
         help_btn = (ImageView) rootView.findViewById(R.id.help_btn);

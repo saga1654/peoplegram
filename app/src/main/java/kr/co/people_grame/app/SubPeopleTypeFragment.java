@@ -103,16 +103,16 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
     private int C_point = 0;
     private int S_point = 0;
 
-    private int MY_DATA1 = 0;
-    private int MY_DATA2 = 0;
-    private int MY_DATA3 = 0;
-    private int MY_DATA4 = 0;
-    private int MY_DATA5 = 0;
-    private int MY_DATA6 = 0;
-    private int MY_DATA7 = 0;
-    private int MY_DATA8 = 0;
-    private int MY_DATA9 = 0;
-    private int MY_DATA10 = 0;
+    private String MY_DATA1 = "0";
+    private String MY_DATA2 = "0";
+    private String MY_DATA3 = "0";
+    private String MY_DATA4 = "0";
+    private String MY_DATA5 = "0";
+    private String MY_DATA6 = "0";
+    private String MY_DATA7 = "0";
+    private String MY_DATA8 = "0";
+    private String MY_DATA9 = "0";
+    private String MY_DATA10 = "0";
 
     private String P_DATA_TOTAL = "0";
     private String P_DATA1 = "0";
@@ -219,16 +219,16 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
 
                     Log.d("people_gram", String.valueOf(p_data));
 
-                    MY_DATA1 = Integer.parseInt(jobj_my.getString("MY_DATA1"));
-                    MY_DATA2 = Integer.parseInt(jobj_my.getString("MY_DATA2"));
-                    MY_DATA3 = Integer.parseInt(jobj_my.getString("MY_DATA3"));
-                    MY_DATA4 = Integer.parseInt(jobj_my.getString("MY_DATA4"));
-                    MY_DATA5 = Integer.parseInt(jobj_my.getString("MY_DATA5"));
-                    MY_DATA6 = Integer.parseInt(jobj_my.getString("MY_DATA6"));
-                    MY_DATA7 = Integer.parseInt(jobj_my.getString("MY_DATA7"));
-                    MY_DATA8 = Integer.parseInt(jobj_my.getString("MY_DATA8"));
-                    MY_DATA9 = Integer.parseInt(jobj_my.getString("MY_DATA9"));
-                    MY_DATA10 = Integer.parseInt(jobj_my.getString("MY_DATA10"));
+                    MY_DATA1 = jobj_my.getString("MY_DATA1");
+                    MY_DATA2 = jobj_my.getString("MY_DATA2");
+                    MY_DATA3 = jobj_my.getString("MY_DATA3");
+                    MY_DATA4 = jobj_my.getString("MY_DATA4");
+                    MY_DATA5 = jobj_my.getString("MY_DATA5");
+                    MY_DATA6 = jobj_my.getString("MY_DATA6");
+                    MY_DATA7 = jobj_my.getString("MY_DATA7");
+                    MY_DATA8 = jobj_my.getString("MY_DATA8");
+                    MY_DATA9 = jobj_my.getString("MY_DATA9");
+                    MY_DATA10 = jobj_my.getString("MY_DATA10");
 
 
                     if(jobj_p.getString("p_code").equals("000")) {

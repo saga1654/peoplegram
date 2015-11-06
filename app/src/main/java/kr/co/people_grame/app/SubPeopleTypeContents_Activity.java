@@ -112,6 +112,15 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
 
                 people_content_webview.loadUrl("javascript:tip_match(" + my_speed + ", "+my_control+","+people_speed+","+people_control+")");
                 people_content_webview.loadUrl("javascript:tip_graph('1', '1', "+people_total+","+people_data1+")");
+                people_content_webview.loadUrl("javascript:tip_graph('2', '1', "+people_total+","+people_data2+")");
+                people_content_webview.loadUrl("javascript:tip_graph('3', '1', "+people_total+","+people_data3+")");
+                people_content_webview.loadUrl("javascript:tip_graph('4', '1', "+people_total+","+people_data4+")");
+                people_content_webview.loadUrl("javascript:tip_graph('5', '1', "+people_total+","+people_data5+")");
+                people_content_webview.loadUrl("javascript:tip_graph('6', '1', "+people_total+","+people_data6+")");
+                people_content_webview.loadUrl("javascript:tip_graph('7', '1', "+people_total+","+people_data7+")");
+                people_content_webview.loadUrl("javascript:tip_graph('8', '1', "+people_total+","+people_data8+")");
+                people_content_webview.loadUrl("javascript:tip_graph('9', '1', "+people_total+","+people_data9+")");
+                people_content_webview.loadUrl("javascript:tip_graph('10', '1', "+people_total+","+people_data10+")");
 
                 //tip_match
                 super.onPageFinished(view, url);

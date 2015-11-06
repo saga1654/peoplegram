@@ -325,67 +325,57 @@
         			//우측
         			var per_right = 0;
 
+        			var left_title = "";
+        			var right_title = "";
+
 
         			per_right = Math.ceil((you_data / you_all_data) * 100);
         			per_left = 100 - per_right;
 
-					if(id = 1){
+					if(id == "1"){
 						left_title = "빠른편";
-					}else{
 						right_title = "느린편";
 					}
-
-					if(id = 2){
+					if(id == "2"){
 						left_title  = "바꿈No";
-					}else{
 						right_title = "바꿈Yes";
 					}
-
-					if(id = 3){
+					if(id == "3"){
 						left_title  = "말하는편";
-					}else{
 						right_title = "듣는편";
 					}
-
-					if(id = 4){
+					if(id == "4"){
 						left_title = "표현No";
-					}else{
 						right_title = "표현Yes";
 					}
 
-					if(id = 5){
+					if(id == "5"){
 						left_title = "빠름";
-					}else{
 						right_title = "느림";
 					}
 
-					if(id = 6){
+					if(id == "6"){
 						left_title = "냉정";
-					}else{
 						right_title = "따뜻";
 					}
 
-					if(id = 7){
+					if(id == "7"){
 						left_title = "주도Yes";
-					}else{
 						right_title = "주도No";
 					}
 
-					if(id = 8){
+					if(id == "8"){
 						left_title = "없는편";
-					}else{
 						right_title = "다양";
 					}
 
-					if(id = 9){
+					if(id == "9"){
 						left_title = "행동적";
-					}else{
 						right_title = "신중한";
 					}
 
-					if(id = 10){
+					if(id == "10"){
 						left_title = "엄격Yes";
-					}else{
 						right_title = "엄격No";
 					}
 
