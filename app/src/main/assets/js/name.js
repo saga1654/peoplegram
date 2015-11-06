@@ -353,21 +353,21 @@
 						right_title = "느린편";
 					}
 					if(id == "2"){
-						left_title  = "바꿈No";
-						right_title = "바꿈Yes";
+						left_title  = "안바꾸는편";
+						right_title = "바꾸는편";
 					}
 					if(id == "3"){
 						left_title  = "말하는편";
 						right_title = "듣는편";
 					}
 					if(id == "4"){
-						left_title = "표현No";
-						right_title = "표현Yes";
+						left_title = "표현안하는";
+						right_title = "표현하는";
 					}
 
 					if(id == "5"){
-						left_title = "빠름";
-						right_title = "느림";
+						left_title = "빠른편";
+						right_title = "느린편";
 					}
 
 					if(id == "6"){
@@ -376,8 +376,8 @@
 					}
 
 					if(id == "7"){
-						left_title = "주도Yes";
-						right_title = "주도No";
+						left_title = "주도하는";
+						right_title = "따라가는";
 					}
 
 					if(id == "8"){
@@ -391,8 +391,8 @@
 					}
 
 					if(id == "10"){
-						left_title = "엄격Yes";
-						right_title = "엄격No";
+						left_title = "엄격한";
+						right_title = "간혹어기는";
 					}
 
         			$("#left"+id).css({"width":per_left+"%"});
