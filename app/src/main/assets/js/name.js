@@ -291,97 +291,45 @@
 
 		}
 
-		function my_data(data1,data2,data3,data4,data5,data6,data7,data8,data9,data10) {
+		function tip_match(my_speed, my_control, you_speed, you_control)
+        		{
+        			var type_score = 100;
 
-			var title1 = "";
-			var title2 = "";
-			var title3 = "";
-			var title4 = "";
-			var title5 = "";
-			var title6 = "";
-			var title7 = "";
-			var title8 = "";
-			var title9 = "";
-			var title10 = "";
-
-			var per1 = "";
-			var per2 = "";
-			var per3 = "";
-			var per4 = "";
-			var per5 = "";
-			var per6 = "";
-			var per7 = "";
-			var per8 = "";
-			var per9 = "";
-			var per10 = "";
-
-			$("#my_1_td").html('<div id="my_1" data-startdegree="180" data-dimension="90" data-text="100%" data-title="본인" data-info="'+title1+'" data-width="3" data-fontsize="12" data-percent="100" data-fgcolor="#00a0e9" data-bgcolor="#eee">');
-			$("#my_2_td").html('<div id="my_2" data-startdegree="180" data-dimension="90" data-text="100%" data-title="본인" data-info="'+title2+'" data-width="3" data-fontsize="12" data-percent="100" data-fgcolor="#00a0e9" data-bgcolor="#eee">');
-			$("#my_3_td").html('<div id="my_3" data-startdegree="180" data-dimension="90" data-text="100%" data-title="본인" data-info="'+title3+'" data-width="3" data-fontsize="12" data-percent="100" data-fgcolor="#00a0e9" data-bgcolor="#eee">');
-			$("#my_4_td").html('<div id="my_4" data-startdegree="180" data-dimension="90" data-text="100%" data-title="본인" data-info="'+title4+'" data-width="3" data-fontsize="12" data-percent="100" data-fgcolor="#00a0e9" data-bgcolor="#eee">');
-			$("#my_5_td").html('<div id="my_5" data-startdegree="180" data-dimension="90" data-text="100%" data-title="본인" data-info="'+title5+'" data-width="3" data-fontsize="12" data-percent="100" data-fgcolor="#00a0e9" data-bgcolor="#eee">');
-			$("#my_6_td").html('<div id="my_6" data-startdegree="180" data-dimension="90" data-text="100%" data-title="본인" data-info="'+title6+'" data-width="3" data-fontsize="12" data-percent="100" data-fgcolor="#00a0e9" data-bgcolor="#eee">');
-			$("#my_7_td").html('<div id="my_7" data-startdegree="180" data-dimension="90" data-text="100%" data-title="본인" data-info="'+title7+'" data-width="3" data-fontsize="12" data-percent="100" data-fgcolor="#00a0e9" data-bgcolor="#eee">');
-			$("#my_8_td").html('<div id="my_8" data-startdegree="180" data-dimension="90" data-text="100%" data-title="본인" data-info="'+title8+'" data-width="3" data-fontsize="12" data-percent="100" data-fgcolor="#00a0e9" data-bgcolor="#eee">');
-			$("#my_9_td").html('<div id="my_9" data-startdegree="180" data-dimension="90" data-text="100%" data-title="본인" data-info="'+title9+'" data-width="3" data-fontsize="12" data-percent="100" data-fgcolor="#00a0e9" data-bgcolor="#eee">');
-			$("#my_10_td").html('<div id="my_10" data-startdegree="180" data-dimension="90" data-text="100%" data-title="본인" data-info="'+title10+'" data-width="3" data-fontsize="12" data-percent="100" data-fgcolor="#00a0e9" data-bgcolor="#eee">');
-			$('#my_1').circliful();
-			$('#my_2').circliful();
-			$('#my_3').circliful();
-			$('#my_4').circliful();
-			$('#my_5').circliful();
-			$('#my_6').circliful();
-			$('#my_7').circliful();
-			$('#my_8').circliful();
-			$('#my_9').circliful();
-			$('#my_10').circliful();
-		}
-
-		function you_data(data1,data2,data3,data4,data5,data6,data7,data8,data9,data10) {
-
-			var title1 = "";
-        	var title2 = "";
-        	var title3 = "";
-        	var title4 = "";
-        	var title5 = "";
-        	var title6 = "";
-        	var title7 = "";
-        	var title8 = "";
-        	var title9 = "";
-        	var title10 = "";
-
-        	var per1 = "0";
-        	var per2 = "0";
-        	var per3 = "0";
-        	var per4 = "0";
-        	var per5 = "0";
-        	var per6 = "0";
-        	var per7 = "0";
-        	var per8 = "0";
-        	var per9 = "0";
-        	var per10 = "0";
+        			if(my_speed * you_speed * my_control * you_control < 0) {
+        				type_score = 90;
+        			} else {
+        				if(my_speed * you_speed < 0 && my_control * you_control < 0) {
+        					type_score = 80;
+        				} else {
+        					type_score = 100;
+        				}
+        			}
 
 
 
-        	$("#you_1_td").html('<div id="you_1" data-startdegree="180" data-dimension="90" data-text="'+per1+'%" data-title="본인" data-info="'+title1+'" data-width="4" data-fontsize="14" data-percent="'+per1+'" data-fgcolor="#fc35a6" data-bgcolor="#eee">');
-        	$("#you_2_td").html('<div id="you_2" data-startdegree="180" data-dimension="90" data-text="'+per2+'%" data-title="본인" data-info="'+title2+'" data-width="4" data-fontsize="14" data-percent="'+per2+'" data-fgcolor="#fc35a6" data-bgcolor="#eee">');
-        	$("#you_3_td").html('<div id="you_3" data-startdegree="180" data-dimension="90" data-text="'+per3+'%" data-title="본인" data-info="'+title3+'" data-width="4" data-fontsize="14" data-percent="'+per3+'" data-fgcolor="#fc35a6" data-bgcolor="#eee">');
-        	$("#you_4_td").html('<div id="you_4" data-startdegree="180" data-dimension="90" data-text="'+per4+'%" data-title="본인" data-info="'+title4+'" data-width="4" data-fontsize="14" data-percent="'+per4+'" data-fgcolor="#fc35a6" data-bgcolor="#eee">');
-        	$("#you_5_td").html('<div id="you_5" data-startdegree="180" data-dimension="90" data-text="'+per5+'%" data-title="본인" data-info="'+title5+'" data-width="4" data-fontsize="14" data-percent="'+per5+'" data-fgcolor="#fc35a6" data-bgcolor="#eee">');
-        	$("#you_6_td").html('<div id="you_6" data-startdegree="180" data-dimension="90" data-text="'+per6+'%" data-title="본인" data-info="'+title6+'" data-width="4" data-fontsize="14" data-percent="'+per6+'" data-fgcolor="#fc35a6" data-bgcolor="#eee">');
-        	$("#you_7_td").html('<div id="you_7" data-startdegree="180" data-dimension="90" data-text="'+per7+'%" data-title="본인" data-info="'+title7+'" data-width="4" data-fontsize="14" data-percent="'+per7+'" data-fgcolor="#fc35a6" data-bgcolor="#eee">');
-        	$("#you_8_td").html('<div id="you_8" data-startdegree="180" data-dimension="90" data-text="'+per8+'%" data-title="본인" data-info="'+title8+'" data-width="4" data-fontsize="14" data-percent="'+per8+'" data-fgcolor="#fc35a6" data-bgcolor="#eee">');
-        	$("#you_9_td").html('<div id="you_9" data-startdegree="180" data-dimension="90" data-text="'+per9+'%" data-title="본인" data-info="'+title9+'" data-width="4" data-fontsize="14" data-percent="'+per9+'" data-fgcolor="#fc35a6" data-bgcolor="#eee">');
-        	$("#you_10_td").html('<div id="you_10" data-startdegree="180" data-dimension="90" data-text="'+per10+'%" data-title="본인" data-info="'+title10+'" data-width="4" data-fontsize="14" data-percent="'+per10+'" data-fgcolor="#fc35a6" data-bgcolor="#eee">');
+        			var score_temp = Math.pow((my_speed - you_speed),2) + Math.pow((my_control - you_control),2);
+        			var score = 4 * Math.sqrt(2) * Math.sqrt(score_temp);
 
-        	$('#you_1').circliful();
-        	$('#you_2').circliful();
-        	$('#you_3').circliful();
-        	$('#you_4').circliful();
-        	$('#you_5').circliful();
-        	$('#you_6').circliful();
-        	$('#you_7').circliful();
-        	$('#you_8').circliful();
-        	$('#you_9').circliful();
-        	$('#you_10').circliful();
-        }
+        			var total = Math.round(type_score - score, 2);
+
+
+        			$("#tip_match").html("일치율 : "+total+"%");
+        		}
+
+        		//id, 내데이터, 상대방전체, 상대방+카운트
+        		function tip_graph(id, my_data, you_all_data, you_data)
+        		{
+        			//좌측
+        			var per_left = 0;
+        			//우측
+        			var per_right = 0;
+
+
+        			per_right = Math.ceil((you_data / you_all_data) * 100);
+        			per_left = 100 - per_right;
+
+
+        			$("#left"+id).css({"width":per_left+"%"});
+        			$("#right"+id).css({"width":per_right+"%"});
+
+        		}

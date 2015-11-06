@@ -25,142 +25,96 @@ $(function() {
 
 </head>
 
-<body>
-		<div class="type">
-			<table border="0" cellpadding="0" cellspacing="0" width="100%">
-				<tr>
-					<td id="type1_title" width="50%" ><b>내가 본 나의 타입</b></td>
-					<td id="type2_title" width="50%" ><b>가족이 본 나의 타입</b></td>
+	<body>
+	<div class="type">
+		<table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td id="type1_title" width="50%" ><b>내가 본 나의 타입</b></td>
+				<td id="type2_title" width="50%" ><b>가족이 본 나의 타입</b></td>
 
-				</tr>
-				<tr>
-					<td id="type1_per"></td>
-					<td id="type2_per"></td>
-				</tr>
-				<tr>
-					<td id="type1_text"></td>
-					<td id="type2_text"></td>
-				</tr>
-			</table>
+			</tr>
+			<tr>
+				<td id="type1_per">표출형특징을 가진</td>
+				<td id="type2_per">분석형특징을 가진</td>
+			</tr>
+			<tr>
+				<td id="type1_text">주도형</td>
+				<td id="type2_text">우호형</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center" style="padding-top:10px;padding-bottom:10px; border-top:1px solid #ccc; font-size:1em;" id="tip_match">일치율 : 100%</td>
+			</tr>
+		</table>
 
-		</div>
-		<div class="contents">
-			<table border="0" cellpadding="0" cellspacing="0" width="100%">
-				<tr>
-					<td width="30%" align="center" id="my_1_td">
-					</td>
-					<td width="40%" align="center">
-						<div class="subtitle1">피플분석1</div>
-						<div class="subtitle2">말의 속도</div>
-					</td>
-					<td width="30%" align="center" id="you_1_td">
-					</td>
-				</tr>
-				<tr>
-					<td width="30%" align="center" id="my_2_td">
-					</td>
-					<td width="40%" align="center">
-						<div class="subtitle1">피플 분석2</div>
-						<div class="subtitle2">의사 결정1</div>
-					</td>
-					<td width="30%" align="center" id="you_2_td">
-					</td>
-				</tr>
-				<tr>
-					<td width="30%" align="center" id="my_3_td">
-					</td>
-					<td width="40%" align="center">
-						<div class="subtitle1">피플 분석3</div>
-						<div class="subtitle2">대화 방식</div>
-					</td>
-					<td width="30%" align="center" id="you_3_td">
-					</td>
-				</tr>
-				<tr>
-					<td width="30%" align="center" id="my_4_td">
-					</td>
-					<td width="40%" align="center">
-						<div class="subtitle1">피플 분석4</div>
-						<div class="subtitle2">감정 표현</div>
-					</td>
-					<td width="30%" align="center" id="you_4_td">
-					</td>
-				</tr>
-				<tr>
-					<td width="30%" align="center" id="my_5_td">
-					</td>
-					<td width="40%" align="center">
-						<div class="subtitle1">피플 분석5</div>
-						<div class="subtitle2">의사 결정2</div>
-					</td>
-					<td width="30%" align="center" id="you_5_td">
-					</td>
-				</tr>
-				<tr>
-					<td width="30%" align="center" id="my_6_td">
-					</td>
-					<td width="40%" align="center">
-						<div class="subtitle1">피플 분석6</div>
-						<div class="subtitle2">타인 태도</div>
-					</td>
-					<td width="30%" align="center" id="you_6_td">
-					</td>
-				</tr>
-				<tr>
-					<td width="30%" align="center" id="my_7_td">
-					</td>
-					<td width="40%" align="center">
-						<div class="subtitle1">피플 분석7</div>
-						<div class="subtitle2">주도 정도</div>
-					</td>
-					<td width="30%" align="center" id="you_7_td">
-					</td>
-				</tr>
-				<tr>
-					<td width="30%" align="center" id="my_8_td">
-					</td>
-					<td width="40%" align="center">
-						<div class="subtitle1">피플 분석8</div>
-						<div class="subtitle2">표정 변화</div>
-					</td>
-					<td width="30%" align="center" id="you_8_td">
-					</td>
-				</tr>
-				<tr>
-					<td width="30%" align="center" id="my_9_td">
-					</td>
-					<td width="40%" align="center">
-						<div class="subtitle1">피플 분석9</div>
-						<div class="subtitle2">행동 속도</div>
-					</td>
-					<td width="30%" align="center" id="you_9_td">
-					</td>
-				</tr>
-				<tr>
-					<td width="30%" align="center" id="my_10_td">
-					</td>
-					<td width="40%" align="center">
-						<div class="subtitle1">피플 분석10</div>
-						<div class="subtitle2">약속시간</div>
-					</td>
-					<td width="30%" align="center" id="you_10_td">
-					</td>
-				</tr>
-			</table>
-			<table border="0" cellpadding="0" cellspacing="0" width="100%">
-				<tr>
-					<td width="37%" align="center">
+	</div>
 
-					</td>
-					<td width="26%" align="center">
-						<div class="subtitle1">피플분석</div>
-						<div class="subtitle2">말의 속도</div>
-					</td>
-					<td width="37%" align="center">
 
-					</td>
-				</tr>
-			</table>
+	<div style="padding:10px;background-color:#f1f1f1;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">
+		<div class="subtitle1">피플분석</div>
+	</div>
+	<div class="contents_chart">
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td colspan="3" height="20"></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center">
+
+					<div class="subtitle2">말의 속도</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" height="10"></td>
+			</tr>
+			<tr>
+				<td width="15%" align="center" class="subcontentLeft">느린편</td>
+				<td width="70%">
+					<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border:1px solid #f1f1f1;">
+						<tr>
+							<td width="49%" align="right">
+								<div id="left1" style="background-color:#3ea8f9; height:2px;"></div>
+							</td>
+							<td width="1" style="background-color:#ccc;height:15px;"></td>
+							<td width="49%">
+								<div id="right1" style="background-color:#eb4487; height:2px;"></div>
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td width="15%" align="center" class="subcontentRight">빠른편</td>
+			</tr>
+
+			<tr>
+				<td colspan="3" height="20"></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center">
+					<div class="subtitle2">말의 속도</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" height="10"></td>
+			</tr>
+			<tr>
+				<td width="15%" align="center" class="subcontentLeft">느린편</td>
+				<td width="70%">
+					<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border:1px solid #f1f1f1;">
+						<tr>
+							<td width="49%" align="right">
+								<div id="left2" style="background-color:#3ea8f9; height:2px;"></div>
+							</td>
+							<td width="1" style="background-color:#ccc;height:15px;"></td>
+							<td width="49%">
+								<div id="right2" style="background-color:#eb4487; height:2px;"></div>
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td width="15%" align="center" class="subcontentRight">빠른편</td>
+			</tr>
+
+		</table>
+	</div>
 			<!--
 			<table border="0" cellpadding="0" cellspacing="0" width="100%">				
 					
@@ -182,7 +136,6 @@ $(function() {
 					</tr>				
 			</table>
 			-->
-		</div>
 
 
 </body>

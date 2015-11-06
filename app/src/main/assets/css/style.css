@@ -1,6 +1,8 @@
 body { margin:0 auto; background-color:#f5f5f6;}
 .type { background-color:#fff; font-size:0.8em; }
+
 .contents{ width:100%;  line-height:1.5em;  color:#1d1d26; background-color:#f5f5f6;}
+.contents_chart { width:100%;  color:#1d1d26; background-color:#f5f5f6; }
 .contents table tr th { padding-left:1.5em;  padding-right:1.5em; padding-top:0.5em; padding-bottom:0.5em; background-color:#fae504; text-align:left;}
 .contents table tr td { padding:1.5em; font-size:0.9em; }
 .contents .contents_Keyword   { width:100%; font-size:0.9em; font-weight:bolder; color:#000000; }
@@ -16,15 +18,17 @@ body { margin:0 auto; background-color:#f5f5f6;}
 #chart_line2 { position:absolute; }
 
 
-#type1_title { color:#fff; background-color:#32354d; font-size:1.2em; padding-top:1.0em; padding-bottom:1.0em; text-align:center;}
-#type1_per { font-size:3em; font-weight:bold; background-color:#4d4d4d; text-align:center; padding-top:0.5em; padding-bottom:0.5em; }
-#type1_text {font-size:1em; font-weight:bold; background-color:#4d4d4d; text-align:center; padding-bottom:1em; padding-top:1em; }
+#type1_title { color:#fff; background-color:#32354d; font-size:1.2em; padding-top:20px; padding-bottom:20px; text-align:center;}
+#type1_per { font-size:0.9em; font-weight:bold; background-color:#fff; text-align:center; padding-top:20px; padding-bottom:20px; }
+#type1_text { font-size:2em; font-weight:bold; background-color:#fff; text-align:center; padding-bottom:20px; }
 
 
-#type2_title { color:#fff; background-color:#32354d; font-size:1.2em; padding-top:1.0em; padding-bottom:1.0em; text-align:center;}
-#type2_per { font-size:3em; font-weight:bold; background-color:#4d4d4d; text-align:center; padding-top:0.5em; padding-bottom:0.5em; }
-#type2_text { font-size:1em; font-weight:bold; background-color:#4d4d4d; text-align:center; padding-bottom:1em; padding-top:1em; }
+#type2_title { color:#fff; background-color:#32354d; font-size:1.2em; padding-top:20px; padding-bottom:20px; text-align:center;}
+#type2_per { font-size:0.9em; font-weight:bold; background-color:#fff; text-align:center; padding-top:20px; padding-bottom:20px; }
+#type2_text { font-size:2em; font-weight:bold; background-color:#fff; text-align:center; padding-bottom:20px; }
 
 
-.subtitle1 { font-size:0.6em; color:#3d3b2a; }
-.subtitle2 { font-size:0.8em; color:#3d3b2a; font-weight:bold; padding-top:0.5em; padding-bottom:0.5em; }
+.subtitle1 { font-size:0.9em; color:#3d3b2a; font-weight:bold; }
+.subtitle2 { font-size:0.8em; color:#989898; font-weight:bold; }
+.subcontentLeft { font-size:0.8em; color:#989898; }
+.subcontentRight { font-size:0.8em; color:#989898; }
