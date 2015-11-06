@@ -76,7 +76,7 @@ public class SubPeopleFragment extends Fragment {
     private TextView listview_people_all_cnt;
     private ImageView my_profile_i_up_icon, my_profile_d_up_icon, my_profile_e_up_icon, my_profile_a_up_icon;
     private EditText serachText;
-    private ImageView help_btn;
+    private ImageView help_btn, panel_sign;
 
     private Switch listview_youtype_switch;
 
@@ -102,6 +102,20 @@ public class SubPeopleFragment extends Fragment {
 
         sf_people_list = (ListView)rootView.findViewById(R.id.sf_people_list);
         sf_people_list.addHeaderView(header);
+
+
+        panel_sign = (ImageView) rootView.findViewById(R.id.panel_sign);
+        panel_sign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PanelActivity.class);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+
+
+            }
+        });
+
 
         listview_youtype_switch = (Switch) rootView.findViewById(R.id.listview_youtype_switch);
         listview_youtype_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
