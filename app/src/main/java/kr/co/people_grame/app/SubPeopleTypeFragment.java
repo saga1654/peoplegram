@@ -72,6 +72,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
     private String P_people_control = "";
     private String P_people_speed = "";
 
+
     private String F_my_speed = "";
     private String F_my_control = "";
     private String F_people_type = "";
@@ -113,6 +114,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
     private int MY_DATA9 = 0;
     private int MY_DATA10 = 0;
 
+    private String P_DATA_TOTAL = "0";
     private String P_DATA1 = "0";
     private String P_DATA2 = "0";
     private String P_DATA3 = "0";
@@ -124,6 +126,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
     private String P_DATA9 = "0";
     private String P_DATA10 = "0";
 
+    private String F_DATA_TOTAL = "0";
     private String F_DATA1 = "0";
     private String F_DATA2 = "0";
     private String F_DATA3 = "0";
@@ -135,6 +138,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
     private String F_DATA9 = "0";
     private String F_DATA10 = "0";
 
+    private String C_DATA_TOTAL = "0";
     private String C_DATA1 = "0";
     private String C_DATA2 = "0";
     private String C_DATA3 = "0";
@@ -146,6 +150,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
     private String C_DATA9 = "0";
     private String C_DATA10 = "0";
 
+    private String L_DATA_TOTAL = "0";
     private String L_DATA1 = "0";
     private String L_DATA2 = "0";
     private String L_DATA3 = "0";
@@ -158,6 +163,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
     private String L_DATA10 = "0";
 
 
+    private String S_DATA_TOTAL = "0";
     private String S_DATA1 = "0";
     private String S_DATA2 = "0";
     private String S_DATA3 = "0";
@@ -256,6 +262,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     P_DATA8 = p_data.getString("DATA8");
                     P_DATA9 = p_data.getString("DATA9");
                     P_DATA10 = p_data.getString("DATA10");
+                    P_DATA_TOTAL = p_data.getString("people_total");
 
 
 
@@ -285,6 +292,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     F_DATA8 = f_data.getString("DATA8");
                     F_DATA9 = f_data.getString("DATA9");
                     F_DATA10 = f_data.getString("DATA10");
+                    F_DATA_TOTAL = f_data.getString("people_total");
 
                     people2_cnt.setText(String.valueOf(F_cnt));
 
@@ -329,6 +337,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     L_DATA8 = l_data.getString("DATA8");
                     L_DATA9 = l_data.getString("DATA9");
                     L_DATA10 = l_data.getString("DATA10");
+                    L_DATA_TOTAL = l_data.getString("people_total");
 
                     if(L_code.equals("000") == false) {
                         peopletype_icon3.setImageResource(R.drawable.item_no_key);
@@ -372,6 +381,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     C_DATA8 = c_data.getString("DATA8");
                     C_DATA9 = c_data.getString("DATA9");
                     C_DATA10 = c_data.getString("DATA10");
+                    C_DATA_TOTAL = c_data.getString("people_total");
 
                     if(C_code.equals("000") == false) {
                         peopletype_icon4.setImageResource(R.drawable.item_no_key);
@@ -411,6 +421,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     S_DATA8 = s_data.getString("DATA8");
                     S_DATA9 = s_data.getString("DATA9");
                     S_DATA10 = s_data.getString("DATA10");
+                    S_DATA_TOTAL = s_data.getString("people_total");
 
 
                 } catch (JSONException e) {
@@ -664,6 +675,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                         intent.putExtra("my_control", my_control);
                         intent.putExtra("people_speed", people_speed);
                         intent.putExtra("people_control", people_control);
+                        intent.putExtra("people_total", C_DATA_TOTAL);
                         intent.putExtra("people_data1", C_DATA1);
                         intent.putExtra("people_data2", C_DATA2);
                         intent.putExtra("people_data3", C_DATA3);

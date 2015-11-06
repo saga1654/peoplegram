@@ -82,11 +82,12 @@
 
     function type_chart(my_speed, my_control, people_speed, people_control)
     	{
+
     		var my_total = Math.abs(my_speed * my_control);
     		var my_per = parseInt((my_total * 4));
     		var my_type = "";
 
-			
+		/*
 			$('#type1_per').jQuerySimpleCounter({
             	end:my_per,
             	duration: 2000
@@ -331,5 +332,8 @@
 
         			$("#left"+id).css({"width":per_left+"%"});
         			$("#right"+id).css({"width":per_right+"%"});
+
+        			$("#left"+id+"_title").html("느린편:("+per_left+"%)");
+        			$("#right"+id+"_title").html("빠른편:("+per_right+"%)");
 
         		}

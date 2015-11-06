@@ -42,6 +42,8 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
     private String my_data9 = "";
     private String my_data10 = "";
 
+
+    private String people_total = "";
     private String people_data1 = "";
     private String people_data2 = "";
     private String people_data3 = "";
@@ -93,6 +95,8 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
             people_data8 = intent.getStringExtra("people_data8");
             people_data9 = intent.getStringExtra("people_data9");
             people_data10 = intent.getStringExtra("people_data10");
+
+            people_total = intent.getStringExtra("people_total");
         }
 
         Log.d("people_gram", "데이터전달=" + my_speed + ":::" + my_control + ":::" + people_speed + "::" + people_control);
@@ -104,9 +108,12 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 people_content_webview.loadUrl("javascript:nameView('" + SharedPreferenceUtil.getSharedPreference(SubPeopleTypeContents_Activity.this, "username") + "','')");
-                people_content_webview.loadUrl("javascript:type_chart(" + my_speed + ", "+my_control+","+people_speed+","+people_control+")");
-                people_content_webview.loadUrl("javascript:my_data('"+my_data1+"','"+my_data2+"','"+my_data3+"','"+my_data4+"','"+my_data5+"','"+my_data6+"','"+my_data7+"','"+my_data8+"','"+my_data9+"','"+my_data10+"');");
-                people_content_webview.loadUrl("javascript:you_data('"+people_data1+"','"+people_data2+"','"+people_data3+"','"+people_data4+"','"+people_data5+"','"+people_data6+"','"+people_data7+"','"+people_data8+"','"+people_data9+"','"+people_data10+"');");
+                //people_content_webview.loadUrl("javascript:type_chart(" + my_speed + ", "+my_control+","+people_speed+","+people_control+")");
+
+                people_content_webview.loadUrl("javascript:tip_match(" + my_speed + ", "+my_control+","+people_speed+","+people_control+")");
+                people_content_webview.loadUrl("javascript:tip_graph('1', '1', "+people_total+","+people_data1+")");
+
+                //tip_match
                 super.onPageFinished(view, url);
             }
         });
@@ -117,8 +124,8 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
 
 
 
-        people_content_webview.loadUrl("file:///android_asset/peopletype_my/" + gubun1 + "/" + gubun1 + "_MY_" + mytype + peopletype + ".html");
-        //people_content_webview.loadUrl("file:///android_asset/peopletype_my/" + gubun1 + "/" + gubun1 + "_MY_AA.html");
+        //people_content_webview.loadUrl("file:///android_asset/peopletype_my/" + gubun1 + "/" + gubun1 + "_MY_" + mytype + peopletype + ".html");
+        people_content_webview.loadUrl("file:///android_asset/peopletype_my/" + gubun1 + "/" + gubun1 + "_MY_AA.html");
     }
 
     @Override
