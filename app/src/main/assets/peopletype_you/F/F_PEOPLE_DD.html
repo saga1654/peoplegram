@@ -13,134 +13,330 @@
 </head>
 
 <body>
-		<div class="type">
-			<table border="1" cellpadding="0" cellspacing="0" width="100%">
-				<tr>
-					<td id="type1_title" width="50%" ><b>내가 본 피플 타입</b></td>
-					<td id="type2_title" width="50%" ><b>친구들이 본 피플 타입</b></td>
+<div class="type">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tr>
+			<td id="type1_title" width="50%" ><b>내가 본 피플 타입</b></td>
+			<td id="type2_title" width="50%" ><b>친구들이 본 피플 타입</b></td>
 
-				</tr>
-				<tr>
-					<td id="type1_per"></td>
-					<td id="type2_per"></td>
-				</tr>
-				<tr>
-					<td id="type1_text"></td>
-					<td id="type2_text"></td>
-				</tr>
-			</table>
+		</tr>
+		<tr>
+			<td id="type1_per"></td>
+			<td id="type2_per"></td>
+		</tr>
+		<tr>
+			<td id="type1_text"></td>
+			<td id="type2_text"></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center" style="padding-top:10px;padding-bottom:10px; border-top:1px solid #ccc; font-size:1em;" id="tip_match">일치율 : </td>
+		</tr>
+	</table>
 
-		</div>
-		<div class="contents">
-			<table border="0" cellpadding="0" cellspacing="0" width="100%">
-				<tr>
-					<td width="30%" align="center" id="my_1_td">
-					</td>
-					<td width="40%" align="center">
-						<div class="subtitle1">피플분석1</div>
-						<div class="subtitle2">말의 속도</div>
-					</td>
-					<td width="30%" align="center" id="you_1_td">
-					</td>
-				</tr>
-				<tr>
-					<td width="30%" align="center" id="my_2_td">
-					</td>
-					<td width="40%" align="center">
-						<div class="subtitle1">피플 분석2</div>
-						<div class="subtitle2">의사 결정1</div>
-					</td>
-					<td width="30%" align="center" id="you_2_td">
-					</td>
-				</tr>
-				<tr>
-					<td width="30%" align="center" id="my_3_td">
-					</td>
-					<td width="40%" align="center">
-						<div class="subtitle1">피플 분석3</div>
-						<div class="subtitle2">대화 방식</div>
-					</td>
-					<td width="30%" align="center" id="you_3_td">
-					</td>
-				</tr>
-				<tr>
-					<td width="30%" align="center" id="my_4_td">
-					</td>
-					<td width="40%" align="center">
-						<div class="subtitle1">피플 분석4</div>
-						<div class="subtitle2">감정 표현</div>
-					</td>
-					<td width="30%" align="center" id="you_4_td">
-					</td>
-				</tr>
-				<tr>
-					<td width="30%" align="center" id="my_5_td">
-					</td>
-					<td width="40%" align="center">
-						<div class="subtitle1">피플 분석5</div>
-						<div class="subtitle2">의사 결정2</div>
-					</td>
-					<td width="30%" align="center" id="you_5_td">
-					</td>
-				</tr>
-				<tr>
-					<td width="30%" align="center" id="my_6_td">
-					</td>
-					<td width="40%" align="center">
-						<div class="subtitle1">피플 분석6</div>
-						<div class="subtitle2">타인 태도</div>
-					</td>
-					<td width="30%" align="center" id="you_6_td">
-					</td>
-				</tr>
-				<tr>
-					<td width="30%" align="center" id="my_7_td">
-					</td>
-					<td width="40%" align="center">
-						<div class="subtitle1">피플 분석7</div>
-						<div class="subtitle2">주도 정도</div>
-					</td>
-					<td width="30%" align="center" id="you_7_td">
-					</td>
-				</tr>
-				<tr>
-					<td width="30%" align="center" id="my_8_td">
-					</td>
-					<td width="40%" align="center">
-						<div class="subtitle1">피플 분석8</div>
-						<div class="subtitle2">표정 변화</div>
-					</td>
-					<td width="30%" align="center" id="you_8_td">
-					</td>
-				</tr>
-				<tr>
-					<td width="30%" align="center" id="my_9_td">
-					</td>
-					<td width="40%" align="center">
-						<div class="subtitle1">피플 분석9</div>
-						<div class="subtitle2">행동 속도</div>
-					</td>
-					<td width="30%" align="center" id="you_9_td">
-					</td>
-				</tr>
-				<tr>
-					<td width="30%" align="center" id="my_10_td">
-					</td>
-					<td width="40%" align="center">
-						<div class="subtitle1">피플 분석10</div>
-						<div class="subtitle2">약속시간</div>
-					</td>
-					<td width="30%" align="center" id="you_10_td">
-					</td>
-				</tr>
-			</table>
+</div>
+
+
+<div style="padding:10px;background-color:#f1f1f1;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">
+	<div class="subtitle1">피플분석 (친구들이 본 피플의 세부 타입)</div>
+</div>
+<div class="contents_chart">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="3" height="10"></td>
+		</tr>
+		<tr>
+			<td colspan="3" align="center">
+
+				<div class="subtitle2">말의 속도</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" height="5"></td>
+		</tr>
+		<tr>
+			<td width="20%" align="center" class="subcontentLeft" id="left1_title"></td>
+			<td width="60%">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border:1px solid #f1f1f1;">
+					<tr>
+						<td width="49%" align="right">
+							<div id="left1" style="background-color:#3ea8f9; height:2px;"></div>
+						</td>
+						<td width="1" style="background-color:#ccc;height:15px;"></td>
+						<td width="49%">
+							<div id="right1" style="background-color:#eb4487; height:2px;"></div>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="20%" align="center" class="subcontentRight" id="right1_title"></td>
+		</tr>
+
+		<tr>
+			<td colspan="3" height="10"></td>
+		</tr>
+		<tr>
+			<td colspan="3" align="center">
+				<div class="subtitle2">의사 결정</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" height="5"></td>
+		</tr>
+		<tr>
+			<td width="20%" align="center" class="subcontentLeft" id="left2_title"></td>
+			<td width="60%">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border:1px solid #f1f1f1;">
+					<tr>
+						<td width="49%" align="right">
+							<div id="left2" style="background-color:#3ea8f9; height:2px;"></div>
+						</td>
+						<td width="1" style="background-color:#ccc;height:15px;"></td>
+						<td width="49%">
+							<div id="right2" style="background-color:#eb4487; height:2px;"></div>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="20%" align="center" class="subcontentRight" id="right2_title"></td>
+		</tr>
+		<tr>
+			<td colspan="3" height="10"></td>
+		</tr>
+		<tr>
+			<td colspan="3" align="center">
+				<div class="subtitle2">대화 방식</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" height="5"></td>
+		</tr>
+		<tr>
+			<td width="20%" align="center" class="subcontentLeft" id="left3_title"></td>
+			<td width="60%">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border:1px solid #f1f1f1;">
+					<tr>
+						<td width="49%" align="right">
+							<div id="left3" style="background-color:#3ea8f9; height:2px;"></div>
+						</td>
+						<td width="1" style="background-color:#ccc;height:15px;"></td>
+						<td width="49%">
+							<div id="right3" style="background-color:#eb4487; height:2px;"></div>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="20%" align="center" class="subcontentRight" id="right3_title"></td>
+		</tr>
+		<tr>
+			<td colspan="3" height="10"></td>
+		</tr>
+		<tr>
+			<td colspan="3" align="center">
+				<div class="subtitle2">감정 표현</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" height="5"></td>
+		</tr>
+		<tr>
+			<td width="20%" align="center" class="subcontentLeft" id="left4_title"></td>
+			<td width="60%">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border:1px solid #f1f1f1;">
+					<tr>
+						<td width="49%" align="right">
+							<div id="left4" style="background-color:#3ea8f9; height:2px;"></div>
+						</td>
+						<td width="1" style="background-color:#ccc;height:15px;"></td>
+						<td width="49%">
+							<div id="right4" style="background-color:#eb4487; height:2px;"></div>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="20%" align="center" class="subcontentRight" id="right4_title"></td>
+		</tr>
+		<tr>
+			<td colspan="3" height="10"></td>
+		</tr>
+		<tr>
+			<td colspan="3" align="center">
+				<div class="subtitle2">의사결정2</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" height="5"></td>
+		</tr>
+		<tr>
+			<td width="20%" align="center" class="subcontentLeft" id="left5_title"></td>
+			<td width="60%">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border:1px solid #f1f1f1;">
+					<tr>
+						<td width="49%" align="right">
+							<div id="left5" style="background-color:#3ea8f9; height:2px;"></div>
+						</td>
+						<td width="1" style="background-color:#ccc;height:15px;"></td>
+						<td width="49%">
+							<div id="right5" style="background-color:#eb4487; height:2px;"></div>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="20%" align="center" class="subcontentRight" id="right5_title"></td>
+		</tr>
+		<tr>
+			<td colspan="3" height="10"></td>
+		</tr>
+		<tr>
+			<td colspan="3" align="center">
+				<div class="subtitle2">타인 태도</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" height="5"></td>
+		</tr>
+		<tr>
+			<td width="20%" align="center" class="subcontentLeft" id="left6_title"></td>
+			<td width="60%">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border:1px solid #f1f1f1;">
+					<tr>
+						<td width="49%" align="right">
+							<div id="left6" style="background-color:#3ea8f9; height:2px;"></div>
+						</td>
+						<td width="1" style="background-color:#ccc;height:15px;"></td>
+						<td width="49%">
+							<div id="right6" style="background-color:#eb4487; height:2px;"></div>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="20%" align="center" class="subcontentRight" id="right6_title"></td>
+		</tr>
+		<tr>
+			<td colspan="3" height="10"></td>
+		</tr>
+		<tr>
+			<td colspan="3" align="center">
+				<div class="subtitle2">주도 정도</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" height="5"></td>
+		</tr>
+		<tr>
+			<td width="20%" align="center" class="subcontentLeft" id="left7_title"></td>
+			<td width="60%">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border:1px solid #f1f1f1;">
+					<tr>
+						<td width="49%" align="right">
+							<div id="left7" style="background-color:#3ea8f9; height:2px;"></div>
+						</td>
+						<td width="1" style="background-color:#ccc;height:15px;"></td>
+						<td width="49%">
+							<div id="right7" style="background-color:#eb4487; height:2px;"></div>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="20%" align="center" class="subcontentRight" id="right7_title"></td>
+		</tr>
+		<tr>
+			<td colspan="3" height="10"></td>
+		</tr>
+		<tr>
+			<td colspan="3" align="center">
+				<div class="subtitle2">표정 변화</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" height="5"></td>
+		</tr>
+		<tr>
+			<td width="20%" align="center" class="subcontentLeft" id="left8_title"></td>
+			<td width="60%">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border:1px solid #f1f1f1;">
+					<tr>
+						<td width="49%" align="right">
+							<div id="left8" style="background-color:#3ea8f9; height:2px;"></div>
+						</td>
+						<td width="1" style="background-color:#ccc;height:15px;"></td>
+						<td width="49%">
+							<div id="right8" style="background-color:#eb4487; height:2px;"></div>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="20%" align="center" class="subcontentRight" id="right8_title"></td>
+		</tr>
+		<tr>
+			<td colspan="3" height="10"></td>
+		</tr>
+		<tr>
+			<td colspan="3" align="center">
+				<div class="subtitle2">행동 속도</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" height="5"></td>
+		</tr>
+		<tr>
+			<td width="20%" align="center" class="subcontentLeft" id="left9_title"></td>
+			<td width="60%">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border:1px solid #f1f1f1;">
+					<tr>
+						<td width="49%" align="right">
+							<div id="left9" style="background-color:#3ea8f9; height:2px;"></div>
+						</td>
+						<td width="1" style="background-color:#ccc;height:15px;"></td>
+						<td width="49%">
+							<div id="right9" style="background-color:#eb4487; height:2px;"></div>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="20%" align="center" class="subcontentRight" id="right9_title"></td>
+		</tr>
+		<tr>
+			<td colspan="3" height="10"></td>
+		</tr>
+		<tr>
+			<td colspan="3" align="center">
+				<div class="subtitle2">약속  시간</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" height="5"></td>
+		</tr>
+		<tr>
+			<td width="20%" align="center" class="subcontentLeft" id="left10_title"></td>
+			<td width="60%">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border:1px solid #f1f1f1;">
+					<tr>
+						<td width="49%" align="right">
+							<div id="left10" style="background-color:#3ea8f9; height:2px;"></div>
+						</td>
+						<td width="1" style="background-color:#ccc;height:15px;"></td>
+						<td width="49%">
+							<div id="right10" style="background-color:#eb4487; height:2px;"></div>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="20%" align="center" class="subcontentRight" id="right10_title"></td>
+		</tr>
+		<tr>
+			<td colspan="3" height="20"></td>
+		</tr>
+
+	</table>
+</div>
+<div class="contents">
 			<table border="0" cellpadding="0" cellspacing="0" width="100%">				
 					
 					<tr>
 						<th class="contents_Keyword">
 								● 사람의 행동 유형은 자신이 처한 관계와 역할, 환경에 따라 달리 나타날 수 있습니다.<br>
 								● 본인이 진단한 결과와 가족 피플의 진단 결과가 다를 수 있습니다.<br>
-								● 피플그램은 <b class="Name2"></b>님의 친구 피플(3명이상)의 진단이 더욱 객관적이고 정확하다고 판단합니다.<br>
+								● 피플그램은 <b class="Name2"></b>님의 친구들의 진단이 더욱 객관적이고 정확하다고 판단합니다.<br>
 						</th>
 					</tr>
 					<tr>
