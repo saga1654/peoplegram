@@ -147,7 +147,7 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
             @Override
             public void onPageFinished(WebView view, String url) {
 
-                people_content_webview.loadUrl("javascript:type_chart(" + my_speed + ", "+my_control+","+people_speed+","+people_control+", '"+gubun_type+"')");
+                people_content_webview.loadUrl("javascript:type_chart(" + my_speed + ", "+my_control+","+people_speed+","+people_control+", '"+gubun_type+"', '"+viewType+"')");
                 people_content_webview.loadUrl("javascript:nameView('" + SharedPreferenceUtil.getSharedPreference(SubPeopleTypeContents_Activity.this, "username") + "','')");
 
                 people_content_webview.loadUrl("javascript:tip_match(" + my_speed + ", "+my_control+","+people_speed+","+people_control+")");
