@@ -57,6 +57,7 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
 
     private String viewType = "my";
     private String gubun_type = "";
+    private String people_name = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +75,7 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
             gubun1 = intent.getStringExtra("gubun1");
             my_speed = intent.getStringExtra("my_speed");
             my_control = intent.getStringExtra("my_control");
+            people_name = intent.getStringExtra("people_name");
             people_speed = intent.getStringExtra("people_speed");
             people_control = intent.getStringExtra("people_control");
             viewType = intent.getStringExtra("viewType");
@@ -148,7 +150,7 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
             public void onPageFinished(WebView view, String url) {
 
                 people_content_webview.loadUrl("javascript:type_chart(" + my_speed + ", "+my_control+","+people_speed+","+people_control+", '"+gubun_type+"', '"+viewType+"')");
-                people_content_webview.loadUrl("javascript:nameView('" + SharedPreferenceUtil.getSharedPreference(SubPeopleTypeContents_Activity.this, "username") + "','')");
+                people_content_webview.loadUrl("javascript:nameView('" + SharedPreferenceUtil.getSharedPreference(SubPeopleTypeContents_Activity.this, "username") + "','"+people_name+"')");
 
                 people_content_webview.loadUrl("javascript:tip_match(" + my_speed + ", "+my_control+","+people_speed+","+people_control+")");
                 people_content_webview.loadUrl("javascript:tip_graph('1', '1', "+people_total+","+people_data1+")");

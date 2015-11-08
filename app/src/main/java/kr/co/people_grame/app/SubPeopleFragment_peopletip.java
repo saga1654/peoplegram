@@ -489,6 +489,7 @@ public class SubPeopleFragment_peopletip extends Fragment {
                     intent.putExtra("gubun1", gubun1);
                     intent.putExtra("my_speed", P_my_speed);
                     intent.putExtra("my_control", P_my_control);
+                    intent.putExtra("people_name", people_name);
                     intent.putExtra("people_speed", P_people_speed);
                     intent.putExtra("people_control", P_people_control);
                     intent.putExtra("people_data1", P_DATA1);
@@ -530,6 +531,7 @@ public class SubPeopleFragment_peopletip extends Fragment {
                     intent.putExtra("gubun1", gubun1);
                     intent.putExtra("my_speed", F_my_speed);
                     intent.putExtra("my_control", F_my_control);
+                    intent.putExtra("people_name", people_name);
                     intent.putExtra("people_speed", F_people_speed);
                     intent.putExtra("people_control", F_people_control);
                     intent.putExtra("people_data1", F_DATA1);
@@ -567,6 +569,7 @@ public class SubPeopleFragment_peopletip extends Fragment {
                     intent.putExtra("my_data10", MY_DATA10);
                     intent.putExtra("people_type", people_type);
                     intent.putExtra("gubun1", gubun1);
+                    intent.putExtra("people_name", people_name);
                     intent.putExtra("my_speed", L_my_speed);
                     intent.putExtra("my_control", L_my_control);
                     intent.putExtra("people_speed", L_people_speed);
@@ -606,6 +609,7 @@ public class SubPeopleFragment_peopletip extends Fragment {
                     intent.putExtra("my_data10", MY_DATA10);
                     intent.putExtra("people_type", people_type);
                     intent.putExtra("gubun1", gubun1);
+                    intent.putExtra("people_name", people_name);
                     intent.putExtra("my_speed", C_my_speed);
                     intent.putExtra("my_control", C_my_control);
                     intent.putExtra("people_speed", C_people_speed);
@@ -644,6 +648,7 @@ public class SubPeopleFragment_peopletip extends Fragment {
                     intent.putExtra("my_data10", MY_DATA10);
                     intent.putExtra("people_type", people_type);
                     intent.putExtra("gubun1", gubun1);
+                    intent.putExtra("people_name", people_name);
                     intent.putExtra("my_speed", S_my_speed);
                     intent.putExtra("my_control", S_my_control);
                     intent.putExtra("people_speed", S_people_speed);
