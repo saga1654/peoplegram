@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -266,7 +267,6 @@ public class SubPeopleFragment extends Fragment {
                 listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_default);
                 break;
         }
-
 
 
 
