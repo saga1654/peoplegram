@@ -118,6 +118,7 @@ public class LoginActivity extends AppCompatActivity {
                     JSONArray json = new JSONArray(response);
                     JSONObject jobj = json.getJSONObject(0);
                     String code = jobj.getString("code");
+                    String panel = jobj.getString("panel");
 
 
 
@@ -151,6 +152,7 @@ public class LoginActivity extends AppCompatActivity {
                             SharedPreferenceUtil.putSharedPreference(ActivityContext, "point", user_data.get("POINT").toString());
                             SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_speed", "");
                             SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_control", "");
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "panelYN", panel);
 
                             startActivity(intent);
                             finish();
