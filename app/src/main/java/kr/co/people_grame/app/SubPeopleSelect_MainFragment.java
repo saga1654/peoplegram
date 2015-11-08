@@ -150,8 +150,15 @@ public class SubPeopleSelect_MainFragment extends Fragment {
     private void tip()
     {
         String packName = getActivity().getPackageName(); // 패키지명
+        String resName = "";
         for(int i = 1; i<=7; i++) {
-            String resName = "@string/tip" + i +"_"+gubun1+gubun2;
+            if(gubun1.equals("F")) {
+                resName = "@string/tip" + i + "_" + gubun1;
+            } else if(gubun1.equals("L")) {
+                resName = "@string/tip" + i + "_" + gubun1;
+            } else {
+                resName = "@string/tip" + i + "_" + gubun1 + gubun2;
+            }
             int resID = getResources().getIdentifier(resName, "values", packName);
             String title = getString(resID);
             title = title.replace("[gubun1]", "<font color='#ff6d2a'>"+gubun1_return(gubun1)+"</font>");
