@@ -764,6 +764,8 @@ public class SubPeopleFragment extends Fragment {
         people_dto_list = new ArrayList<SubPeopleListDTO>();
         people_dto_list.clear();
 
+
+
         for(int i = 0; i<people_dto_list_temp.size(); i++) {
             SubPeopleListDTO_Temp dto = people_dto_list_temp.get(i);
             if(dto.get_profile_gubun1().equals(searchType))
@@ -792,6 +794,7 @@ public class SubPeopleFragment extends Fragment {
     private void peopleList()
     {
         people_dto_list = new ArrayList<SubPeopleListDTO>();
+        people_dto_list_temp.clear();
         RequestParams params = new RequestParams();
         params.put("uid", SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid"));
         //params.put("searchType", searchType);
@@ -828,7 +831,7 @@ public class SubPeopleFragment extends Fragment {
                     String my_e_now_total = my_profile.getString("MY_E_NOW_MAX");
                     String my_a_now_total = my_profile.getString("MY_A_NOW_MAX");
 
-                    Log.d("people_gram", i_total + ":::" + d_total + ":::" + e_total + ":::" + a_total);
+                    //Log.d("people_gram", i_total + ":::" + d_total + ":::" + e_total + ":::" + a_total);
 
 
                     listview_people_all_cnt.setText(all_total);
@@ -945,21 +948,68 @@ public class SubPeopleFragment extends Fragment {
                             n_cnt++;
                         }
 
-                        people_dto_list.add(new SubPeopleListDTO(
-                                jobj.getString("PEOPLE_UID")
-                                , ""
-                                , jobj.getString("PEOPLE_USERNAME")
-                                , email
-                                , type
-                                , ""
-                                , gubun1
-                                , gubun2
-                                , speed
-                                , control
-                                , jobj.getInt("TOTAL_COUNT")
-                                , jobj.getInt("FRIEND_COUNT")
-                                , jobj.getInt("NOW_MAX")
-                        ));
+                        switch (searchType) {
+                            case "ALL":
+                                people_cnt.setText("피플 (" + String.valueOf(all_cnt) + "명)");
+                                break;
+                            case "P":
+                                people_cnt.setText("피플 (" + String.valueOf(p_cnt) + "명)");
+                                break;
+                            case "F":
+                                people_cnt.setText("피플 (" + String.valueOf(f_cnt) + "명)");
+                                break;
+                            case "L":
+                                people_cnt.setText("피플 (" + String.valueOf(l_cnt) + "명)");
+                                break;
+                            case "C":
+                                people_cnt.setText("피플 (" + String.valueOf(c_cnt) + "명)");
+                                break;
+                            case "S":
+                                people_cnt.setText("피플 (" + String.valueOf(s_cnt) + "명)");
+                                break;
+                        }
+
+
+
+                        Log.d("people_gram", searchType);
+
+                        if(searchType.equals("ALL")) {
+                            people_dto_list.add(new SubPeopleListDTO(
+                                    jobj.getString("PEOPLE_UID")
+                                    , ""
+                                    , jobj.getString("PEOPLE_USERNAME")
+                                    , email
+                                    , type
+                                    , ""
+                                    , gubun1
+                                    , gubun2
+                                    , speed
+                                    , control
+                                    , jobj.getInt("TOTAL_COUNT")
+                                    , jobj.getInt("FRIEND_COUNT")
+                                    , jobj.getInt("NOW_MAX")
+                            ));
+                        } else {
+
+                            if(gubun1.equals(searchType)) {
+                                people_dto_list.add(new SubPeopleListDTO(
+                                        jobj.getString("PEOPLE_UID")
+                                        , ""
+                                        , jobj.getString("PEOPLE_USERNAME")
+                                        , email
+                                        , type
+                                        , ""
+                                        , gubun1
+                                        , gubun2
+                                        , speed
+                                        , control
+                                        , jobj.getInt("TOTAL_COUNT")
+                                        , jobj.getInt("FRIEND_COUNT")
+                                        , jobj.getInt("NOW_MAX")
+                                ));
+                            }
+                        }
+
 
                         people_dto_list_temp.add(new SubPeopleListDTO_Temp(
                                 jobj.getString("PEOPLE_UID")

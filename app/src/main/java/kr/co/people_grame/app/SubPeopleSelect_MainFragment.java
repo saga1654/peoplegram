@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -153,33 +154,33 @@ public class SubPeopleSelect_MainFragment extends Fragment {
             String resName = "@string/tip" + i +"_"+gubun1+gubun2;
             int resID = getResources().getIdentifier(resName, "values", packName);
             String title = getString(resID);
-            title = title.replace("[gubun1]", "["+gubun1_return(gubun1)+"]");
-            title = title.replace("[gubun2]", "["+gubun2_return(gubun1, gubun2)+"]");
-            title = title.replace("[you_name]", "["+youname+"]");
+            title = title.replace("[gubun1]", "<font color='#ff6d2a'>"+gubun1_return(gubun1)+"</font>");
+            title = title.replace("[gubun2]", "<font color='#ff6d2a'>"+gubun2_return(gubun1, gubun2)+"</font>");
+            title = title.replace("[you_name]", "<font color='#ff6d2a'>"+youname+"</font>");
 
 
 
             switch (i){
                 case 1:
-                    tip1_text.setText(title);
+                    tip1_text.setText(Html.fromHtml(title));
                     break;
                 case 2:
-                    tip2_text.setText(title);
+                    tip2_text.setText(Html.fromHtml(title));
                     break;
                 case 3:
-                    tip3_text.setText(title);
+                    tip3_text.setText(Html.fromHtml(title));
                     break;
                 case 4:
-                    tip4_text.setText(title);
+                    tip4_text.setText(Html.fromHtml(title));
                     break;
                 case 5:
-                    tip5_text.setText(title);
+                    tip5_text.setText(Html.fromHtml(title));
                     break;
                 case 6:
-                    tip6_text.setText(title);
+                    tip6_text.setText(Html.fromHtml(title));
                     break;
                 case 7:
-                    tip7_text.setText(title);
+                    tip7_text.setText(Html.fromHtml(title));
                     break;
             }
             //Log.d("people_gram", getString(resID));

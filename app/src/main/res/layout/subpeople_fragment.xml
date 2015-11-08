@@ -21,8 +21,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="12dp"
                 android:textColor="#1d1d26"
-                android:textSize="14dp"
                 android:text="상호 관계의 특징" />
 
         </LinearLayout>
@@ -65,8 +65,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="12dp"
                 android:textColor="#1d1d26"
-                android:textSize="14dp"
                 android:text="나와 상대방의 차이점" />
 
         </LinearLayout>
@@ -109,8 +109,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="12dp"
                 android:textColor="#1d1d26"
-                android:textSize="14dp"
                 android:text="두 사람 관계에서 내가 개선해야 할 점" />
 
         </LinearLayout>
@@ -152,8 +152,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="12dp"
                 android:textColor="#1d1d26"
-                android:textSize="14dp"
                 android:text="좋은 관계를 맺을려면" />
 
         </LinearLayout>
@@ -197,8 +197,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="12dp"
                 android:textColor="#1d1d26"
-                android:textSize="14dp"
                 android:text="많이 할수록 좋은 것(Do More)" />
 
         </LinearLayout>
@@ -242,8 +242,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="12dp"
                 android:textColor="#1d1d26"
-                android:textSize="14dp"
                 android:text="피해야 할 것(Don't Do it)" />
 
         </LinearLayout>

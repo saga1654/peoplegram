@@ -55,6 +55,8 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
     private String people_data9 = "";
     private String people_data10 = "";
 
+    private String viewType = "my";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +75,7 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
             my_control = intent.getStringExtra("my_control");
             people_speed = intent.getStringExtra("people_speed");
             people_control = intent.getStringExtra("people_control");
+            viewType = intent.getStringExtra("viewType");
 
             switch (gubun1)
             {
@@ -119,7 +122,17 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
             people_total = intent.getStringExtra("people_total");
         }
 
-        Log.d("people_gram", "데이터전달=" + my_speed + ":::" + my_control + ":::" + people_speed + "::" + people_control);
+        Log.d("people_gram", "데이터전달=" + my_speed + ":::" + my_control + ":::" + people_speed + "::" + people_control + ":::" + people_total);
+        Log.d("people_gram", "데이터전달2="+people_data1);
+        Log.d("people_gram", "데이터전달2="+people_data2);
+        Log.d("people_gram", "데이터전달2="+people_data3);
+        Log.d("people_gram", "데이터전달2="+people_data4);
+        Log.d("people_gram", "데이터전달2="+people_data5);
+        Log.d("people_gram", "데이터전달2="+people_data6);
+        Log.d("people_gram", "데이터전달2="+people_data7);
+        Log.d("people_gram", "데이터전달2="+people_data8);
+        Log.d("people_gram", "데이터전달2="+people_data9);
+        Log.d("people_gram", "데이터전달2="+people_data10);
 
         people_content_webview = (WebView) findViewById(R.id.people_content_webview);
         WebSettings webSettings = people_content_webview.getSettings();
@@ -152,9 +165,13 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
 
 
 
-
-        //people_content_webview.loadUrl("file:///android_asset/peopletype_my/" + gubun1 + "/" + gubun1 + "_MY_" + mytype + peopletype + ".html");
-        people_content_webview.loadUrl("file:///android_asset/peopletype_my/" + gubun1 + "/" + gubun1 + "_MY_AA.html");
+        if(viewType.equals("my")) {
+            //people_content_webview.loadUrl("file:///android_asset/peopletype_my/" + gubun1 + "/" + gubun1 + "_MY_" + mytype + peopletype + ".html");
+            people_content_webview.loadUrl("file:///android_asset/peopletype_my/" + gubun1 + "/" + gubun1 + "_MY_AA.html");
+        } else {
+            people_content_webview.loadUrl("file:///android_asset/peopletype_you/" + gubun1 + "/" + gubun1 + "_PEOPLE_" + mytype + peopletype + ".html");
+        }
+        //people_content_webview.loadUrl("file:///android_asset/peopletype_my/" + gubun1 + "/" + gubun1 + "_MY_AA.html");
     }
 
     @Override

@@ -531,6 +531,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                         intent.putExtra("people_data8", P_DATA8);
                         intent.putExtra("people_data9", P_DATA9);
                         intent.putExtra("people_data10", P_DATA10);
+                        intent.putExtra("viewType", "my");
                         startActivity(intent);
                         getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     }
@@ -571,12 +572,34 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
 
                         Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
                         intent.putExtra("mytype", my_type);
+                        intent.putExtra("my_data1", MY_DATA1);
+                        intent.putExtra("my_data2", MY_DATA2);
+                        intent.putExtra("my_data3", MY_DATA3);
+                        intent.putExtra("my_data4", MY_DATA4);
+                        intent.putExtra("my_data5", MY_DATA5);
+                        intent.putExtra("my_data6", MY_DATA6);
+                        intent.putExtra("my_data7", MY_DATA7);
+                        intent.putExtra("my_data8", MY_DATA8);
+                        intent.putExtra("my_data9", MY_DATA9);
+                        intent.putExtra("my_data10", MY_DATA10);
                         intent.putExtra("people_type", people_type);
                         intent.putExtra("gubun1", gubun1);
                         intent.putExtra("my_speed", my_speed);
                         intent.putExtra("my_control", my_control);
                         intent.putExtra("people_speed", people_speed);
                         intent.putExtra("people_control", people_control);
+                        intent.putExtra("people_total", F_DATA_TOTAL);
+                        intent.putExtra("people_data1", F_DATA1);
+                        intent.putExtra("people_data2", F_DATA2);
+                        intent.putExtra("people_data3", F_DATA3);
+                        intent.putExtra("people_data4", F_DATA4);
+                        intent.putExtra("people_data5", F_DATA5);
+                        intent.putExtra("people_data6", F_DATA6);
+                        intent.putExtra("people_data7", F_DATA7);
+                        intent.putExtra("people_data8", F_DATA8);
+                        intent.putExtra("people_data9", F_DATA9);
+                        intent.putExtra("people_data10", F_DATA10);
+                        intent.putExtra("viewType", "my");
                         startActivity(intent);
                         getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     }
@@ -615,12 +638,34 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
 
                         Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
                         intent.putExtra("mytype", my_type);
+                        intent.putExtra("my_data1", MY_DATA1);
+                        intent.putExtra("my_data2", MY_DATA2);
+                        intent.putExtra("my_data3", MY_DATA3);
+                        intent.putExtra("my_data4", MY_DATA4);
+                        intent.putExtra("my_data5", MY_DATA5);
+                        intent.putExtra("my_data6", MY_DATA6);
+                        intent.putExtra("my_data7", MY_DATA7);
+                        intent.putExtra("my_data8", MY_DATA8);
+                        intent.putExtra("my_data9", MY_DATA9);
+                        intent.putExtra("my_data10", MY_DATA10);
                         intent.putExtra("people_type", people_type);
                         intent.putExtra("gubun1", gubun1);
                         intent.putExtra("my_speed", my_speed);
                         intent.putExtra("my_control", my_control);
                         intent.putExtra("people_speed", people_speed);
                         intent.putExtra("people_control", people_control);
+                        intent.putExtra("people_total", L_DATA_TOTAL);
+                        intent.putExtra("people_data1", L_DATA1);
+                        intent.putExtra("people_data2", L_DATA2);
+                        intent.putExtra("people_data3", L_DATA3);
+                        intent.putExtra("people_data4", L_DATA4);
+                        intent.putExtra("people_data5", L_DATA5);
+                        intent.putExtra("people_data6", L_DATA6);
+                        intent.putExtra("people_data7", L_DATA7);
+                        intent.putExtra("people_data8", L_DATA8);
+                        intent.putExtra("people_data9", L_DATA9);
+                        intent.putExtra("people_data10", L_DATA10);
+                        intent.putExtra("viewType", "my");
                         startActivity(intent);
                         getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     }
@@ -686,6 +731,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                         intent.putExtra("people_data8", C_DATA8);
                         intent.putExtra("people_data9", C_DATA9);
                         intent.putExtra("people_data10", C_DATA10);
+                        intent.putExtra("viewType", "my");
                         startActivity(intent);
                         getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     }
@@ -724,12 +770,34 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
 
                         Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
                         intent.putExtra("mytype", my_type);
+                        intent.putExtra("my_data1", MY_DATA1);
+                        intent.putExtra("my_data2", MY_DATA2);
+                        intent.putExtra("my_data3", MY_DATA3);
+                        intent.putExtra("my_data4", MY_DATA4);
+                        intent.putExtra("my_data5", MY_DATA5);
+                        intent.putExtra("my_data6", MY_DATA6);
+                        intent.putExtra("my_data7", MY_DATA7);
+                        intent.putExtra("my_data8", MY_DATA8);
+                        intent.putExtra("my_data9", MY_DATA9);
+                        intent.putExtra("my_data10", MY_DATA10);
                         intent.putExtra("people_type", people_type);
                         intent.putExtra("gubun1", gubun1);
                         intent.putExtra("my_speed", my_speed);
                         intent.putExtra("my_control", my_control);
                         intent.putExtra("people_speed", people_speed);
                         intent.putExtra("people_control", people_control);
+                        intent.putExtra("people_total", S_DATA_TOTAL);
+                        intent.putExtra("people_data1", S_DATA1);
+                        intent.putExtra("people_data2", S_DATA2);
+                        intent.putExtra("people_data3", S_DATA3);
+                        intent.putExtra("people_data4", S_DATA4);
+                        intent.putExtra("people_data5", S_DATA5);
+                        intent.putExtra("people_data6", S_DATA6);
+                        intent.putExtra("people_data7", S_DATA7);
+                        intent.putExtra("people_data8", S_DATA8);
+                        intent.putExtra("people_data9", S_DATA9);
+                        intent.putExtra("people_data10", S_DATA10);
+                        intent.putExtra("viewType", "my");
                         startActivity(intent);
                         getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     }
