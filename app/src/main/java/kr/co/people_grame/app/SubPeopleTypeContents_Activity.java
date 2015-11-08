@@ -64,7 +64,7 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
 
         Intent intent = getIntent();
         if(intent != null) {
-            popup_contents_title.setText("");
+
 
             mytype = intent.getStringExtra("mytype");
             peopletype = intent.getStringExtra("people_type");
@@ -73,6 +73,26 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
             my_control = intent.getStringExtra("my_control");
             people_speed = intent.getStringExtra("people_speed");
             people_control = intent.getStringExtra("people_control");
+
+            switch (gubun1)
+            {
+                case "P":
+                    popup_contents_title.setText("가족들이 생각하는 나의 타입");
+                    break;
+                case "F":
+                    popup_contents_title.setText("친구들이 생각하는 나의 타입");
+                    break;
+                case "L":
+                    popup_contents_title.setText("연인이 생각하는 나의 타입");
+                    break;
+                case "C":
+                    popup_contents_title.setText("직장에서 생각하는 나의 타입");
+                    break;
+                case "S":
+                    popup_contents_title.setText("고객들이 생각하는 나의 타입");
+                    break;
+            }
+
 
             my_data1 = intent.getStringExtra("my_data1");
             my_data2 = intent.getStringExtra("my_data2");
@@ -159,7 +179,7 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
     public void finish()
     {
         super.finish();
-        overridePendingTransition(R.anim.slide_clode_up_info, R.anim.slide_close_down_info);
+        overridePendingTransition(R.anim.slide_close_down_info, R.anim.slide_clode_up_info);
     }
 
 }

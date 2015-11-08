@@ -1,6 +1,7 @@
 package kr.co.people_grame.app;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +18,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 import java.util.ArrayList;
 
@@ -45,23 +49,47 @@ public class SubPeopleSearch_Activity extends AppCompatActivity {
 
                 finish();
 
-                    SubPeopleListDTO dto = (SubPeopleListDTO) sf_people_list.getItemAtPosition(position);
-                    Intent intent = new Intent(SubPeopleSearch_Activity.this, SubPeopleListPopup_Activity.class);
+                final SubPeopleListDTO dto = (SubPeopleListDTO) sf_people_list.getItemAtPosition(position);
 
-                    intent.putExtra("people_uid", dto.get_profile_uid());
-                    intent.putExtra("people_email", dto.get_profile_email());
-                    intent.putExtra("people_username", dto.get_profile_username());
-                    intent.putExtra("people_mood", dto.get_profile_mood());
-                    intent.putExtra("people_type", dto.get_profile_type());
-                    intent.putExtra("people_gubun1", dto.get_profile_gubun1());
-                    intent.putExtra("people_gubun2", dto.get_profile_gubun2());
-                    intent.putExtra("people_speed", dto.get_profile_speed());
-                    intent.putExtra("people_control", dto.get_profile_control());
-                    intent.putExtra("people_result_count", dto.get_profile_cnt());
-                    intent.putExtra("people_friend_count", dto.get_profile_friend_cnt());
+                RequestParams params = new RequestParams();
+                params.put("uid", SharedPreferenceUtil.getSharedPreference(SubPeopleSearch_Activity.this, "uid"));
+                params.put("people_uid", dto.get_profile_uid());
 
-                    startActivityForResult(intent, 000001);
-                    overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                HttpClient.post("/people/peoplePopupView", params, new AsyncHttpResponseHandler() {
+                    public void onStart() {
+                        //dialog = ProgressDialog.show(getActivity(), "", "데이터 수신중");
+                    }
+
+                    public void onFailure() {
+                    }
+
+                    public void onFinish() {
+                                //dialog.dismiss();
+                            }
+
+                    @Override
+                    public void onSuccess(String response) {
+                        Intent intent = new Intent(SubPeopleSearch_Activity.this, SubPeopleListPopup_Activity.class);
+                        intent.putExtra("people_uid", dto.get_profile_uid());
+                        intent.putExtra("people_email", dto.get_profile_email());
+                        intent.putExtra("people_username", dto.get_profile_username());
+                        intent.putExtra("people_mood", dto.get_profile_mood());
+                        intent.putExtra("people_type", dto.get_profile_type());
+                        intent.putExtra("people_gubun1", dto.get_profile_gubun1());
+                        intent.putExtra("people_gubun2", dto.get_profile_gubun2());
+                        intent.putExtra("people_speed", dto.get_profile_speed());
+                        intent.putExtra("people_control", dto.get_profile_control());
+                        intent.putExtra("people_result_count", dto.get_profile_cnt());
+                        intent.putExtra("people_friend_count", dto.get_profile_friend_cnt());
+                        intent.putExtra("people_coaching", response);
+
+                        startActivityForResult(intent, 000001);
+                        overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                    }
+                });
+
+
+
 
 
             }
