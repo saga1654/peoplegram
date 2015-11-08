@@ -82,24 +82,45 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
 
             switch (gubun1)
             {
+
                 case "P":
-                    popup_contents_title.setText("가족들이 생각하는 나의 타입");
+                    if(viewType.equals("my")) {
+                        popup_contents_title.setText("가족들이 생각하는 나의 타입");
+                    }else {
+                        popup_contents_title.setText("피플의 가족들이 생각하는 피플타입");
+                    }
                     gubun_type = "가족";
                     break;
                 case "F":
-                    popup_contents_title.setText("친구들이 생각하는 나의 타입");
+                    if(viewType.equals("my")) {
+                        popup_contents_title.setText("친구들이 생각하는 나의 타입");
+                    }else{
+                        popup_contents_title.setText("피플의 친구들이 생각하는 피플타입");
+                    }
                     gubun_type = "친구";
                     break;
                 case "L":
-                    popup_contents_title.setText("연인이 생각하는 나의 타입");
+                    if(viewType.equals("my")) {
+                        popup_contents_title.setText("연인이 생각하는 나의 타입");
+                    }else{
+                        popup_contents_title.setText("피플의 연인이 생각하는 피플타입");
+                    }
                     gubun_type = "연인";
                     break;
                 case "C":
-                    popup_contents_title.setText("직장에서 생각하는 나의 타입");
+                    if(viewType.equals("my")) {
+                        popup_contents_title.setText("직장에서 생각하는 나의 타입");
+                    }else{
+                        popup_contents_title.setText("피플의 직장에서 생각하는 피플타입");
+                    }
                     gubun_type = "직장";
                     break;
                 case "S":
-                    popup_contents_title.setText("고객들이 생각하는 나의 타입");
+                    if(viewType.equals("my")) {
+                        popup_contents_title.setText("고객들이 생각하는 나의 타입");
+                    }else{
+                        popup_contents_title.setText("피플의 고객들이 생각하는 피플타입");
+                    }
                     gubun_type = "고객";
                     break;
             }
