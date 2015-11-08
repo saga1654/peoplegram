@@ -56,6 +56,7 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
     private String people_data10 = "";
 
     private String viewType = "my";
+    private String gubun_type = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,18 +82,23 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
             {
                 case "P":
                     popup_contents_title.setText("가족들이 생각하는 나의 타입");
+                    gubun_type = "가족";
                     break;
                 case "F":
                     popup_contents_title.setText("친구들이 생각하는 나의 타입");
+                    gubun_type = "친구";
                     break;
                 case "L":
                     popup_contents_title.setText("연인이 생각하는 나의 타입");
+                    gubun_type = "연인";
                     break;
                 case "C":
                     popup_contents_title.setText("직장에서 생각하는 나의 타입");
+                    gubun_type = "직장";
                     break;
                 case "S":
                     popup_contents_title.setText("고객들이 생각하는 나의 타입");
+                    gubun_type = "고객";
                     break;
             }
 
@@ -140,8 +146,9 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
         people_content_webview.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
+
+                people_content_webview.loadUrl("javascript:type_chart(" + my_speed + ", "+my_control+","+people_speed+","+people_control+", '"+gubun_type+"')");
                 people_content_webview.loadUrl("javascript:nameView('" + SharedPreferenceUtil.getSharedPreference(SubPeopleTypeContents_Activity.this, "username") + "','')");
-                people_content_webview.loadUrl("javascript:type_chart(" + my_speed + ", "+my_control+","+people_speed+","+people_control+")");
 
                 people_content_webview.loadUrl("javascript:tip_match(" + my_speed + ", "+my_control+","+people_speed+","+people_control+")");
                 people_content_webview.loadUrl("javascript:tip_graph('1', '1', "+people_total+","+people_data1+")");
@@ -166,8 +173,8 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
 
 
         if(viewType.equals("my")) {
-            //people_content_webview.loadUrl("file:///android_asset/peopletype_my/" + gubun1 + "/" + gubun1 + "_MY_" + mytype + peopletype + ".html");
-            people_content_webview.loadUrl("file:///android_asset/peopletype_my/" + gubun1 + "/" + gubun1 + "_MY_AA.html");
+            people_content_webview.loadUrl("file:///android_asset/peopletype_my/" + gubun1 + "/" + gubun1 + "_MY_" + mytype + peopletype + ".html");
+            //people_content_webview.loadUrl("file:///android_asset/peopletype_my/" + gubun1 + "/" + gubun1 + "_MY_AA.html");
         } else {
             people_content_webview.loadUrl("file:///android_asset/peopletype_you/" + gubun1 + "/" + gubun1 + "_PEOPLE_" + mytype + peopletype + ".html");
         }
