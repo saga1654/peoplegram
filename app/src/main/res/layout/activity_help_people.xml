@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:background="#8C666666"
-tools:context="kr.co.people_grame.app.SubPeopleListPopup_Activity">
+android:background="#8C666666">
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -68,7 +67,7 @@ tools:context="kr.co.people_grame.app.SubPeopleListPopup_Activity">
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/close_btn"/>
+                android:src="@drawable/close_btn" />
 
 
         </LinearLayout>
