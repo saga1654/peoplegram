@@ -486,3 +486,9 @@
         			$("#right"+id+"_title").html(right_title+"("+per_right+"%)");
 
         		}
+
+
+        function uid_view(uid)
+        {
+	        $("#uid").val(uid);
+        }

@@ -28,7 +28,7 @@ import org.json.JSONObject;
 public class SubMypageFragment extends Fragment {
 
     private LinearLayout mypage_people_btn, mypage_gram_store_btn;
-    private LinearLayout mypage_all_btn, mypage_family_btn, mypage_friend_btn, mypage_lover_btn, mypage_job_btn, mypage_client_btn;
+    private LinearLayout mypage_all_btn, mypage_family_btn, mypage_friend_btn, mypage_lover_btn, mypage_job_btn, mypage_client_btn, mypage_panel_btn;
     private TextView et_all, et_family, et_friend, et_lover, et_job, et_client;
     private WebView chart_webview;
 
@@ -53,6 +53,8 @@ public class SubMypageFragment extends Fragment {
         mypage_lover_btn = (LinearLayout) rootView.findViewById(R.id.mypage_lover_btn);
         mypage_job_btn = (LinearLayout) rootView.findViewById(R.id.mypage_job_btn);
         mypage_client_btn = (LinearLayout) rootView.findViewById(R.id.mypage_client_btn);
+
+        mypage_panel_btn = (LinearLayout) rootView.findViewById(R.id.mypage_panel_btn);
 
 
         et_all = (TextView) rootView.findViewById(R.id.et_all);
@@ -215,6 +217,15 @@ public class SubMypageFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), SubGramPoint.class);
                 startActivity(intent);
                 getActivity().overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+            }
+        });
+
+        mypage_panel_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PanelActivity.class);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
 

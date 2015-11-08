@@ -253,7 +253,27 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                         default:
                             listview_mytype_switch.setChecked(false);
 
-                            Toast.makeText(SubPeopleListSelect_Activity.this, "피플들에게 나의 진단을 요청해주세요.", Toast.LENGTH_LONG).show();
+                            switch (people_gubun1)
+                            {
+                                case "P":
+                                    Toast.makeText(SubPeopleListSelect_Activity.this, "가족들에게 나의 진단을 요청해주세요.", Toast.LENGTH_LONG).show();
+                                    break;
+
+                                case "F":
+                                    Toast.makeText(SubPeopleListSelect_Activity.this, "친구들에게 나의 진단을 요청해주세요.", Toast.LENGTH_LONG).show();
+                                    break;
+                                case "L":
+                                    Toast.makeText(SubPeopleListSelect_Activity.this, "연인에게 나의 진단을 요청해주세요.", Toast.LENGTH_LONG).show();
+                                    break;
+                                case "C":
+                                    Toast.makeText(SubPeopleListSelect_Activity.this, "직장피플에게 나의 진단을 요청해주세요.", Toast.LENGTH_LONG).show();
+                                    break;
+                                case "S":
+                                    Toast.makeText(SubPeopleListSelect_Activity.this, "고객피플들에게 나의 진단을 요청해주세요.", Toast.LENGTH_LONG).show();
+                                    break;
+                            }
+
+
 
                             switch (mytype) {
                                 case "A":
@@ -373,6 +393,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                             }
                             break;
                         default:
+                            /*
                             popup_youtype.setBackgroundResource(R.mipmap.people_type_default);
                             if (listview_mytype_switch.isChecked() == false) {
                                 double total = Utilities.people_match_int(my_speed, people_sub_speed, my_control, people_sub_control);
@@ -383,6 +404,9 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                                 graph(total);
                                 peopleTextView.setText(Utilities.peopleContectView(SubPeopleListSelect_Activity.this, people_gubun1, total));
                             }
+                            */
+                            listview_youtype_switch.setChecked(false);
+                            Toast.makeText(SubPeopleListSelect_Activity.this, "피플들의 진단이 부족합니다.", Toast.LENGTH_LONG).show();
                             break;
                     }
                 }
