@@ -77,7 +77,7 @@
                         android:layout_height="wrap_content"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
-                        android:text="아래 기초 프로파일을 통해 가격 얻기를 하시면 2,000그램을 받으시고 추후 여러 가지 간단한 여론조사에 참여하여 그램포인트를 받을 수 있는 기회를 얻게 됩니다."
+                        android:text="아래 기초 프로파일을 통해 간단한 정보를 등록하면 곧바로 2,000그램을 받을 수 있습니다.\n 또한 추후 여러 가지 여론조사에 참여하여 그램포인트를 받을 수 있는 기회를 얻게 됩니다."
                         android:textColor="#fff"/>
 
                 </LinearLayout>
