@@ -42,7 +42,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="가족들이 생각하는 나의 타입"
+                        android:text="피플의 가족들이 생각하는 피플타입"
                         android:textSize="12dp"
                         android:textColor="#1d1d26" />
 
@@ -56,7 +56,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="본인 포함 최소 2명 이상 진단된 경우에 볼 수 있습니다."
+                        android:text="최소 2명 이상 피플 진단된 경우에 볼 수 있습니다."
                         android:textSize="9dp"
                         android:textColor="#696969"/>
 
@@ -148,7 +148,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12dp"
-                        android:text="친구들이 생각하는 나의 타입"
+                        android:text="피플의 친구들이 생각하는 피플타입"
                         android:textColor="#1d1d26" />
 
                 </LinearLayout>
@@ -161,7 +161,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="본인 제외 최소 3명 이상 진단된 경우에 볼 수 있습니다."
+                        android:text="최소 3명 이상 피플 진단된 경우에 볼 수 있습니다."
                         android:textSize="9dp"
                         android:textColor="#696969"/>
 
@@ -254,7 +254,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14dp"
-                        android:text="연인이 생각하는 나의 타입"
+                        android:text="피플의 연인이 생각하는 타입"
                         android:textColor="#1d1d26" />
 
                 </LinearLayout>
@@ -267,7 +267,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="연인으로 설정된 피플이 진단된 경우에 볼 수 있습니다."
+                        android:text="피플의 연인으로 설정된 피플이 진단된 경우에 볼 수 있습니다."
                         android:textSize="9dp"
                         android:textColor="#696969"/>
 
@@ -356,7 +356,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12dp"
-                        android:text="직장에서 생각하는 나의 타입"
+                        android:text="피플의 직장에서 생각하는 피플타입"
                         android:textColor="#1d1d26" />
 
                 </LinearLayout>
@@ -369,7 +369,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="본인 제외 최소 3명 이상 진단된 경우에 볼 수 있습니다."
+                        android:text="최소 3명 이상 직장피플이 진단된 경우에 볼 수 있습니다."
                         android:textSize="9dp"
                         android:textColor="#696969"/>
 
@@ -461,7 +461,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12dp"
-                        android:text="고객들이 생각하는 나의 타입"
+                        android:text="피플의 고객들이 생각하는 피플타입"
                         android:textColor="#1d1d26" />
 
                 </LinearLayout>
