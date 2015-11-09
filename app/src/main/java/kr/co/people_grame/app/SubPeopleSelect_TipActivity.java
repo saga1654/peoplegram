@@ -78,7 +78,7 @@ public class SubPeopleSelect_TipActivity extends AppCompatActivity {
                 if(tipType.equals("2")) {
                     people_content_webview.loadUrl("file:///android_asset/tip/" + gubun1 + gubun2 + "/tip" + tipType + "_" + gubun1 + gubun2 + "_MY_" + mytype + ".html");
                 } else {
-                    people_content_webview.loadUrl("file:///android_asset/tip/" + gubun1 + gubun2 + "/tip" + tipType + "_" + gubun1 + gubun2 + "_" + viewType + "_" + peopletype + ".html");
+                    people_content_webview.loadUrl("file:///android_asset/tip/" + gubun1 + gubun2 + "/tip" + tipType + "_" + gubun1 + gubun2 +  "_YOU_" + peopletype + ".html");
                 }
 
             } else {
