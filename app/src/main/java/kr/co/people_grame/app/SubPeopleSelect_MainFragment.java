@@ -156,6 +156,8 @@ public class SubPeopleSelect_MainFragment extends Fragment {
                 resName = "@string/tip" + i + "_" + gubun1;
             } else if(gubun1.equals("L")) {
                 resName = "@string/tip" + i + "_" + gubun1;
+            } else if(gubun1.equals("S")) {
+                resName = "@string/tip" + i + "_" + gubun1;
             } else {
                 resName = "@string/tip" + i + "_" + gubun1 + gubun2;
             }
