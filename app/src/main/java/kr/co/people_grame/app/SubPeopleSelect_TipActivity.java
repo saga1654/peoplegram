@@ -61,11 +61,19 @@ public class SubPeopleSelect_TipActivity extends AppCompatActivity {
             people_content_webview.loadUrl("file:///android_asset/tip/DEFAULT/tip1_YOU_" + peopletype + ".html");
         } else {
             if(gubun1.equals("F")) {
-                if(tipType.equals("2")) {
-                    people_content_webview.loadUrl("file:///android_asset/tip/" + gubun1 + gubun2 + "/tip" + tipType + "_" + gubun1 + gubun2 + "_MY_" + peopletype + ".html");
+                if (tipType.equals("2")) {
+                    people_content_webview.loadUrl("file:///android_asset/tip/" + gubun1 + "/tip" + tipType + "_" + gubun1 + "_ME_" + peopletype + ".html");
                 } else {
-                    people_content_webview.loadUrl("file:///android_asset/tip/" + gubun1 + gubun2 + "/tip" + tipType + "_" + gubun1 + gubun2 + "_" + viewType + "_" + peopletype + ".html");
+                    people_content_webview.loadUrl("file:///android_asset/tip/" + gubun1 + "/tip" + tipType + "_" + gubun1 + "_YOU_" + peopletype + ".html");
                 }
+            } else if(gubun1.equals("L")) {
+                if (tipType.equals("2")) {
+                    people_content_webview.loadUrl("file:///android_asset/tip/" + gubun1 + "/tip" + tipType + "_" + gubun1 + "_YOU_" + peopletype + ".html");
+                } else {
+                    people_content_webview.loadUrl("file:///android_asset/tip/" + gubun1 + "/tip" + tipType + "_" + gubun1 + "_YOU_" + peopletype + ".html");
+                }
+            } else if(gubun1.equals("S")) {
+                people_content_webview.loadUrl("file:///android_asset/tip/" + gubun1 + "/tip" + tipType + "_" + gubun1 + "_YOU_" + peopletype + ".html");
             } else if(gubun1.equals("PD")) {
                 if(tipType.equals("2")) {
                     people_content_webview.loadUrl("file:///android_asset/tip/" + gubun1 + gubun2 + "/tip" + tipType + "_" + gubun1 + gubun2 + "_MY_" + peopletype + ".html");

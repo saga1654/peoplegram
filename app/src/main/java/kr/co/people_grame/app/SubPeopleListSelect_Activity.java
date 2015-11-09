@@ -521,6 +521,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                         tip3_line.setBackgroundColor(Color.rgb(255,255,255));
 
 
+
                         fragmentManager = getSupportFragmentManager();
                         ft = fragmentManager.beginTransaction();
 
@@ -550,6 +551,8 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                                     JSONObject jobj = new JSONObject(response);
                                     Log.d("people_gram", jobj.getString("code"));
                                     if (jobj.getString("code").equals("999")) {
+
+
                                         tv_tip1.setTextColor(Color.rgb(0, 0, 0));
                                         tv_tip2.setTextColor(Color.rgb(254, 23, 5));
                                         tv_tip3.setTextColor(Color.rgb(0, 0, 0));
@@ -601,6 +604,8 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                         tip1_line.setBackgroundColor(Color.rgb(255, 255, 255));
                         tip2_line.setBackgroundColor(Color.rgb(255,255,255));
                         tip3_line.setBackgroundColor(Color.rgb(254, 23, 5));
+
+
 
 
                         fragmentManager = getSupportFragmentManager();
@@ -798,10 +803,13 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
             if (requestCode == 1) {
                 String yn = data.getStringExtra("data_OK");
                 if(yn.equals("OK") == true) {
-                    li_tip1.setBackgroundColor(Color.rgb(241, 241, 241));
+
                     tv_tip1.setTextColor(Color.rgb(0, 0, 0));
-                    li_tip2.setBackgroundColor(Color.rgb(77, 77, 77));
-                    tv_tip2.setTextColor(Color.rgb(255, 255, 255));
+                    tv_tip2.setTextColor(Color.rgb(254, 23, 5));
+                    tv_tip3.setTextColor(Color.rgb(0, 0, 0));
+                    tip1_line.setBackgroundColor(Color.rgb(255, 255, 255));
+                    tip2_line.setBackgroundColor(Color.rgb(254, 23, 5));
+                    tip3_line.setBackgroundColor(Color.rgb(255, 255, 255));
 
                     payment_result = true;
 
