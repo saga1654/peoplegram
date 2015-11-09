@@ -433,50 +433,50 @@
         			per_left = 100 - per_right;
 
 					if(id == "1"){
-						left_title = "빠른편";
-						right_title = "느린편";
+						left_title = "느린편";
+						right_title = "빠른편";
 					}
 					if(id == "2"){
-						left_title  = "안바꾸는편";
-						right_title = "바꾸는편";
+						left_title  = "바꾸는편";
+						right_title = "안바꾸는편";
 					}
 					if(id == "3"){
-						left_title  = "말하는편";
-						right_title = "듣는편";
+						left_title  = "듣는편";
+						right_title = "말하는편";
 					}
 					if(id == "4"){
-						left_title = "표현안하는";
-						right_title = "표현하는";
+						left_title = "표현하는";
+						right_title = "표현안하는";
 					}
 
 					if(id == "5"){
-						left_title = "빠른편";
-						right_title = "느린편";
+						left_title = "느린편";
+						right_title = "빠른편";
 					}
 
 					if(id == "6"){
-						left_title = "냉정하다";
-						right_title = "따뜻하다";
+						left_title = "따뜻하다";
+						right_title = "냉정하다";
 					}
 
 					if(id == "7"){
-						left_title = "주도하는";
-						right_title = "따라가는";
+						left_title = "따라가는";
+						right_title = "주도하는";
 					}
 
 					if(id == "8"){
-						left_title = "없는편";
-						right_title = "다양편";
+						left_title = "다양편";
+						right_title = "없는편";
 					}
 
 					if(id == "9"){
-						left_title = "행동적";
-						right_title = "신중한";
+						left_title = "신중한";
+						right_title = "행동적";
 					}
 
 					if(id == "10"){
-						left_title = "엄격한";
-						right_title = "간혹어기는";
+						left_title = "간혹어기는";
+						right_title = "엄격한";
 					}
 
         			$("#left"+id).css({"width":per_left+"%"});
