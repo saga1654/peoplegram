@@ -483,7 +483,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="16dp"
                     android:textColor="#1d1d26"
-                    android:text="돼지 패널" />
+                    android:text="패널조사(그램 얻기)" />
 
             </LinearLayout>
         </LinearLayout>
