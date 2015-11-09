@@ -81,6 +81,8 @@ public class SubPeopleFragment extends Fragment {
 
     private Switch listview_youtype_switch;
 
+    private Boolean people_popupview = false;
+
     public SubPeopleFragment() {
     }
 
@@ -203,14 +205,24 @@ public class SubPeopleFragment extends Fragment {
             }
         });
 
-        listview_people_all_cnt = (TextView) rootView.findViewById(R.id.listview_people_all_cnt);
+        //listview_people_all_cnt = (TextView) rootView.findViewById(R.id.listview_people_all_cnt);
         help_btn = (ImageView) rootView.findViewById(R.id.help_btn);
         help_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*
                 View popupView = getActivity().getLayoutInflater().inflate(R.layout.activity_help_people, null);
                 PopupWindow mPopupWindow = new PopupWindow(popupView, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
                 mPopupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
+
+                people_popupview = true;
+                */
+
+                Intent intent = new Intent(getActivity(), People_Help_Activity.class);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+
+
                 //mPopupWindow.setAnimationStyle(-1);
                 //mPopupWindow.showAsDropDown(q_btn, 50, 50);
             }
@@ -803,11 +815,10 @@ public class SubPeopleFragment extends Fragment {
                 dialog = ProgressDialog.show(getActivity(), "", "데이터 수신중");
             }
 
-            public void onFailure()
-            {
+            public void onFailure() {
             }
 
-            public void onFinish()  {
+            public void onFinish() {
                 dialog.dismiss();
             }
 
@@ -834,34 +845,34 @@ public class SubPeopleFragment extends Fragment {
                     //Log.d("people_gram", i_total + ":::" + d_total + ":::" + e_total + ":::" + a_total);
 
 
-                    listview_people_all_cnt.setText(all_total);
+                    //listview_people_all_cnt.setText(all_total);
                     my_profile_i_now_cnt.setText(i_total);
                     my_profile_d_now_cnt.setText(d_total);
                     my_profile_e_now_cnt.setText(e_total);
                     my_profile_a_now_cnt.setText(a_total);
 
-                    if(my_i_now_total.equals("0")) {
+                    if (my_i_now_total.equals("0")) {
                         my_profile_i_up_icon.setVisibility(View.GONE);
                         my_profile_i_up_cnt.setVisibility(View.GONE);
                     } else {
                         my_profile_i_up_cnt.setText(my_i_now_total);
                     }
 
-                    if(my_d_now_total.equals("0")) {
+                    if (my_d_now_total.equals("0")) {
                         my_profile_d_up_icon.setVisibility(View.GONE);
                         my_profile_d_up_cnt.setVisibility(View.GONE);
                     } else {
                         my_profile_d_up_cnt.setText(my_d_now_total);
                     }
 
-                    if(my_e_now_total.equals("0")) {
+                    if (my_e_now_total.equals("0")) {
                         my_profile_e_up_icon.setVisibility(View.GONE);
                         my_profile_e_up_cnt.setVisibility(View.GONE);
                     } else {
                         my_profile_e_up_cnt.setText(my_e_now_total);
                     }
 
-                    if(my_a_now_total.equals("0")) {
+                    if (my_a_now_total.equals("0")) {
                         my_profile_a_up_icon.setVisibility(View.GONE);
                         my_profile_a_up_cnt.setVisibility(View.GONE);
                     } else {
@@ -934,15 +945,15 @@ public class SubPeopleFragment extends Fragment {
 
                         all_cnt++;
 
-                        if(gubun1.equals("P")) {
+                        if (gubun1.equals("P")) {
                             p_cnt++;
-                        } else if(gubun1.equals("F")) {
+                        } else if (gubun1.equals("F")) {
                             f_cnt++;
-                        } else if(gubun1.equals("L")) {
+                        } else if (gubun1.equals("L")) {
                             l_cnt++;
-                        } else if(gubun1.equals("C")) {
+                        } else if (gubun1.equals("C")) {
                             c_cnt++;
-                        } else if(gubun1.equals("S")) {
+                        } else if (gubun1.equals("S")) {
                             s_cnt++;
                         } else {
                             n_cnt++;
@@ -970,10 +981,9 @@ public class SubPeopleFragment extends Fragment {
                         }
 
 
-
                         Log.d("people_gram", searchType);
 
-                        if(searchType.equals("ALL")) {
+                        if (searchType.equals("ALL")) {
                             people_dto_list.add(new SubPeopleListDTO(
                                     jobj.getString("PEOPLE_UID")
                                     , ""
@@ -991,7 +1001,7 @@ public class SubPeopleFragment extends Fragment {
                             ));
                         } else {
 
-                            if(gubun1.equals(searchType)) {
+                            if (gubun1.equals(searchType)) {
                                 people_dto_list.add(new SubPeopleListDTO(
                                         jobj.getString("PEOPLE_UID")
                                         , ""
@@ -1036,7 +1046,6 @@ public class SubPeopleFragment extends Fragment {
                     sf_people_list.setSelection(pos);
 
 
-
                     et_all_cnt.setText(String.valueOf(all_cnt));
                     et_p_cnt.setText(String.valueOf(p_cnt));
                     et_f_cnt.setText(String.valueOf(f_cnt));
@@ -1059,6 +1068,7 @@ public class SubPeopleFragment extends Fragment {
 
 
     }
+
 
     @Override
     public void onPause()

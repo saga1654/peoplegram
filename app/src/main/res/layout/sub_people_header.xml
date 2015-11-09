@@ -33,7 +33,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.80">
+                android:layout_weight="0.90">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -48,14 +48,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:paddingRight="10dp"
-                android:layout_weight="0.10">
+                android:layout_weight="0.05">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/panel_sign"
-                    android:src="@drawable/panel_btn"></ImageView>
+                    android:src="@drawable/panel_join_btn"></ImageView>
 
             </LinearLayout>
             <LinearLayout
@@ -63,13 +62,13 @@
                 android:layout_height="wrap_content"
                 android:gravity="right"
                 android:paddingRight="10dp"
-                android:layout_weight="0.10">
+                android:layout_weight="0.05">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/btn_question_re"
-                    android:src="@drawable/main_myprofile_btn"></ImageView>
+                    android:src="@drawable/my_question_re_btn"></ImageView>
 
             </LinearLayout>
 
@@ -184,29 +183,35 @@
                         android:layout_weight="0.50">
 
 
-                        <Switch
-                            android:id="@+id/listview_youtype_switch"
-                            android:layout_width="65dp"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/popup_type1"
-                            android:thumb="@android:color/transparent"
-                            android:track="@android:color/transparent" />
 
 
+
+                        <!--
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="10dp"
                             android:src="@drawable/people_cnt_icon"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="5dp"
+                            android:paddingRight="10dp"
                             android:text="10명"
                             android:textSize="12dp"
                             android:id="@+id/listview_people_all_cnt"
                             android:textColor="#000" />
+                            -->
+
+
+                        <Switch
+                            android:id="@+id/listview_youtype_switch"
+                            android:layout_width="65dp"
+                            android:paddingLeft="20dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/popup_type1"
+                            android:thumb="@android:color/transparent"
+                            android:track="@android:color/transparent" />
 
                     </LinearLayout>
 
