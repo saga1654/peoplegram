@@ -294,6 +294,10 @@
             android:name=".PanelActivity"
             android:theme="@style/AppTheme" >
         </activity>
+        <activity
+            android:name=".People_Help_Activity"
+            android:theme="@style/TransparentTheme">
+        </activity>
     </application>
 
 </manifest>
