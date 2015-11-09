@@ -88,7 +88,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
             int resID = getResources().getIdentifier("@string/co_"+people_coaching, "string", getPackageName());
             today_coaching.setText(resID);
-            today_coaching.setText("오늘의 코칭  :  " + String.valueOf(today_coaching.getText()));
+            today_coaching.setText("오늘의 관계코칭  :  " + String.valueOf(today_coaching.getText()));
 
 
             //et_people_friend_count.setText("등록 피플수 : "+people_friend_count+"명");
