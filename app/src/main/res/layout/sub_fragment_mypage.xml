@@ -53,9 +53,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="자기진단 : 우호형"
+                    android:text="포인트 충전소  >"
                     android:textColor="#ffffff"
-                    android:id="@+id/mypage_type" />
+                    android:id="@+id/point_add" />
 
             </LinearLayout>
 
@@ -340,7 +340,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/mypage01_icon"/>
+                    android:src="@drawable/mypage04_icon"/>
 
             </LinearLayout>
 
@@ -353,7 +353,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="16dp"
                     android:textColor="#1d1d26"
-                    android:text="피플관리" />
+                    android:text="피플 동기화" />
 
             </LinearLayout>
 
@@ -388,12 +388,25 @@
 
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f1f1f1">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f1f1f1">
+
+    </LinearLayout>
+    <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="1"
         android:padding="20dp"
-        android:id="@+id/mypage_gram_store_btn">
+        android:id="@+id/hidden_people_btn">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -409,8 +422,8 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/point_icon"
-                    android:id="@+id/imageView" />
+                    android:src="@drawable/mypage01_icon"/>
+
             </LinearLayout>
 
             <LinearLayout
@@ -422,9 +435,15 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="16dp"
                     android:textColor="#1d1d26"
-                    android:text="그램스토어" />
+                    android:text="숨긴 피플관리" />
 
             </LinearLayout>
+
+
+
+
+
+
         </LinearLayout>
 
         <LinearLayout
@@ -436,7 +455,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/setting_next_icon" />
+                android:src="@drawable/setting_next_icon"/>
 
         </LinearLayout>
 
@@ -449,59 +468,14 @@
 
     </LinearLayout>
 
+
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="1"
-        android:padding="20dp"
-        android:id="@+id/mypage_panel_btn">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.70">
-
-
-            <LinearLayout
-                android:layout_width="40dp"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/panel_icon" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="16dp"
-                    android:textColor="#1d1d26"
-                    android:text="패널조사(그램 얻기)" />
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.30"
-            android:gravity="right|center">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/setting_next_icon" />
-
-        </LinearLayout>
+        android:layout_height="1dp"
+        android:background="#f1f1f1">
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="1dp"
