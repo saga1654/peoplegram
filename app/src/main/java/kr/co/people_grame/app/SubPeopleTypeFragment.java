@@ -179,7 +179,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
 
 
     private TextView people1_cnt, people2_cnt, people3_cnt, people4_cnt, people5_cnt;
-    private TextView tv_mytype1;
+    private TextView tv_mytype1,tv_mytype2,tv_mytype3,tv_mytype4,tv_mytype5;
 
     private String username = "";
 
@@ -476,7 +476,11 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
         mytype = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
         username = SharedPreferenceUtil.getSharedPreference(getActivity(), "username");
 
-        tv_mytype1.setText(Html.fromHtml("가족이 생각하는 <b color='#ccc;'>"+username+"</b> 나의타입"));
+        tv_mytype1.setText(Html.fromHtml("가족들이 생각하는 <b color='#32354d;'>"+username+"</b> 나의타입"));
+        tv_mytype2.setText(Html.fromHtml("친구들이 생각하는 <b color='#32354d;'>"+username+"</b> 나의타입"));
+        tv_mytype3.setText(Html.fromHtml("연인이 생각하는 <b color='#32354d;'>"+username+"</b> 나의타입"));
+        tv_mytype4.setText(Html.fromHtml("직장에서 생각하는 <b color='#32354d;'>"+username+"</b> 나의타입"));
+        tv_mytype5.setText(Html.fromHtml("고객들이 생각하는 <b color='#32354d;'>"+username+"</b> 나의타입"));
 
         dataResult();
 
