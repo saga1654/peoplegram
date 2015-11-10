@@ -199,10 +199,17 @@ public class LogoActivity extends AppCompatActivity {
                 frameAnimation.stop();
 
                 if(SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "uid") == "") {
-                    Intent intent = new Intent(LogoActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
-                    finish();
+                    if(SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "mytype") == "") {
+                        Intent intent = new Intent(LogoActivity.this, MemberComplate_Activity.class);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
+                        finish();
+                    } else {
+                        Intent intent = new Intent(LogoActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+                        finish();
+                    }
                     //login_activity_li_btn.setVisibility(View.VISIBLE);
                 } else {
                     RequestParams params = new RequestParams();
@@ -230,11 +237,17 @@ public class LogoActivity extends AppCompatActivity {
                                 SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "panelYN", jobj.getString("PANEL"));
 
 
-
-                                Intent intent = new Intent(LogoActivity.this, MainActivity.class);
-                                startActivity(intent);
-                                overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
-                                finish();
+                                if(jobj.getString("MYTYPE").equals("")) {
+                                    Intent intent = new Intent(LogoActivity.this, MemberComplate_Activity.class);
+                                    startActivity(intent);
+                                    overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
+                                    finish();
+                                } else {
+                                    Intent intent = new Intent(LogoActivity.this, MainActivity.class);
+                                    startActivity(intent);
+                                    overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+                                    finish();
+                                }
 
 
                             } catch (JSONException e) {

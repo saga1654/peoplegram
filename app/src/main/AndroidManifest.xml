@@ -307,6 +307,37 @@
             android:label="@string/title_activity_member_join_step2_"
             android:theme="@style/AppTheme" >
         </activity>
+        <activity
+            android:name=".MemberJoinStep3_Activity"
+            android:label="@string/title_activity_member_join_step3_"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".MemberJoinStep4_Activity"
+            android:label="@string/title_activity_member_join_step4_"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".MemberJoinStep5_Activity"
+            android:label="@string/title_activity_member_join_step5_"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".MemberJoinStep6_Activity"
+            android:label="@string/title_activity_member_join_step6_"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".MemberJoinStep7_Activity"
+            android:label="@string/title_activity_member_join_step7_"
+            android:theme="@style/AppTheme" >
+
+        </activity>
+        <activity
+            android:name=".MemberComplate_Activity"
+            android:label="@string/title_activity_member_complate_"
+            android:theme="@style/AppTheme" >
+        </activity>
     </application>
 
 </manifest>

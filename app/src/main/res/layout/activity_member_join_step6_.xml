@@ -32,7 +32,7 @@
                 android:textColor="#30344c"
                 android:textStyle="bold"
                 android:textSize="14dp"
-                android:text="이메일주소"/>
+                android:text="생년월일은 어떻게 되시나요?"/>
 
 
         </LinearLayout>
@@ -51,14 +51,14 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/et_email"
+                android:id="@+id/et_birthday"
                 android:background="#fff"
                 android:textColorHint="#eeeeee"
-                android:hint="이메일 주소를 입력하세요."
+                android:hint="생년월일을 선택해주세요."
                 android:textSize="11dp"
                 android:textColor="#30344c"
                 android:singleLine="true"
-                android:inputType="textEmailAddress"
+                android:inputType="text"
                 android:padding="8dp">
                 <requestFocus />
             </EditText>
@@ -78,7 +78,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="로그인할 때 또는 비밀번호를 재설정할 때 이 이메일 주소를 사용합니다."
+                android:text="@string/memberjoin_step4_text1"
                 android:textSize="10dp"
                 android:textColor="#30344c"
                 android:id="@+id/memberjoin_step2_tv" />

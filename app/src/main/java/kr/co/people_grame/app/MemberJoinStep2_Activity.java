@@ -8,12 +8,14 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -31,6 +33,11 @@ public class MemberJoinStep2_Activity extends AppCompatActivity {
     private LinearLayout nextLL;
     private EditText et_email;
     private ProgressDialog dialog;
+    private TextView memberjoin_step2_tv;
+    private String memberjoin_step2_string;
+
+    private MemberData md;
+    private Boolean enterCheck = false;
 
 
     @Override
@@ -40,8 +47,14 @@ public class MemberJoinStep2_Activity extends AppCompatActivity {
         nextLL = (LinearLayout) findViewById(R.id.nextLL);
         nextLL.setVisibility(View.GONE);
 
+        md = new MemberData();
+
+
+        memberjoin_step2_string = getString(R.string.memberjoin_step2_text1);
 
         et_email = (EditText) findViewById(R.id.et_email);
+        memberjoin_step2_tv = (TextView) findViewById(R.id.memberjoin_step2_tv);
+        memberjoin_step2_tv.setText(Html.fromHtml(memberjoin_step2_string));
 
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
@@ -50,38 +63,60 @@ public class MemberJoinStep2_Activity extends AppCompatActivity {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if(keyCode == KeyEvent.KEYCODE_ENTER) {
-                    //Log.d("people_gram", "엔터");
-                    if(emailCheck(et_email.getText()) == false) {
-                        Log.d("people_gram", "이메일을 확인해주세요.");
-                    } else {
-                        RequestParams params = new RequestParams();
-                        params.put("userID", et_email.getText());
-                        HttpClient.post("/user/emailCheck", params, new AsyncHttpResponseHandler() {
-                            public void onStart() {
-                                dialog = ProgressDialog.show(MemberJoinStep2_Activity.this, "", "데이터 수신중");
-                            }
-
-                            public void onFinish() {
-                                dialog.dismiss();
-                            }
-
-                            @Override
-                            public void onSuccess(String response)
-                            {
-                                Log.d("people_gram", response);
-                                try {
-                                    JSONObject jobj = new JSONObject(response);
-
-
-                                } catch(JSONException e) {
-                                    e.printStackTrace();
+                    if(enterCheck == false) {
+                        enterCheck = true;
+                        if (emailCheck(et_email.getText()) == false) {
+                            Log.d("people_gram", "이메일을 확인해주세요.");
+                        } else {
+                            RequestParams params = new RequestParams();
+                            params.put("userID", et_email.getText().toString());
+                            HttpClient.post("/user/emailCheck", params, new AsyncHttpResponseHandler() {
+                                public void onStart() {
+                                    dialog = ProgressDialog.show(MemberJoinStep2_Activity.this, "", "데이터 수신중");
                                 }
 
-                                //Log.d("people_gram", response);
-                            }
+                                public void onFinish() {
+                                    dialog.dismiss();
+                                }
+
+                                @Override
+                                public void onSuccess(String response) {
+                                    try {
+                                        JSONObject jobj = new JSONObject(response);
+                                        String code = jobj.getString("code");
+                                        switch (code) {
+                                            case "000":
+                                                md.set_userid(et_email.getText().toString());
+                                                Intent intent = new Intent(MemberJoinStep2_Activity.this, MemberJoinStep3_Activity.class);
+                                                startActivity(intent);
+                                                overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
+                                                next_finish();
+                                                break;
+                                            case "101":
+                                                memberjoin_step2_string = getString(R.string.memberjoin_step2_text1);
+                                                memberjoin_step2_tv.setText(Html.fromHtml(memberjoin_step2_string));
+                                                enterCheck = false;
+                                                break;
+                                            case "999":
+                                                memberjoin_step2_string = getString(R.string.memberjoin_step2_text2);
+                                                memberjoin_step2_tv.setText(Html.fromHtml(memberjoin_step2_string));
+                                                enterCheck = false;
+                                                break;
+                                        }
 
 
-                        });
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                    //Log.d("people_gram", response);
+                                }
+
+
+                            });
+                        }
+                    } else {
+                        enterCheck = false;
                     }
 
                     return true;
@@ -112,6 +147,11 @@ public class MemberJoinStep2_Activity extends AppCompatActivity {
         }
 
         return super.onKeyDown(keyCode, event);
+    }
+
+    public void next_finish()
+    {
+        super.finish();
     }
 
     public void finish()
