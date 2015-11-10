@@ -292,7 +292,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
                 });
             }
         });
-        alert.setMessage("현재 피플리스트에서 삭제 진행을 하려고 합니다.\n맞으면 확인버튼을 눌러주세요.");
+        alert.setMessage("현재 피플리스트에서 숨김 진행을 하려고 합니다.\n맞으면 확인버튼을 눌러주세요.");
         alert.setNegativeButton("취소", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
