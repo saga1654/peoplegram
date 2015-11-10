@@ -107,7 +107,7 @@ public class SubPeopleFragment extends Fragment {
         sf_people_list.addHeaderView(header);
 
 
-        panel_sign = (ImageView) rootView.findViewById(R.id.panel_sign);
+       // panel_sign = (ImageView) rootView.findViewById(R.id.panel_sign);
         panel_sign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -231,7 +231,7 @@ public class SubPeopleFragment extends Fragment {
 
 
         people_cnt = (TextView) rootView.findViewById(R.id.people_cnt);
-        btn_question_re = (ImageView) header.findViewById(R.id.btn_question_re);
+       // btn_question_re = (ImageView) header.findViewById(R.id.btn_question_re);
         btn_question_re.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
