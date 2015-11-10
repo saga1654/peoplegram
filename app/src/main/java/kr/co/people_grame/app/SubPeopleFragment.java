@@ -108,7 +108,6 @@ public class SubPeopleFragment extends Fragment {
 
 
        // panel_sign = (ImageView) rootView.findViewById(R.id.panel_sign);
-        /*
         panel_sign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,7 +118,6 @@ public class SubPeopleFragment extends Fragment {
 
             }
         });
-        */
 
 
         listview_youtype_switch = (Switch) rootView.findViewById(R.id.listview_youtype_switch);
@@ -234,7 +232,6 @@ public class SubPeopleFragment extends Fragment {
 
         people_cnt = (TextView) rootView.findViewById(R.id.people_cnt);
        // btn_question_re = (ImageView) header.findViewById(R.id.btn_question_re);
-        /*
         btn_question_re.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -245,7 +242,6 @@ public class SubPeopleFragment extends Fragment {
 
             }
         });
-        */
         //btn_question_re = (ImageView) rootView.findViewById(R.id.btn_question_re);
 
         listview_proplelist_img = (ImageView) rootView.findViewById(R.id.listview_proplelist_img);

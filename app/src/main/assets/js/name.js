@@ -151,7 +151,7 @@
 
 				if(my_speed >= -5 && my_control <= 1){
 					if(my_speed >= -1 && my_control <= 1){
-						$("#type1_per").html("주도형,우호형 특징을 가긴");
+						$("#type1_per").html("주도형,우호형 특징을 가진");
 						$("#type1_text").html("분석형");
 						my_type ="A4";
 					}else{
@@ -261,7 +261,7 @@
 
 					if(people_speed >= -5 && people_control <= 1){
 						if(people_speed >= -1 && people_control <= 1){
-							$("#type2_per").html("주도형,우호형 특징을 가긴");
+							$("#type2_per").html("주도형,우호형 특징을 가진");
 							$("#type2_text").html("분석형");
 							people_type ="A4";
 						}else{
