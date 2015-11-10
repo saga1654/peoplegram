@@ -57,7 +57,8 @@
                                 android:layout_height="wrap_content"
                                 android:text="가족들이 생각하는 나의 타입"
                                 android:textSize="12dp"
-                                android:textColor="#1d1d26" />
+                                android:textColor="#1d1d26"
+                                android:id="@+id/tv_mytype1" />
 
                         </LinearLayout>
 

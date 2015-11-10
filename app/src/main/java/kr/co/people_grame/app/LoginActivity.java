@@ -215,10 +215,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void btn_memberLogin(View v) {
-        Intent intent = new Intent(LoginActivity.this, MemberJoin_Activity.class);
+        Intent intent = new Intent(LoginActivity.this, MemberJoinStep1_Activity.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
-        finish();
+        overridePendingTransition(R.anim.slide_up_info, R.anim.slide_close_down_info);
+        //finish();
     }
 
 }

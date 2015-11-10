@@ -361,6 +361,8 @@
     <string name='co_141'>다른 패를 생각하라</string>
     <string name='co_142'>공감대를 찾아라</string>
     <string name='co_143'>믿어라</string>
+    <string name="title_activity_memner_join_step1_">MemnerJoinStep1_Activity</string>
+    <string name="title_activity_member_join_step2_">MemberJoinStep2_Activity</string>
 
 
 </resources>

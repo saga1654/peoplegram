@@ -343,9 +343,9 @@ public class LogoActivity extends AppCompatActivity {
 
     public void btn_memberJoin(View v)
     {
-        intent = new Intent(LogoActivity.this, MemberJoin_Activity.class);
+        intent = new Intent(LogoActivity.this, MemberJoinStep1_Activity.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+        overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
     }
 
     public void btn_memberLogin(View v) {

@@ -8,6 +8,7 @@ import android.media.Image;
 import android.media.tv.TvContract;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -178,6 +179,9 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
 
 
     private TextView people1_cnt, people2_cnt, people3_cnt, people4_cnt, people5_cnt;
+    private TextView tv_mytype1;
+
+    private String username = "";
 
     public void dataResult()
     {
@@ -467,7 +471,12 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
         people4_cnt = (TextView) rootView.findViewById(R.id.people4_cnt);
         people5_cnt = (TextView) rootView.findViewById(R.id.people5_cnt);
 
+        tv_mytype1 = (TextView) rootView.findViewById(R.id.tv_mytype1);
+
         mytype = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
+        username = SharedPreferenceUtil.getSharedPreference(getActivity(), "username");
+
+        tv_mytype1.setText(Html.fromHtml("가족이 생각하는 <b color='#ccc;'>"+username+"</b> 나의타입"));
 
         dataResult();
 
