@@ -472,6 +472,11 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
         people5_cnt = (TextView) rootView.findViewById(R.id.people5_cnt);
 
         tv_mytype1 = (TextView) rootView.findViewById(R.id.tv_mytype1);
+        tv_mytype2 = (TextView) rootView.findViewById(R.id.tv_mytype2);
+        tv_mytype3 = (TextView) rootView.findViewById(R.id.tv_mytype3);
+        tv_mytype4 = (TextView) rootView.findViewById(R.id.tv_mytype4);
+        tv_mytype5 = (TextView) rootView.findViewById(R.id.tv_mytype5);
+
 
         mytype = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
         username = SharedPreferenceUtil.getSharedPreference(getActivity(), "username");
