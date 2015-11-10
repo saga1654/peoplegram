@@ -162,7 +162,7 @@ public class SubPeopleFragment_peopletip extends Fragment {
 
     private ImageView peopletype_icon1, peopletype_icon2, peopletype_icon3, peopletype_icon4, peopletype_icon5;
     private TextView people1_cnt, people2_cnt, people3_cnt, people4_cnt, people5_cnt;
-    private TextView you_type1;
+    private TextView you_type1,you_type2,you_type3,you_type4,you_type5;
 
     private String my_speed, my_control;
 
@@ -195,7 +195,16 @@ public class SubPeopleFragment_peopletip extends Fragment {
         subpeople_menu5 = (LinearLayout) rootView.findViewById(R.id.subpeople_menu5);
 
         you_type1 = (TextView) rootView.findViewById(R.id.you_type1);
-        you_type1.setText(Html.fromHtml("가족" + people_name));
+        you_type2 = (TextView) rootView.findViewById(R.id.you_type2);
+        you_type3 = (TextView) rootView.findViewById(R.id.you_type3);
+        you_type4 = (TextView) rootView.findViewById(R.id.you_type4);
+        you_type5 = (TextView) rootView.findViewById(R.id.you_type5);
+
+        you_type1.setText(Html.fromHtml("가족들이 생각하는 <b color='#32354d;'>"+people_name+"</b>님의타입"));
+        you_type2.setText(Html.fromHtml("친구들이 생각하는 <b color='#32354d;'>"+people_name+"</b>님의타입"));
+        you_type3.setText(Html.fromHtml("연인이 생각하는 <b color='#32354d;'>"+people_name+"</b>님의타입"));
+        you_type4.setText(Html.fromHtml("직장에서 생각하는 <b color='#32354d;'>"+people_name+"</b>님의타입"));
+        you_type5.setText(Html.fromHtml("고객들이 생각하는 <b color='#32354d;'>"+people_name+"</b>님의타입"));
 
 
         subpeople_menu1.setOnTouchListener(onBtnTouchListener);
