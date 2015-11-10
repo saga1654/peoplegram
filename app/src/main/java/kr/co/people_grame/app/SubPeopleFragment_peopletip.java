@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -161,6 +162,7 @@ public class SubPeopleFragment_peopletip extends Fragment {
 
     private ImageView peopletype_icon1, peopletype_icon2, peopletype_icon3, peopletype_icon4, peopletype_icon5;
     private TextView people1_cnt, people2_cnt, people3_cnt, people4_cnt, people5_cnt;
+    private TextView you_type1;
 
     private String my_speed, my_control;
 
@@ -180,6 +182,10 @@ public class SubPeopleFragment_peopletip extends Fragment {
 
         my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
         pd = new PeopleData();
+        people_uid = pd.get_people_uid();
+        people_type = pd.get_people_type();
+        people_gubun1 = pd.get_people_gubun1();
+        people_name = pd.get_people_username();
 
 
         subpeople_menu1 = (LinearLayout) rootView.findViewById(R.id.subpeople_menu1);
@@ -187,6 +193,9 @@ public class SubPeopleFragment_peopletip extends Fragment {
         subpeople_menu3 = (LinearLayout) rootView.findViewById(R.id.subpeople_menu3);
         subpeople_menu4 = (LinearLayout) rootView.findViewById(R.id.subpeople_menu4);
         subpeople_menu5 = (LinearLayout) rootView.findViewById(R.id.subpeople_menu5);
+
+        you_type1 = (TextView) rootView.findViewById(R.id.you_type1);
+        you_type1.setText(Html.fromHtml("가족" + people_name));
 
 
         subpeople_menu1.setOnTouchListener(onBtnTouchListener);
@@ -218,10 +227,7 @@ public class SubPeopleFragment_peopletip extends Fragment {
         people5_cnt = (TextView) rootView.findViewById(R.id.people5_cnt);
 
 
-        people_uid = pd.get_people_uid();
-        people_name = pd.get_people_username();
-        people_type = pd.get_people_type();
-        people_gubun1 = pd.get_people_gubun1();
+
 
         dataCheck();
 

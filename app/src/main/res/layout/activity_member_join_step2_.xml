@@ -51,6 +51,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/et_email"
                 android:background="#fff"
                 android:textColorHint="#eeeeee"
                 android:hint="이메일 주소를 입력하세요."

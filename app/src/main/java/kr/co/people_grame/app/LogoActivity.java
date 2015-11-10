@@ -199,7 +199,7 @@ public class LogoActivity extends AppCompatActivity {
                 frameAnimation.stop();
 
                 if(SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "uid") == "") {
-                    Intent intent = new Intent(LogoActivity.this, StartActivity.class);
+                    Intent intent = new Intent(LogoActivity.this, LoginActivity.class);
                     startActivity(intent);
                     overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
                     finish();

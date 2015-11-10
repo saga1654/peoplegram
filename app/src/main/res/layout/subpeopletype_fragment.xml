@@ -44,7 +44,8 @@
                         android:layout_height="wrap_content"
                         android:text="피플의 가족들이 생각하는 피플타입"
                         android:textSize="12dp"
-                        android:textColor="#1d1d26" />
+                        android:textColor="#1d1d26"
+                        android:id="@+id/you_type1" />
 
                 </LinearLayout>
 
