@@ -32,7 +32,7 @@ public class SubMypageFragment extends Fragment {
     private TextView et_all, et_family, et_friend, et_lover, et_job, et_client;
     private WebView chart_webview;
 
-    private TextView mypage_point, mypage_type;
+    private TextView mypage_point;
     private ProgressDialog dialog;
 
     public SubMypageFragment() {
@@ -182,9 +182,9 @@ public class SubMypageFragment extends Fragment {
 
 
         String Point = SharedPreferenceUtil.getSharedPreference(getActivity(), "point");
-        String Type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
         mypage_point.setText(Point + "g");
 
+        /*
         switch (Type) {
             case "I":
                 mypage_type.setText("자기진단 : 우호형");
@@ -199,6 +199,7 @@ public class SubMypageFragment extends Fragment {
                 mypage_type.setText("자기진단 : 분석형");
                 break;
         }
+        */
 
 
         mypage_people_btn.setOnClickListener(new View.OnClickListener() {
@@ -211,6 +212,7 @@ public class SubMypageFragment extends Fragment {
             }
         });
 
+        /*
         mypage_gram_store_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -219,7 +221,9 @@ public class SubMypageFragment extends Fragment {
                 getActivity().overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
             }
         });
+        */
 
+        /*
         mypage_panel_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -228,6 +232,7 @@ public class SubMypageFragment extends Fragment {
                 getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
+        */
 
         return rootView;
     }
