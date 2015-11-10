@@ -481,11 +481,11 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
         mytype = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
         username = SharedPreferenceUtil.getSharedPreference(getActivity(), "username");
 
-        tv_mytype1.setText(Html.fromHtml("가족들이 생각하는 <b color='#32354d;'>"+username+"</b>님"));
-        tv_mytype2.setText(Html.fromHtml("친구들이 생각하는 <b color='#32354d;'>"+username+"</b>님"));
-        tv_mytype3.setText(Html.fromHtml("연인이 생각하는 <b color='#32354d;'>"+username+"</b>님"));
-        tv_mytype4.setText(Html.fromHtml("직장에서 생각하는 <b color='#32354d;'>"+username+"</b>님"));
-        tv_mytype5.setText(Html.fromHtml("고객들이 생각하는 <b color='#32354d;'>"+username+"</b>님"));
+        tv_mytype1.setText(Html.fromHtml("가족들이 생각하는 <b color='#32354d;'>"+username+"</b>님의 타입"));
+        tv_mytype2.setText(Html.fromHtml("친구들이 생각하는 <b color='#32354d;'>"+username+"</b>님의 타입"));
+        tv_mytype3.setText(Html.fromHtml("연인이 생각하는 <b color='#32354d;'>"+username+"</b>님의 타입"));
+        tv_mytype4.setText(Html.fromHtml("직장에서 생각하는 <b color='#32354d;'>"+username+"</b>님의 타입"));
+        tv_mytype5.setText(Html.fromHtml("고객들이 생각하는 <b color='#32354d;'>"+username+"</b>님의 타입"));
 
         dataResult();
 
