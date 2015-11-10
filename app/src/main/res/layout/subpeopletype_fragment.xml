@@ -42,7 +42,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="피플의 가족들이 생각하는 피플타입"
+                        android:text="가족들이 생각하는 피플타입"
                         android:textSize="12dp"
                         android:textColor="#1d1d26"
                         android:id="@+id/you_type1" />
@@ -149,15 +149,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12dp"
-                        android:text="피플의 친구들이 생각하는 피플타입"
-                        android:textColor="#1d1d26" />
+                        android:text="친구들이 생각하는 피플타입"
+                        android:textColor="#1d1d26"
+                        android:id="@+id/you_type2" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingTop="5dp">
+                    android:paddingTop="5dp"
+                    android:id="@+id/">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -254,9 +256,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="14dp"
-                        android:text="피플의 연인이 생각하는 피플타입"
-                        android:textColor="#1d1d26" />
+                        android:textSize="12dp"
+                        android:text="연인이 생각하는 피플타입"
+                        android:textColor="#1d1d26"
+                        android:id="@+id/you_type3" />
 
                 </LinearLayout>
 
@@ -357,8 +360,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12dp"
-                        android:text="피플의 직장에서 생각하는 피플타입"
-                        android:textColor="#1d1d26" />
+                        android:text="직장에서 생각하는 피플타입"
+                        android:textColor="#1d1d26"
+                        android:id="@+id/you_type4" />
 
                 </LinearLayout>
 
@@ -462,8 +466,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12dp"
-                        android:text="피플의 고객들이 생각하는 피플타입"
-                        android:textColor="#1d1d26" />
+                        android:text="고객들이 생각하는 피플타입"
+                        android:textColor="#1d1d26"
+                        android:id="@+id/you_type5" />
 
                 </LinearLayout>
 
