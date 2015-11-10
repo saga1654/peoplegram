@@ -43,9 +43,9 @@ public class SubMypageFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.sub_fragment_mypage, container, false);
 
         mypage_people_btn = (LinearLayout) rootView.findViewById(R.id.mypage_people_btn);
-        mypage_gram_store_btn = (LinearLayout) rootView.findViewById(R.id.mypage_gram_store_btn);
+        //mypage_gram_store_btn = (LinearLayout) rootView.findViewById(R.id.mypage_gram_store_btn);
         mypage_point = (TextView) rootView.findViewById(R.id.mypage_point);
-        mypage_type = (TextView) rootView.findViewById(R.id.mypage_type);
+        //mypage_type = (TextView) rootView.findViewById(R.id.mypage_type);
 
         mypage_all_btn = (LinearLayout) rootView.findViewById(R.id.mypage_all_btn);
         mypage_family_btn = (LinearLayout) rootView.findViewById(R.id.mypage_family_btn);
@@ -54,7 +54,7 @@ public class SubMypageFragment extends Fragment {
         mypage_job_btn = (LinearLayout) rootView.findViewById(R.id.mypage_job_btn);
         mypage_client_btn = (LinearLayout) rootView.findViewById(R.id.mypage_client_btn);
 
-        mypage_panel_btn = (LinearLayout) rootView.findViewById(R.id.mypage_panel_btn);
+        //mypage_panel_btn = (LinearLayout) rootView.findViewById(R.id.mypage_panel_btn);
 
 
         et_all = (TextView) rootView.findViewById(R.id.et_all);
