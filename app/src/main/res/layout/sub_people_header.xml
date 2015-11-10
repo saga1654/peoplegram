@@ -44,33 +44,6 @@
                     android:text="내 프로필" />
 
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:layout_weight="0.05">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/panel_sign"
-                    android:src="@drawable/panel_join_btn"></ImageView>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:layout_weight="0.05">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/btn_question_re"
-                    android:src="@drawable/my_question_re_btn"></ImageView>
-
-            </LinearLayout>
 
         </LinearLayout>
 
