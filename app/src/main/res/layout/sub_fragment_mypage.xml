@@ -76,9 +76,16 @@
             android:layout_height="wrap_content"
             android:text="피플현황"
             android:textSize="16dp"
-            android:textColor="#1d1d26"/>
+            android:textColor="#1d1d26" />
+
 
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_gravity="right" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -387,19 +394,7 @@
     </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#f1f1f1">
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#f1f1f1">
-
-    </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -469,18 +464,6 @@
     </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#f1f1f1">
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#f1f1f1">
-
-    </LinearLayout>
 
 </LinearLayout>
