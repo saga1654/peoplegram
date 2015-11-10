@@ -147,19 +147,30 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.33"
+                        android:layout_weight="0.25"
                         android:gravity="center">
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="kakao_btn"
-                            android:id="@+id/people_popup_btn1"
-                            android:src="@drawable/people_popup_btn1_retype_style"/>
+                            android:onClick="peopleView_btn"
+                            android:src="@drawable/people_popup_btn3_style"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.33"
+                        android:layout_weight="0.25"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="peopleType_btn"
+                            android:id="@+id/people_popup_btn4"
+                            android:src="@drawable/people_popup_btn6_style"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
                         android:gravity="center">
                         <ImageView
                             android:layout_width="wrap_content"
@@ -171,14 +182,16 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.33"
+                        android:layout_weight="0.25"
                         android:gravity="center">
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="peopleView_btn"
-                            android:src="@drawable/people_popup_btn3_style"/>
+                            android:onClick="kakao_btn"
+                            android:id="@+id/people_popup_btn1"
+                            android:src="@drawable/people_popup_btn1_retype_style"/>
                     </LinearLayout>
+
                     <!--
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -237,7 +250,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/popup_people_close_btn"/>
+                    android:src="@drawable/close_btn"/>
 
 
             </LinearLayout>
