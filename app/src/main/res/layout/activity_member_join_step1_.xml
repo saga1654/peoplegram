@@ -32,7 +32,7 @@
                 android:textColor="#30344c"
                 android:textStyle="bold"
                 android:textSize="14dp"
-                android:text="PEOPLEGRAM에 가입하기"/>
+                android:text="피플그램에 가입하기"/>
 
 
         </LinearLayout>
@@ -55,7 +55,7 @@
                 android:textColor="#30344c"
                 android:textSize="11dp"
                 android:lineSpacingExtra="8dp"
-                android:text="가입하면 PEOPLEGRAM 약관에 동의하고 개인정보취급방침을 일고 이해하신 것으로 간주 됩니다. PEOPLEGRAM에서 PUSH를 받을 수 있으며 언제든지 수신을 거부할 수 있습니다." />
+                android:text="시작하기를 진행하시면 피플그램 약관 및 개인정보 취급방침에 이해하고 동의한 것으로 간주 됩니다. 또한 피플그램에서 푸시(알림)를 받을 수 있으며 언제든지 설정을 통해 푸시(알림)를 거부할수도 있습니다." />
 
         </LinearLayout>
 
