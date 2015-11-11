@@ -1,8 +1,8 @@
-<LinearyLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
-    tools:context="kr.co.people_grame.app.MyType_Activity">
+    android:background="#ffffff">
 
     <LinearLayout
         android:orientation="vertical"
@@ -17,11 +17,10 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.05"
+            android:layout_weight="0.01"
             android:background="#32354d"
             android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:weightSum="1">
+            android:paddingBottom="15dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -30,7 +29,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="진단결과"
                     android:layout_gravity="center_horizontal"
                     android:paddingLeft="20dp"
@@ -39,27 +37,108 @@
             </LinearLayout>
 
 
+
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/mytype_activity_typeImg"
+                android:src="@drawable/mytype_a"
+                android:scaleType="fitStart"
+                android:adjustViewBounds="true" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="#f1f1f1"
+            android:id="@+id/mytype_li_bg"
+            android:layout_weight="0.99"
+            android:weightSum="1">
+
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.50"
-                android:onClick="btn_main"
-                android:gravity="right"
-                android:paddingRight="20dp">
+                android:gravity="center"
+                android:layout_weight="0.70"
+                android:background="#f1f1f1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(조채철)님의 자기진단 결과\n(표출형 특징을 가진 주도형)\n으로 진단되었습니다."
+                    android:layout_gravity="center"
+                    android:textSize="20dp"
+                    android:textColor="#000"
+                    android:id="@+id/mytype_tv"></TextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.30"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/mytype_complate_remytype_off"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/mytype_complate_type_off"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/mytype_complate_sync_off"/>
+
+
+                </LinearLayout>
+
+
+
             </LinearLayout>
         </LinearLayout>
 
-    </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="조재철님의 자기진단 결과 [표출형특징을 가진 주도형]으로 진단되었습니다."/>
 
     </LinearLayout>
-</LinearyLayout>
+</RelativeLayout>

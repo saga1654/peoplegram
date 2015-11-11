@@ -248,7 +248,7 @@ public class MyQuestion_Activity extends FragmentActivity {
                     //Log.d("people_gram", response);
 
                     SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);
-                    intent = new Intent(MyQuestion_Activity.this, MyType_Activity.class);
+                    intent = new Intent(MyQuestion_Activity.this, MyType_Complate_Activity.class);
                     startActivity(intent);
                     overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     finish();
@@ -325,7 +325,7 @@ public class MyQuestion_Activity extends FragmentActivity {
                     //Log.d("people_gram", response);
 
                     SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);
-                    intent = new Intent(MyQuestion_Activity.this, MyType_Activity.class);
+                    intent = new Intent(MyQuestion_Activity.this, MyType_Complate_Activity.class);
                     startActivity(intent);
                     overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     finish();
@@ -469,9 +469,9 @@ public class MyQuestion_Activity extends FragmentActivity {
                     //Log.d("people_gram", response);
 
                     SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);
-                    intent = new Intent(MyQuestion_Activity.this, MyType_Activity.class);
+                    intent = new Intent(MyQuestion_Activity.this, MyType_Complate_Activity.class);
                     startActivity(intent);
-                    overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                    overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
                     finish();
 
                 }

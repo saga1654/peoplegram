@@ -73,7 +73,21 @@ public class MemberJoinStep6_Activity extends AppCompatActivity {
                 new DatePickerDialog.OnDateSetListener() {
                     // onDateSet method
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                        String birthDay = String.valueOf(year) + String.valueOf(dayOfMonth) + String.valueOf(monthOfYear + 1);
+                        String month = "";
+                        String day = "";
+                        if(monthOfYear + 1 < 10) {
+                            month = "0" + String.valueOf(monthOfYear + 1);
+                        } else {
+                            month = String.valueOf(monthOfYear + 1);
+                        }
+
+                        if(dayOfMonth < 10) {
+                            day = "0" + String.valueOf(dayOfMonth);
+                        } else {
+                            day = String.valueOf(dayOfMonth);
+                        }
+
+                        String birthDay = String.valueOf(year) + month + day;
                         et_birthday.setText(birthDay);
                         nextLL.setVisibility(View.VISIBLE);
                         md.set_birthday(birthDay);
