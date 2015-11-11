@@ -118,7 +118,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/memberjoin_step4_text1"
+                android:text="현재 거주하고 있는 지역"
                 android:textSize="10dp"
                 android:textColor="#30344c"
                 android:id="@+id/memberjoin_step2_tv" />
@@ -127,9 +127,10 @@
 
 
         <LinearLayout
+            android:orientation="vertical"
+            android:background="#fce703"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#fce703"
             android:gravity="center"
             android:paddingTop="10dp"
             android:id="@+id/nextLL"
