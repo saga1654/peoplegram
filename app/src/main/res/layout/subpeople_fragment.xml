@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
-            android:layout_gravity="right">
+            android:gravity="right">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
-            android:layout_gravity="right">
+            android:gravity="right">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -43,6 +43,7 @@
                 android:textSize="8dp"
                 android:textColor="#1d1d26"
                 android:text="상대방 : 내 진단 기준"
+                android:layout_marginRight="50dp"
                 android:id="@+id/YOU_std" />
         </LinearLayout>
 
