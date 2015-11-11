@@ -1,5 +1,6 @@
 package kr.co.people_grame.app;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,6 +12,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -39,6 +41,9 @@ public class MemberJoinStep3_Activity extends AppCompatActivity {
         nextLL = (LinearLayout) findViewById(R.id.nextLL);
         nextLL.setVisibility(View.INVISIBLE);
 
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+
 
         md = new MemberData();
 
@@ -52,7 +57,6 @@ public class MemberJoinStep3_Activity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Log.d("people_gram", "입력");
                 password_string = String.valueOf(et_password.getText());
                 password_string_cnt = password_string.length();
 
@@ -94,6 +98,7 @@ public class MemberJoinStep3_Activity extends AppCompatActivity {
 
                     enterCheck = false;
                 }
+
                 return false;
             }
         });
@@ -101,8 +106,6 @@ public class MemberJoinStep3_Activity extends AppCompatActivity {
         nextLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (enterCheck == false) {
-                    enterCheck = true;
                     if (password_string_cnt < 6) {
                         Toast.makeText(MemberJoinStep3_Activity.this, "6자리 이상 입력해주세요.", Toast.LENGTH_LONG).show();
                     } else {
@@ -112,8 +115,6 @@ public class MemberJoinStep3_Activity extends AppCompatActivity {
                         overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
                         next_finish();
                     }
-
-                }
             }
         });
     }
