@@ -103,7 +103,7 @@
             android:layout_height="wrap_content"
             android:textColor="#30344c"
             android:textSize="11dp"
-            android:text="이러 관계 속에 나를 찾아보자"/>
+            android:text="지금부터 피플그램을 통해 여러 관계 속에 나를 찾아보자"/>
 
 
     </LinearLayout>
