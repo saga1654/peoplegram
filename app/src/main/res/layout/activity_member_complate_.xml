@@ -31,56 +31,31 @@
                 android:layout_height="wrap_content"
                 android:textColor="#30344c"
                 android:textStyle="bold"
-                android:textSize="14dp"
-                android:text="이메일주소"/>
+                android:textSize="16dp"
+                android:text="피플그램 회원가입을 축하드립니다."/>
 
-
-        </LinearLayout>
-
-
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:paddingBottom="10dp">
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/et_email"
-                android:background="#fff"
-                android:textColorHint="#eeeeee"
-                android:hint="이메일 주소를 입력하세요."
-                android:textSize="11dp"
-                android:textColor="#30344c"
-                android:singleLine="true"
-                android:inputType="textEmailAddress"
-                android:padding="8dp">
-                <requestFocus />
-            </EditText>
 
         </LinearLayout>
 
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
-            android:paddingBottom="40dp">
+            android:paddingTop="20dp"
+            android:paddingBottom="50dp">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="로그인할 때 또는 비밀번호를 재설정할 때 이 이메일 주소를 사용합니다."
-                android:textSize="10dp"
+                android:text="지금부터 10문항의 자기진단을\n진행하도록 하겠습니다.\n\n문항을 충분히 읽어보시고\n양쪽 중 어느 쪽이 더 가까운지\n선택해주시면 됩니다."
+                android:textSize="12dp"
                 android:textColor="#30344c"
+                android:gravity="center"
+                android:lineSpacingExtra="10dp"
                 android:id="@+id/memberjoin_step2_tv" />
 
         </LinearLayout>
@@ -98,7 +73,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="다음"
+                android:text="시작하기"
                 android:textSize="12dp"
                 android:textColor="#30344c" />
 
@@ -128,7 +103,7 @@
             android:layout_height="wrap_content"
             android:textColor="#30344c"
             android:textSize="11dp"
-            android:text="이미 계정이 있으신가요?"/>
+            android:text="이러 관계 속에 나를 찾아보자"/>
 
 
     </LinearLayout>

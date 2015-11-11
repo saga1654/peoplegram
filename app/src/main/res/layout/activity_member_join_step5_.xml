@@ -32,7 +32,7 @@
                 android:textColor="#30344c"
                 android:textStyle="bold"
                 android:textSize="14dp"
-                android:text="이메일주소"/>
+                android:text="성별이 무엇인가요?"/>
 
 
         </LinearLayout>
@@ -40,50 +40,43 @@
 
 
         <LinearLayout
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
-            android:paddingBottom="10dp">
+            android:paddingBottom="20dp">
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/et_email"
-                android:background="#fff"
-                android:textColorHint="#eeeeee"
-                android:hint="이메일 주소를 입력하세요."
-                android:textSize="11dp"
-                android:textColor="#30344c"
-                android:singleLine="true"
-                android:inputType="textEmailAddress"
-                android:padding="8dp">
-                <requestFocus />
-            </EditText>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/sexman_off"
+                    android:id="@+id/sex_man" />
 
+            </LinearLayout>
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:paddingBottom="40dp">
-
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="로그인할 때 또는 비밀번호를 재설정할 때 이 이메일 주소를 사용합니다."
-                android:textSize="10dp"
-                android:textColor="#30344c"
-                android:id="@+id/memberjoin_step2_tv" />
+                android:paddingLeft="20dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/sexwoman_off"
+                    android:id="@+id/sex_woman" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
+
+
 
 
         <LinearLayout

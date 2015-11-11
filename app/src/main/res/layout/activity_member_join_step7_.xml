@@ -32,7 +32,7 @@
                 android:textColor="#30344c"
                 android:textStyle="bold"
                 android:textSize="14dp"
-                android:text="이메일주소"/>
+                android:text="살고 계신 지역은 어떻게 되십니까?"/>
 
 
         </LinearLayout>
@@ -48,22 +48,62 @@
             android:paddingRight="5dp"
             android:paddingBottom="10dp">
 
-            <EditText
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/et_email"
-                android:background="#fff"
-                android:textColorHint="#eeeeee"
-                android:hint="이메일 주소를 입력하세요."
-                android:textSize="11dp"
-                android:textColor="#30344c"
-                android:singleLine="true"
-                android:inputType="textEmailAddress"
-                android:padding="8dp">
-                <requestFocus />
-            </EditText>
+                android:background="#ccc"
+                android:layout_weight="1">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="11dp"
+                    android:id="@+id/area1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="5dp"></LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ccc"
+                android:layout_weight="1">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="11dp"
+                    android:id="@+id/area2" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="5dp"></LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ccc"
+                android:layout_weight="1">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="11dp"
+                    android:id="@+id/area3" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
+
+
 
 
         <LinearLayout
@@ -78,7 +118,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="로그인할 때 또는 비밀번호를 재설정할 때 이 이메일 주소를 사용합니다."
+                android:text="현재 거주하고 있는 지역"
                 android:textSize="10dp"
                 android:textColor="#30344c"
                 android:id="@+id/memberjoin_step2_tv" />
@@ -87,9 +127,10 @@
 
 
         <LinearLayout
+            android:orientation="vertical"
+            android:background="#fce703"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#fce703"
             android:gravity="center"
             android:paddingTop="10dp"
             android:id="@+id/nextLL"

@@ -234,7 +234,7 @@ public class SubPeopleFragment extends Fragment {
 
         people_cnt = (TextView) rootView.findViewById(R.id.people_cnt);
        // btn_question_re = (ImageView) header.findViewById(R.id.btn_question_re);
-       /*
+        /*
         btn_question_re.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
