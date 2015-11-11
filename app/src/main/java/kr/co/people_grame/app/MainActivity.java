@@ -91,16 +91,16 @@ public class MainActivity extends AppCompatActivity  {
         menu1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //menu_icon1.setImageResource(R.mipmap.top_01_on);
+                menu_icon1.setImageResource(R.mipmap.top_01_on);
                 menu_line1.setBackgroundColor(Color.rgb(50, 53, 77));
 
-                //menu_icon2.setImageResource(R.mipmap.top_02_off);
+                menu_icon2.setImageResource(R.mipmap.top_02_off);
                 menu_line2.setBackgroundColor(Color.rgb(220, 220, 221));
 
-                //menu_icon3.setImageResource(R.mipmap.top_03_off);
+                menu_icon3.setImageResource(R.mipmap.top_03_off);
                 menu_line3.setBackgroundColor(Color.rgb(220,220,221));
 
-                //menu_icon4.setImageResource(R.mipmap.top_04_off);
+                menu_icon4.setImageResource(R.mipmap.top_04_off);
                 menu_line4.setBackgroundColor(Color.rgb(220,220,221));
 
                 fragmentManager = getSupportFragmentManager();
@@ -115,16 +115,16 @@ public class MainActivity extends AppCompatActivity  {
         menu2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //menu_icon1.setImageResource(R.mipmap.top_01_off);
+                menu_icon1.setImageResource(R.mipmap.top_01_off);
                 menu_line1.setBackgroundColor(Color.rgb(220, 220, 221));
 
-                //menu_icon2.setImageResource(R.mipmap.top_02_on);
+                menu_icon2.setImageResource(R.mipmap.top_02_on);
                 menu_line2.setBackgroundColor(Color.rgb(50, 53, 77));
 
-                //menu_icon3.setImageResource(R.mipmap.top_03_off);
+                menu_icon3.setImageResource(R.mipmap.top_03_off);
                 menu_line3.setBackgroundColor(Color.rgb(220, 220, 221));
 
-                //menu_icon4.setImageResource(R.mipmap.top_04_off);
+                menu_icon4.setImageResource(R.mipmap.top_04_off);
                 menu_line4.setBackgroundColor(Color.rgb(220,220,221));
 
                 fragmentManager = getSupportFragmentManager();
@@ -139,16 +139,16 @@ public class MainActivity extends AppCompatActivity  {
         menu3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //menu_icon1.setImageResource(R.mipmap.top_01_off);
+                menu_icon1.setImageResource(R.mipmap.top_01_off);
                 menu_line1.setBackgroundColor(Color.rgb(220, 220, 221));
 
-                //menu_icon2.setImageResource(R.mipmap.top_02_off);
+                menu_icon2.setImageResource(R.mipmap.top_02_off);
                 menu_line2.setBackgroundColor(Color.rgb(220, 220, 221));
 
-                //menu_icon3.setImageResource(R.mipmap.top_03_on);
+                menu_icon3.setImageResource(R.mipmap.top_03_on);
                 menu_line3.setBackgroundColor(Color.rgb(50, 53, 77));
 
-                //menu_icon4.setImageResource(R.mipmap.top_04_off);
+                menu_icon4.setImageResource(R.mipmap.top_04_off);
                 menu_line4.setBackgroundColor(Color.rgb(220,220,221));
 
                 fragmentManager = getSupportFragmentManager();
@@ -163,16 +163,16 @@ public class MainActivity extends AppCompatActivity  {
         menu4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //menu_icon1.setImageResource(R.mipmap.top_01_off);
+                menu_icon1.setImageResource(R.mipmap.top_01_off);
                 menu_line1.setBackgroundColor(Color.rgb(220, 220, 221));
 
-                //menu_icon2.setImageResource(R.mipmap.top_02_off);
+                menu_icon2.setImageResource(R.mipmap.top_02_off);
                 menu_line2.setBackgroundColor(Color.rgb(220,220,221));
 
-                //menu_icon3.setImageResource(R.mipmap.top_03_off);
+                menu_icon3.setImageResource(R.mipmap.top_03_off);
                 menu_line3.setBackgroundColor(Color.rgb(220, 220, 221));
 
-                //menu_icon4.setImageResource(R.mipmap.top_04_on);
+                menu_icon4.setImageResource(R.mipmap.top_04_on);
                 menu_line4.setBackgroundColor(Color.rgb(50,53,77));
 
 
