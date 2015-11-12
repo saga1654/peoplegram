@@ -195,24 +195,32 @@ public class SubPeopleFragment extends Fragment {
                                     switch (data.getString("peopleType")) {
                                         case "A":
                                             listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_a);
+                                            people_detail_view.setVisibility(View.VISIBLE);
+                                            people_detail_view_title.setVisibility(View.VISIBLE);
                                             break;
 
                                         case "I":
                                             listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_i);
+                                            people_detail_view.setVisibility(View.VISIBLE);
+                                            people_detail_view_title.setVisibility(View.VISIBLE);
                                             break;
 
                                         case "D":
                                             listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_d);
+                                            people_detail_view.setVisibility(View.VISIBLE);
+                                            people_detail_view_title.setVisibility(View.VISIBLE);
                                             break;
 
                                         case "E":
                                             listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_e);
+                                            people_detail_view.setVisibility(View.VISIBLE);
+                                            people_detail_view_title.setVisibility(View.VISIBLE);
                                             break;
 
                                         default:
                                             Toast.makeText(getActivity(), "피플들에게 내 진단을 요청해주세요.", Toast.LENGTH_LONG).show();
-                                            people_detail_view.setVisibility(View.VISIBLE);
-                                            people_detail_view_title.setVisibility(View.VISIBLE);
+                                            people_detail_view.setVisibility(View.GONE);
+                                            people_detail_view_title.setVisibility(View.GONE);
                                             listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_default);
                                             break;
                                     }
