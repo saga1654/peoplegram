@@ -74,12 +74,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="피플현황"
+            android:text="내가 진단한 피플현황"
             android:textSize="16dp"
             android:textColor="#1d1d26" />
 
 
     </LinearLayout>
+
 
     <ImageView
         android:layout_width="wrap_content"
