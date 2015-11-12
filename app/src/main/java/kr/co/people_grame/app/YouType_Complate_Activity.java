@@ -1,5 +1,7 @@
 package kr.co.people_grame.app;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -125,7 +127,24 @@ public class YouType_Complate_Activity extends AppCompatActivity {
         }
 
     }
+    public void peopleView_btn(View v) {
+        Log.d("people_gram", "타입=" + youtype.toString());
 
+
+            Intent intent = new Intent(YouType_Complate_Activity.this, SubPeopleListSelect_Activity.class);
+
+            /*
+            intent.putExtra("people_uid", people_uid);
+            intent.putExtra("people_username", people_username);
+            intent.putExtra("people_mood", people_mood);
+            intent.putExtra("people_type", people_type);
+            */
+            finish();
+            startActivity(intent);
+            overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+
+
+    }
     public void mytype_re_btn(View v)
     {
         Intent intent = new Intent(YouType_Complate_Activity.this, YouType_Actvity_step1.class);
