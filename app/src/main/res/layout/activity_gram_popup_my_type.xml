@@ -52,7 +52,7 @@
                     android:paddingLeft="10dp"
                     android:textColor="#1d1d26"
                     android:id="@+id/gram_point"
-                    android:text="100g"
+                    android:text="100 포인트"
                     android:textStyle="bold" />
 
 

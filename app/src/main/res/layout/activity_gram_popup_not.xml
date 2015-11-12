@@ -36,7 +36,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="그램 포인트가 부족합니다!"
+                android:text="포인트가 부족합니다!"
                 android:textSize="16dp"
                 android:textColor="#1d1d26"
                 android:textStyle="bold" />
@@ -54,7 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="그램 포인트가 부족합니다!\n포인트를 충전한 후 이용해 주시기 바랍니다."
+                android:text="포인트가 부족합니다!\n포인트를 충전한 후 이용해 주시기 바랍니다."
                 android:textColor="#1d1d26"/>
 
         </LinearLayout>
@@ -65,29 +65,12 @@
             android:paddingTop="20dp"
             android:paddingBottom="30dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="[참고]\n\n아래 돼지패널을 통해\n성,연령,지역,이메일 확인만 하시면\n 2,000그램을 받으실 수 있습니다.(가입시 1회)"
-                android:textColor="#1d1d26"/>
+
 
         </LinearLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingBottom="20dp">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="pointSet"
-                android:src="@drawable/panel_sign_btn"/>
-
-        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

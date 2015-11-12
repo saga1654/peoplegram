@@ -29,7 +29,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="진단결과"
+                    android:text="자기진단결과"
                     android:layout_gravity="center_horizontal"
                     android:paddingLeft="20dp"
                     android:textColor="#ffffff" />
@@ -109,45 +109,46 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.30"
-                android:gravity="center">
+                android:weightSum="1"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:background="#ffffff">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="mytype_re_btn"
-                        android:src="@drawable/mytype_complate_remytype_off"/>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="20dp">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="mytype_view_btn"
-                        android:src="@drawable/mytype_complate_type_off"/>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp">
-
-
+                    android:layout_weight="0.33"
+                    android:gravity="center">
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:onClick="start_btn"
-                        android:src="@drawable/mytype_complate_sync_off"/>
-
-
+                        android:src="@drawable/peoplelist_upload_style"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.33"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="mytype_view_btn"
+                        android:id="@+id/mytype_view_btn"
+                        android:src="@drawable/people_popup_btn6_style"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.33"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/mytype_re_btn"
+                        android:onClick="mytype_re_btn"
+                        android:src="@drawable/people_popup_btn2_re_style"/>
                 </LinearLayout>
 
 
