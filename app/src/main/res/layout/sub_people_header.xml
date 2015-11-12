@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#7c7c7f"
-                    android:textSize="14dp"
+                    android:textSize="12dp"
                     android:text="내 프로필" />
 
             </LinearLayout>
@@ -208,6 +208,28 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/people_detail_view_title"
+        android:visibility="gone"
+        android:paddingTop="10dp"
+        android:paddingLeft="15dp"
+        android:paddingBottom="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="나를 바라보는 타입"
+            android:textSize="12dp"
+            android:textColor="#7c7c7f" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f3f3f4"></LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -217,8 +239,10 @@
         android:paddingBottom="8dp"
         android:paddingTop="5dp"
         android:weightSum="1"
-        android:id="@+id/people_detail_view"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:id="@+id/people_detail_view">
+
+
 
         <LinearLayout
             android:orientation="vertical"
@@ -226,6 +250,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
             android:gravity="center">
+
+
 
 
             <LinearLayout
@@ -718,6 +744,31 @@
         android:background="#f1f1f1">
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:paddingTop="10dp"
+            android:paddingLeft="15dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="내가 진단한 피플"
+                android:textSize="12dp"
+                android:textColor="#7c7c7f" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f3f3f4"></LinearLayout>
+
+
+
+        <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -733,6 +784,7 @@
                 android:gravity="center"
                 android:id="@+id/people_gubun_all"
                 android:layout_weight="1">
+
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -1247,7 +1299,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
-            android:paddingLeft="15dp"
+            android:paddingLeft="5dp"
             android:paddingRight="15dp"
             android:weightSum="1">
 
@@ -1263,7 +1315,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#7c7c7f"
-                    android:textSize="14dp"
+                    android:textSize="12dp"
                     android:id="@+id/people_cnt"
                     android:text="피플" />
 
@@ -1289,7 +1341,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#7c7c7f"
-                    android:textSize="14dp"
+                    android:textSize="10dp"
                     android:text="진단피플수" />
 
 

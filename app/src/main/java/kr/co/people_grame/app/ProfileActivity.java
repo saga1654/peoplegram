@@ -88,6 +88,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ProfileActivity.this, SubMyType_Activity.class);
+                intent.putExtra("mytype",SharedPreferenceUtil.getSharedPreference(ProfileActivity.this, "mytype"));
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
@@ -96,7 +97,10 @@ public class ProfileActivity extends AppCompatActivity {
         mytype_people.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(ProfileActivity.this, SubMyType_Activity.class);
+                intent.putExtra("mytype", people_type_return);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
 
@@ -203,6 +207,8 @@ public class ProfileActivity extends AppCompatActivity {
 
                     float people_speed = Float.parseFloat(you_data.getString("sumdata_speed"));
                     float people_control = Float.parseFloat(you_data.getString("sumdata_control"));
+
+                    people_type_return = you_data.getString("peopleType");
 
                     switch (you_data.getString("peopleType"))
                     {

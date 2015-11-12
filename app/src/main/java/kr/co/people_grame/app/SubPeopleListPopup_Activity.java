@@ -56,7 +56,10 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_people_list_popup_);
 
-        Random generator = new Random();
+        int random_code = (int) (Math.random() * 4) + 1;
+        String resName = "@drawable/people_popup_img"+String.valueOf(random_code);
+        String packName = this.getPackageName(); // 패키지명
+        int resImg = getResources().getIdentifier(resName, "drawable", packName);
 
 
 
@@ -69,6 +72,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
 
         backImg = (LinearLayout) findViewById(R.id.backImg);
+        backImg.setBackgroundResource(resImg);
         people_popup_btn1 = (ImageView) findViewById(R.id.people_popup_btn1);
         peopleType_btn = (ImageView) findViewById(R.id.peopleType_btn);
 
@@ -86,9 +90,14 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
             people_friend_count = intent.getIntExtra("people_friend_count", 0);
             people_coaching = intent.getStringExtra("people_coaching");
 
-            int resID = getResources().getIdentifier("@string/co_"+people_coaching, "string", getPackageName());
-            today_coaching.setText(resID);
-            today_coaching.setText("오늘의 관계코칭  :  " + String.valueOf(today_coaching.getText()));
+            if(people_type.equals("")) {
+
+                today_coaching.setText("먼저 '진단하기를' 해주세요.");
+            } else {
+                int resID = getResources().getIdentifier("@string/co_" + people_coaching, "string", getPackageName());
+                today_coaching.setText(resID);
+                today_coaching.setText("오늘의 관계코칭  :  " + String.valueOf(today_coaching.getText()));
+            }
 
 
             //et_people_friend_count.setText("등록 피플수 : "+people_friend_count+"명");
