@@ -85,7 +85,8 @@
                     android:layout_height="wrap_content"
                     android:text="(조채철)님의 자기진단 결과\n(표출형 특징을 가진 주도형)\n으로 진단되었습니다."
                     android:layout_gravity="center"
-                    android:textSize="20dp"
+                    android:textSize="16dp"
+                    android:lineSpacingExtra="10dp"
                     android:textColor="#000"
                     android:id="@+id/mytype_tv"></TextView>
 
@@ -104,6 +105,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="mytype_re_btn"
                         android:src="@drawable/mytype_complate_remytype_off"/>
 
                 </LinearLayout>
@@ -115,6 +117,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="mytype_view_btn"
                         android:src="@drawable/mytype_complate_type_off"/>
 
                 </LinearLayout>
@@ -127,6 +130,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="start_btn"
                         android:src="@drawable/mytype_complate_sync_off"/>
 
 
