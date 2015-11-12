@@ -155,20 +155,25 @@ public class PeopleSync_Activity extends AppCompatActivity {
                                     }
 
                                     public void onFinish() {
-                                        if(check == false) {
-                                            Intent intent = new Intent(PeopleSync_Activity.this, MainActivity.class);
-                                            startActivity(intent);
-                                            overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
-                                            finish();
-                                        } else {
-                                            finish();
-                                        }
+
 
                                     }
 
                                     @Override
                                     public void onSuccess(String response) {
+                                        if(response.equals("000")) {
+                                            if(check == false) {
+                                                Intent intent = new Intent(PeopleSync_Activity.this, MainActivity.class);
+                                                startActivity(intent);
+                                                overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+                                                finish();
+                                            } else {
+                                                finish();
+                                            }
+                                        }
+                                        /*
                                         Log.d("people_gram", response);
+                                        */
                                     }
                                 });
 
