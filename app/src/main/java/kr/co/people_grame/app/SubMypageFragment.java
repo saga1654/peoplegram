@@ -205,8 +205,14 @@ public class SubMypageFragment extends Fragment {
         mypage_people_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*
                 Intent intent = new Intent(getActivity(), PeopleSync_Activity.class);
                 intent.putExtra("mypage","ok");
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+                */
+
+                Intent intent = new Intent(getActivity(), SubMyPagePeopleSync_Activity.class);
                 startActivity(intent);
                 getActivity().overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
             }
