@@ -35,6 +35,21 @@
                     android:textColor="#ffffff" />
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_marginRight="10dp"
+                android:onClick="closeBtn"
+                android:layout_weight="0.50">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/close_btn"/>
+
+
+            </LinearLayout>
 
 
 
@@ -121,21 +136,6 @@
                         android:src="@drawable/mytype_complate_type_off"/>
 
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp">
-
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="start_btn"
-                        android:src="@drawable/mytype_complate_sync_off"/>
-
-
-                </LinearLayout>
-
 
 
             </LinearLayout>

@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -43,12 +44,69 @@ public class YouType_Complate_Activity extends AppCompatActivity {
             data8 = intent.getStringExtra("data8");
             data9 = intent.getStringExtra("data9");
             data10 = intent.getStringExtra("data10");
-            speed = intent.getStringExtra("speed");
-            control = intent.getStringExtra("control");
+            float speed = Float.parseFloat(intent.getStringExtra("speed"));
+            float control = Float.parseFloat(intent.getStringExtra("control"));
             youtype = intent.getStringExtra("youtype");
 
-            Log.d("people_gram", people_username);
 
+            Log.d("people_gram", people_username);
+            if(speed > 0 && control > 0) {
+
+
+                if(speed <= 5 && control <= 1){
+                    if(speed <= 1 && control <= 1){
+                        mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + people_username + "</font>님의 진단 결과<br><b>분석형,표출형 특징을 가진 <b color='#ff8a55'>주도형</b></b><br>으로 진단되었습니다."));
+                    }else{
+                        mytype_tv.setText(Html.fromHtml("<font color='#ccc'>"+people_username+"</font>님의 진단 결과<br><b>표출형 특징을 가진 <b color='#ff8a55'>주도형</b></b><br>으로 진단되었습니다."));
+                    }
+                }else if(speed <= 1 && control <= 5){
+                    mytype_tv.setText(Html.fromHtml("<font color='#ccc'>"+people_username+"</font>님의 진단 결과<br><b>분석형 특징을 가진 <b color='#ff8a55'>주도형</b></b><br>으로 진단되었습니다."));
+                }else{
+                    mytype_tv.setText(Html.fromHtml("<font color='#ccc'>"+people_username+"</font>님의 진단 결과<br><b color='#ff8a55'>주도형</b>으로 진단되었습니다."));
+                }
+            }
+            if(speed > 0 && control < 0) {
+
+                if(speed <= 5 && control >= -1){
+                    if(speed <= 1 && control >= -1){
+                        mytype_tv.setText(Html.fromHtml("<font color='#ccc'>"+people_username+"</font>님의 진단 결과<br><b>주도형,우호형 특징을 가진 <b color='#aa64f8'>표출형</b></b><br>으로 진단되었습니다."));
+                    }else{
+                        mytype_tv.setText(Html.fromHtml("<font color='#ccc'>"+people_username+"</font>님의 진단 결과<br><b>주도형 특징을 가진 <b color='#aa64f8'>표출형</b></b><br>으로 진단되었습니다."));
+                    }
+                }else if(speed <= 1 && control >= -5){
+                    mytype_tv.setText(Html.fromHtml("<font color='#ccc'>"+people_username+"</font>님의 진단 결과<br><b>우호형 특징을 가진 <b color='#aa64f8'>표출형</b></b><br>으로 진단되었습니다."));
+                }else{
+                    mytype_tv.setText(Html.fromHtml("<font color='#ccc'>"+people_username+"</font>님의 진단 결과<br><b color='#aa64f8'>표출형</b>으로 진단되었습니다."));
+                }
+            }
+            if(speed < 0 && control > 0) {
+
+                if(speed >= -5 && control <= 1){
+                    if(speed >= -1 && control <= 1){
+                        mytype_tv.setText(Html.fromHtml("<font color='#ccc'>"+people_username+"</font>님의 진단 결과<br><b>주도형,우호형 특징을 가진 <b color='#37afec'>분석형</b></b><br>으로 진단되었습니다."));
+                    }else{
+                        mytype_tv.setText(Html.fromHtml("<font color='#ccc'>"+people_username+"</font>님의 진단 결과<br><b>우호형 특징을 가진 <b color='#37afec'>분석형</b></b><br>으로 진단되었습니다."));
+                    }
+                }else if(speed >= -1 && control <= 5){
+                    mytype_tv.setText(Html.fromHtml("<font color='#ccc'>"+people_username+"</font>님의 진단 결과<br><b>주도형 특징을 가진 <b color='#37afec'>분석형</b></b><br>으로 진단되었습니다."));
+                }else{
+                    mytype_tv.setText(Html.fromHtml("<font color='#ccc'>"+people_username+"</font>님의 진단 결과<br><b color='#37afec'>분석형</b>으로 진단되었습니다."));
+                }
+            }
+            if(speed < 0 && control < 0) {
+
+                if(speed >= -5 && control >= -1){
+                    if(speed >= -1 && control >= -1){
+                        mytype_tv.setText(Html.fromHtml("<font color='#ccc'>"+people_username+"</font>님의 진단 결과<br><b>분석형,표출형 특징을 가진 <b color='#52d935'>우호형</b></b><br>으로 진단되었습니다."));
+                    }else{
+                        mytype_tv.setText(Html.fromHtml("<font color='#ccc'>"+people_username+"</font>님의 진단 결과<br><b>분석형 특징을 가진 <b color='#52d935'>우호형</b></b><br>으로 진단되었습니다."));
+                    }
+                }else if(speed >= -1 && control >= -5){
+                    mytype_tv.setText(Html.fromHtml("<font color='#ccc'>"+people_username+"</font>님의 진단 결과<br><b>표출형 특징을 가진 <b color='#52d935'>우호형</b></b><br>으로 진단되었습니다."));
+                }else{
+                    mytype_tv.setText(Html.fromHtml("<font color='#ccc'>"+people_username+"</font>님의 진단 결과<br><b color='#52d935'>우호형</b>으로 진단되었습니다."));
+                }
+            }
             switch (youtype)
             {
                 case "I":
@@ -99,7 +157,9 @@ public class YouType_Complate_Activity extends AppCompatActivity {
     public void prevBtn(View v) {
         finish();
     }
-
+    public void closeBtn(View v) {
+        finish();
+    }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 

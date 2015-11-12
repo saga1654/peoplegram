@@ -266,7 +266,9 @@ public class ProfileActivity extends AppCompatActivity {
     public void btn_back(View v) {
         finish();
     }
-
+    public void closeBtn(View v) {
+        finish();
+    }
     public void finish()
     {
         super.finish();
