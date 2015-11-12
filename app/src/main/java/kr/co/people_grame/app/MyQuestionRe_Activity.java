@@ -310,7 +310,7 @@ public class MyQuestionRe_Activity extends FragmentActivity {
                     //Log.d("people_gram", response);
 
                     SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);
-                    overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                    overridePendingTransition(R.anim.slide_close_down_info, R.anim.slide_clode_up_info);
                     finish();
 
                 }

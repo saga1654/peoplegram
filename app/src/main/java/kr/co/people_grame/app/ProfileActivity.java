@@ -44,6 +44,8 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView mytype_per, profile_sex, profile_age, profile_area;
     private TextView profile_username, profile_email, profile_point;
 
+    private int ACTIVITY_CODE = 00002;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,23 +68,7 @@ public class ProfileActivity extends AppCompatActivity {
         profile_email.setText(SharedPreferenceUtil.getSharedPreference(this, "email"));
         profile_point.setText(SharedPreferenceUtil.getSharedPreference(this, "point"));
 
-        switch (SharedPreferenceUtil.getSharedPreference(this, "mytype")) {
-            case "I":
-                mytype_me.setImageResource(R.mipmap.people_type_i);
-                break;
-            case "D":
-                mytype_me.setImageResource(R.mipmap.people_type_d);
-                break;
-            case "E":
-                mytype_me.setImageResource(R.mipmap.people_type_e);
-                break;
-            case "A":
-                mytype_me.setImageResource(R.mipmap.people_type_a);
-                break;
-            default:
-                mytype_me.setImageResource(R.mipmap.people_type_default);
-                break;
-        }
+
 
         mytype_me.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +89,8 @@ public class ProfileActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
+
+        dataResult();
 
 
 
@@ -165,12 +153,26 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
 
-
-
-
-    public void onStart()
+    private void dataResult()
     {
-        super.onStart();
+        switch (SharedPreferenceUtil.getSharedPreference(this, "mytype")) {
+            case "I":
+                mytype_me.setImageResource(R.mipmap.people_type_i);
+                break;
+            case "D":
+                mytype_me.setImageResource(R.mipmap.people_type_d);
+                break;
+            case "E":
+                mytype_me.setImageResource(R.mipmap.people_type_e);
+                break;
+            case "A":
+                mytype_me.setImageResource(R.mipmap.people_type_a);
+                break;
+            default:
+                mytype_me.setImageResource(R.mipmap.people_type_default);
+                break;
+        }
+
         RequestParams params = new RequestParams();
         params.put("uid", SharedPreferenceUtil.getSharedPreference(this, "uid"));
         HttpClient.post("/user/profile_user_select", params, new AsyncHttpResponseHandler() {
@@ -210,8 +212,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                     people_type_return = you_data.getString("peopleType");
 
-                    switch (you_data.getString("peopleType"))
-                    {
+                    switch (you_data.getString("peopleType")) {
                         case "I":
                             mytype_people.setImageResource(R.mipmap.people_type_i);
                             break;
@@ -230,12 +231,11 @@ public class ProfileActivity extends AppCompatActivity {
                     }
 
                     String per = String.valueOf(Math.ceil(Utilities.people_match_int(my_speed, people_speed, my_control, people_control)));
-                    if(you_data.getString("peopleType").equals("")) {
+                    if (you_data.getString("peopleType").equals("")) {
                         mytype_per.setText("?");
                     } else {
-                        mytype_per.setText(per+"%");
+                        mytype_per.setText(per + "%");
                     }
-
 
 
                 } catch (JSONException e) {
@@ -244,8 +244,23 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
-
     }
+
+
+    public void mytype_re_btn(View v)
+    {
+        Intent intent = new Intent(ProfileActivity.this, MyQuestionRe_Activity.class);
+        startActivityForResult(intent, ACTIVITY_CODE);
+        overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+    }
+
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d("people_gram", "성공");
+        dataResult();
+    }
+
+
 
 
     public void btn_back(View v) {
