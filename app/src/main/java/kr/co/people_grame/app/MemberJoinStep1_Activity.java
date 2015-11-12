@@ -82,6 +82,7 @@ public class MemberJoinStep1_Activity extends AppCompatActivity {
 
     public void finish()
     {
+
         super.finish();
         overridePendingTransition(R.anim.slide_close_down_info, R.anim.slide_clode_up_info);
     }

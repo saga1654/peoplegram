@@ -231,7 +231,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
     public void peopleType_btn(View v) {
         Intent intent = new Intent(SubPeopleListPopup_Activity.this, YouType_Actvity_step1.class);
-        finish();
+
 
         intent.putExtra("people_uid", people_uid);
         intent.putExtra("people_username", people_username);
@@ -239,6 +239,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
         startActivity(intent);
         overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+        finish();
     }
 
     public void peopleView_btn(View v) {

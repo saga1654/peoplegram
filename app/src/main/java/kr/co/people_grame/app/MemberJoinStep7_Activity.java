@@ -205,6 +205,9 @@ public class MemberJoinStep7_Activity extends AppCompatActivity {
                                 startActivity(intent);
                                 overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
                                 next_finish();
+
+
+
                             }
 
 

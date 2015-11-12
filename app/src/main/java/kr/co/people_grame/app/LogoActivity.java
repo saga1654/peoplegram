@@ -1,5 +1,6 @@
 package kr.co.people_grame.app;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -36,6 +37,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class LogoActivity extends AppCompatActivity {
+
 
     private Intent intent;
     private String uid, username;
@@ -154,7 +156,8 @@ public class LogoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.d("people_gram", SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "token"));
+
+
 
         if(SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "token") == "") {
             registBroadcastReceiver();

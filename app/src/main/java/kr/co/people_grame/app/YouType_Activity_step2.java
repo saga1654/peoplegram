@@ -43,6 +43,7 @@ public class YouType_Activity_step2 extends FragmentActivity {
     private int questionNum = 1;
     private static String uid = "";
     private static String people_uid = "";
+    private static String people_username = "";
     private String gubun1 = "";
     private String gubun2 = "";
     /*
@@ -86,8 +87,11 @@ public class YouType_Activity_step2 extends FragmentActivity {
         Intent intent = getIntent();
         people_uid = intent.getExtras().getString("people_uid").toString();
         uid = SharedPreferenceUtil.getSharedPreference(this, "uid");
+        people_username = intent.getExtras().getString("people_username").toString();
         gubun1 = intent.getExtras().getString("gubun1");
         gubun2 = intent.getExtras().getString("gubun2");
+
+        Log.d("people_gram", people_username);
 
 
         //Activity mcontext에 담기
@@ -232,6 +236,49 @@ public class YouType_Activity_step2 extends FragmentActivity {
                 @Override
                 public void onSuccess(String response)
                 {
+                    try {
+                        JSONObject jobj = new JSONObject(response);
+
+                        String data1 = jobj.getString("data1");
+                        String data2 = jobj.getString("data2");
+                        String data3 = jobj.getString("data3");
+                        String data4 = jobj.getString("data4");
+                        String data5 = jobj.getString("data5");
+                        String data6 = jobj.getString("data6");
+                        String data7 = jobj.getString("data7");
+                        String data8 = jobj.getString("data8");
+                        String data9 = jobj.getString("data9");
+                        String data10 = jobj.getString("data10");
+
+                        String speed = jobj.getString("speed");
+                        String control = jobj.getString("control");
+
+                        String people_type = jobj.getString("people_type");
+
+                        intent = new Intent(YouType_Activity_step2.this, YouType_Complate_Activity.class);
+                        intent.putExtra("people_uid", people_uid);
+                        intent.putExtra("people_username", people_username);
+                        intent.putExtra("data1", data1);
+                        intent.putExtra("data2", data2);
+                        intent.putExtra("data3", data3);
+                        intent.putExtra("data4", data4);
+                        intent.putExtra("data5", data5);
+                        intent.putExtra("data6", data6);
+                        intent.putExtra("data7", data7);
+                        intent.putExtra("data8", data8);
+                        intent.putExtra("data9", data9);
+                        intent.putExtra("data10", data10);
+                        intent.putExtra("speed", speed);
+                        intent.putExtra("control", control);
+                        intent.putExtra("youtype", people_type);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                        finish();
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    /*
                     dialog.dismiss();
 
                     intent = new Intent(YouType_Activity_step2.this, YouType_Activity.class);
@@ -241,6 +288,7 @@ public class YouType_Activity_step2 extends FragmentActivity {
                     startActivity(intent);
                     overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     finish();
+                    */
 
                 }
 
@@ -315,6 +363,49 @@ public class YouType_Activity_step2 extends FragmentActivity {
                 @Override
                 public void onSuccess(String response)
                 {
+                    try {
+                        JSONObject jobj = new JSONObject(response);
+
+                        String data1 = jobj.getString("data1");
+                        String data2 = jobj.getString("data2");
+                        String data3 = jobj.getString("data3");
+                        String data4 = jobj.getString("data4");
+                        String data5 = jobj.getString("data5");
+                        String data6 = jobj.getString("data6");
+                        String data7 = jobj.getString("data7");
+                        String data8 = jobj.getString("data8");
+                        String data9 = jobj.getString("data9");
+                        String data10 = jobj.getString("data10");
+
+                        String speed = jobj.getString("speed");
+                        String control = jobj.getString("control");
+
+                        String people_type = jobj.getString("people_type");
+
+                        intent = new Intent(YouType_Activity_step2.this, YouType_Complate_Activity.class);
+                        intent.putExtra("people_uid", people_uid);
+                        intent.putExtra("people_username", people_username);
+                        intent.putExtra("data1", data1);
+                        intent.putExtra("data2", data2);
+                        intent.putExtra("data3", data3);
+                        intent.putExtra("data4", data4);
+                        intent.putExtra("data5", data5);
+                        intent.putExtra("data6", data6);
+                        intent.putExtra("data7", data7);
+                        intent.putExtra("data8", data8);
+                        intent.putExtra("data9", data9);
+                        intent.putExtra("data10", data10);
+                        intent.putExtra("speed", speed);
+                        intent.putExtra("control", control);
+                        intent.putExtra("youtype", people_type);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                        finish();
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    /*
                     dialog.dismiss();
 
                     intent = new Intent(YouType_Activity_step2.this, YouType_Activity.class);
@@ -324,6 +415,9 @@ public class YouType_Activity_step2 extends FragmentActivity {
                     startActivity(intent);
                     overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     finish();
+                    */
+
+
 
                 }
 
@@ -432,7 +526,7 @@ public class YouType_Activity_step2 extends FragmentActivity {
                 {
                     dialog.dismiss();
 
-                    intent = new Intent(YouType_Activity_step2.this, YouType_Activity.class);
+                    intent = new Intent(YouType_Activity_step2.this, YouType_Complate_Activity.class);
                     intent.putExtra("people_uid", people_uid);
                     intent.putExtra("youtype", response);
                     //SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);

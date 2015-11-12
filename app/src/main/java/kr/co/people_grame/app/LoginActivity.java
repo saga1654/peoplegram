@@ -1,5 +1,6 @@
 package kr.co.people_grame.app;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -21,6 +22,8 @@ import com.loopj.android.http.*;
 
 public class LoginActivity extends AppCompatActivity {
 
+    public static Activity loginActivity;
+
     private Intent intent;
     private EditText et_userid, et_userpw;
     private Context ActivityContext;
@@ -38,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
 
         AsyncHttpClient client = HttpClient.getInstance();
         ActivityContext = this;
+        loginActivity = LoginActivity.this;
     }
 
     public void btn_login(View v) {
