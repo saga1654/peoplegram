@@ -276,6 +276,9 @@ public class SubMypageFragment extends Fragment {
                     et_job.setText(jobj.getString("JOB"));
                     et_client.setText(jobj.getString("CLIENT"));
 
+
+
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

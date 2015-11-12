@@ -28,6 +28,9 @@ public class SubMyType_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+
         setContentView(R.layout.activity_sub_mytype);
 
 
@@ -477,6 +480,6 @@ public class SubMyType_Activity extends AppCompatActivity {
     public void finish()
     {
         super.finish();
-        overridePendingTransition(R.anim.end_enter, R.anim.end_exit);
+        overridePendingTransition(R.anim.slide_close_down_info, R.anim.slide_clode_up_info);
     }
 }

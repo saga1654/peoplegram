@@ -37,20 +37,12 @@ import java.io.FileNotFoundException;
 
 public class ProfileActivity extends AppCompatActivity {
 
-
-    protected static final int CAMERA_REQUEST = 0;
-    protected static final int GALLERY_PICTURE = 1;
-    private Intent pictureActionIntent = null;
-
-    private String Filename;
-
-    private CircularImageView profile_img;
-    private AQuery aq;
-
-    private TextView profileView_username, profileView_email, profile_username, profileView_type, profileView_point, profile_sex, profile_age, profile_area;
-    private ImageView profileView_typeImg, profile_sex_icon;
-
     private ProgressDialog dialog;
+
+    private String people_type_return = "";
+    private ImageView mytype_me, mytype_people;
+    private TextView mytype_per, profile_sex, profile_age, profile_area;
+    private TextView profile_username, profile_email, profile_point;
 
 
     @Override
@@ -59,10 +51,60 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
 
+        mytype_me = (ImageView) findViewById(R.id.mytype_me);
+        mytype_people = (ImageView) findViewById(R.id.mytype_people);
+
+        mytype_per = (TextView) findViewById(R.id.mytype_per);
+        profile_sex = (TextView) findViewById(R.id.profile_sex);
+        profile_age = (TextView) findViewById(R.id.profile_age);
+        profile_area = (TextView) findViewById(R.id.profile_area);
+        profile_username = (TextView) findViewById(R.id.profile_username);
+        profile_email = (TextView) findViewById(R.id.profile_email);
+        profile_point = (TextView) findViewById(R.id.profile_point);
+
+        profile_username.setText(SharedPreferenceUtil.getSharedPreference(this, "username"));
+        profile_email.setText(SharedPreferenceUtil.getSharedPreference(this, "email"));
+        profile_point.setText(SharedPreferenceUtil.getSharedPreference(this, "point"));
+
+        switch (SharedPreferenceUtil.getSharedPreference(this, "mytype")) {
+            case "I":
+                mytype_me.setImageResource(R.mipmap.people_type_i);
+                break;
+            case "D":
+                mytype_me.setImageResource(R.mipmap.people_type_d);
+                break;
+            case "E":
+                mytype_me.setImageResource(R.mipmap.people_type_e);
+                break;
+            case "A":
+                mytype_me.setImageResource(R.mipmap.people_type_a);
+                break;
+            default:
+                mytype_me.setImageResource(R.mipmap.people_type_default);
+                break;
+        }
+
+        mytype_me.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, SubMyType_Activity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+            }
+        });
+
+        mytype_people.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
+
         //mytype
 
-        aq = new AQuery(this);
-
+        /*
         profile_username = (TextView) findViewById(R.id.profile_username);
         profileView_username = (TextView) findViewById(R.id.profileView_username);
         profileView_email = (TextView) findViewById(R.id.profileView_email);
@@ -103,6 +145,7 @@ public class ProfileActivity extends AppCompatActivity {
                 profileView_typeImg.setImageResource(R.mipmap.peoplelist_type_default);
                 break;
         }
+        (/
 
 
 
@@ -117,96 +160,9 @@ public class ProfileActivity extends AppCompatActivity {
         */
     }
 
-    public void galleryView(View v) {
-
-        pictureActionIntent = new Intent(Intent.ACTION_PICK);
-
-        pictureActionIntent.setType(android.provider.MediaStore.Images.Media.CONTENT_TYPE);
-        //pictureActionIntent = new Intent(
-        //        MediaStore.Images.Media.CONTENT_TYPE);
-        //startActivityForResult(pictureActionIntent,CAMERA_REQUEST);
-        startActivityForResult(pictureActionIntent, GALLERY_PICTURE);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == GALLERY_PICTURE)
-        {
-            if(resultCode== Activity.RESULT_OK)
-            {
-                Bitmap tmpPhoto;
-                try
-                {
-                    Filename =  getImageNameToUri(data.getData());
-                    dataSend();
 
 
-                } catch (Exception e) {
 
-                }
-            }
-        }
-    }
-
-    private void dataSend()
-    {
-        File myFile = new File(Filename);
-        RequestParams params = new RequestParams();
-        try {
-            params.put("file", myFile);
-        } catch(FileNotFoundException e) {
-            Log.d("people_gram", "file_error");
-        }
-
-        params.put("uid", SharedPreferenceUtil.getSharedPreference(this, "uid"));
-        HttpClient.post("/user/profile_update", params, new AsyncHttpResponseHandler() {
-            public void onStart() {
-                dialog = ProgressDialog.show(ProfileActivity.this, "", "데이터 수신중");
-            }
-
-            public void onFinish() {
-                dialog.dismiss();
-            }
-
-            @Override
-            public void onSuccess(String response) {
-                //Log.d("people_gram", response);
-                SharedPreferenceUtil.putSharedPreference(ProfileActivity.this, "profile_image", response);
-
-                profile_img_view(response);
-                dialog.dismiss();
-
-            }
-        });
-    }
-
-    private void profile_img_view(String filename)
-    {
-        ImageOptions options = new ImageOptions();
-        options.ratio = 1;
-
-        options.memCache = true;
-        options.fileCache = true;
-
-
-        String imageUrl = "http://121.162.209.41:81/"+filename;
-        aq.id(profile_img).image(imageUrl, options);
-
-    }
-
-    public String getImageNameToUri(Uri data)
-    {
-        String[] proj = { MediaStore.Images.Media.DATA };
-        Cursor cursor = managedQuery(data, proj, null, null, null);
-        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-
-        cursor.moveToFirst();
-
-        String imgPath = cursor.getString(column_index);
-        String imgName = imgPath.substring(imgPath.lastIndexOf("/")+1);
-
-        return imgPath;
-    }
 
     public void onStart()
     {
@@ -224,32 +180,67 @@ public class ProfileActivity extends AppCompatActivity {
 
             @Override
             public void onSuccess(String response) {
+                Log.d("people_gram", response);
                 try {
                     JSONObject jobj = new JSONObject(response);
-                    if (jobj.getString("CODE").equals("000")) {
-                        if (jobj.getString("SEX").equals("M")) {
-                            profile_sex.setText("남성");
-                        } else {
-                            profile_sex.setText("여성");
-                        }
+                    JSONObject profile = new JSONObject(jobj.getString("profile"));
+                    JSONObject my_data = new JSONObject(jobj.getString("my_data"));
+                    JSONObject you_data = new JSONObject(jobj.getString("people_data"));
 
-                        profile_age.setText(jobj.getString("YEAR"));
-                        profile_area.setText(jobj.getString("AREA"));
+                    if (profile.getString("SEX").equals("M")) {
+                        profile_sex.setText("남성");
+                    } else {
+                        profile_sex.setText("여성");
                     }
+
+                    profile_age.setText(Utilities.age_return(profile.getString("BIRTHDAY")));
+                    profile_area.setText(profile.getString("SIDO") + " " + profile.getString("GUGUN") + " " + profile.getString("DONG"));
+
+                    mytype_people.setImageResource(R.mipmap.people_type_default);
+
+                    float my_speed = Float.parseFloat(my_data.getString("SPEED"));
+                    float my_control = Float.parseFloat(my_data.getString("CONTROL"));
+
+                    float people_speed = Float.parseFloat(you_data.getString("sumdata_speed"));
+                    float people_control = Float.parseFloat(you_data.getString("sumdata_control"));
+
+                    switch (you_data.getString("peopleType"))
+                    {
+                        case "I":
+                            mytype_people.setImageResource(R.mipmap.people_type_i);
+                            break;
+                        case "D":
+                            mytype_people.setImageResource(R.mipmap.people_type_d);
+                            break;
+                        case "E":
+                            mytype_people.setImageResource(R.mipmap.people_type_e);
+                            break;
+                        case "A":
+                            mytype_people.setImageResource(R.mipmap.people_type_a);
+                            break;
+                        default:
+                            mytype_people.setImageResource(R.mipmap.people_type_default);
+                            break;
+                    }
+
+                    String per = String.valueOf(Math.ceil(Utilities.people_match_int(my_speed, people_speed, my_control, people_control)));
+                    if(you_data.getString("peopleType").equals("")) {
+                        mytype_per.setText("?");
+                    } else {
+                        mytype_per.setText(per+"%");
+                    }
+
+
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
             }
         });
 
     }
 
-    public void profile_detail_btn(View v) {
-        Intent intent = new Intent(ProfileActivity.this, ProfileDetailActivity.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
-    }
 
     public void btn_back(View v) {
         finish();

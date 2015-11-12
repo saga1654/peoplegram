@@ -60,6 +60,8 @@ public class SubPeopleFragment extends Fragment {
     private ImageView listview_proplelist_img, btn_question_re;
     private String searchType = "ALL";
 
+    private LinearLayout myprofile_btn;
+    private LinearLayout people_detail_view;
     private LinearLayout people_gubun_all, people_gubun_family, people_gubun_friend, people_gubun_lover, people_gubun_job, people_gubun_client, people_gubun_not;
     private TextView people_cnt, et_all_cnt, et_p_cnt, et_f_cnt, et_l_cnt, et_c_cnt, et_s_cnt, et_n_cnt;
     private TextView et_all_title, et_p_title, et_f_title, et_l_title, et_c_title, et_s_title, et_n_title;
@@ -107,6 +109,18 @@ public class SubPeopleFragment extends Fragment {
         sf_people_list.addHeaderView(header);
 
 
+        people_detail_view = (LinearLayout) rootView.findViewById(R.id.people_detail_view);
+        myprofile_btn = (LinearLayout) rootView.findViewById(R.id.myprofile_btn);
+        myprofile_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+            }
+        });
+
+
        // panel_sign = (ImageView) rootView.findViewById(R.id.panel_sign);
         /*
         panel_sign.setOnClickListener(new View.OnClickListener() {
@@ -150,6 +164,8 @@ public class SubPeopleFragment extends Fragment {
                             listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_default);
                             break;
                     }
+
+                    people_detail_view.setVisibility(View.GONE);
                 } else {
                     RequestParams params = new RequestParams();
                     params.put("uid", SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid"));
@@ -190,7 +206,8 @@ public class SubPeopleFragment extends Fragment {
                                             break;
 
                                         default:
-
+                                            Toast.makeText(getActivity(), "피플들에게 내 진단을 요청해주세요.", Toast.LENGTH_LONG).show();
+                                            people_detail_view.setVisibility(View.VISIBLE);
                                             listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_default);
                                             break;
                                     }
@@ -252,10 +269,15 @@ public class SubPeopleFragment extends Fragment {
         TextView listview_my_people_list_username = (TextView) rootView.findViewById(R.id.listview_my_people_list_username);
         TextView listview_my_people_list_email = (TextView) rootView.findViewById(R.id.listview_my_people_list_email);
 
-
-
-
-
+        listview_proplelist_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SubMyType_Activity.class);
+                intent.putExtra("mytype", SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype"));
+                startActivity(intent);
+                //getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+            }
+        });
 
         listview_my_people_list_username.setText(SharedPreferenceUtil.getSharedPreference(getActivity(), "username"));
         listview_my_people_list_email.setText(SharedPreferenceUtil.getSharedPreference(getActivity(), "email"));
@@ -291,14 +313,15 @@ public class SubPeopleFragment extends Fragment {
         sf_people_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+
                 if(position == 0) {
 
 
                 } else {
 
                     final SubPeopleListDTO dto = (SubPeopleListDTO) sf_people_list.getItemAtPosition(position);
-
-
                     pos = sf_people_list.getFirstVisiblePosition();
 
                     Log.d("people_gram", "현재위치="+pos);

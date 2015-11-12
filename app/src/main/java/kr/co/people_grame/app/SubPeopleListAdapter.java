@@ -1,6 +1,8 @@
 package kr.co.people_grame.app;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.opengl.Visibility;
 import android.util.Log;
@@ -15,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.plus.People;
+
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -26,7 +30,7 @@ public class SubPeopleListAdapter extends BaseAdapter{
     private Context mContext;
 
     private int layout;
-    private ArrayList<SubPeopleListDTO> peoplelist;
+    private final ArrayList<SubPeopleListDTO> peoplelist;
     LayoutInflater inf;
 
     public SubPeopleListAdapter(Context mContext, int layout, ArrayList<SubPeopleListDTO> peoplelist)
@@ -56,10 +60,12 @@ public class SubPeopleListAdapter extends BaseAdapter{
 
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
+
 
         if(convertView == null) {
             convertView = inf.inflate(layout, null);
+        } else {
         }
 
 
@@ -88,7 +94,7 @@ public class SubPeopleListAdapter extends BaseAdapter{
         }
 
 
-        String people_type = dto.get_profile_type();
+        final String people_type = dto.get_profile_type();
 
 
 
@@ -106,7 +112,7 @@ public class SubPeopleListAdapter extends BaseAdapter{
                 listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_d);
                 break;
 
-            case "":
+            case "default":
                 listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_default);
                 break;
             /*
@@ -117,6 +123,23 @@ public class SubPeopleListAdapter extends BaseAdapter{
                 break;
              */
         }
+
+        //listview_proplelist_img.setTag(position);
+        /*
+        listview_proplelist_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(mContext,SubMyType_Activity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("mytype", people_type);
+                mContext.startActivity(intent);
+
+
+
+            }
+        });
+        */
 
         return convertView;
     }

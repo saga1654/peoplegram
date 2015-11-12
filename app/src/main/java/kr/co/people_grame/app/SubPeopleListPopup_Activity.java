@@ -146,6 +146,20 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
                     break;
             }
 
+            popup_type.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(people_type.equals("")) {
+                        Toast.makeText(SubPeopleListPopup_Activity.this, people_username +"님을 진단해주세요.", Toast.LENGTH_LONG).show();
+                    } else {
+                        Intent intent = new Intent(SubPeopleListPopup_Activity.this, SubMyType_Activity.class);
+                        intent.putExtra("mytype", people_type);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                    }
+                }
+            });
+
         }
 
 

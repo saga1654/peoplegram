@@ -12,6 +12,7 @@ import android.view.Display;
 import android.view.WindowManager;
 
 import java.text.DecimalFormat;
+import java.util.Calendar;
 
 /**
  * Created by 광희 on 2015-09-09.
@@ -175,6 +176,27 @@ public class Utilities {
         String won = String.valueOf(df.format(num));
 
         return won;
+    }
+
+    public static String age_return(String birthday)
+    {
+        Calendar cal= Calendar.getInstance();
+        int year = Integer.parseInt(birthday.substring(0, 4));
+        int month = Integer.parseInt(birthday.substring(4, 6));
+        int day = Integer.parseInt(birthday.substring(6, 8));
+
+        cal.set(Calendar.YEAR, year);
+        cal.set(Calendar.MONTH, month-1);
+        cal.set(Calendar.DATE, day);
+
+
+        Calendar now = Calendar.getInstance();
+        int age = now.get(Calendar.YEAR) - cal.get(Calendar.YEAR);
+        if ((cal.get(Calendar.MONTH) > now.get(Calendar.MONTH)) || (cal.get(Calendar.MONTH) == now.get(Calendar.MONTH) && cal.get(Calendar.DAY_OF_MONTH) > now.get(Calendar.DAY_OF_MONTH))) {
+            age--;
+        }
+
+        return String.valueOf(age) + "세";
     }
 
     public static double people_match_int(float my_speed, float you_speed, float my_control, float you_control) {

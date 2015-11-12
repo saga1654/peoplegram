@@ -200,7 +200,7 @@ public class LogoActivity extends AppCompatActivity {
 
                 if(SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "uid") == "") {
                     if(SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "mytype") == "") {
-                        Intent intent = new Intent(LogoActivity.this, MemberComplate_Activity.class);
+                        Intent intent = new Intent(LogoActivity.this, LoginActivity.class);
                         startActivity(intent);
                         overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
                         finish();
