@@ -157,7 +157,9 @@ public class YouType_Complate_Activity extends AppCompatActivity {
     public void prevBtn(View v) {
         finish();
     }
-
+    public void closeBtn(View v) {
+        finish();
+    }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
