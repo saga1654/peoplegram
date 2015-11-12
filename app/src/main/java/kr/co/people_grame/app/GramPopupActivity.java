@@ -81,7 +81,7 @@ public class GramPopupActivity extends AppCompatActivity {
 
 
                     } else {
-                        Toast.makeText(GramPopupActivity.this, "잔여그램이 부족합니다(그램 : "+jobj.getString("data_point")+"G)", Toast.LENGTH_LONG).show();
+                        Toast.makeText(GramPopupActivity.this, "잔여 포인트가 부족합니다(그램 : "+jobj.getString("data_point")+"G)", Toast.LENGTH_LONG).show();
                         intent.putExtra("data_OK", "NO");
                         setResult(RESULT_OK,intent);
                         finish();
