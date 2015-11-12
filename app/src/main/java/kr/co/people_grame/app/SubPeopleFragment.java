@@ -118,7 +118,7 @@ public class SubPeopleFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProfileActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, ACTIVITY_CODE);
                 getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
