@@ -56,7 +56,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_people_list_popup_);
 
-        int random_code = (int) (Math.random() * 4) + 1;
+        int random_code = (int) (Math.random() * 10) + 1;
         String resName = "@drawable/people_popup_img"+String.valueOf(random_code);
         String packName = this.getPackageName(); // 패키지명
         int resImg = getResources().getIdentifier(resName, "drawable", packName);
