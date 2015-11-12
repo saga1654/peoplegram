@@ -375,6 +375,7 @@
     <string name="title_activity_member_join_step7_">MemberJoinStep7_Activity</string>
     <string name="title_activity_member_complate_">MemberComplate_Activity</string>
     <string name="title_activity_my_type__complate_">MyType_Complate_Activity</string>
+    <string name="title_activity_my_profile_">MyProfile_Activity</string>
 
 
 </resources>
