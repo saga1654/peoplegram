@@ -94,7 +94,7 @@ public class SubPeopleListAdapter extends BaseAdapter{
         }
 
 
-        final String people_type = dto.get_profile_type();
+        String people_type = dto.get_profile_type();
 
 
 
@@ -112,7 +112,7 @@ public class SubPeopleListAdapter extends BaseAdapter{
                 listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_d);
                 break;
 
-            case "default":
+            case "":
                 listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_default);
                 break;
             /*
