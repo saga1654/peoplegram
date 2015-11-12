@@ -216,6 +216,8 @@ public class YouType_Activity_step2 extends FragmentActivity {
             RequestParams params = new RequestParams();
             params.put("uid", uid);
             params.put("people_uid", people_uid);
+            params.put("username", SharedPreferenceUtil.getSharedPreference(YouType_Activity_step2.this,"username"));
+            params.put("people_username", people_username);
             params.put("gubun1", gubun1);
             params.put("gubun2", gubun2);
             int dataNum = 0;
@@ -342,6 +344,8 @@ public class YouType_Activity_step2 extends FragmentActivity {
 
             RequestParams params = new RequestParams();
             params.put("uid", uid);
+            params.put("username", SharedPreferenceUtil.getSharedPreference(YouType_Activity_step2.this,"username"));
+            params.put("people_username", people_username);
             params.put("people_uid", people_uid);
             params.put("gubun1", gubun1);
             params.put("gubun2", gubun2);
