@@ -58,8 +58,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="0.10"
-                android:id="@+id/settingbtn"
+                android:onClick="people_return_btn"
                 android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="복원"
+                    android:textSize="14dp"
+                    android:textColor="#fff" />
 
             </LinearLayout>
         </LinearLayout>
