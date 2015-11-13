@@ -119,7 +119,7 @@ public class MyType_Complate_Activity extends AppCompatActivity {
                             if (SPEED <= 1 && CONTROL >= -1) {
                                 mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>가끔 밀어부치기도 하고 그러나 상대방을 배려하는 이해심도 가진<b color='#aa64f8'>소통의 달인</b></b><br>으로 진단되었습니다."));
                             } else {
-                                mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>사람을 끄는 힘을 가진<b color='#aa64f8'>관계형성이 좋은 스타일</b></b><br>로 진단되었습니다."));
+                                mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>사람을 끄는 힘을 가진<b color='#aa64f8'>관계 형성이 좋은 스타일</b></b><br>로 진단되었습니다."));
                             }
                         } else if (SPEED <= 1 && CONTROL >= -5) {
                             mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>상대에 대한 이해심이 높고 믿을 수 있는 <b color='#aa64f8'>소통하고 싶은 스타일</b></b><br>로 진단되었습니다."));
