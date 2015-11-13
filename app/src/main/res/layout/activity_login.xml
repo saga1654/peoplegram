@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="#2f334b"
+        android:background="@drawable/main_bg2"
         android:weightSum="1">
 
         <LinearLayout
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:id="@+id/login_activity_li_logo"
-            android:layout_weight="0.60"
+            android:layout_weight="0.40"
             android:gravity="center">
 
             <ImageView
@@ -27,6 +27,21 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/login_logo1" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.20">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="사람들과의 관계 속에 있는 나\n나는 누구인가."
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="15dp" />
+
         </LinearLayout>
 
 
