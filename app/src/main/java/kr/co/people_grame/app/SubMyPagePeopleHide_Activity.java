@@ -117,9 +117,9 @@ public class SubMyPagePeopleHide_Activity extends AppCompatActivity {
                             , gubun2
                             , speed
                             , control
-                            , jobj.getInt("TOTAL_COUNT")
-                            , jobj.getInt("FRIEND_COUNT")
-                            , jobj.getInt("NOW_MAX")
+                            , 0
+                            , 0
+                            , 0
                         ));
 
 
