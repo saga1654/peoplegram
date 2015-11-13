@@ -259,7 +259,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
                     overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
                 }
             });
-            alert.setMessage("타인진단을 진행해야\n매칭을 볼 수 있습니다.\n타인진단을 진행하시겠습니까?");
+            alert.setMessage("타인진단을 진행해야\n매칭을 볼 수 있습니다.\n진단하기을 진행하시겠습니까?");
             alert.setNegativeButton("취소", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {

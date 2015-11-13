@@ -1,2 +1,2 @@
-include ':app', ':android-async-http-1.4.4', ':android-query.0.26.7'
+include ':app', ':android-query.0.26.7', ':android-async-http-1.4.4'
 //include ':kakao_android_sdk_for_eclipse'

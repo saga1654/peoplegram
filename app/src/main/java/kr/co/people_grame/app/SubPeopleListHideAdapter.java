@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,6 +22,9 @@ public class SubPeopleListHideAdapter extends BaseAdapter{
     private final ArrayList<SubPeopleListDTO> peoplelist;
     LayoutInflater inf;
 
+    private ViewHolder viewHolder = null;
+    private boolean[] isCheckedConfrim;
+
     public SubPeopleListHideAdapter(Context mContext, int layout, ArrayList<SubPeopleListDTO> peoplelist)
     {
         this.mContext = mContext;
@@ -29,6 +33,8 @@ public class SubPeopleListHideAdapter extends BaseAdapter{
         this.peoplelist = peoplelist;
         inf = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View convertView = inf.inflate(layout, null);
+
+        this.isCheckedConfrim = new boolean[peoplelist.size()];
     }
 
     @Override
@@ -47,17 +53,38 @@ public class SubPeopleListHideAdapter extends BaseAdapter{
     }
 
 
-    @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public void setChecked(int position) {
+        isCheckedConfrim[position] = !isCheckedConfrim[position];
+    }
 
+
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
 
         if(convertView == null) {
+            viewHolder = new ViewHolder();
             convertView = inf.inflate(layout, null);
+            viewHolder.cBox = (CheckBox) convertView.findViewById(R.id.hide_delete);
+            convertView.setTag(viewHolder);
         } else {
+            viewHolder = (ViewHolder)convertView.getTag();
         }
+
+        viewHolder.cBox.setClickable(false);
+        viewHolder.cBox.setFocusable(false);
+
+        //viewHolder.cBox.setText(sArrayList.get(position));
+        //viewHolder.cBox.setChecked(isCheckedConfrim[position]);
+
 
 
         SubPeopleListDTO dto = peoplelist.get(position);
+
+
+
+        viewHolder.cBox.setChecked(isCheckedConfrim[position]);
+
 
         TextView listview_people_list_username = (TextView) convertView.findViewById(R.id.listview_people_list_username);
         TextView listview_people_list_email = (TextView) convertView.findViewById(R.id.listview_people_list_email);
@@ -118,5 +145,11 @@ public class SubPeopleListHideAdapter extends BaseAdapter{
 
         return convertView;
     }
+
+    class ViewHolder {
+        // 새로운 Row에 들어갈 CheckBox
+        private CheckBox cBox = null;
+    }
+
 
 }
