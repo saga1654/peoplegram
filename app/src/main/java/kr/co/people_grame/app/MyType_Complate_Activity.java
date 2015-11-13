@@ -103,56 +103,56 @@ public class MyType_Complate_Activity extends AppCompatActivity {
 
                         if (SPEED <= 5 && CONTROL <= 1) {
                             if (SPEED <= 1 && CONTROL <= 1) {
-                                mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>분석형,표출형 특징을 가진 <b color='#ff8a55'>주도형</b></b><br>으로 진단되었습니다."));
+                                mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>꼼꼼하기도 하면서 때론 완벽을 추구하는 <b color='#ff8a55'>강한 추진력과 모험심 있는 스타일</b></b><br>로 진단되었습니다."));
                             } else {
-                                mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>표출형 특징을 가진 <b color='#ff8a55'>주도형</b></b><br>으로 진단되었습니다."));
+                                mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>사람과의 관계와 소통을 중요시하며 <b color='#ff8a55'>때론 추진력과 도전을 좋아하는 스타일</b></b><br>로 진단되었습니다."));
                             }
                         } else if (SPEED <= 1 && CONTROL <= 5) {
-                            mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>분석형 특징을 가진 <b color='#ff8a55'>주도형</b></b><br>으로 진단되었습니다."));
+                            mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>꼼꼼하면서 <b color='#ff8a55'>밀어부치기도 도전을 좋아하기도 하는 스타일</b></b><br>로 진단되었습니다."));
                         } else {
-                            mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b color='#ff8a55'>주도형</b>으로 진단되었습니다."));
+                            mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b color='#ff8a55'>새로운 도전과 모험, 강한 추진력을 가진 스타일</b>로 진단되었습니다."));
                         }
                     }
                     if (SPEED > 0 && CONTROL < 0) {
 
                         if (SPEED <= 5 && CONTROL >= -1) {
                             if (SPEED <= 1 && CONTROL >= -1) {
-                                mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>주도형,우호형 특징을 가진 <b color='#aa64f8'>표출형</b></b><br>으로 진단되었습니다."));
+                                mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>가끔 밀어부치기도 하고 그러나 상대방을 배려하는 이해심도 가진<b color='#aa64f8'>소통의 달인</b></b><br>으로 진단되었습니다."));
                             } else {
-                                mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>주도형 특징을 가진 <b color='#aa64f8'>표출형</b></b><br>으로 진단되었습니다."));
+                                mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>사람을 끄는 힘을 가진<b color='#aa64f8'>관계형성이 좋은 스타일</b></b><br>로 진단되었습니다."));
                             }
                         } else if (SPEED <= 1 && CONTROL >= -5) {
-                            mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>우호형 특징을 가진 <b color='#aa64f8'>표출형</b></b><br>으로 진단되었습니다."));
+                            mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>상대에 대한 이해심이 높고 믿을 수 있는 <b color='#aa64f8'>소통하고 싶은 스타일</b></b><br>로 진단되었습니다."));
                         } else {
-                            mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b color='#aa64f8'>표출형</b>으로 진단되었습니다."));
+                            mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b color='#aa64f8'>인간관계가 중요하고 큰 문제가 없으며 상대의 마음을 진심으로 대하는 스타일</b>로 진단되었습니다."));
                         }
                     }
                     if (SPEED < 0 && CONTROL > 0) {
 
                         if (SPEED >= -5 && CONTROL <= 1) {
                             if (SPEED >= -1 && CONTROL <= 1) {
-                                mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>주도형,우호형 특징을 가진 <b color='#37afec'>분석형</b></b><br>으로 진단되었습니다."));
+                                mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>도전정신을 가진 이해심 깊은<b color='#37afec'>완벽주의자</b></b><br>로 진단되었습니다."));
                             } else {
-                                mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>우호형 특징을 가진 <b color='#37afec'>분석형</b></b><br>으로 진단되었습니다."));
+                                mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>속 깊이 잘 챙기는<b color='#37afec'>꼼꼼주의자</b></b><br>로 진단되었습니다."));
                             }
                         } else if (SPEED >= -1 && CONTROL <= 5) {
-                            mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>주도형 특징을 가진 <b color='#37afec'>분석형</b></b><br>으로 진단되었습니다."));
+                            mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>새로운 것을 마다하지 않고 끝까지 완력하게 꼼꼼히 이루는 스타일<br>로 진단되었습니다."));
                         } else {
-                            mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b color='#37afec'>분석형</b>으로 진단되었습니다."));
+                            mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b color='#37afec'>꼼꼼한 완벽주의자</b>로 진단되었습니다."));
                         }
                     }
                     if (SPEED < 0 && CONTROL < 0) {
 
                         if (SPEED >= -5 && CONTROL >= -1) {
                             if (SPEED >= -1 && CONTROL >= -1) {
-                                mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>분석형,표출형 특징을 가진 <b color='#52d935'>우호형</b></b><br>으로 진단되었습니다."));
+                                mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>사람과의 관계에서 이해심이 높지만 그래도 나름 계산하여 마음을 보이는 스타일</b><br>로 진단되었습니다."));
                             } else {
-                                mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>분석형 특징을 가진 <b color='#52d935'>우호형</b></b><br>으로 진단되었습니다."));
+                                mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>꼼꼼히 상대를 알아보고 끝까지 믿어주는 스타일</b><br>로 진단되었습니다."));
                             }
                         } else if (SPEED >= -1 && CONTROL >= -5) {
-                            mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>표출형 특징을 가진 <b color='#52d935'>우호형</b></b><br>으로 진단되었습니다."));
+                            mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b>상대를 이해하며 좋은 인간관계를 끝까지 유지하는 스타일</b><br>로 진단되었습니다."));
                         } else {
-                            mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b color='#52d935'>우호형</b>으로 진단되었습니다."));
+                            mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br><b color='#52d935'>상대방에 대한 배려심 좋고 신뢰성 있는 스타일</b>로 진단되었습니다."));
                         }
                     }
 
