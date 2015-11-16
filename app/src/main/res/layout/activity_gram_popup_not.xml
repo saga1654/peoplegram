@@ -54,8 +54,45 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="포인트가 부족합니다!\n포인트를 충전한 후 이용해 주시기 바랍니다."
+                android:text="포인트를 충전한 후 이용해 주시기 바랍니다."
                 android:textColor="#1d1d26"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="#fdf282">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="※ 설문조사 회원이 되시면 가입 포인트와 추후 참여하여 \n포인트를 받을 수 있는 기회를 얻을 수 있습니다. "
+                android:textColor="#1d1d26" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingLeft="100dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="20dp"
+            android:background="#fdf282">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="☞ 포인트 얻으러 가기"
+                android:textColor="#1d1d26"
+                />
+
 
         </LinearLayout>
         <LinearLayout
