@@ -1,6 +1,7 @@
 package kr.co.people_grame.app;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +24,8 @@ public class SubPeopleListHideAdapter extends BaseAdapter{
     LayoutInflater inf;
 
     private ViewHolder viewHolder = null;
-    private boolean[] isCheckedConfrim;
+    public String[] uid_check;
+    public boolean[] isCheckedConfrim;
 
     public SubPeopleListHideAdapter(Context mContext, int layout, ArrayList<SubPeopleListDTO> peoplelist)
     {
@@ -35,6 +37,7 @@ public class SubPeopleListHideAdapter extends BaseAdapter{
         View convertView = inf.inflate(layout, null);
 
         this.isCheckedConfrim = new boolean[peoplelist.size()];
+        this.uid_check = new String[peoplelist.size()];
     }
 
     @Override
@@ -54,6 +57,14 @@ public class SubPeopleListHideAdapter extends BaseAdapter{
 
 
     public void setChecked(int position) {
+        SubPeopleListDTO dto = peoplelist.get(position);
+
+        Log.d("people_gram", dto.get_profile_uid());
+        if(isCheckedConfrim[position] == true) {
+            uid_check[position] = "";
+        } else {
+            uid_check[position] = dto.get_profile_uid();
+        }
         isCheckedConfrim[position] = !isCheckedConfrim[position];
     }
 
