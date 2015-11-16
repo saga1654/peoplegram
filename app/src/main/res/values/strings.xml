@@ -381,5 +381,8 @@
     <string name="title_activity_sub_my_page_people_hide_">SubMyPagePeopleHide_Activity</string>
     <string name="title_activity_panel_join">PanelJoinActivity</string>
 
-
+    <string-array name="calendar_array">
+        <item>양력</item>
+        <item>음력</item>
+    </string-array>
 </resources>
