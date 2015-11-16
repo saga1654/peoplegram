@@ -37,7 +37,22 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="246dp"
+            android:layout_height="27dp"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="10dp">
 
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner"
+                android:layout_gravity="center_horizontal" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
@@ -49,7 +64,7 @@
             android:paddingBottom="10dp">
 
             <EditText
-                android:layout_width="match_parent"
+                android:layout_width="227dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/et_birthday"
                 android:background="#fff"
