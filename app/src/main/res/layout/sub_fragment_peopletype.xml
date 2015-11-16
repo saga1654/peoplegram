@@ -38,7 +38,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/peopletype_icon1"
-                            android:src="@drawable/peopletype_icon1"/>
+                            android:src="@drawable/item_no_key"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -102,7 +102,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingLeft="5dp"
-                                android:text="10"
+                                android:text="0"
                                 android:textSize="9dp"
                                 android:id="@+id/people1_cnt"
                                 android:textColor="#000"/>
@@ -144,7 +144,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/peopletype_icon2"
-                            android:src="@drawable/peopletype_icon2"/>
+                            android:src="@drawable/item_no_key"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -207,7 +207,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingLeft="5dp"
-                                android:text="10"
+                                android:text="0"
                                 android:textSize="9dp"
                                 android:id="@+id/people2_cnt"
                                 android:textColor="#000"/>
@@ -251,7 +251,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/peopletype_icon3"
-                            android:src="@drawable/peopletype_icon3"/>
+                            android:src="@drawable/item_no_key"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -314,7 +314,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingLeft="5dp"
-                                android:text="10"
+                                android:text="0"
                                 android:textSize="9dp"
                                 android:id="@+id/people3_cnt"
                                 android:textColor="#000"/>
@@ -354,7 +354,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/peopletype_icon4"
-                            android:src="@drawable/peopletype_icon4"/>
+                            android:src="@drawable/item_no_key"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -417,7 +417,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingLeft="5dp"
-                                android:text="10"
+                                android:text="0"
                                 android:textSize="9dp"
                                 android:id="@+id/people4_cnt"
                                 android:textColor="#000"/>
@@ -460,7 +460,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/peopletype_icon5"
-                            android:src="@drawable/peopletype_icon5"/>
+                            android:src="@drawable/item_no_key"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -523,7 +523,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingLeft="5dp"
-                                android:text="10"
+                                android:text="0"
                                 android:textSize="9dp"
                                 android:id="@+id/people5_cnt"
                                 android:textColor="#000"/>

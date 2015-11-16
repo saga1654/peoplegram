@@ -1,29 +1,65 @@
 package kr.co.people_grame.app;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
+import com.kakao.auth.ISessionCallback;
+import com.kakao.auth.KakaoSDK;
+import com.kakao.auth.Session;
+import com.kakao.util.exception.KakaoException;
+import com.kakao.util.helper.log.Logger;
 
-public class TestActivity extends AppCompatActivity {
+public class TestActivity extends Activity {
+    private SessionCallback callback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        WebView webview = (WebView) findViewById(R.id.webview);
+        callback = new SessionCallback();
+        //Session.getCurrentSession().addCallback(callback);
+        //Session.getCurrentSession().checkAndImplicitOpen();
 
-        WebSettings webSettings = webview.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        webview.loadUrl("a");
-
-        webview.loadUrl("file:///android_asset/test.html");
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (Session.getCurrentSession().handleActivityResult(requestCode, resultCode, data)) {
+            return;
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Session.getCurrentSession().removeCallback(callback);
+    }
+
+    private class SessionCallback implements ISessionCallback {
+
+        @Override
+        public void onSessionOpened() {
+            redirectSignupActivity();
+        }
+
+        @Override
+        public void onSessionOpenFailed(KakaoException exception) {
+            if(exception != null) {
+                Logger.e(exception);
+            }
+        }
+    }
+
+    protected void redirectSignupActivity() {
+        final Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 
 }

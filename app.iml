@@ -103,6 +103,12 @@
       <excludeFolder url="file://$MODULE_DIR$/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.5.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.5.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/7.5.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/app/build/intermediates/exploded-aar/com.kakao.sdk/auth/1.1.5/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/app/build/intermediates/exploded-aar/com.kakao.sdk/friends/1.1.5/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/app/build/intermediates/exploded-aar/com.kakao.sdk/kakaotalk/1.1.5/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/app/build/intermediates/exploded-aar/com.kakao.sdk/network/1.1.5/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/app/build/intermediates/exploded-aar/com.kakao.sdk/usermgmt/1.1.5/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/app/build/intermediates/exploded-aar/com.kakao.sdk/util/1.1.5/jars" />
       <excludeFolder url="file://$MODULE_DIR$/app/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/app/build/intermediates/jacoco" />
       <excludeFolder url="file://$MODULE_DIR$/app/build/intermediates/javaResources" />
@@ -120,8 +126,10 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 23 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="friends-1.1.5" level="project" />
     <orderEntry type="library" exported="" name="play-services-base-7.5.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-appinvite-7.5.0" level="project" />
+    <orderEntry type="library" exported="" name="util-1.1.5" level="project" />
     <orderEntry type="library" exported="" name="play-services-panorama-7.5.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-drive-7.5.0" level="project" />
     <orderEntry type="library" exported="" name="support-v4-23.0.1" level="project" />
@@ -134,16 +142,20 @@
     <orderEntry type="library" exported="" name="play-services-maps-7.5.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-plus-7.5.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-fitness-7.5.0" level="project" />
+    <orderEntry type="library" exported="" name="network-1.1.5" level="project" />
     <orderEntry type="library" exported="" name="play-services-analytics-7.5.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-7.5.0" level="project" />
     <orderEntry type="library" exported="" name="mediarouter-v7-22.0.0" level="project" />
+    <orderEntry type="library" exported="" name="kakaotalk-1.1.5" level="project" />
     <orderEntry type="library" exported="" name="play-services-wallet-7.5.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-identity-7.5.0" level="project" />
+    <orderEntry type="library" exported="" name="usermgmt-1.1.5" level="project" />
     <orderEntry type="library" exported="" name="play-services-appstate-7.5.0" level="project" />
     <orderEntry type="library" exported="" name="cardview-v7-23.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-nearby-7.5.0" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-23.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-cast-7.5.0" level="project" />
+    <orderEntry type="library" exported="" name="auth-1.1.5" level="project" />
     <orderEntry type="library" exported="" name="play-services-ads-7.5.0" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-23.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-location-7.5.0" level="project" />

@@ -362,6 +362,16 @@
             android:label="@string/title_activity_sub_my_page_people_hide_"
             android:theme="@style/AppTheme" >
         </activity>
+
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_app_key" />
+
+        <activity
+            android:name=".PanelJoinActivity"
+            android:label="@string/title_activity_panel_join"
+            android:theme="@style/AppTheme" >
+        </activity>
     </application>
 
 </manifest>
