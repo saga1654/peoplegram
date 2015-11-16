@@ -65,14 +65,52 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingTop="20dp"
-            android:paddingBottom="30dp">
+            android:paddingBottom="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="사람의 행동유형은 자신이 처한 관계와 역할,\n환경에 따라 달리 나타날 수 있습니다.\n 피플들이 생각하는 타입이 더욱 객관적이고\n 정확하다고 판단됩니다.\n피플들이 생각하는 타입을 보고 적용하기\n 원하시면 확인을 눌러주세요."
-                android:textColor="#1d1d26"/>
+                android:text="포인트 결제가 필요한 유료 컨텐츠입니다."
+                android:textColor="#1d1d26"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="#fdf282">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="※ 설문조사 회원이 되시면 가입 포인트와 추후 참여하여 \n포인트를 받을 수 있는 기회를 얻을 수 있습니다. "
+                android:textColor="#1d1d26" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingLeft="100dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="20dp"
+            android:background="#fdf282">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="☞ 포인트 얻으러 가기"
+                android:textColor="#1d1d26"
+                />
+
 
         </LinearLayout>
 
