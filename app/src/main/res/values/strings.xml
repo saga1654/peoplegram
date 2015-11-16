@@ -379,6 +379,7 @@
     <string name="title_activity_you_type__complate_">YouType_Complate_Activity</string>
     <string name="title_activity_sub_my_page_people_sync_">SubMyPagePeopleSync_Activity</string>
     <string name="title_activity_sub_my_page_people_hide_">SubMyPagePeopleHide_Activity</string>
+    <string name="title_activity_panel_join">PanelJoinActivity</string>
 
 
 </resources>

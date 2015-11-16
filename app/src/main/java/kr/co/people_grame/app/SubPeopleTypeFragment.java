@@ -270,8 +270,9 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
 
 
 
-                    if(P_code.equals("000") == false) {
-                        peopletype_icon1.setImageResource(R.drawable.item_no_key);
+                    if(P_code.equals("000")) {
+                        //peopletype_icon5
+                        peopletype_icon1.setImageResource(R.drawable.peopletype_icon1);
                     }
 
                     if(jobj_f.getString("f_code").equals("000")) {
@@ -306,8 +307,8 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     F_people_control = f_data.getString("people_control");
                     F_people_speed = f_data.getString("people_speed");
 
-                    if(F_code.equals("000") == false) {
-                        peopletype_icon2.setImageResource(R.drawable.item_no_key);
+                    if(F_code.equals("000")) {
+                        peopletype_icon2.setImageResource(R.drawable.peopletype_icon2);
                     }
 
                     if(jobj_l.getString("l_code").equals("000")) {
@@ -343,8 +344,8 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     L_DATA10 = l_data.getString("DATA10");
                     L_DATA_TOTAL = l_data.getString("people_total");
 
-                    if(L_code.equals("000") == false) {
-                        peopletype_icon3.setImageResource(R.drawable.item_no_key);
+                    if(L_code.equals("000")) {
+                        peopletype_icon3.setImageResource(R.drawable.peopletype_icon3);
                     }
 
                     if(jobj_c.getString("c_code").equals("000")) {
@@ -387,8 +388,8 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     C_DATA10 = c_data.getString("DATA10");
                     C_DATA_TOTAL = c_data.getString("people_total");
 
-                    if(C_code.equals("000") == false) {
-                        peopletype_icon4.setImageResource(R.drawable.item_no_key);
+                    if(C_code.equals("000")) {
+                        peopletype_icon4.setImageResource(R.drawable.peopletype_icon4);
                     }
 
                     if(jobj_s.getString("s_code").equals("000")) {
@@ -399,8 +400,8 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                         S_point = Integer.parseInt(jobj_s.getString("point"));
                     }
 
-                    if(S_code.equals("000") == false) {
-                        peopletype_icon5.setImageResource(R.drawable.item_no_key);
+                    if(S_code.equals("000")) {
+                        peopletype_icon5.setImageResource(R.drawable.peopletype_icon5);
                     }
 
                     S_code = s_data.getString("code");
