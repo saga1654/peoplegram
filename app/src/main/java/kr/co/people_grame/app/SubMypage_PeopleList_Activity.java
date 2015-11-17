@@ -12,6 +12,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -36,6 +37,7 @@ public class SubMypage_PeopleList_Activity extends AppCompatActivity {
     private String list = "";
 
     private TextView title, titleCnt;
+    private ImageView mytype_activity_typeImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class SubMypage_PeopleList_Activity extends AppCompatActivity {
 
         title = (TextView) findViewById(R.id.title);
         titleCnt = (TextView) findViewById(R.id.titleCnt);
+        mytype_activity_typeImg = (ImageView) findViewById(R.id.mytype_activity_typeImg);
 
         Intent intent = getIntent();
         if(intent != null) {
@@ -54,14 +57,47 @@ public class SubMypage_PeopleList_Activity extends AppCompatActivity {
             people_type = intent.getStringExtra("people_type");
             list = intent.getStringExtra("list");
 
+            Log.d("people_gram", searchType + ":::" + my_type + ":::" + people_type);
+
 
             if(list.equals("my")) {
                 peopleList();
                 title.setText("내가 진단한 피플현황");
+
+
+                switch (searchType) {
+                    case "I":
+                        mytype_activity_typeImg.setImageResource(R.drawable.mytype_i);
+                        break;
+                    case "D":
+                        mytype_activity_typeImg.setImageResource(R.drawable.mytype_d);
+                        break;
+                    case "E":
+                        mytype_activity_typeImg.setImageResource(R.drawable.mytype_e);
+                        break;
+                    case "A":
+                        mytype_activity_typeImg.setImageResource(R.drawable.mytype_a);
+                        break;
+                }
+
             }
 
             if(list.equals("people")) {
                 peopleList2();
+                switch (searchType) {
+                    case "I":
+                        mytype_activity_typeImg.setImageResource(R.drawable.mytype_i);
+                        break;
+                    case "D":
+                        mytype_activity_typeImg.setImageResource(R.drawable.mytype_d);
+                        break;
+                    case "E":
+                        mytype_activity_typeImg.setImageResource(R.drawable.mytype_e);
+                        break;
+                    case "A":
+                        mytype_activity_typeImg.setImageResource(R.drawable.mytype_a);
+                        break;
+                }
                 title.setText("나를 진단한 피플현황");
             }
         }
@@ -149,8 +185,26 @@ public class SubMypage_PeopleList_Activity extends AppCompatActivity {
                     switch (my_type)
                     {
                         case "P":
+                            titleCnt.setText("가족 ("+people_list.length()+"명)");
+                            break;
+                        case "F":
+                            titleCnt.setText("친구 ("+people_list.length()+"명)");
+                            break;
+                        case "L":
+                            titleCnt.setText("연인 ("+people_list.length()+"명)");
+                            break;
+                        case "C":
+                            titleCnt.setText("직장 ("+people_list.length()+"명)");
+                            break;
+                        case "S":
+                            titleCnt.setText("고객 ("+people_list.length()+"명)");
+                            break;
+                        default:
+                            titleCnt.setText("전체 ("+people_list.length()+"명)");
                             break;
                     }
+
+
                     for (int i = 0; i < people_list.length(); i++) {
                         JSONObject jobj = people_list.getJSONObject(i);
 
@@ -243,6 +297,29 @@ public class SubMypage_PeopleList_Activity extends AppCompatActivity {
 
                     JSONObject data = new JSONObject(response);
                     JSONArray people_list = data.getJSONArray("people");
+
+
+                    switch (people_type)
+                    {
+                        case "P":
+                            titleCnt.setText("가족 ("+people_list.length()+"명)");
+                            break;
+                        case "F":
+                            titleCnt.setText("친구 ("+people_list.length()+"명)");
+                            break;
+                        case "L":
+                            titleCnt.setText("연인 ("+people_list.length()+"명)");
+                            break;
+                        case "C":
+                            titleCnt.setText("직장 ("+people_list.length()+"명)");
+                            break;
+                        case "S":
+                            titleCnt.setText("고객 ("+people_list.length()+"명)");
+                            break;
+                        default:
+                            titleCnt.setText("전체 ("+people_list.length()+"명)");
+                            break;
+                    }
 
 
                     for (int i = 0; i < people_list.length(); i++) {
