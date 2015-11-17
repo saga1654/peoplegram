@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity  {
                 menu_line1.setBackgroundColor(Color.rgb(220, 220, 221));
 
                 menu_icon2.setImageResource(R.mipmap.top_02_off);
-                menu_line2.setBackgroundColor(Color.rgb(220,220,221));
+                menu_line2.setBackgroundColor(Color.rgb(220, 220, 221));
 
                 menu_icon3.setImageResource(R.mipmap.top_03_off);
                 menu_line3.setBackgroundColor(Color.rgb(220, 220, 221));
@@ -179,8 +179,8 @@ public class MainActivity extends AppCompatActivity  {
                 fragmentManager = getSupportFragmentManager();
                 ft = fragmentManager.beginTransaction();
 
-                SubTypeFragment subtype_fragment = new SubTypeFragment();
-                ft.replace(R.id.viewpager, subtype_fragment);
+                SubGroupFragment subgroup_fragment = new SubGroupFragment();
+                ft.replace(R.id.viewpager, subgroup_fragment);
                 ft.commit();
             }
         });
