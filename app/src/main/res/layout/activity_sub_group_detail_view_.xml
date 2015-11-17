@@ -26,7 +26,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="그룹만들기"
+                android:text="그룹 내 관계유형"
                 android:textSize="16dp"
                 android:textColor="#fff"
                 android:id="@+id/group_name" />
