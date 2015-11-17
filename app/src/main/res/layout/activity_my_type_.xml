@@ -85,7 +85,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/mytype_activity_typeImg"
                 android:src="@drawable/mytype_a"
-                android:scaleType="fitStart"
+                android:scaleType="fitXY"
                 android:adjustViewBounds="true" />
 
 
