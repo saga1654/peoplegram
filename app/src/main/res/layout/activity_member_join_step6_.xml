@@ -93,9 +93,10 @@
                     android:textColorHint="#eeeeee"
                     android:hint="태어난 해"
                     android:textSize="11dp"
+                    android:digits="0123456789"
                     android:textColor="#30344c"
                     android:singleLine="true"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:padding="8dp"
                     android:maxLength="4">
                     <requestFocus/>
@@ -120,11 +121,12 @@
                     android:id="@+id/et_month"
                     android:background="#fff"
                     android:textColorHint="#eeeeee"
-                    android:hint="월"
+                    android:hint="숫자만 입력해주세요."
                     android:textSize="11dp"
+                    android:digits="0123456789"
                     android:textColor="#30344c"
                     android:singleLine="true"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:padding="8dp"
                     android:maxLength="2">
 
@@ -148,11 +150,12 @@
                     android:id="@+id/et_day"
                     android:background="#fff"
                     android:textColorHint="#eeeeee"
-                    android:hint="일"
+                    android:hint="숫자만 입력해주세요."
                     android:textSize="11dp"
+                    android:digits="0123456789"
                     android:textColor="#30344c"
                     android:singleLine="true"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:padding="8dp"
                     android:maxLength="2">
                 </EditText>
