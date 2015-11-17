@@ -137,7 +137,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="설문조사 회원이 되시면 추가 가입 포인트와 조사에 참여하여 포인트를 얻을 수 있는 기회를 제공 받을 수 있습니다. "
+                android:text="설문조사 회원이 되시면 추가 가입 포인트(+2,000P)와 조사에 참여하여 포인트를 얻을 수 있는 기회를 제공 받을 수 있습니다. "
+                android:textSize="11dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 android:textColor="#30344c"
                 />
 

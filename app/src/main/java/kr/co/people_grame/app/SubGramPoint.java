@@ -36,7 +36,7 @@ public class SubGramPoint extends AppCompatActivity {
 
         String Point = SharedPreferenceUtil.getSharedPreference(SubGramPoint.this, "point");
 
-        mypage_grampoint.setText(Point + "g");
+        mypage_grampoint.setText(Point + "p");
 
         //pointcoupon_btn = (LinearLayout) findViewById(R.id.pointcoupon_btn);
         //pointcoupon_btn.setOnTouchListener(onBtnTouchListener);

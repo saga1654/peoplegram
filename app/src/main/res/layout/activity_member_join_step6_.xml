@@ -5,7 +5,6 @@
     android:background="#f1f1f1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:weightSum="1">
     <LinearLayout
         android:orientation="vertical"
@@ -24,7 +23,8 @@
             android:gravity="center"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
-            android:paddingBottom="10dp">
+            android:paddingBottom="10dp"
+            android:weightSum="1">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -35,29 +35,46 @@
                 android:paddingBottom="10dp"
                 android:text="생년월일은 어떻게 되시나요?"/>
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="50dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/cal_img"
-                    android:src="@drawable/cal_on"
-                    android:paddingTop="10dp"
-                   />
-            </LinearLayout>
-
 
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cal1_img"
+                    android:src="@drawable/cal_1_off"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cal2_img"
+                    android:src="@drawable/cal_2_off"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="5dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="center_horizontal"
             android:weightSum="1"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
@@ -74,9 +91,10 @@
                     android:textColorHint="#eeeeee"
                     android:hint="태어난 해"
                     android:textSize="11dp"
+                    android:digits="0123456789"
                     android:textColor="#30344c"
                     android:singleLine="true"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:padding="8dp"
                     android:maxLength="4">
                     <requestFocus/>
@@ -87,7 +105,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="11dp"
                     android:textColor="#000"
-                    android:padding="5dp"
+                    android:padding="8dp"
                     android:text="년"/>
 
             </LinearLayout>
@@ -103,9 +121,10 @@
                     android:textColorHint="#eeeeee"
                     android:hint="월"
                     android:textSize="11dp"
+                    android:digits="0123456789"
                     android:textColor="#30344c"
                     android:singleLine="true"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:padding="8dp"
                     android:maxLength="2">
 
@@ -131,9 +150,10 @@
                     android:textColorHint="#eeeeee"
                     android:hint="일"
                     android:textSize="11dp"
+                    android:digits="0123456789"
                     android:textColor="#30344c"
                     android:singleLine="true"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:padding="8dp"
                     android:maxLength="2">
                 </EditText>
