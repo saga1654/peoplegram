@@ -24,7 +24,7 @@
             android:gravity="center"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
-            android:paddingBottom="20dp">
+            android:paddingBottom="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -32,56 +32,120 @@
                 android:textColor="#30344c"
                 android:textStyle="bold"
                 android:textSize="14dp"
+                android:paddingBottom="10dp"
                 android:text="생년월일은 어떻게 되시나요?"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="50dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cal_img"
+                    android:src="@drawable/cal_on"
+                    android:paddingTop="10dp"
+                   />
+            </LinearLayout>
 
 
         </LinearLayout>
 
-
-
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:weightSum="1"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:paddingBottom="10dp">
-
-            <EditText
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/et_birthday"
-                android:background="#fff"
-                android:textColorHint="#eeeeee"
-                android:hint="생년월일을 선택해주세요."
-                android:textSize="11dp"
-                android:textColor="#30344c"
-                android:singleLine="true"
-                android:inputType="text"
-                android:padding="8dp">
-                <requestFocus />
-            </EditText>
+                android:layout_weight="0.60">
+                <EditText
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/et_year"
+                    android:background="#fff"
+                    android:textColorHint="#eeeeee"
+                    android:hint="태어난 해"
+                    android:textSize="11dp"
+                    android:textColor="#30344c"
+                    android:singleLine="true"
+                    android:inputType="text"
+                    android:padding="8dp"
+                    android:maxLength="4">
+                    <requestFocus/>
 
-        </LinearLayout>
+                </EditText>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11dp"
+                    android:textColor="#000"
+                    android:padding="5dp"
+                    android:text="년"/>
 
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:paddingBottom="40dp">
-
-            <TextView
-                android:layout_width="wrap_content"
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:text="생년월일"
-                android:textSize="10dp"
-                android:textColor="#30344c"
-                android:id="@+id/memberjoin_step2_tv" />
+                android:layout_weight="0.20" >
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/et_month"
+                    android:background="#fff"
+                    android:textColorHint="#eeeeee"
+                    android:hint="월"
+                    android:textSize="11dp"
+                    android:textColor="#30344c"
+                    android:singleLine="true"
+                    android:inputType="text"
+                    android:padding="8dp"
+                    android:maxLength="2">
+
+                </EditText>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11dp"
+                    android:textColor="#000"
+                    android:padding="5dp"
+                    android:text="월"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.20">
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/et_day"
+                    android:background="#fff"
+                    android:textColorHint="#eeeeee"
+                    android:hint="일"
+                    android:textSize="11dp"
+                    android:textColor="#30344c"
+                    android:singleLine="true"
+                    android:inputType="text"
+                    android:padding="8dp"
+                    android:maxLength="2">
+                </EditText>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11dp"
+                    android:textColor="#000"
+                    android:padding="5dp"
+                    android:text="일"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -104,8 +168,6 @@
 
 
         </LinearLayout>
-
-
 
 
     </LinearLayout>
