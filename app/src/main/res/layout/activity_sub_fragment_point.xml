@@ -39,7 +39,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="   그램스토어"
+                    android:text="   포인트 충전소"
                     android:id="@+id/textView" />
 
             </LinearLayout>
@@ -101,7 +101,8 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#ffffff">
+                android:background="#ffffff"
+                >
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
@@ -220,18 +221,6 @@
 
                                     android:textStyle="bold" />
                             </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.10"
-                                android:gravity="right">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/coupon"
-                                    android:id="@+id/imageView3" />
-                            </LinearLayout>
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -266,7 +255,7 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/month_save"
+                                    android:src="@drawable/free_save"
                                     android:id="@+id/imageView4"
                                     android:layout_weight="0.10" />
                             </LinearLayout>
@@ -301,7 +290,7 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/save_100g"
+                                    android:src="@drawable/save_1000p"
                                     android:id="@+id/imageView6"
                                     android:layout_weight="0.10" />
                             </LinearLayout>
@@ -336,7 +325,7 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/save_500g"
+                                    android:src="@drawable/save_3000p"
                                     android:id="@+id/imageView5"
                                     android:layout_weight="0.10" />
                             </LinearLayout>
@@ -370,7 +359,7 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/save_1000g"
+                                    android:src="@drawable/save_5000p"
                                     android:id="@+id/imageView7"
                                     android:layout_weight="0.10" />
                             </LinearLayout>
@@ -378,39 +367,70 @@
 
                     </LinearLayout>
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:weightSum="1"
-                    android:paddingTop="10dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:id="@+id/mytype_menu08"
-                    android:layout_gravity="center_horizontal">
-
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.90"
-                        android:weightSum="1" >
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal" >
 
-                        <ImageView
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/save_5000g"
-                            android:id="@+id/imageView8"
-                            android:layout_weight="0.10" />
+                            android:weightSum="1"
+                            android:paddingTop="10dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:id="@+id/linearLayout4" >
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.90"
+                                android:weightSum="1" >
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/save_10000p"
+                                    android:id="@+id/imageView3"
+                                    android:layout_weight="0.10" />
+                            </LinearLayout>
+                        </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#f3f3f4"
-                        android:orientation="horizontal"
-                        />
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal" >
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1"
+                            android:paddingTop="10dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:id="@+id/linearLayout5" >
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.90"
+                                android:weightSum="1" >
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/save_30000p"
+                                    android:id="@+id/imageView9"
+                                    android:layout_weight="0.10" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
                 </LinearLayout>
 
             </LinearLayout>
