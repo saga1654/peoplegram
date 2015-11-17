@@ -63,7 +63,7 @@ public class MemberJoinStep6_Activity extends AppCompatActivity {
                 InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 mgr.showSoftInput(et_year, InputMethodManager.SHOW_IMPLICIT);
 
-                DialogDatePicker_year();
+                DialogDatePicker();
 
                 cal1_img = (ImageView) findViewById(R.id.cal1_img);
                 cal2_img = (ImageView) findViewById(R.id.cal2_img);
@@ -73,7 +73,7 @@ public class MemberJoinStep6_Activity extends AppCompatActivity {
 
     }
 
-    private void DialogDatePicker_year() {
+    private void DialogDatePicker() {
         Calendar c = Calendar.getInstance();
         int cyear = c.get(Calendar.YEAR);
         int cmonth = c.get(Calendar.MONTH);
@@ -109,77 +109,6 @@ public class MemberJoinStep6_Activity extends AppCompatActivity {
         alert.show();
     }
 
-    private void DialogDatePicker_month() {
-        Calendar c = Calendar.getInstance();
-        int cyear = c.get(Calendar.YEAR);
-        int cmonth = c.get(Calendar.MONTH);
-        int cday = c.get(Calendar.DAY_OF_MONTH);
-
-        DatePickerDialog.OnDateSetListener mDateSetListener =
-                new DatePickerDialog.OnDateSetListener() {
-                    // onDateSet method
-                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                        String month = "";
-                        String day = "";
-                        if(monthOfYear + 1 < 10) {
-                            month = "0" + String.valueOf(monthOfYear + 1);
-                        } else {
-                            month = String.valueOf(monthOfYear + 1);
-                        }
-
-                        if(dayOfMonth < 10) {
-                            day = "0" + String.valueOf(dayOfMonth);
-                        } else {
-                            day = String.valueOf(dayOfMonth);
-                        }
-
-                        String birthDay = String.valueOf(year) + month + day;
-                        et_year.setText(birthDay);
-                        nextLL.setVisibility(View.VISIBLE);
-                        md.set_birthday(birthDay);
-
-                    }
-                };
-        DatePickerDialog alert =
-                new DatePickerDialog(this, mDateSetListener, cyear, cmonth, cday);
-        alert.show();
-    }
-
-    private void DialogDatePicker_day() {
-        Calendar c = Calendar.getInstance();
-        int cyear = c.get(Calendar.YEAR);
-        int cmonth = c.get(Calendar.MONTH);
-        int cday = c.get(Calendar.DAY_OF_MONTH);
-
-        DatePickerDialog.OnDateSetListener mDateSetListener =
-                new DatePickerDialog.OnDateSetListener() {
-                    // onDateSet method
-                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                        String month = "";
-                        String day = "";
-                        if(monthOfYear + 1 < 10) {
-                            month = "0" + String.valueOf(monthOfYear + 1);
-                        } else {
-                            month = String.valueOf(monthOfYear + 1);
-                        }
-
-                        if(dayOfMonth < 10) {
-                            day = "0" + String.valueOf(dayOfMonth);
-                        } else {
-                            day = String.valueOf(dayOfMonth);
-                        }
-
-                        String birthDay = String.valueOf(year) + month + day;
-                        et_year.setText(birthDay);
-                        nextLL.setVisibility(View.VISIBLE);
-                        md.set_birthday(birthDay);
-
-                    }
-                };
-        DatePickerDialog alert =
-                new DatePickerDialog(this, mDateSetListener, cyear, cmonth, cday);
-        alert.show();
-    }
 
 
     @Override
