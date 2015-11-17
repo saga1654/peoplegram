@@ -373,7 +373,7 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
@@ -382,7 +382,7 @@
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.50"
@@ -406,10 +406,10 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.50"
-            android:paddingRight="5dp">
+            android:paddingLeft="50dp">
 
 
             <LinearLayout
@@ -420,17 +420,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="right"
                     android:text="포인트 충전소  >"
                     android:textColor="#1d1d26"
                     android:id="@+id/point_add" />
 
             </LinearLayout>
         </LinearLayout>
+
+</LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#eaeaea">
     </LinearLayout>
-
-</LinearLayout>
     </LinearLayout>
