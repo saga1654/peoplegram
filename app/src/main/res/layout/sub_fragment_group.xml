@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="그룹으로 구성된 멤버로 진단된 관계 유형을 볼 수 있습니다"
+            android:text="그룹 내 구성된 멤버로만 진단된 관계 유형을 볼 수 있습니다"
             android:textColor="#32354d"
             android:textSize="12dp"/>
 
@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
-            android:text="단, 서로의 평가가 3명이상 된 경우와 서로 평가가 이루어진 경우에만 자세한 유형을 볼 수 있음."
+            android:text="단, 3명 이상의 진단이 이루어진 경우에만 보다 신뢰도 높은 유형을 볼 수 있음."
             android:textColor="#32354d"
             android:textSize="10dp"/>
 
