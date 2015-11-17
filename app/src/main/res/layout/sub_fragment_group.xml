@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
-            android:text="단, 3명 이상의 진단이 이루어진 경우에만 보다 신뢰도 높은 유형을 볼 수 있음."
+            android:text="단, 3명 이상의 진단이 이루어진 경우에 보다 신뢰도 높은 유형을 볼 수 있음."
             android:textColor="#32354d"
             android:textSize="10dp"/>
 
@@ -55,14 +55,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.50"
-                android:paddingLeft="10dp">
+                android:padding="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="그룹"
-                    android:textSize="10dp"
-                    android:textColor="#32354d"/>
+                    android:layout_height="match_parent"
+                    android:text="그룹 리스트"
+                    android:textSize="15dp"
+                    android:textColor="#32354d"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -73,10 +74,10 @@
                 android:gravity="right"
                 android:paddingRight="10dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="만들기"
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/write_btn"
                     android:textSize="10dp"
                     android:id="@+id/group_create"
                     android:textColor="#32354d"/>
