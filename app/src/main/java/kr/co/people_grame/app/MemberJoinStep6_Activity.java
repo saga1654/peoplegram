@@ -32,7 +32,7 @@ public class MemberJoinStep6_Activity extends AppCompatActivity {
 
         md = new MemberData();
 
-
+        /*
         et_birthday = (EditText) findViewById(R.id.et_birthday);
         nextLL = (LinearLayout) findViewById(R.id.nextLL);
         nextLL.setVisibility(View.INVISIBLE);
@@ -60,6 +60,7 @@ public class MemberJoinStep6_Activity extends AppCompatActivity {
                 DialogDatePicker();
             }
         });
+        */
 
     }
 

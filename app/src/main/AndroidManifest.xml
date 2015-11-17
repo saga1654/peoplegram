@@ -382,6 +382,11 @@
             android:label="@string/title_activity_sub_group_detail_view_"
             android:theme="@style/AppTheme" >
         </activity>
+        <activity
+            android:name=".SubMypage_PeopleList_Activity"
+            android:label="@string/title_activity_sub_mypage__people_list_"
+            android:theme="@style/AppTheme" >
+        </activity>
     </application>
 
 </manifest>

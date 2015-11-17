@@ -382,6 +382,7 @@
     <string name="title_activity_panel_join">PanelJoinActivity</string>
     <string name="title_activity_group_write">GroupWriteActivity</string>
     <string name="title_activity_sub_group_detail_view_">SubGroupDetailView_Activity</string>
+    <string name="title_activity_sub_mypage__people_list_">SubMypage_PeopleList_Activity</string>
 
 
 </resources>
