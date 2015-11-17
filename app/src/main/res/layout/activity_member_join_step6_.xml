@@ -51,7 +51,6 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/cal1_img"
                     android:src="@drawable/cal_1_off"
-                    android:onClick="btn_cal1_action"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"/>
 
@@ -65,7 +64,6 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/cal2_img"
                     android:src="@drawable/cal_2_off"
-                    android:onClick="btn_cal2_action"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
                     android:paddingLeft="5dp"/>
