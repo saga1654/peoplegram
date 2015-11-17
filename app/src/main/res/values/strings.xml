@@ -380,6 +380,8 @@
     <string name="title_activity_sub_my_page_people_sync_">SubMyPagePeopleSync_Activity</string>
     <string name="title_activity_sub_my_page_people_hide_">SubMyPagePeopleHide_Activity</string>
     <string name="title_activity_panel_join">PanelJoinActivity</string>
+    <string name="title_activity_group_write">GroupWriteActivity</string>
+    <string name="title_activity_sub_group_detail_view_">SubGroupDetailView_Activity</string>
 
 
 </resources>

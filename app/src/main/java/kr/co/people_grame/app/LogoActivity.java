@@ -165,6 +165,7 @@ public class LogoActivity extends AppCompatActivity {
         }
 
 
+        /*
         if(Utilities.getNetworkType(this) == 3) {
             new AlertDialog.Builder(this)
                     .setTitle("프로그램 종료")
@@ -179,6 +180,7 @@ public class LogoActivity extends AppCompatActivity {
                     })
                     .show();
         }
+        */
 
         setContentView(R.layout.activity_logo);
 
@@ -200,6 +202,8 @@ public class LogoActivity extends AppCompatActivity {
             @Override
             public void run() {
                 frameAnimation.stop();
+
+                Log.d("people_gram", "실행");
 
                 if(SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "uid") == "") {
                     if(SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "mytype") == "") {
