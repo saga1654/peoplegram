@@ -11,19 +11,24 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.Calendar;
 
 public class MemberJoinStep6_Activity extends AppCompatActivity {
 
-    private EditText et_birthday;
+    private EditText et_year;
 
     private LinearLayout nextLL;
     private MemberData md;
+
+    private ImageView cal1_img,cal2_img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +38,13 @@ public class MemberJoinStep6_Activity extends AppCompatActivity {
         md = new MemberData();
 
 
-        et_birthday = (EditText) findViewById(R.id.et_birthday);
+        et_year = (EditText) findViewById(R.id.et_year);
         nextLL = (LinearLayout) findViewById(R.id.nextLL);
         nextLL.setVisibility(View.INVISIBLE);
         nextLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(et_birthday.getText().toString().equals("") == false) {
+                if(et_year.getText().toString().equals("") == false) {
                     Intent intent = new Intent(MemberJoinStep6_Activity.this, MemberJoinStep7_Activity.class);
                     startActivity(intent);
                     overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
@@ -49,21 +54,26 @@ public class MemberJoinStep6_Activity extends AppCompatActivity {
         });
 
 
-        et_birthday.setInputType(0);
+        et_year.setInputType(0);
         //DialogDatePicker();
-        et_birthday.setOnClickListener(new View.OnClickListener() {
+        et_year.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                mgr.showSoftInput(et_birthday, InputMethodManager.SHOW_IMPLICIT);
 
-                DialogDatePicker();
+                InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                mgr.showSoftInput(et_year, InputMethodManager.SHOW_IMPLICIT);
+
+                DialogDatePicker_year();
+
+                cal1_img = (ImageView) findViewById(R.id.cal1_img);
+                cal2_img = (ImageView) findViewById(R.id.cal2_img);
+
             }
         });
 
     }
 
-    private void DialogDatePicker() {
+    private void DialogDatePicker_year() {
         Calendar c = Calendar.getInstance();
         int cyear = c.get(Calendar.YEAR);
         int cmonth = c.get(Calendar.MONTH);
@@ -88,7 +98,79 @@ public class MemberJoinStep6_Activity extends AppCompatActivity {
                         }
 
                         String birthDay = String.valueOf(year) + month + day;
-                        et_birthday.setText(birthDay);
+                        et_year.setText(birthDay);
+                        nextLL.setVisibility(View.VISIBLE);
+                        md.set_birthday(birthDay);
+
+                    }
+                };
+        DatePickerDialog alert =
+                new DatePickerDialog(this, mDateSetListener, cyear, cmonth, cday);
+        alert.show();
+    }
+
+    private void DialogDatePicker_month() {
+        Calendar c = Calendar.getInstance();
+        int cyear = c.get(Calendar.YEAR);
+        int cmonth = c.get(Calendar.MONTH);
+        int cday = c.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog.OnDateSetListener mDateSetListener =
+                new DatePickerDialog.OnDateSetListener() {
+                    // onDateSet method
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        String month = "";
+                        String day = "";
+                        if(monthOfYear + 1 < 10) {
+                            month = "0" + String.valueOf(monthOfYear + 1);
+                        } else {
+                            month = String.valueOf(monthOfYear + 1);
+                        }
+
+                        if(dayOfMonth < 10) {
+                            day = "0" + String.valueOf(dayOfMonth);
+                        } else {
+                            day = String.valueOf(dayOfMonth);
+                        }
+
+                        String birthDay = String.valueOf(year) + month + day;
+                        et_year.setText(birthDay);
+                        nextLL.setVisibility(View.VISIBLE);
+                        md.set_birthday(birthDay);
+
+                    }
+                };
+        DatePickerDialog alert =
+                new DatePickerDialog(this, mDateSetListener, cyear, cmonth, cday);
+        alert.show();
+    }
+
+    private void DialogDatePicker_day() {
+        Calendar c = Calendar.getInstance();
+        int cyear = c.get(Calendar.YEAR);
+        int cmonth = c.get(Calendar.MONTH);
+        int cday = c.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog.OnDateSetListener mDateSetListener =
+                new DatePickerDialog.OnDateSetListener() {
+                    // onDateSet method
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        String month = "";
+                        String day = "";
+                        if(monthOfYear + 1 < 10) {
+                            month = "0" + String.valueOf(monthOfYear + 1);
+                        } else {
+                            month = String.valueOf(monthOfYear + 1);
+                        }
+
+                        if(dayOfMonth < 10) {
+                            day = "0" + String.valueOf(dayOfMonth);
+                        } else {
+                            day = String.valueOf(dayOfMonth);
+                        }
+
+                        String birthDay = String.valueOf(year) + month + day;
+                        et_year.setText(birthDay);
                         nextLL.setVisibility(View.VISIBLE);
                         md.set_birthday(birthDay);
 
@@ -124,9 +206,8 @@ public class MemberJoinStep6_Activity extends AppCompatActivity {
     public void finish()
     {
         super.finish();
-        overridePendingTransition(R.anim.slide_close_down_info, R.anim.slide_clode_up_info);
+        //overridePendingTransition(R.anim.slide_close_down_info, R.anim.slide_clode_up_info);
     }
-
 
 
     public void closeMember(View v)
