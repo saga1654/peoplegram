@@ -3,8 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f1f1f1"
-    tools:context="kr.co.people_grame.app.SubPeopleListPopup_Activity">
+    android:background="#f1f1f1">
 
 
     <LinearLayout

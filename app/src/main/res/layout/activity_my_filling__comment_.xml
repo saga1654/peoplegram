@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fae504"
-    android:weightSum="1"
-    tools:context="kr.co.people_grame.app.MyFilling_Comment_Activity">
+    android:weightSum="1">
 
     <LinearLayout
         android:layout_width="match_parent"

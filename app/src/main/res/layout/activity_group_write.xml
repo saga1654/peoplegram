@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context="kr.co.people_grame.app.SubPeopleListPopup_Activity">
+    tools:context="kr.co.people_gram.app.SubPeopleListPopup_Activity">
 
     <LinearLayout
         android:orientation="horizontal"

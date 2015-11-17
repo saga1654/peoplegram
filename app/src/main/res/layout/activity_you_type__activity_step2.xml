@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#30344d"
-    tools:context="kr.co.people_grame.apppeoplegram.MyQuestion_Activity">
+    android:background="#30344d">
 
 
     <LinearLayout
@@ -67,7 +66,7 @@
                 android:layout_weight="0.50"
                 android:gravity="center_vertical|center_horizontal">
 
-                <kr.co.people_grame.app.PagerContainer
+                <kr.co.people_gram.app.PagerContainer
                     android:id="@+id/pager_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -75,7 +74,7 @@
                         android:layout_width="150dp"
                         android:layout_height="120dp"
                         android:layout_gravity="center_horizontal" />
-                </kr.co.people_grame.app.PagerContainer>
+                </kr.co.people_gram.app.PagerContainer>
 
 
             </LinearLayout>

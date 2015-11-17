@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:background="#2f334b"
     android:orientation="vertical"
-    tools:context="kr.co.people_grame.apppeoplegram.LogoActivity"
     android:gravity="center">
 
     <!--
