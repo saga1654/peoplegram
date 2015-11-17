@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -27,7 +28,7 @@ import java.util.ArrayList;
  */
 public class SubGroupFragment extends Fragment {
 
-    private TextView group_create;
+    private ImageView group_create;
 
     private ArrayList<SubGroupListDTO> people_dto_list;
     private SubGroupListAdapter people_adapter_list;
@@ -44,7 +45,7 @@ public class SubGroupFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.sub_fragment_group, container, false);
 
         sf_people_list = (ListView) rootView.findViewById(R.id.people_list);
-        group_create = (TextView) rootView.findViewById(R.id.group_create);
+        group_create = (ImageView) rootView.findViewById(R.id.group_create);
 
         group_create.setOnClickListener(new View.OnClickListener() {
             @Override
