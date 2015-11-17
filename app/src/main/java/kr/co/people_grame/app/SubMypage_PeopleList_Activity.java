@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -34,11 +35,17 @@ public class SubMypage_PeopleList_Activity extends AppCompatActivity {
     public String people_type = "";
     private String list = "";
 
+    private TextView title, titleCnt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_mypage__people_list_);
         overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+
+
+        title = (TextView) findViewById(R.id.title);
+        titleCnt = (TextView) findViewById(R.id.titleCnt);
 
         Intent intent = getIntent();
         if(intent != null) {
@@ -50,10 +57,12 @@ public class SubMypage_PeopleList_Activity extends AppCompatActivity {
 
             if(list.equals("my")) {
                 peopleList();
+                title.setText("내가 진단한 피플현황");
             }
 
             if(list.equals("people")) {
                 peopleList2();
+                title.setText("나를 진단한 피플현황");
             }
         }
 
@@ -67,9 +76,6 @@ public class SubMypage_PeopleList_Activity extends AppCompatActivity {
                 final SubPeopleListDTO dto = (SubPeopleListDTO) sf_people_list.getItemAtPosition(position);
 
 
-
-
-
                 RequestParams params = new RequestParams();
                 params.put("uid", SharedPreferenceUtil.getSharedPreference(SubMypage_PeopleList_Activity.this, "uid"));
                 params.put("people_uid", dto.get_profile_uid());
@@ -78,17 +84,16 @@ public class SubMypage_PeopleList_Activity extends AppCompatActivity {
                         dialog = ProgressDialog.show(SubMypage_PeopleList_Activity.this, "", "데이터 수신중");
                     }
 
-                    public void onFailure()
-                    {
+                    public void onFailure() {
                     }
 
-                    public void onFinish()  {
-                            dialog.dismiss();
-                        }
+                    public void onFinish() {
+                        dialog.dismiss();
+                    }
 
-                        @Override
+                    @Override
                     public void onSuccess(String response) {
-                            //Log.d("people_gram", response);
+                        //Log.d("people_gram", response);
                         Intent intent = new Intent(SubMypage_PeopleList_Activity.this, SubPeopleListPopup_Activity.class);
                         intent.putExtra("people_uid", dto.get_profile_uid());
                         intent.putExtra("people_email", dto.get_profile_email());
@@ -141,6 +146,11 @@ public class SubMypage_PeopleList_Activity extends AppCompatActivity {
                     JSONArray people_list = data.getJSONArray("people");
 
 
+                    switch (my_type)
+                    {
+                        case "P":
+                            break;
+                    }
                     for (int i = 0; i < people_list.length(); i++) {
                         JSONObject jobj = people_list.getJSONObject(i);
 
