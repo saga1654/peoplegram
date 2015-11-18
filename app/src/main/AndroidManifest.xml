@@ -45,6 +45,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".GlobalApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -67,7 +68,7 @@
 
         <!-- [START gcm_listener_service] -->
         <service
-            android:name="kr.co.people_gram.app.MyGcmListenerService"
+            android:name=".MyGcmListenerService"
             android:exported="false" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -78,7 +79,7 @@
 
         <!-- [START instanceId_listener_service] -->
         <service
-            android:name="kr.co.people_gram.app.MyInstanceIDListenerService"
+            android:name=".MyInstanceIDListenerService"
             android:exported="false" >
             <intent-filter>
                 <action android:name="com.google.android.gms.iid.InstanceID" />
@@ -89,276 +90,279 @@
 
         <!-- [START gcm_registration_service] -->
         <service
-            android:name="kr.co.people_gram.app.RegistrationIntentService"
+            android:name=".RegistrationIntentService"
             android:exported="false" />
         <!-- [END gcm_registration_service] -->
 
         <activity
-            android:name="kr.co.people_gram.app.LogoActivity"
+            android:name=".LogoActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.MyQuestion_Activity"
+            android:name=".MyQuestion_Activity"
             android:label="질문지"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.MyQuestionRe_Activity"
+            android:name=".MyQuestionRe_Activity"
             android:label="질문지"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.LoginActivity"
+            android:name=".LoginActivity"
             android:label="로그인"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.MemberJoin_Activity"
+            android:name=".MemberJoin_Activity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.MyType_Activity"
+            android:name=".MyType_Activity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.Setting_NoticeActivity"
+            android:name=".Setting_NoticeActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.Setting_QuestionActivity"
+            android:name=".Setting_QuestionActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.NoticeActivity"
+            android:name=".NoticeActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.Setting_UserAgreeActivity"
+            android:name=".Setting_UserAgreeActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.Setting_UserInfoActivity"
+            android:name=".Setting_UserInfoActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.MyType_Result_Activity"
+            android:name=".MyType_Result_Activity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.SubPeopleListPopup_Activity"
+            android:name=".SubPeopleListPopup_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/TransparentTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.SubPeopleListSelect_Activity"
+            android:name=".SubPeopleListSelect_Activity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.YouType_Actvity_step1"
+            android:name=".YouType_Actvity_step1"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.YouType_Activity_step2"
+            android:name=".YouType_Activity_step2"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.YouType_Activity"
+            android:name=".YouType_Activity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.MyFilling"
+            android:name=".MyFilling"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.MyFilling_Comment_Activity"
+            android:name=".MyFilling_Comment_Activity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.MyNowAcitivity"
+            android:name=".MyNowAcitivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.HaveWriteActivity"
+            android:name=".HaveWriteActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.SubQnaActivity"
+            android:name=".SubQnaActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.SubQnaWriteActivity"
+            android:name=".SubQnaWriteActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.SubPeopleContents_Activity"
+            android:name=".SubPeopleContents_Activity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.ProfileActivity"
+            android:name=".ProfileActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.ProfileDetailActivity"
+            android:name=".ProfileDetailActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.MainActivity"
+            android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.SettingActivity"
+            android:name=".SettingActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.SubMyType_Activity"
+            android:name=".SubMyType_Activity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.StartActivity"
+            android:name=".StartActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.SubGramPoint"
+            android:name=".SubGramPoint"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.PeopleSync_Activity"
+            android:name=".PeopleSync_Activity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.PeopleSyncSelect_Activity"
+            android:name=".PeopleSyncSelect_Activity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.SubGramHistory"
+            android:name=".SubGramHistory"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.GramPopupActivity"
+            android:name=".GramPopupActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TransparentTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.GramPopupNotActivity"
+            android:name=".GramPopupNotActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TransparentTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.TestActivity"
+            android:name=".TestActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
+
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.GramPopupMyTypeActivity"
+            android:name=".GramPopupMyTypeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TransparentTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.SubMyTypeContents_Activity"
+            android:name=".SubMyTypeContents_Activity"
             android:label="@string/title_activity_sub_my_type_contents_"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.SubPeopleTypeContents_Activity"
+            android:name=".SubPeopleTypeContents_Activity"
             android:label="@string/title_activity_sub_people_type_contents_"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.SubPeopleContentsType_Activity"
+            android:name=".SubPeopleContentsType_Activity"
             android:label="@string/title_activity_sub_people_contents_type_"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.SubPeopleSelect_TipActivity"
+            android:name=".SubPeopleSelect_TipActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.SubPeopleSearch_Activity"
+            android:name=".SubPeopleSearch_Activity"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.PanelActivity"
+            android:name=".PanelActivity"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.People_Help_Activity"
+            android:name=".People_Help_Activity"
             android:theme="@style/TransparentTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.MemberJoinStep1_Activity"
+            android:name=".MemberJoinStep1_Activity"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.MemberJoinStep2_Activity"
+            android:name=".MemberJoinStep2_Activity"
             android:label="@string/title_activity_member_join_step2_"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.MemberJoinStep3_Activity"
+            android:name=".MemberJoinStep3_Activity"
             android:label="@string/title_activity_member_join_step3_"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.MemberJoinStep4_Activity"
+            android:name=".MemberJoinStep4_Activity"
             android:label="@string/title_activity_member_join_step4_"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.MemberJoinStep5_Activity"
+            android:name=".MemberJoinStep5_Activity"
             android:label="@string/title_activity_member_join_step5_"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.MemberJoinStep6_Activity"
+            android:name=".MemberJoinStep6_Activity"
             android:label="@string/title_activity_member_join_step6_"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.MemberJoinStep7_Activity"
+            android:name=".MemberJoinStep7_Activity"
             android:label="@string/title_activity_member_join_step7_"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.MemberComplate_Activity"
+            android:name=".MemberComplate_Activity"
             android:label="@string/title_activity_member_complate_"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.MyType_Complate_Activity"
+            android:name=".MyType_Complate_Activity"
             android:label="@string/title_activity_my_type__complate_"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.MyProfile_Activity"
+            android:name=".MyProfile_Activity"
             android:label="@string/title_activity_my_profile_"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.YouType_Complate_Activity"
+            android:name=".YouType_Complate_Activity"
             android:label="@string/title_activity_you_type__complate_"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.SubMyPagePeopleSync_Activity"
+            android:name=".SubMyPagePeopleSync_Activity"
             android:label="@string/title_activity_sub_my_page_people_sync_"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.SubMyPagePeopleHide_Activity"
+            android:name=".SubMyPagePeopleHide_Activity"
             android:label="@string/title_activity_sub_my_page_people_hide_"
             android:theme="@style/AppTheme" >
         </activity>
@@ -368,23 +372,43 @@
             android:value="@string/kakao_app_key" />
 
         <activity
-            android:name="kr.co.people_gram.app.PanelJoinActivity"
+            android:name=".PanelJoinActivity"
             android:label="@string/title_activity_panel_join"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.GroupWriteActivity"
+            android:name=".GroupWriteActivity"
             android:label="@string/title_activity_group_write"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.SubGroupDetailView_Activity"
+            android:name=".SubGroupDetailView_Activity"
             android:label="@string/title_activity_sub_group_detail_view_"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="kr.co.people_gram.app.SubMypage_PeopleList_Activity"
+            android:name=".SubMypage_PeopleList_Activity"
             android:label="@string/title_activity_sub_mypage__people_list_"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".KeyHash"
+            android:label="@string/title_activity_key_hash"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".KakaoSignupActivity"
+            android:label="@string/title_activity_kakao_signup"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".KakaoServiceListActivity"
+            android:label="@string/title_activity_kakao_service_list"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".KakaoLinkMainActivity"
+            android:label="@string/title_activity_kakao_link_main"
             android:theme="@style/AppTheme" >
         </activity>
     </application>

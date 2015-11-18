@@ -1,16 +1,18 @@
 package kr.co.people_gram.app;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.kakao.auth.ISessionCallback;
+import com.kakao.auth.KakaoSDK;
 import com.kakao.auth.Session;
 import com.kakao.util.exception.KakaoException;
 import com.kakao.util.helper.log.Logger;
 
 
-public class TestActivity extends Activity {
+public class TestActivity extends BaseActivity {
     private SessionCallback callback;
 
     @Override
@@ -19,14 +21,15 @@ public class TestActivity extends Activity {
         setContentView(R.layout.activity_test);
 
         callback = new SessionCallback();
-        //Session.getCurrentSession().addCallback(callback);
-        //Session.getCurrentSession().checkAndImplicitOpen();
+        Session.getCurrentSession().addCallback(callback);
+        Session.getCurrentSession().checkAndImplicitOpen();
 
 
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d("people_gram", "로그인");
         if (Session.getCurrentSession().handleActivityResult(requestCode, resultCode, data)) {
             return;
         }
@@ -49,6 +52,7 @@ public class TestActivity extends Activity {
 
         @Override
         public void onSessionOpenFailed(KakaoException exception) {
+            Log.d("people_gram", "실패");
             if(exception != null) {
                 Logger.e(exception);
             }
@@ -56,9 +60,12 @@ public class TestActivity extends Activity {
     }
 
     protected void redirectSignupActivity() {
-        final Intent intent = new Intent(this, MainActivity.class);
+        Log.d("people_gram", "로그인 성공");
+
+        final Intent intent = new Intent(this, KakaoLinkMainActivity.class);
         startActivity(intent);
         finish();
+
     }
 
 

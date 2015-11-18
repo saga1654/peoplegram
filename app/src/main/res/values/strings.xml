@@ -44,7 +44,6 @@
     <string name="step10_right">매우 잘 지키는 편</string>
 
 
-    <string name="text_for_login_kakao_account">Log in with Kakao</string>
 
 
     <string name="gcm_defaultSenderId">71013771468</string>
@@ -383,6 +382,94 @@
     <string name="title_activity_group_write">GroupWriteActivity</string>
     <string name="title_activity_sub_group_detail_view_">SubGroupDetailView_Activity</string>
     <string name="title_activity_sub_mypage__people_list_">SubMypage_PeopleList_Activity</string>
+    <string name="title_activity_key_hash">KeyHash</string>
+    <string name="title_activity_kakao_signup">KakaoSignupActivity</string>
+    <string name="title_activity_kakao_service_list">KakaoServiceListActivity</string>
+
+
+
+    <string name="text_kakaolink">KakaoLink</string>
+    <string name="text_kakaostory">KakaoStory</string>
+    <string name="text_kakaotalk">KakaoTalk</string>
+    <string name="text_push">Push</string>
+    <string name="text_usermgmt">User Management</string>
+    <string name="text_friends">Friends</string>
+    <string name="text_login">Login</string>
+    <string name="text_storage">Storage API</string>
+    <string name="text_chat_list">Chat Lists</string>
+
+
+    <!-- NEW DISIGN -->
+    <string name="title_for_kakao_sdk_sample">Kakao SDK Sample</string>
+
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
+    <string name="text_for_login_kakao_account">Log in with Kakao</string>
+    <string name="com_kakao_profile_nickname">Alias</string>
+    <string name="com_kakao_profile_birthday">BirthDay</string>
+    <string name="error_message_for_service_unavailable">Unstable network connection. \nPlease try again later.</string>
+
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+
+    <string name="text_send_message">Send Message</string>
+
+    <string name="image_upload">Image Upload</string>
+    <string name="pick_iamges">Pick Images</string>
+    <string name="title_activity_kakao_link_main">KakaoLinkMainActivity</string>
+
+
+    <!-- 카카오링크 -->
+    <string name="text_type">Choose a text type</string>
+    <string-array name="text_types">
+        <item>@string/use_text</item>
+        <item>@string/no_text</item>
+    </string-array>
+
+    <string name="link_type">Choose a link type</string>
+    <string-array name="link_types">
+        <item>@string/use_weblink</item>
+        <item>@string/use_inweblink</item>
+        <item>@string/use_applink</item>
+        <item>@string/no_link</item>
+    </string-array>
+
+    <string name="image_type">Choose a image type</string>
+    <string-array name="image_types">
+        <item>@string/use_image</item>
+        <item>@string/no_image</item>
+    </string-array>
+
+    <string name="button_type">Choose a button type</string>
+    <string-array name="button_types">
+        <item>@string/use_appbutton</item>
+        <item>@string/use_webbutton</item>
+        <item>@string/no_button</item>
+    </string-array>
+
+    <string name="send_button">Send</string>
+    <string name="clear_button">Clear</string>
+    <string name="reset_message">Cancel All and Start Again?</string>
+
+    <string name="use_text">Use Text</string>
+    <string name="no_text">No Text</string>
+    <string name="use_applink">Use App Link</string>
+    <string name="use_weblink">Use Web Link</string>
+    <string name="use_inweblink">Use InWeb Link</string>
+    <string name="no_link">No Link</string>
+    <string name="use_image">Use Image</string>
+    <string name="no_image">No Image</string>
+    <string name="use_appbutton">Use App Button</string>
+    <string name="use_webbutton">Use Web Button</string>
+    <string name="no_button">No Button</string>
+
+    <string name="kakaolink_title_forwardable">Message Forwardable</string>
+    <string name="kakaolink_text">Welcome to KakaoLinkSample~</string>
+    <string name="kakaolink_applink">Connect</string>
+    <string name="kakaolink_weblink">Go to Website</string>
+    <string name="kakaolink_appbutton">View More</string>
+    <string name="kakaolink_webbutton">Go to Website</string>
+    <string name="send_message">Send the message below?</string>
 
 
 </resources>
