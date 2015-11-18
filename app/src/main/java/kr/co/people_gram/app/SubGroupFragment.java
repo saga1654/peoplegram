@@ -1,6 +1,8 @@
 package kr.co.people_gram.app;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -28,7 +31,7 @@ import java.util.ArrayList;
  */
 public class SubGroupFragment extends Fragment {
 
-    private ImageView group_create;
+    private ImageView group_create,group_delete;
 
     private ArrayList<SubGroupListDTO> people_dto_list;
     private SubGroupListAdapter people_adapter_list;
@@ -46,6 +49,8 @@ public class SubGroupFragment extends Fragment {
 
         sf_people_list = (ListView) rootView.findViewById(R.id.people_list);
         group_create = (ImageView) rootView.findViewById(R.id.group_create);
+        group_delete = (ImageView) rootView.findViewById(R.id.group_delete);
+
 
         group_create.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +60,7 @@ public class SubGroupFragment extends Fragment {
                 getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
+
 
         peopleList();
 
