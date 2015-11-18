@@ -38,51 +38,57 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/cal1_img"
-                    android:src="@drawable/cal_1_off"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"/>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/cal2_img"
-                    android:src="@drawable/cal_2_off"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:paddingLeft="5dp"/>
-            </LinearLayout>
-        </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             android:weightSum="1"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:paddingBottom="10dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="10dp"
+                android:gravity="center">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cal1_img"
+                        android:src="@drawable/cal_1_new_off" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#dedede">
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cal2_img"
+                        android:src="@drawable/cal_2_new_off" />
+                </LinearLayout>
+            </LinearLayout>
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.60">
+                android:gravity="center_horizontal">
                 <EditText
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
@@ -110,9 +116,8 @@
 
             </LinearLayout>
             <LinearLayout
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.20" >
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -140,8 +145,7 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.20">
+                android:layout_height="wrap_content">
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

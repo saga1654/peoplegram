@@ -159,6 +159,7 @@ public class MemberJoinStep7_Activity extends AppCompatActivity {
                 params.put("phone", md.get_phone());
                 params.put("telecom", md.get_telecom());
                 params.put("sex", md.get_sex());
+                params.put("birthtype", md.get_birthtype());
                 params.put("birthday", md.get_birthday());
                 params.put("area1", area1_string);
                 params.put("area2", area2_string);

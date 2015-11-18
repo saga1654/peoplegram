@@ -24,6 +24,7 @@ public class ProfileActivity extends AppCompatActivity {
     private ImageView mytype_me, mytype_people;
     private TextView mytype_per, profile_sex, profile_age, profile_area;
     private TextView profile_username, profile_email, profile_point;
+    private TextView point_add;
 
     private int ACTIVITY_CODE = 00002;
 
@@ -45,6 +46,8 @@ public class ProfileActivity extends AppCompatActivity {
         profile_email = (TextView) findViewById(R.id.profile_email);
         profile_point = (TextView) findViewById(R.id.profile_point);
 
+        point_add = (TextView) findViewById(R.id.point_add);
+
         profile_username.setText(SharedPreferenceUtil.getSharedPreference(this, "username"));
         profile_email.setText(SharedPreferenceUtil.getSharedPreference(this, "email"));
         profile_point.setText(SharedPreferenceUtil.getSharedPreference(this, "point"));
@@ -55,7 +58,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ProfileActivity.this, SubMyType_Activity.class);
-                intent.putExtra("mytype",SharedPreferenceUtil.getSharedPreference(ProfileActivity.this, "mytype"));
+                intent.putExtra("mytype", SharedPreferenceUtil.getSharedPreference(ProfileActivity.this, "mytype"));
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
@@ -68,6 +71,15 @@ public class ProfileActivity extends AppCompatActivity {
                 intent.putExtra("mytype", people_type_return);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+            }
+        });
+
+        point_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, SubGramPoint.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
             }
         });
 
@@ -240,8 +252,6 @@ public class ProfileActivity extends AppCompatActivity {
         Log.d("people_gram", "성공");
         dataResult();
     }
-
-
 
 
     public void btn_back(View v) {

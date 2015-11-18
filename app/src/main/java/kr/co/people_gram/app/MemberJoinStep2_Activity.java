@@ -41,7 +41,7 @@ public class MemberJoinStep2_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member_join_step2_);
         nextLL = (LinearLayout) findViewById(R.id.nextLL);
-        nextLL.setVisibility(View.GONE);
+        nextLL.setVisibility(View.INVISIBLE);
 
         md = new MemberData();
 

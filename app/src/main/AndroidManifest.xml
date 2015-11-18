@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kr.co.people_gram.app"
-    android:versionCode="1"
-    android:versionName="0.01" >
+    android:versionCode="2"
+    android:versionName="1.1" >
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
@@ -258,7 +258,7 @@
             android:theme="@style/TransparentTheme" >
         </activity>
         <activity
-            android:name=".TestActivity"
+            android:name=".KakaoLoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
 

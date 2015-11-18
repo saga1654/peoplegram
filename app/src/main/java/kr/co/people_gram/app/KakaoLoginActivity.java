@@ -12,7 +12,7 @@ import com.kakao.util.exception.KakaoException;
 import com.kakao.util.helper.log.Logger;
 
 
-public class TestActivity extends BaseActivity {
+public class KakaoLoginActivity extends BaseActivity {
     private SessionCallback callback;
 
     @Override
