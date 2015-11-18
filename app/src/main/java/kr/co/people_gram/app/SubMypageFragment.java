@@ -54,7 +54,7 @@ public class SubMypageFragment extends Fragment {
 
         //mypage_people_btn = (LinearLayout) rootView.findViewById(R.id.mypage_people_btn);
         //mypage_gram_store_btn = (LinearLayout) rootView.findViewById(R.id.mypage_gram_store_btn);
-        mypage_point = (TextView) rootView.findViewById(R.id.mypage_point);
+        //mypage_point = (TextView) rootView.findViewById(R.id.mypage_point);
         //mypage_type = (TextView) rootView.findViewById(R.id.mypage_type);
 
         mypage_all_btn = (LinearLayout) rootView.findViewById(R.id.mypage_all_btn);
