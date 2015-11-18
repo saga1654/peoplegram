@@ -39,7 +39,7 @@ public class SubMypageFragment extends Fragment {
     private String my_type = "";
     private String people_type = "";
 
-    private TextView mypage_point;
+    //private TextView mypage_point;
     private ProgressDialog dialog;
 
     private WebViewInterface mWebViewInterface;
@@ -312,8 +312,8 @@ public class SubMypageFragment extends Fragment {
 
 
 
-        String Point = SharedPreferenceUtil.getSharedPreference(getActivity(), "point");
-        mypage_point.setText(Point + "g");
+        //String Point = SharedPreferenceUtil.getSharedPreference(getActivity(), "point");
+        //mypage_point.setText(Point + "g");
 
         /*
         switch (Type) {

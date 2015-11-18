@@ -105,6 +105,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+
         </activity>
         <activity
             android:name=".MyQuestion_Activity"
@@ -330,11 +331,19 @@
             android:name=".MemberJoinStep6_Activity"
             android:label="@string/title_activity_member_join_step6_"
             android:theme="@style/AppTheme" >
+
+
+
+
         </activity>
         <activity
             android:name=".MemberJoinStep7_Activity"
             android:label="@string/title_activity_member_join_step7_"
             android:theme="@style/AppTheme" >
+
+
+
+
         </activity>
         <activity
             android:name=".MemberComplate_Activity"

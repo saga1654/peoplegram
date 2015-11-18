@@ -9,6 +9,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
@@ -33,6 +35,8 @@ public class MemberJoinStep7_Activity extends AppCompatActivity {
     private LinearLayout nextLL;
 
     private String area1_string, area2_string, area3_string;
+    private CheckBox panel_join_chk;
+    private String panel_YN = "N";
 
     private MemberData md;
 
@@ -40,6 +44,9 @@ public class MemberJoinStep7_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member_join_step7_);
+
+
+        panel_join_chk = (CheckBox) findViewById(R.id.panel_join_chk);
 
 
         md = new MemberData();
@@ -74,7 +81,16 @@ public class MemberJoinStep7_Activity extends AppCompatActivity {
         area3.setPrompt("동/읍/면"); // 스피너 제목
         area3.setAdapter(adapter3);
 
-
+        panel_join_chk.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked == false) {
+                    panel_YN = "N";
+                } else {
+                    panel_YN = "Y";
+                }
+            }
+        });
 
         sido();
         area1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -164,6 +180,8 @@ public class MemberJoinStep7_Activity extends AppCompatActivity {
                 params.put("area1", area1_string);
                 params.put("area2", area2_string);
                 params.put("area3", area3_string);
+                params.put("panel_YN", panel_YN);
+
                 HttpClient.post("/user/memberCheck", params, new AsyncHttpResponseHandler() {
                     public void onStart() {
                         dialog = ProgressDialog.show(MemberJoinStep7_Activity.this, "", "데이터 수신중");
@@ -196,6 +214,7 @@ public class MemberJoinStep7_Activity extends AppCompatActivity {
                                 SharedPreferenceUtil.putSharedPreference(MemberJoinStep7_Activity.this, "mytype", "");
                                 SharedPreferenceUtil.putSharedPreference(MemberJoinStep7_Activity.this, "my_speed", "");
                                 SharedPreferenceUtil.putSharedPreference(MemberJoinStep7_Activity.this, "my_control", "");
+                                SharedPreferenceUtil.putSharedPreference(MemberJoinStep7_Activity.this, "panelYN", panel_YN);
 
                                 Intent intent = new Intent(MemberJoinStep7_Activity.this, MemberComplate_Activity.class);
                                 startActivity(intent);

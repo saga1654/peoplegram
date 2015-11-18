@@ -57,6 +57,7 @@ public class SubPeopleSelect_MainFragment extends Fragment {
                 intent.putExtra("viewType", "DEFAULT");
                 intent.putExtra("tipType", "");
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
 
@@ -68,6 +69,7 @@ public class SubPeopleSelect_MainFragment extends Fragment {
                 intent.putExtra("viewType", "ME");
                 intent.putExtra("tipType", "2");
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
 
@@ -80,6 +82,7 @@ public class SubPeopleSelect_MainFragment extends Fragment {
                 intent.putExtra("viewType", "YOU");
                 intent.putExtra("tipType", "3");
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
 
@@ -91,6 +94,7 @@ public class SubPeopleSelect_MainFragment extends Fragment {
                 intent.putExtra("viewType", "YOU");
                 intent.putExtra("tipType", "4");
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
 
@@ -102,6 +106,8 @@ public class SubPeopleSelect_MainFragment extends Fragment {
                 intent.putExtra("viewType", "YOU");
                 intent.putExtra("tipType", "5");
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
 
@@ -114,6 +120,7 @@ public class SubPeopleSelect_MainFragment extends Fragment {
                 intent.putExtra("viewType", "YOU");
                 intent.putExtra("tipType", "6");
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
         tip7_btn = (LinearLayout) rootView.findViewById(R.id.tip7_btn);
@@ -124,6 +131,7 @@ public class SubPeopleSelect_MainFragment extends Fragment {
                 intent.putExtra("viewType", "YOU");
                 intent.putExtra("tipType", "7");
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
 
