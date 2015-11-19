@@ -58,6 +58,8 @@ public class ProfileActivity extends AppCompatActivity {
         mytype_tv = (TextView) findViewById(R.id.mytype_tv);
         mytype_tv.setText(Html.fromHtml("자기진단 결과<br><b>표출형 특징을 가진 주도형</b><br>으로 진단되었습니다."));
 
+        userData();
+
         mytype_me.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
