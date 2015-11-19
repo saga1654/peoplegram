@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -18,12 +19,15 @@ public class MemberJoinStep3_Activity extends AppCompatActivity {
 
     private static final String Passwrod_PATTERN = "^(?=.*[a-zA-Z]+)(?=.*[!@#$%^*+=-]|.*[0-9]+).{8,16}$";
 
-    private EditText et_password;
+    private EditText et_password, et_password2;
     private Boolean enterCheck = false;
+    private Boolean enterCheck2 = false;
     private LinearLayout nextLL;
 
     private int password_string_cnt = 0;
+    private int password_string_cnt2 = 0;
     private String password_string = "";
+    private String password_string2 = "";
 
     private MemberData md;
 
@@ -33,6 +37,7 @@ public class MemberJoinStep3_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_member_join_step3_);
 
         et_password = (EditText) findViewById(R.id.et_password);
+        et_password2 = (EditText) findViewById(R.id.et_password2);
         nextLL = (LinearLayout) findViewById(R.id.nextLL);
         nextLL.setVisibility(View.INVISIBLE);
 
@@ -44,7 +49,6 @@ public class MemberJoinStep3_Activity extends AppCompatActivity {
 
 
         TextWatcher watcher = new TextWatcher() {
-
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -54,8 +58,26 @@ public class MemberJoinStep3_Activity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 password_string = String.valueOf(et_password.getText());
                 password_string_cnt = password_string.length();
+            }
 
-                if(password_string_cnt < 6) {
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        };
+
+        TextWatcher watcher2 = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                password_string2 = String.valueOf(et_password2.getText());
+                password_string_cnt2 = password_string2.length();
+
+                if(password_string.equals(password_string2)  == false) {
                     nextLL.setVisibility(View.INVISIBLE);
                 } else {
                     nextLL.setVisibility(View.VISIBLE);
@@ -69,8 +91,7 @@ public class MemberJoinStep3_Activity extends AppCompatActivity {
         };
 
         et_password.addTextChangedListener(watcher);
-
-
+        et_password2.addTextChangedListener(watcher2);
         et_password.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -81,11 +102,15 @@ public class MemberJoinStep3_Activity extends AppCompatActivity {
                         if (password_string_cnt < 6) {
                             Toast.makeText(MemberJoinStep3_Activity.this, "6자리 이상 입력해주세요.", Toast.LENGTH_LONG).show();
                         } else {
+                            et_password2.requestFocus();
+                            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+                            /*
                             md.set_userpw(password_string);
                             Intent intent = new Intent(MemberJoinStep3_Activity.this, MemberJoinStep4_Activity.class);
                             startActivity(intent);
-                            overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
-                            next_finish();
+                            overridePendingTr
+                            */
                         }
 
                     }
@@ -98,18 +123,50 @@ public class MemberJoinStep3_Activity extends AppCompatActivity {
             }
         });
 
+        et_password2.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                Log.d("people_gram", String.valueOf(enterCheck2));
+                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                    if (enterCheck2 == false) {
+                        enterCheck2 = true;
+                        if (password_string_cnt < 6) {
+                            Toast.makeText(MemberJoinStep3_Activity.this, "6자리 이상 입력해주세요.", Toast.LENGTH_LONG).show();
+                        } else if (password_string.equals(password_string2) == false) {
+                            Toast.makeText(MemberJoinStep3_Activity.this, "패스워드가 일치하지 않습니다", Toast.LENGTH_LONG).show();
+                        } else {
+                            md.set_userpw(password_string);
+                            Intent intent = new Intent(MemberJoinStep3_Activity.this, MemberJoinStep4_Activity.class);
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
+                            next_finish();
+                        }
+                    }
+                }
+                else
+                {
+
+                    enterCheck2 = false;
+                }
+
+                return false;
+            }
+        });
+
         nextLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    if (password_string_cnt < 6) {
-                        Toast.makeText(MemberJoinStep3_Activity.this, "6자리 이상 입력해주세요.", Toast.LENGTH_LONG).show();
-                    } else {
-                        md.set_userpw(password_string);
-                        Intent intent = new Intent(MemberJoinStep3_Activity.this, MemberJoinStep4_Activity.class);
-                        startActivity(intent);
-                        overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
-                        next_finish();
-                    }
+                if (password_string_cnt < 6) {
+                    Toast.makeText(MemberJoinStep3_Activity.this, "6자리 이상 입력해주세요.", Toast.LENGTH_LONG).show();
+                } else if(password_string.equals(password_string2) == false) {
+                    Toast.makeText(MemberJoinStep3_Activity.this, "패스워드가 일치하지 않습니다", Toast.LENGTH_LONG).show();
+                } else {
+                    md.set_userpw(password_string);
+                    Intent intent = new Intent(MemberJoinStep3_Activity.this, MemberJoinStep4_Activity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
+                    next_finish();
+                }
             }
         });
     }

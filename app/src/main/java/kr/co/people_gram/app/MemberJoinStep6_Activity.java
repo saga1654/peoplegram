@@ -39,11 +39,10 @@ public class MemberJoinStep6_Activity extends AppCompatActivity {
         md = new MemberData();
 
         et_year = (EditText) findViewById(R.id.et_year);
-        et_year = (EditText) findViewById(R.id.et_year);
-        et_year = (EditText) findViewById(R.id.et_year);
+        et_month = (EditText) findViewById(R.id.et_month);
+        et_day = (EditText) findViewById(R.id.et_day);
 
         nextLL = (LinearLayout) findViewById(R.id.nextLL);
-        //nextLL.setVisibility(View.INVISIBLE);
 
 
         cal1_img = (ImageView) findViewById(R.id.cal1_img);
@@ -70,17 +69,76 @@ public class MemberJoinStep6_Activity extends AppCompatActivity {
             }
         });
 
+        TextWatcher year_watcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(et_year.getText().toString().length() >= 4) {
+                    et_month.requestFocus();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        };
+
+        TextWatcher month_watcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(et_month.getText().toString().length() >= 2) {
+                    et_day.requestFocus();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        };
+
+        et_year.addTextChangedListener(year_watcher);
+        et_month.addTextChangedListener(month_watcher);
+
         nextLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 if(birthday_check.equals("")) {
                     Toast.makeText(MemberJoinStep6_Activity.this, "양력/음력을 선택해주세요.", Toast.LENGTH_LONG).show();
                 } else if(et_year.getText().toString().length() < 4) {
                     Toast.makeText(MemberJoinStep6_Activity.this, "태어난 해를 4자리로 입력해주세요.", Toast.LENGTH_LONG).show();
+                } else if(Integer.parseInt(et_year.getText().toString()) > 2005) {
+                    Toast.makeText(MemberJoinStep6_Activity.this, "2005년보다 작게 입력 해주세요.", Toast.LENGTH_LONG).show();
+                    et_year.setText("");
+                    et_year.requestFocus();
                 } else if(et_month.getText().toString().length() < 2) {
                     Toast.makeText(MemberJoinStep6_Activity.this, "월을 2자리로 입력해주세요.", Toast.LENGTH_LONG).show();
+                    et_year.setText("");
+                    et_year.requestFocus();
+                } else if(Integer.parseInt(et_month.getText().toString()) > 12) {
+                    Toast.makeText(MemberJoinStep6_Activity.this, "12보다 크게 입력 할 수 없습니다.", Toast.LENGTH_LONG).show();
+                    et_month.setText("");
+                    et_month.requestFocus();
                 } else if(et_day.getText().toString().length() < 2) {
                     Toast.makeText(MemberJoinStep6_Activity.this, "일을 2자리로 입력해주세요.", Toast.LENGTH_LONG).show();
+                    et_day.setText("");
+                    et_day.requestFocus();
+                } else if(Integer.parseInt(et_day.getText().toString()) > 31) {
+                    Toast.makeText(MemberJoinStep6_Activity.this, "31보다 크게 입력 할 수 없습니다.", Toast.LENGTH_LONG).show();
+                    et_day.setText("");
+                    et_day.requestFocus();
                 } else {
                     birthday = et_year.getText().toString() + et_month.getText().toString() + et_day.getText().toString();
 
@@ -92,6 +150,7 @@ public class MemberJoinStep6_Activity extends AppCompatActivity {
                     overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
                     next_finish();
                 }
+
             }
         });
 
@@ -126,42 +185,6 @@ public class MemberJoinStep6_Activity extends AppCompatActivity {
         });
         */
 
-    }
-
-    private void DialogDatePicker() {
-        Calendar c = Calendar.getInstance();
-        int cyear = c.get(Calendar.YEAR);
-        int cmonth = c.get(Calendar.MONTH);
-        int cday = c.get(Calendar.DAY_OF_MONTH);
-
-        DatePickerDialog.OnDateSetListener mDateSetListener =
-                new DatePickerDialog.OnDateSetListener() {
-                    // onDateSet method
-                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                        String month = "";
-                        String day = "";
-                        if(monthOfYear + 1 < 10) {
-                            month = "0" + String.valueOf(monthOfYear + 1);
-                        } else {
-                            month = String.valueOf(monthOfYear + 1);
-                        }
-
-                        if(dayOfMonth < 10) {
-                            day = "0" + String.valueOf(dayOfMonth);
-                        } else {
-                            day = String.valueOf(dayOfMonth);
-                        }
-
-                        String birthDay = String.valueOf(year) + month + day;
-                        et_birthday.setText(birthDay);
-                        nextLL.setVisibility(View.VISIBLE);
-                        md.set_birthday(birthDay);
-
-                    }
-                };
-        DatePickerDialog alert =
-                new DatePickerDialog(this, mDateSetListener, cyear, cmonth, cday);
-        alert.show();
     }
 
 
