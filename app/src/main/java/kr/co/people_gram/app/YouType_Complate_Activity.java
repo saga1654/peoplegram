@@ -1,5 +1,6 @@
 package kr.co.people_gram.app;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,9 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 
 public class YouType_Complate_Activity extends AppCompatActivity {
@@ -20,6 +24,9 @@ public class YouType_Complate_Activity extends AppCompatActivity {
     private ImageView mytype_activity_typeImg;
     private TextView mytype_tv;
 
+    private ImageView people_popup_btn1;
+    private ProgressDialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +34,8 @@ public class YouType_Complate_Activity extends AppCompatActivity {
 
         mytype_activity_typeImg = (ImageView) findViewById(R.id.mytype_activity_typeImg);
         mytype_tv = (TextView) findViewById(R.id.mytype_tv);
+
+        people_popup_btn1 = (ImageView) findViewById(R.id.people_popup_btn1);
 
         Intent intent = getIntent();
         if(intent != null) {
@@ -46,6 +55,14 @@ public class YouType_Complate_Activity extends AppCompatActivity {
             float speed = Float.parseFloat(intent.getStringExtra("speed"));
             float control = Float.parseFloat(intent.getStringExtra("control"));
             youtype = intent.getStringExtra("youtype");
+
+
+
+            if(people_email.equals("미가입")) {
+                people_popup_btn1.setImageResource(R.drawable.people_popup_btn1_style);
+            } else {
+                people_popup_btn1.setImageResource(R.drawable.people_popup_btn1_reretype_style);
+            }
 
 
             if(speed > 0 && control > 0) {
@@ -135,7 +152,7 @@ public class YouType_Complate_Activity extends AppCompatActivity {
             //intent.putExtra("people_mood", people_mood);
             //intent.putExtra("people_type", people_type);
 
-            finish();
+            //finish();
             startActivity(intent);
             overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
 
@@ -145,6 +162,7 @@ public class YouType_Complate_Activity extends AppCompatActivity {
     {
         Intent intent = new Intent(YouType_Complate_Activity.this, YouType_Actvity_step1.class);
         intent.putExtra("people_uid", people_uid);
+        intent.putExtra("people_email", people_email);
         intent.putExtra("people_username", people_username);
         startActivity(intent);
         overridePendingTransition(R.anim.end_enter, R.anim.end_exit);
@@ -158,6 +176,34 @@ public class YouType_Complate_Activity extends AppCompatActivity {
         intent.putExtra("youtype", youtype);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+    }
+
+    public void sendBtn(View v) {
+        if(people_email.equals("미가입")) {
+            Intent intent = new Intent(YouType_Complate_Activity.this, KakaoLoginActivity.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+        } else {
+            RequestParams params = new RequestParams();
+            params.put("uid", SharedPreferenceUtil.getSharedPreference(YouType_Complate_Activity.this, "uid"));
+            params.put("people_uid", people_uid);
+            params.put("people_username", SharedPreferenceUtil.getSharedPreference(YouType_Complate_Activity.this, "username"));
+            HttpClient.post("/user/peoplePushSend", params, new AsyncHttpResponseHandler() {
+                public void onStart() {
+                    //Log.d("people_gram", "시작");
+                    dialog = ProgressDialog.show(YouType_Complate_Activity.this, "", "데이터 수신중");
+                }
+
+                public void onFinish() {
+                    dialog.dismiss();
+                }
+
+                @Override
+                public void onSuccess(String response) {
+                    //Log.d("people_gram", response);
+                }
+            });
+        }
     }
 
     public void start_btn(View v) {

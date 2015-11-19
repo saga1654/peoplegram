@@ -82,7 +82,10 @@ public class YouType_Activity_step2 extends FragmentActivity {
         gubun1 = intent.getExtras().getString("gubun1");
         gubun2 = intent.getExtras().getString("gubun2");
 
-        Log.d("people_gram", people_username);
+
+        Log.d("people_gram", "step2=" + people_email);
+
+        //Log.d("people_gram", people_username);
 
 
         //Activity mcontext에 담기
@@ -395,6 +398,7 @@ public class YouType_Activity_step2 extends FragmentActivity {
 
                         intent = new Intent(YouType_Activity_step2.this, YouType_Complate_Activity.class);
                         intent.putExtra("people_uid", people_uid);
+                        intent.putExtra("people_email", people_email);
                         intent.putExtra("people_username", people_username);
                         intent.putExtra("data1", data1);
                         intent.putExtra("data2", data2);
@@ -539,6 +543,7 @@ public class YouType_Activity_step2 extends FragmentActivity {
 
                     intent = new Intent(YouType_Activity_step2.this, YouType_Complate_Activity.class);
                     intent.putExtra("people_uid", people_uid);
+                    intent.putExtra("people_email", people_email);
                     intent.putExtra("youtype", response);
                     //SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);
                     startActivity(intent);

@@ -80,6 +80,8 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
             people_friend_count = intent.getIntExtra("people_friend_count", 0);
             people_coaching = intent.getStringExtra("people_coaching");
 
+            Log.d("people_gram", "팝업이메일="+people_email);
+
             if(people_type.equals("")) {
 
                 today_coaching.setText("먼저 '진단하기를' 해주세요.");
@@ -94,7 +96,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
             et_people_result_count.setText("진단 피플수 : "+people_result_count+"명");
 
 
-            if(people_email.toString().equals("")) {
+            if(people_email.toString().equals("미가입")) {
                 request = "N";
                 people_popup_btn1.setImageResource(R.drawable.people_popup_btn1_style);
             } else {
@@ -222,6 +224,9 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
     }
 
     public void peopleType_btn(View v) {
+        ani_finish();
+
+
         Intent intent = new Intent(SubPeopleListPopup_Activity.this, YouType_Actvity_step1.class);
 
 
@@ -232,7 +237,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
         startActivity(intent);
         overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
-        ani_finish();
+        //ani_finish();
         //finish();
     }
 

@@ -960,7 +960,7 @@ public class SubPeopleFragment extends Fragment {
                         int speed = 0;
                         int control = 0;
 
-                        if (jobj.getString("JOIN_EMAIL") != "null") {
+                        if (jobj.getString("JOIN_EMAIL").equals("") == false) {
                             email = jobj.getString("JOIN_EMAIL");
                         } else {
                             email = "미가입";

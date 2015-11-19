@@ -3,6 +3,7 @@ package kr.co.people_gram.app;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -36,6 +37,7 @@ public class YouType_Actvity_step1 extends AppCompatActivity {
             people_uid = intent.getStringExtra("people_uid");
             people_username = intent.getStringExtra("people_username");
             people_email = intent.getStringExtra("people_email");
+            Log.d("people_gram", "step1=" + people_email);
             tv_youtype_activity_username.setText(people_username);
         }
 
