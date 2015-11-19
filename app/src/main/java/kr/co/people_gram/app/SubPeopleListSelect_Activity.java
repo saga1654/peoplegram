@@ -80,17 +80,12 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
         subpeoplelistselect_Activity = this;
 
-
-
-
-
         pd = new PeopleData();
         uid = SharedPreferenceUtil.getSharedPreference(this, "uid");
         myname = SharedPreferenceUtil.getSharedPreference(this, "username");
         mytype = SharedPreferenceUtil.getSharedPreference(this, "mytype");
         my_control = Integer.parseInt(SharedPreferenceUtil.getSharedPreference(this, "my_control"));
         my_speed = Integer.parseInt(SharedPreferenceUtil.getSharedPreference(this, "my_speed"));
-
 
         people_uid = pd.get_people_uid();
         people_name = pd.get_people_username();
@@ -100,7 +95,6 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
         people_gubun2 = pd.get_people_gubun2();
         people_speed = pd.get_people_speed();
         people_control = pd.get_people_control();
-
 
         paymentResult();
 
