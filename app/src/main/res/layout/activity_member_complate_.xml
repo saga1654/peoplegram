@@ -52,7 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="지금부터 10문항의 자기진단을\n진행하도록 하겠습니다.\n\n문항을 충분히 읽어보시고\n양쪽 중 어느 쪽이 더 가까운지\n선택해주시면 됩니다."
-                android:textSize="12dp"
+                android:textSize="14dp"
                 android:textColor="#30344c"
                 android:gravity="center"
                 android:lineSpacingExtra="10dp"
