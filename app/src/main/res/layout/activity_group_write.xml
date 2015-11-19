@@ -98,7 +98,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="※ 아래 리스트를 클릭 선택하여 해당그룹에 멤버를 설정하시기 바랍니다."
+                android:text="※ 아래 리스트를 클릭하여 해당그룹에 멤버를 설정하시기 바랍니다."
                 android:textSize="11dp"
                 android:textColor="#000" />
 
