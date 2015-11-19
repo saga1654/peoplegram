@@ -182,6 +182,11 @@ public class MemberJoinStep7_Activity extends AppCompatActivity {
                 params.put("area3", area3_string);
                 params.put("panel_YN", panel_YN);
 
+                Log.d("people_gram", md.get_sex());
+                Log.d("people_gram", md.get_sex());
+                Log.d("people_gram", md.get_sex());
+                Log.d("people_gram", md.get_sex());
+
                 HttpClient.post("/user/memberCheck", params, new AsyncHttpResponseHandler() {
                     public void onStart() {
                         dialog = ProgressDialog.show(MemberJoinStep7_Activity.this, "", "데이터 수신중");
@@ -199,7 +204,7 @@ public class MemberJoinStep7_Activity extends AppCompatActivity {
                             JSONObject jobj_data = new JSONObject(jobj.getString("user_data"));
                             String code = jobj.getString("code");
 
-                            if(code.equals("000")) {
+                            if (code.equals("000")) {
                                 String uid = jobj_data.get("UID").toString();
                                 String userNickName = jobj_data.get("USERNICKNAME").toString();
                                 String email = jobj_data.get("EMAIL").toString();
@@ -220,7 +225,6 @@ public class MemberJoinStep7_Activity extends AppCompatActivity {
                                 startActivity(intent);
                                 overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
                                 next_finish();
-
 
 
                             }
