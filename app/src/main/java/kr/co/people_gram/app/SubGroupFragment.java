@@ -31,7 +31,7 @@ import java.util.ArrayList;
  */
 public class SubGroupFragment extends Fragment {
 
-    private ImageView group_create,group_delete;
+    private ImageView group_create;
 
     private ArrayList<SubGroupListDTO> people_dto_list;
     private SubGroupListAdapter people_adapter_list;
@@ -47,16 +47,17 @@ public class SubGroupFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.sub_fragment_group, container, false);
 
+
         sf_people_list = (ListView) rootView.findViewById(R.id.people_list);
         group_create = (ImageView) rootView.findViewById(R.id.group_create);
-        group_delete = (ImageView) rootView.findViewById(R.id.group_delete);
+        //group_delete = (ImageView) rootView.findViewById(R.id.group_delete);
 
 
         group_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), GroupWriteActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, 41);
                 getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
@@ -75,13 +76,15 @@ public class SubGroupFragment extends Fragment {
                 startActivityForResult(intent, 41);
                 getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
 
+
             }
         });
+
 
         return rootView;
     }
 
-    private void peopleList()
+    public void peopleList()
     {
         people_dto_list = new ArrayList<SubGroupListDTO>();
         //people_dto_list_temp.clear();

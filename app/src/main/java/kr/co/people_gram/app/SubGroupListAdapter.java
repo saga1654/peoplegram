@@ -1,11 +1,22 @@
 package kr.co.people_gram.app;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -47,8 +58,6 @@ public class SubGroupListAdapter extends BaseAdapter{
     }
 
 
-
-
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
@@ -58,12 +67,15 @@ public class SubGroupListAdapter extends BaseAdapter{
         }
 
 
-        SubGroupListDTO dto = peoplelist.get(position);
+
+        final SubGroupListDTO dto = peoplelist.get(position);
         //SubGroupPeopleListDTO dto = peoplelist.get(position);
 
         TextView listview_people_list_username = (TextView) convertView.findViewById(R.id.listview_people_list_username);
         TextView listview_people_list_all = (TextView) convertView.findViewById(R.id.listview_people_list_all);
         TextView listview_people_list_cnt = (TextView) convertView.findViewById(R.id.listview_people_list_cnt);
+        //LinearLayout group_delete = (LinearLayout) convertView.findViewById(R.id.group_delete);
+
 
         listview_people_list_username.setText(dto.get_group_name());
         listview_people_list_all.setText(dto.get_all_people_name());
@@ -77,6 +89,7 @@ public class SubGroupListAdapter extends BaseAdapter{
 
         return convertView;
     }
+
 
 
 }

@@ -1,6 +1,7 @@
 package kr.co.people_gram.app;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -191,6 +192,8 @@ public class GroupWriteActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(String response) {
                         if(response.equals("000")) {
+                            Intent intent = new Intent();
+                            setResult(41, intent);
                             finish();
                         }
                         //Log.d("people_gram", response);
