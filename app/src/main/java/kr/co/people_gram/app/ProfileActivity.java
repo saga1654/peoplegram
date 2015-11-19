@@ -201,8 +201,8 @@ public class ProfileActivity extends AppCompatActivity {
                     String DATA8 = my_data.getString("DATA8");
                     String DATA9 = my_data.getString("DATA9");
                     String DATA10 = my_data.getString("DATA10");
-                    int SPEED = Integer.parseInt(jobj.getString("SPEED"));
-                    int CONTROL = Integer.parseInt(jobj.getString("CONTROL"));
+                    int SPEED = Integer.parseInt(my_data.getString("SPEED"));
+                    int CONTROL = Integer.parseInt(my_data.getString("CONTROL"));
 
                     if (profile.getString("SEX").equals("M")) {
                         profile_sex.setText("남성");
