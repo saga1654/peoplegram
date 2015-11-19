@@ -9,6 +9,8 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -164,6 +166,21 @@ public class YouType_Activity_step2 extends FragmentActivity {
             @Override
             public void run() {
                 pager.setCurrentItem(1);
+            }
+        });
+        final GestureDetector gd = new GestureDetector(new GestureDetector.SimpleOnGestureListener());
+
+
+
+        pager.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_MOVE:
+                        gd.onTouchEvent(event);
+                        break;
+                }
+                return true;
             }
         });
         /* ##### navigation 설정 끝 #### */
