@@ -58,7 +58,6 @@ public class ProfileActivity extends AppCompatActivity {
         mytype_tv = (TextView) findViewById(R.id.mytype_tv);
         mytype_tv.setText(Html.fromHtml("자기진단 결과<br><b>표출형 특징을 가진 주도형</b><br>으로 진단되었습니다."));
 
-        userData();
 
         mytype_me.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -176,9 +175,7 @@ public class ProfileActivity extends AppCompatActivity {
         params.put("uid", SharedPreferenceUtil.getSharedPreference(this, "uid"));
         HttpClient.post("/user/profile_user_select", params, new AsyncHttpResponseHandler() {
             public void onStart() {
-                if(dialog.isShowing() == false) {
-                    dialog = ProgressDialog.show(ProfileActivity.this, "", "데이터 수신중");
-                }
+                dialog = ProgressDialog.show(ProfileActivity.this, "", "데이터 수신중");
             }
 
             public void onFinish() {
@@ -193,6 +190,19 @@ public class ProfileActivity extends AppCompatActivity {
                     JSONObject profile = new JSONObject(jobj.getString("profile"));
                     JSONObject my_data = new JSONObject(jobj.getString("my_data"));
                     JSONObject you_data = new JSONObject(jobj.getString("people_data"));
+
+                    String DATA1 = my_data.getString("DATA1");
+                    String DATA2 = my_data.getString("DATA2");
+                    String DATA3 = my_data.getString("DATA3");
+                    String DATA4 = my_data.getString("DATA4");
+                    String DATA5 = my_data.getString("DATA5");
+                    String DATA6 = my_data.getString("DATA6");
+                    String DATA7 = my_data.getString("DATA7");
+                    String DATA8 = my_data.getString("DATA8");
+                    String DATA9 = my_data.getString("DATA9");
+                    String DATA10 = my_data.getString("DATA10");
+                    int SPEED = Integer.parseInt(jobj.getString("SPEED"));
+                    int CONTROL = Integer.parseInt(jobj.getString("CONTROL"));
 
                     if (profile.getString("SEX").equals("M")) {
                         profile_sex.setText("남성");
@@ -237,48 +247,6 @@ public class ProfileActivity extends AppCompatActivity {
                     } else {
                         mytype_per.setText(per + "%");
                     }
-
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        });
-    }
-
-    /*추가부분*/
-    private void userData()
-    {
-        RequestParams params = new RequestParams();
-        params.put("uid", SharedPreferenceUtil.getSharedPreference(ProfileActivity.this, "uid"));
-        HttpClient.post("/user/member_type", params, new AsyncHttpResponseHandler() {
-            public void onStart() {
-                //Log.d("people_gram", "시작");
-                dialog = ProgressDialog.show(ProfileActivity.this, "", "데이터 수신중");
-            }
-
-            public void onFinish() {
-                dialog.dismiss();
-            }
-
-            @Override
-            public void onSuccess(String response) {
-
-                try {
-                    JSONObject jobj = new JSONObject(response);
-                    String DATA1 = jobj.getString("DATA1");
-                    String DATA2 = jobj.getString("DATA2");
-                    String DATA3 = jobj.getString("DATA3");
-                    String DATA4 = jobj.getString("DATA4");
-                    String DATA5 = jobj.getString("DATA5");
-                    String DATA6 = jobj.getString("DATA6");
-                    String DATA7 = jobj.getString("DATA7");
-                    String DATA8 = jobj.getString("DATA8");
-                    String DATA9 = jobj.getString("DATA9");
-                    String DATA10 = jobj.getString("DATA10");
-                    int SPEED = Integer.parseInt(jobj.getString("SPEED"));
-                    int CONTROL = Integer.parseInt(jobj.getString("CONTROL"));
 
                     if (SPEED > 0 && CONTROL > 0) {
 
@@ -342,9 +310,12 @@ public class ProfileActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
             }
         });
     }
+
+
 
     public void mytype_re_btn(View v)
     {

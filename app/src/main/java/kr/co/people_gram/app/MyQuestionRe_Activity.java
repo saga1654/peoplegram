@@ -255,6 +255,8 @@ public class MyQuestionRe_Activity extends FragmentActivity {
                     //Log.d("people_gram", response);
 
                     SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);
+                    Intent intent = new Intent();
+                    setResult(00002, intent);
                     finish();
 
                 }
