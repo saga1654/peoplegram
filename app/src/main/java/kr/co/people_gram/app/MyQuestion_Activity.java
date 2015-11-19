@@ -9,6 +9,8 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -70,9 +72,7 @@ public class MyQuestion_Activity extends FragmentActivity {
 
         //uid = "201509161111AA";
         uid = SharedPreferenceUtil.getSharedPreference(this, "uid");
-        Log.d("people_gram", uid);
 
-        //Activity mcontext에 담기
         mcontext = this;
 
         /* SeekBar title 가져오기 */
@@ -160,6 +160,22 @@ public class MyQuestion_Activity extends FragmentActivity {
             @Override
             public void run() {
                 pager.setCurrentItem(1);
+            }
+        });
+
+        final GestureDetector gd = new GestureDetector(new GestureDetector.SimpleOnGestureListener());
+
+
+
+        pager.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_MOVE:
+                        gd.onTouchEvent(event);
+                        break;
+                }
+                return true;
             }
         });
         /* ##### navigation 설정 끝 #### */
@@ -403,21 +419,12 @@ public class MyQuestion_Activity extends FragmentActivity {
     public void btn_next(View v)
     {
 
-
-
-
         if(dataSet() == false) {
             Toast.makeText(this, "선택해주세요.", Toast.LENGTH_SHORT).show();
             return;
         }
-
-
         if(questionNum == 10) {
             Log.d("people_gram", "마지막페이지");
-            //Toast.makeText(this, "마지막페이지", Toast.LENGTH_SHORT).show();
-
-
-
             readContacts();
 
             RequestParams params = new RequestParams();
@@ -428,7 +435,6 @@ public class MyQuestion_Activity extends FragmentActivity {
                 params.put("data"+dataNum, String.valueOf(dataArray[i]));
             }
 
-            Log.d("people_gram", userData);
             params.put("userData", userdataArray);
 
             HttpClient.post("/user/my_question", params, new AsyncHttpResponseHandler() {
@@ -444,12 +450,6 @@ public class MyQuestion_Activity extends FragmentActivity {
                 public void onSuccess(String response)
                 {
                     dialog.dismiss();
-                    /*
-                    intent = new Intent(MyQuestion_Activity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                    */
-                    //Log.d("people_gram", response);
 
                     SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);
                     intent = new Intent(MyQuestion_Activity.this, MyType_Complate_Activity.class);
