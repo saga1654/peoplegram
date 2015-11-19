@@ -36,29 +36,21 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.80"
-                android:gravity="center">
+                android:layout_weight="0.90"
+                android:paddingLeft="16dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16dp"
-                    android:text="그램포인트"
+                    android:text="포인트 충전소"
                     android:id="@+id/top_title"
                     android:textColor="#ffffff"/>
 
 
             </LinearLayout>
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.10"
-                android:id="@+id/settingbtn"
-                android:gravity="center">
 
-            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
@@ -140,7 +132,7 @@
                                 android:textColor="#000"
                                 android:id="@+id/mypage_grampoint"
                                 android:textSize="16dp"
-                                android:text="1500g"/>
+                                android:text="1500p"/>
                         </LinearLayout>
                     </LinearLayout>
                     <LinearLayout
@@ -282,7 +274,7 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/month_save"
+                                    android:src="@drawable/free_save"
                                     android:id="@+id/imageView4"
                                     android:layout_weight="0.10" />
                             </LinearLayout>
@@ -317,7 +309,7 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/save_100g"
+                                    android:src="@drawable/save_1000p"
                                     android:id="@+id/imageView6"
                                     android:layout_weight="0.10" />
                             </LinearLayout>
@@ -352,7 +344,7 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/save_500g"
+                                    android:src="@drawable/save_3000p"
                                     android:id="@+id/imageView5"
                                     android:layout_weight="0.10" />
                             </LinearLayout>
@@ -386,7 +378,7 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/save_1000g"
+                                    android:src="@drawable/save_5000p"
                                     android:id="@+id/imageView7"
                                     android:layout_weight="0.10" />
                             </LinearLayout>
@@ -416,8 +408,40 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/save_5000g"
+                            android:src="@drawable/save_10000p"
                             android:id="@+id/imageView8"
+                            android:layout_weight="0.10" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#f3f3f4"
+                        android:orientation="horizontal"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:id="@+id/mytype_menu09"
+                    android:layout_gravity="center_horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.90"
+                        android:weightSum="1" >
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/save_30000p"
+                            android:id="@+id/imageView9"
                             android:layout_weight="0.10" />
                     </LinearLayout>
 
