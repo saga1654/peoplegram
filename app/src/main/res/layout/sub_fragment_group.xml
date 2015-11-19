@@ -66,24 +66,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.50"
-                android:gravity="right"
-                android:paddingRight="10dp">
-
-                <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:paddingLeft="10dp"
-                    android:src="@drawable/delete_btn"
-                    android:textSize="10dp"
-                    android:id="@+id/group_delete"
-                    android:textColor="#32354d"/>
-
-            </LinearLayout>
-
         </LinearLayout>
 
 
@@ -91,7 +73,12 @@
 
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ffffff">
 
+    </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -121,6 +108,8 @@
             android:src="@drawable/write_btn"
             android:id="@+id/group_create"
             android:onClick="qnaWrite"
+            android:paddingBottom="30dp"
+            android:paddingRight="20dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
