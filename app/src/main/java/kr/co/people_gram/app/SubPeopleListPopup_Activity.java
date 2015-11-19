@@ -170,7 +170,9 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
         RequestParams params = new RequestParams();
         switch (request) {
             case "N":
-
+                    Intent intent = new Intent(SubPeopleListPopup_Activity.this, KakaoLoginActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
                 break;
             case "F":
                 params.put("uid", SharedPreferenceUtil.getSharedPreference(SubPeopleListPopup_Activity.this, "uid"));
