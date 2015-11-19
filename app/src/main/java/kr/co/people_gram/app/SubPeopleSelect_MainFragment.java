@@ -155,6 +155,8 @@ public class SubPeopleSelect_MainFragment extends Fragment {
                 resName = "@string/tip" + i + "_" + gubun1 + gubun2;
             }
 
+
+
             int resID = getResources().getIdentifier(resName, "values", packName);
             String title = getString(resID);
             title = title.replace("[gubun1]", "<font color='#ff6d2a'>"+gubun1_return(gubun1)+"</font>");

@@ -413,6 +413,8 @@ public class YouType_Activity_step2 extends FragmentActivity {
                         intent.putExtra("speed", speed);
                         intent.putExtra("control", control);
                         intent.putExtra("youtype", people_type);
+                        intent.putExtra("gubun1", gubun1);
+                        intent.putExtra("gubun2", gubun2);
                         startActivity(intent);
                         overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                         finish();

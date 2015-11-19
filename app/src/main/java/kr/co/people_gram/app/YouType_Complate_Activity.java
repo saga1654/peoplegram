@@ -16,7 +16,7 @@ import com.loopj.android.http.RequestParams;
 
 
 public class YouType_Complate_Activity extends AppCompatActivity {
-    private String people_uid, people_email, people_username, data1, data2, data3, data4, data5, data6, data7, data8, data9, data10;
+    private String people_uid, people_email, people_username, data1, data2, data3, data4, data5, data6, data7, data8, data9, data10, gubun1, gubun2;
     private String speed, control;
     private String youtype;
 
@@ -26,6 +26,9 @@ public class YouType_Complate_Activity extends AppCompatActivity {
 
     private ImageView people_popup_btn1;
     private ProgressDialog dialog;
+
+
+    private PeopleData pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +40,16 @@ public class YouType_Complate_Activity extends AppCompatActivity {
 
         people_popup_btn1 = (ImageView) findViewById(R.id.people_popup_btn1);
 
+
+        PeopleData pd = new PeopleData();
+
+
         Intent intent = getIntent();
         if(intent != null) {
             people_uid = intent.getStringExtra("people_uid");
+
+
+
             people_email = intent.getStringExtra("people_email");
             people_username = intent.getStringExtra("people_username");
             data1 = intent.getStringExtra("data1");
@@ -52,9 +62,20 @@ public class YouType_Complate_Activity extends AppCompatActivity {
             data8 = intent.getStringExtra("data8");
             data9 = intent.getStringExtra("data9");
             data10 = intent.getStringExtra("data10");
+            gubun1 = intent.getStringExtra("gubun1");
+            gubun2 = intent.getStringExtra("gubun2");
             float speed = Float.parseFloat(intent.getStringExtra("speed"));
             float control = Float.parseFloat(intent.getStringExtra("control"));
             youtype = intent.getStringExtra("youtype");
+
+
+            pd.set_people_uid(people_uid);
+            pd.set_people_username(people_username);
+            pd.set_people_type(youtype);
+            pd.set_people_gubun1(gubun1);
+            pd.set_people_gubun2(gubun2);
+            pd.set_people_speed((int) speed);
+            pd.set_people_control((int) control);
 
 
 
