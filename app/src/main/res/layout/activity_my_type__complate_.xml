@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -98,66 +98,68 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="(조채철)님의 자기진단 결과\n(표출형 특징을 가진 주도형)\n으로 진단되었습니다."
-                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:textSize="16dp"
                     android:lineSpacingExtra="10dp"
                     android:textColor="#000"
                     android:id="@+id/mytype_tv"></TextView>
 
             </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:background="#ffffff"
+            android:layout_gravity="bottom">
+
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:weightSum="1"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
-                android:background="#ffffff">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                android:layout_weight="0.33"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.33"
-                    android:gravity="center">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="start_btn"
-                        android:src="@drawable/peoplelist_upload_style"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.33"
-                    android:gravity="center">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="mytype_view_btn"
-                        android:id="@+id/mytype_view_btn"
-                        android:src="@drawable/people_popup_btn6_style"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.33"
-                    android:gravity="center">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/mytype_re_btn"
-                        android:onClick="mytype_re_btn"
-                        android:src="@drawable/people_popup_btn2_re_style"/>
-                </LinearLayout>
-
-
-
+                    android:onClick="start_btn"
+                    android:src="@drawable/peoplelist_upload_style"
+                    />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.33"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="mytype_view_btn"
+                    android:id="@+id/mytype_view_btn"
+                    android:src="@drawable/people_popup_btn6_style"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.33"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/mytype_re_btn"
+                    android:onClick="mytype_re_btn"
+                    android:src="@drawable/people_popup_btn2_re_style"/>
+            </LinearLayout>
+
+
+
         </LinearLayout>
 
 
-
-
     </LinearLayout>
-</RelativeLayout>
+</FrameLayout>
