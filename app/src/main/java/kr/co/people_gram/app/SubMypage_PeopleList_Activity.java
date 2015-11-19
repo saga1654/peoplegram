@@ -64,16 +64,16 @@ public class SubMypage_PeopleList_Activity extends AppCompatActivity {
 
                 switch (searchType) {
                     case "I":
-                        mytype_activity_typeImg.setImageResource(R.drawable.mytype_i);
+                        mytype_activity_typeImg.setImageResource(R.drawable.mypage_mytype_i);
                         break;
                     case "D":
-                        mytype_activity_typeImg.setImageResource(R.drawable.mytype_d);
+                        mytype_activity_typeImg.setImageResource(R.drawable.mypage_mytype_d);
                         break;
                     case "E":
-                        mytype_activity_typeImg.setImageResource(R.drawable.mytype_e);
+                        mytype_activity_typeImg.setImageResource(R.drawable.mypage_mytype_e);
                         break;
                     case "A":
-                        mytype_activity_typeImg.setImageResource(R.drawable.mytype_a);
+                        mytype_activity_typeImg.setImageResource(R.drawable.mypage_mytype_a);
                         break;
                 }
 
@@ -83,16 +83,16 @@ public class SubMypage_PeopleList_Activity extends AppCompatActivity {
                 peopleList2();
                 switch (searchType) {
                     case "I":
-                        mytype_activity_typeImg.setImageResource(R.drawable.mytype_i);
+                        mytype_activity_typeImg.setImageResource(R.drawable.p_mytype_i);
                         break;
                     case "D":
-                        mytype_activity_typeImg.setImageResource(R.drawable.mytype_d);
+                        mytype_activity_typeImg.setImageResource(R.drawable.p_mytype_d);
                         break;
                     case "E":
-                        mytype_activity_typeImg.setImageResource(R.drawable.mytype_e);
+                        mytype_activity_typeImg.setImageResource(R.drawable.p_mytype_e);
                         break;
                     case "A":
-                        mytype_activity_typeImg.setImageResource(R.drawable.mytype_a);
+                        mytype_activity_typeImg.setImageResource(R.drawable.p_mytype_a);
                         break;
                 }
                 title.setText("나를 진단한 피플현황");
