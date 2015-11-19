@@ -135,6 +135,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
         double total = Utilities.people_match_int(my_speed, people_speed, my_control, people_control);
         graph(total);
 
+
         peopleTextView.setText(Utilities.peopleContectView(SubPeopleListSelect_Activity.this, people_gubun1, total));
 
 
@@ -675,6 +676,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
             @Override
             public void onAnimationStart() {
+
             }
 
             @Override

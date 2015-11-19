@@ -23,6 +23,9 @@ import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 public class MyQuestionRe_Activity extends FragmentActivity {
 
@@ -254,10 +257,26 @@ public class MyQuestionRe_Activity extends FragmentActivity {
                     */
                     //Log.d("people_gram", response);
 
-                    SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);
-                    Intent intent = new Intent();
-                    setResult(00002, intent);
-                    finish();
+                    try {
+                        JSONObject jobj = new JSONObject(response);
+                        String myType = jobj.getString("myType");
+                        String speed = jobj.getString("sumdata_speed");
+                        String control = jobj.getString("sumdata_control");
+
+                        SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", myType);
+                        SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_speed", speed);
+                        SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_control", control);
+
+                        Intent intent = new Intent();
+                        setResult(00002, intent);
+                        finish();
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+
 
                 }
 
@@ -322,6 +341,7 @@ public class MyQuestionRe_Activity extends FragmentActivity {
                 @Override
                 public void onSuccess(String response)
                 {
+                    Log.d("people_gram", response);
                     dialog.dismiss();
                     /*
                     intent = new Intent(MyQuestion_Activity.this, MainActivity.class);
@@ -330,9 +350,27 @@ public class MyQuestionRe_Activity extends FragmentActivity {
                     */
                     //Log.d("people_gram", response);
 
-                    SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);
-                    overridePendingTransition(R.anim.slide_close_down_info, R.anim.slide_clode_up_info);
-                    finish();
+                    try {
+                        JSONObject jobj = new JSONObject(response);
+                        String myType = jobj.getString("myType");
+                        String speed = jobj.getString("sumdata_speed");
+                        String control = jobj.getString("sumdata_control");
+
+                        SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", myType);
+                        SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_speed", speed);
+                        SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_control", control);
+
+                        overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                        finish();
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    //SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);
+                    //overridePendingTransition(R.anim.slide_close_down_info, R.anim.slide_clode_up_info);
+                    //finish();
 
                 }
 
@@ -461,6 +499,7 @@ public class MyQuestionRe_Activity extends FragmentActivity {
                 @Override
                 public void onSuccess(String response)
                 {
+                    Log.d("people_gram", response);
                     dialog.dismiss();
                     /*
                     intent = new Intent(MyQuestion_Activity.this, MainActivity.class);
@@ -469,8 +508,26 @@ public class MyQuestionRe_Activity extends FragmentActivity {
                     */
                     //Log.d("people_gram", response);
 
-                    SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);
-                    finish();
+                    try {
+                        JSONObject jobj = new JSONObject(response);
+                        String myType = jobj.getString("myType");
+                        String speed = jobj.getString("sumdata_speed");
+                        String control = jobj.getString("sumdata_control");
+
+                        SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", myType);
+                        SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_speed", speed);
+                        SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_control", control);
+
+                        //overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                        finish();
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    //SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);
+                    //finish();
 
                 }
 

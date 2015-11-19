@@ -14,6 +14,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,6 +22,9 @@ import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MyQuestion_Activity extends FragmentActivity {
 
@@ -319,18 +323,27 @@ public class MyQuestion_Activity extends FragmentActivity {
                 public void onSuccess(String response)
                 {
                     dialog.dismiss();
-                    /*
-                    intent = new Intent(MyQuestion_Activity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                    */
-                    //Log.d("people_gram", response);
+                    try {
+                        JSONObject jobj = new JSONObject(response);
+                        String myType = jobj.getString("myType");
+                        String speed = jobj.getString("sumdata_speed");
+                        String control = jobj.getString("sumdata_control");
 
-                    SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);
-                    intent = new Intent(MyQuestion_Activity.this, MyType_Complate_Activity.class);
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
-                    finish();
+                        SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", myType);
+                        SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_speed", speed);
+                        SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_control", control);
+                        intent = new Intent(MyQuestion_Activity.this, MyType_Complate_Activity.class);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                        finish();
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+
+
 
                 }
 
@@ -452,6 +465,7 @@ public class MyQuestion_Activity extends FragmentActivity {
                 @Override
                 public void onSuccess(String response)
                 {
+                    /*
                     dialog.dismiss();
 
                     SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", response);
@@ -459,6 +473,26 @@ public class MyQuestion_Activity extends FragmentActivity {
                     startActivity(intent);
                     overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
                     finish();
+                    */
+
+                    try {
+                        JSONObject jobj = new JSONObject(response);
+                        String myType = jobj.getString("myType");
+                        String speed = jobj.getString("sumdata_speed");
+                        String control = jobj.getString("sumdata_control");
+
+                        SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", myType);
+                        SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_speed", speed);
+                        SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_control", control);
+                        intent = new Intent(MyQuestion_Activity.this, MyType_Complate_Activity.class);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                        finish();
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
 
                 }
 
