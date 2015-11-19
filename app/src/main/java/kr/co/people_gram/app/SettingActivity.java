@@ -26,7 +26,7 @@ public class SettingActivity extends AppCompatActivity {
     private Switch push_switch;
     private ProgressDialog dialog;
 
-    private LinearLayout notice_btn, agree_btn, userinfo_btn, logout_btn, question_btn;
+    private LinearLayout notice_btn, agree_btn, userinfo_btn, logout_btn, question_btn, people_btn;
 
 
     @Override
@@ -45,6 +45,8 @@ public class SettingActivity extends AppCompatActivity {
         question_btn = (LinearLayout) findViewById(R.id.question_btn);
         logout_btn = (LinearLayout) findViewById(R.id.logout_btn);
 
+        people_btn = (LinearLayout) findViewById(R.id.people_btn);
+
         notice_btn.setOnTouchListener(onBtnTouchListener);
         notice_btn.setOnClickListener(onBtnClickListener);
 
@@ -59,6 +61,9 @@ public class SettingActivity extends AppCompatActivity {
 
         question_btn.setOnTouchListener(onBtnTouchListener);
         question_btn.setOnClickListener(onBtnClickListener);
+
+        people_btn.setOnTouchListener(onBtnTouchListener);
+        people_btn.setOnClickListener(onBtnClickListener);
 
         pushdata();
 
@@ -161,6 +166,13 @@ public class SettingActivity extends AppCompatActivity {
                         question_btn.setBackgroundColor(Color.rgb(255,255,255));
                     }
                     break;
+                case R.id.people_btn:
+                    if(event.getAction() == 2) {
+                        people_btn.setBackgroundColor(Color.rgb(241, 241, 241));
+                    } else {
+                        people_btn.setBackgroundColor(Color.rgb(255,255,255));
+                    }
+                    break;
 
             }
             return false;
@@ -212,6 +224,12 @@ public class SettingActivity extends AppCompatActivity {
                     break;
                 case R.id.question_btn:
                     intent = new Intent(SettingActivity.this, SubQnaActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+                    break;
+
+                case R.id.people_btn:
+                    intent = new Intent(SettingActivity.this, SubMyPagePeopleSync_Activity.class);
                     startActivity(intent);
                     overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
                     break;

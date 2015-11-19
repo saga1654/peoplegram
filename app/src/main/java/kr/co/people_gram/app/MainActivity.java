@@ -13,6 +13,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -226,7 +227,7 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SettingActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, 6);
                 overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
@@ -372,6 +373,7 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
 
         if (resultCode==RESULT_OK) {
             if (requestCode == SubPeopleTypeFragmentCode) {

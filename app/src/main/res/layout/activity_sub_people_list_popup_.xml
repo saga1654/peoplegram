@@ -163,7 +163,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="peopleType_btn"
+                            android:onClick="peopleViewType_btn"
                             android:id="@+id/people_popup_btn4"
                             android:src="@drawable/people_popup_btn6_style"/>
                     </LinearLayout>

@@ -176,7 +176,9 @@ public class ProfileActivity extends AppCompatActivity {
         params.put("uid", SharedPreferenceUtil.getSharedPreference(this, "uid"));
         HttpClient.post("/user/profile_user_select", params, new AsyncHttpResponseHandler() {
             public void onStart() {
-                dialog = ProgressDialog.show(ProfileActivity.this, "", "데이터 수신중");
+                if(dialog.isShowing() == false) {
+                    dialog = ProgressDialog.show(ProfileActivity.this, "", "데이터 수신중");
+                }
             }
 
             public void onFinish() {

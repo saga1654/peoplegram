@@ -334,7 +334,7 @@ public class SubPeopleFragment extends Fragment {
                     final SubPeopleListDTO dto = (SubPeopleListDTO) sf_people_list.getItemAtPosition(position);
                     pos = sf_people_list.getFirstVisiblePosition();
 
-                    Log.d("people_gram", "현재위치="+pos);
+                    //Log.d("people_gram", "현재위치="+pos);
 
 
 
@@ -842,7 +842,7 @@ public class SubPeopleFragment extends Fragment {
 
     private void peopleList()
     {
-        Log.d("people_gram", "성공");
+        //Log.d("people_gram", "성공");
         people_dto_list = new ArrayList<SubPeopleListDTO>();
         people_dto_list_temp.clear();
         RequestParams params = new RequestParams();
@@ -862,7 +862,7 @@ public class SubPeopleFragment extends Fragment {
 
             @Override
             public void onSuccess(String response) {
-                Log.d("people_gram", response);
+                //Log.d("people_gram", response);
                 try {
 
                     JSONObject data = new JSONObject(response);
@@ -1020,7 +1020,7 @@ public class SubPeopleFragment extends Fragment {
                         }
 
 
-                        Log.d("people_gram", searchType);
+                        //Log.d("people_gram", searchType);
 
                         if (searchType.equals("ALL")) {
                             people_dto_list.add(new SubPeopleListDTO(

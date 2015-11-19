@@ -166,6 +166,8 @@ public class PeopleSync_Activity extends AppCompatActivity {
                                                 overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
                                                 finish();
                                             } else {
+                                                Intent intent = new Intent();
+                                                setResult(6, intent);
                                                 finish();
                                             }
                                         }

@@ -190,7 +190,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
                     @Override
                     public void onSuccess(String response) {
-                        Log.d("people_gram", response);
+                        //Log.d("people_gram", response);
                     }
                 });
                 break;
@@ -212,7 +212,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
                     @Override
                     public void onSuccess(String response) {
-                        Log.d("people_gram", response);
+                        //Log.d("people_gram", response);
                     }
                 });
 
@@ -231,11 +231,25 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
         startActivity(intent);
         overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
-        finish();
+        ani_finish();
+        //finish();
+    }
+
+    public void peopleViewType_btn(View v)
+    {
+        if(people_type.toString().equals("")) {
+            Toast.makeText(SubPeopleListPopup_Activity.this, people_username +"님을 진단해주세요.", Toast.LENGTH_LONG).show();
+        } else {
+            Intent intent = new Intent(SubPeopleListPopup_Activity.this, SubMyType_Activity.class);
+            intent.putExtra("mytype", people_type);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+        }
+
     }
 
     public void peopleView_btn(View v) {
-        Log.d("people_gram", "타입=" + people_type.toString());
+
         if(people_type.toString().equals("")) {
             AlertDialog.Builder alert = new AlertDialog.Builder(SubPeopleListPopup_Activity.this);
             alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
@@ -274,9 +288,9 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
             intent.putExtra("people_mood", people_mood);
             intent.putExtra("people_type", people_type);
             */
-            finish();
             startActivity(intent);
             overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+            ani_finish();
 
         }
     }
@@ -321,6 +335,11 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
     public void closeBtn(View v) {
         finish();
+    }
+
+    public void ani_finish()
+    {
+        super.finish();
     }
 
     public void finish() {
