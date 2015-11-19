@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ public class GramPopupActivity extends AppCompatActivity {
     private TextView gram_point;
     private ProgressDialog dialog;
     private String uid, people_uid, people_username, gubun1, gubun2;
+    private LinearLayout panel_linear;
 
     Intent intent;
 
@@ -31,6 +33,7 @@ public class GramPopupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gram_popup);
 
         gram_point = (TextView) findViewById(R.id.gram_point);
+        panel_linear = (LinearLayout) findViewById(R.id.panel_linear);
 
         intent = getIntent();
         if(intent != null) {
@@ -39,7 +42,11 @@ public class GramPopupActivity extends AppCompatActivity {
             people_username = intent.getStringExtra("people_username");
             gubun1 = intent.getStringExtra("gubun1");
             gubun2 = intent.getStringExtra("gubun2");
-            gram_point.setText(Point + "g");
+            gram_point.setText(Point + "포인트");
+        }
+
+        if(SharedPreferenceUtil.getSharedPreference(GramPopupActivity.this, "panelYN").equals("Y")) {
+            panel_linear.setVisibility(View.GONE);
         }
     }
 
@@ -76,7 +83,7 @@ public class GramPopupActivity extends AppCompatActivity {
 
 
                     } else {
-                        Toast.makeText(GramPopupActivity.this, "잔여 포인트가 부족합니다(그램 : "+jobj.getString("data_point")+"G)", Toast.LENGTH_LONG).show();
+                        Toast.makeText(GramPopupActivity.this, "잔여 포인트가 부족합니다("+jobj.getString("data_point")+"포인트)", Toast.LENGTH_LONG).show();
                         intent.putExtra("data_OK", "NO");
                         setResult(RESULT_OK,intent);
                         finish();

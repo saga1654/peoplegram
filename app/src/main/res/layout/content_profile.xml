@@ -422,7 +422,6 @@
                     android:layout_height="wrap_content"
                     android:gravity="right"
                     android:text="포인트 충전소  >"
-                    android:onClick="btn_point"
                     android:textColor="#1d1d26"
                     android:id="@+id/point_add" />
 

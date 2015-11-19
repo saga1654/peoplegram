@@ -48,7 +48,7 @@ public class BaseActivity extends Activity {
 
     protected void redirectLoginActivity() {
         Log.d("people_gram", "로그인 성공");
-        final Intent intent = new Intent(this, TestActivity.class);
+        final Intent intent = new Intent(this, KakaoLoginActivity.class);
         startActivity(intent);
         finish();
     }

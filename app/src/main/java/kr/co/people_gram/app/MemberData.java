@@ -8,6 +8,7 @@ public class MemberData {
     static String userpw = "";
     static String nickname = "";
     static String sex = "";
+    static String birthtype = "";
     static String birthday = "";
     static String area1 = "";
     static String area2 = "";
@@ -29,6 +30,9 @@ public class MemberData {
     public void set_sex(String sex) { this.sex = sex; }
     public String get_sex() { return this.sex; }
 
+    public void set_birthtype(String birthtype) { this.birthtype = birthtype; }
+    public String get_birthtype() { return this.birthtype; }
+
     public void set_birthday(String birthday) { this.birthday = birthday; }
     public String get_birthday() { return this.birthday; }
 
@@ -46,6 +50,8 @@ public class MemberData {
 
     public void set_telecom(String telecom) { this.telecom = telecom; }
     public String get_telecom() { return this.telecom; }
+
+
 
 
 }

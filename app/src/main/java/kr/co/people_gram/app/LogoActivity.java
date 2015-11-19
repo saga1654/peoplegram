@@ -225,7 +225,7 @@ public class LogoActivity extends AppCompatActivity {
 
                         @Override
                         public void onSuccess(String response) {
-
+                            Log.d("people_gram", response);
                             try {
                                 JSONObject jobj = new JSONObject(response);
 
@@ -236,6 +236,8 @@ public class LogoActivity extends AppCompatActivity {
                                 SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "my_control", jobj.getString("MY_CONTROL"));
                                 SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "email", jobj.getString("EMAIL"));
                                 SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "panelYN", jobj.getString("PANEL"));
+
+
 
 
                                 if(jobj.getString("MYTYPE").equals("")) {
