@@ -35,6 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:paddingLeft="16dp"
+                android:textSize="16dp"
                 android:text="프로필 정보"
                 android:textColor="#ffffff" />
         </LinearLayout>
