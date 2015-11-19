@@ -121,6 +121,8 @@
             android:src="@drawable/write_btn"
             android:id="@+id/group_create"
             android:onClick="qnaWrite"
+            android:paddingBottom="20dp"
+            android:paddingRight="10dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
