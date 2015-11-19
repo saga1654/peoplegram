@@ -55,12 +55,27 @@
                 android:background="#fff"
                 android:textColorHint="#eeeeee"
                 android:hint="패스워드를 입력하세요."
-                android:textSize="11dp"
+                android:textSize="14dp"
                 android:textColor="#30344c"
                 android:singleLine="true"
                 android:inputType="textPassword"
                 android:padding="8dp">
                 <requestFocus />
+            </EditText>
+
+            <EditText
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_password2"
+                android:background="#fff"
+                android:textColorHint="#eeeeee"
+                android:hint="패스워드를 재입력하세요."
+                android:textSize="14dp"
+                android:textColor="#30344c"
+                android:singleLine="true"
+                android:inputType="textPassword"
+                android:padding="8dp">
             </EditText>
 
         </LinearLayout>
