@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Vibrator;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -256,6 +257,8 @@ public class MyQuestion_Activity extends FragmentActivity {
             right_onoff = true;
             myQuestion_left.setBackgroundColor(Color.rgb(241,241,241));
             myQuestion_right.setBackgroundColor(Color.rgb(250,229,4));
+            Vibrator vibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+            vibe.vibrate(40);
         } else {
             right_onoff = false;
             myQuestion_left.setBackgroundColor(Color.rgb(241,241,241));
