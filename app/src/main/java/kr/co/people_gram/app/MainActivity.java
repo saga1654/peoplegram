@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity  {
 
     private LinearLayout searchbtn, settingbtn;
 
+    private DataProfileCount dpc;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +59,9 @@ public class MainActivity extends AppCompatActivity  {
 
         mainActivity = this;
 
+        dpc = new DataProfileCount();
+
+        Toast.makeText(MainActivity.this, "진단되었습니다="+dpc.get_user_count(), Toast.LENGTH_LONG).show();
         /*
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

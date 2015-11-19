@@ -47,6 +47,8 @@ public class LogoActivity extends AppCompatActivity {
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     private BroadcastReceiver mRegistrationBroadcastReceiver;
 
+    private DataProfileCount dpc;
+
     /**
      * Instance ID를 이용하여 디바이스 토큰을 가져오는 RegistrationIntentService를 실행한다.
      */
@@ -151,6 +153,7 @@ public class LogoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
+        dpc = new DataProfileCount();
 
 
         if(SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "token") == "") {
@@ -237,7 +240,7 @@ public class LogoActivity extends AppCompatActivity {
                                 SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "email", jobj.getString("EMAIL"));
                                 SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "panelYN", jobj.getString("PANEL"));
 
-
+                                dpc.set_user_count(jobj.getInt("NEW_COUNT"));
 
 
                                 if(jobj.getString("MYTYPE").equals("")) {
