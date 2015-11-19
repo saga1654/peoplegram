@@ -88,20 +88,20 @@ public class SubPeopleListAdapter extends BaseAdapter{
 
         switch (people_type) {
             case "A":
-                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_a);
+                listview_proplelist_img.setImageResource(R.mipmap.people_type_a);
                 break;
             case "I":
-                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_i);
+                listview_proplelist_img.setImageResource(R.mipmap.people_type_i);
                 break;
             case "E":
-                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_e);
+                listview_proplelist_img.setImageResource(R.mipmap.people_type_e);
                 break;
             case "D":
-                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_d);
+                listview_proplelist_img.setImageResource(R.mipmap.people_type_d);
                 break;
 
             case "":
-                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_default);
+                listview_proplelist_img.setImageResource(R.mipmap.people_type_default);
                 break;
             /*
 
