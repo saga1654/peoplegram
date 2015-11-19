@@ -16,6 +16,7 @@ public class YouType_Actvity_step1 extends AppCompatActivity {
     private String data2 = "";
 
     private String people_uid = "";
+    private String people_email = "";
     private String people_username = "";
 
     private TextView tv_youtype_activity_username;
@@ -34,7 +35,7 @@ public class YouType_Actvity_step1 extends AppCompatActivity {
         if(intent != null) {
             people_uid = intent.getStringExtra("people_uid");
             people_username = intent.getStringExtra("people_username");
-
+            people_email = intent.getStringExtra("people_email");
             tv_youtype_activity_username.setText(people_username);
         }
 
@@ -689,6 +690,7 @@ public class YouType_Actvity_step1 extends AppCompatActivity {
             }
 
             intent.putExtra("people_uid", people_uid);
+            intent.putExtra("people_email", people_email);
             intent.putExtra("people_username",people_username);
             intent.putExtra("gubun1", gubun1);
             intent.putExtra("gubun2", gubun2);

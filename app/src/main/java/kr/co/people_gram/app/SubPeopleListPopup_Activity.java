@@ -227,6 +227,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
         intent.putExtra("people_uid", people_uid);
         intent.putExtra("people_username", people_username);
+        intent.putExtra("people_email", people_email);
 
 
         startActivity(intent);
@@ -260,6 +261,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
                     intent.putExtra("people_uid", people_uid);
                     intent.putExtra("people_username", people_username);
+                    intent.putExtra("people_email", people_email);
 
                     startActivity(intent);
                     overridePendingTransition(R.anim.start_enter, R.anim.start_exit);

@@ -31,6 +31,7 @@ public class YouType_Activity_step2 extends FragmentActivity {
     /* 변수 private */
     private int questionNum = 1;
     private static String uid = "";
+    private static String people_email = "";
     private static String people_uid = "";
     private static String people_username = "";
     private String gubun1 = "";
@@ -77,6 +78,7 @@ public class YouType_Activity_step2 extends FragmentActivity {
         people_uid = intent.getExtras().getString("people_uid").toString();
         uid = SharedPreferenceUtil.getSharedPreference(this, "uid");
         people_username = intent.getExtras().getString("people_username").toString();
+        people_email = intent.getExtras().getString("people_email").toString();
         gubun1 = intent.getExtras().getString("gubun1");
         gubun2 = intent.getExtras().getString("gubun2");
 
@@ -263,6 +265,7 @@ public class YouType_Activity_step2 extends FragmentActivity {
 
                         intent = new Intent(YouType_Activity_step2.this, YouType_Complate_Activity.class);
                         intent.putExtra("people_uid", people_uid);
+                        intent.putExtra("people_email", people_email);
                         intent.putExtra("people_username", people_username);
                         intent.putExtra("data1", data1);
                         intent.putExtra("data2", data2);

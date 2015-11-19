@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 
 public class YouType_Complate_Activity extends AppCompatActivity {
-    private String people_uid, people_username, data1, data2, data3, data4, data5, data6, data7, data8, data9, data10;
+    private String people_uid, people_email, people_username, data1, data2, data3, data4, data5, data6, data7, data8, data9, data10;
     private String speed, control;
     private String youtype;
 
@@ -31,6 +31,7 @@ public class YouType_Complate_Activity extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent != null) {
             people_uid = intent.getStringExtra("people_uid");
+            people_email = intent.getStringExtra("people_email");
             people_username = intent.getStringExtra("people_username");
             data1 = intent.getStringExtra("data1");
             data2 = intent.getStringExtra("data2");
@@ -47,7 +48,6 @@ public class YouType_Complate_Activity extends AppCompatActivity {
             youtype = intent.getStringExtra("youtype");
 
 
-            Log.d("people_gram", people_username);
             if(speed > 0 && control > 0) {
 
 
