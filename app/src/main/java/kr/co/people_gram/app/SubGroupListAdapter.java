@@ -30,6 +30,8 @@ public class SubGroupListAdapter extends BaseAdapter{
     private final ArrayList<SubGroupListDTO> peoplelist;
     LayoutInflater inf;
 
+    public String group_code;
+
 
     public SubGroupListAdapter(Context mContext, int layout, ArrayList<SubGroupListDTO> peoplelist)
     {
@@ -57,19 +59,65 @@ public class SubGroupListAdapter extends BaseAdapter{
         return position;
     }
 
+    public void setChecked(int position) {
+        SubGroupListDTO dto = peoplelist.get(position);
+
+        group_code = dto.get_group_code();
+
+
+    }
+
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-
+        ViewHolder viewHolder;
 
         if(convertView == null) {
             convertView = inf.inflate(layout, null);
+
+            viewHolder = new ViewHolder();
+            viewHolder.layout = (LinearLayout) convertView.findViewById(R.id.group_delete);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
         }
 
 
-
         final SubGroupListDTO dto = peoplelist.get(position);
+
+
+        LinearLayout layout = (LinearLayout) convertView.findViewById(R.id.group_delete);
+        layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                group_code = dto.get_group_code();
+                RequestParams params = new RequestParams();
+                params.put("uid", SharedPreferenceUtil.getSharedPreference(mContext, "uid"));
+                params.put("group_code", dto.get_group_code());
+                HttpClient.post("/group/groupDelete", params, new AsyncHttpResponseHandler() {
+                    public void onStart() {
+
+                    }
+
+                    public void onFailure() {
+                    }
+
+                    public void onFinish() {
+
+                    }
+
+                    @Override
+                    public void onSuccess(String response) {
+                        peoplelist.remove(position);
+                        notifyDataSetChanged();
+                    }
+                });
+                //Log.d("people_gram", "선택="+position);
+            }
+        });
+
         //SubGroupPeopleListDTO dto = peoplelist.get(position);
+
 
         TextView listview_people_list_username = (TextView) convertView.findViewById(R.id.listview_people_list_username);
         TextView listview_people_list_all = (TextView) convertView.findViewById(R.id.listview_people_list_all);
@@ -88,6 +136,11 @@ public class SubGroupListAdapter extends BaseAdapter{
 
 
         return convertView;
+    }
+
+    public class ViewHolder
+    {
+        private LinearLayout layout;
     }
 
 

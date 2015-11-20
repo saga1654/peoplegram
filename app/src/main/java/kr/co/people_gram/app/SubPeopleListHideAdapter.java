@@ -58,7 +58,6 @@ public class SubPeopleListHideAdapter extends BaseAdapter{
     public void setChecked(int position) {
         SubPeopleListDTO dto = peoplelist.get(position);
 
-        Log.d("people_gram", dto.get_profile_uid());
         if(isCheckedConfrim[position] == true) {
             uid_check[position] = "";
         } else {
