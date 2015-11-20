@@ -69,6 +69,10 @@ public class SubGroupFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                people_adapter_list.setChecked(position);
+                people_adapter_list.notifyDataSetChanged();
+
+
                 SubGroupListDTO dto = (SubGroupListDTO) sf_people_list.getItemAtPosition(position);
                 String group_code = dto.get_group_code();
                 Intent intent = new Intent(getActivity(), SubGroupDetailView_Activity.class);
@@ -82,6 +86,11 @@ public class SubGroupFragment extends Fragment {
 
 
         return rootView;
+    }
+
+    public void peopleDelete()
+    {
+
     }
 
     public void peopleList()
