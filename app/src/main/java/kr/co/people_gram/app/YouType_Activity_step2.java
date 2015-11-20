@@ -3,7 +3,9 @@ package kr.co.people_gram.app;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ResolveInfo;
 import android.graphics.Color;
+import android.os.Build;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -23,6 +25,8 @@ import com.loopj.android.http.RequestParams;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.List;
 
 
 public class YouType_Activity_step2 extends FragmentActivity {
@@ -396,6 +400,11 @@ public class YouType_Activity_step2 extends FragmentActivity {
 
                         String people_type = jobj.getString("people_type");
 
+
+
+
+
+
                         intent = new Intent(YouType_Activity_step2.this, YouType_Complate_Activity.class);
                         intent.putExtra("people_uid", people_uid);
                         intent.putExtra("people_email", people_email);
@@ -684,5 +693,7 @@ public class YouType_Activity_step2 extends FragmentActivity {
         }
 
     }
+
+
 
 }
