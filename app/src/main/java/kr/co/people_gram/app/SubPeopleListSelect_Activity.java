@@ -40,20 +40,26 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
     private PeopleData pd;
 
 
-    private String uid, mood, myname, mytype;
+    private String uid, mood, myname;
+    public static String mytype;
     private String my_code = "000";
     private int my_speed = 0;
     private float my_sub_speed = 0;
-    private String my_sub_type = "";
+    public static String my_sub_type = "";
     private int my_control = 0;
     private float my_sub_control = 0;
 
 
-    private String people_name, people_type, people_mood, people_uid, people_gubun1, people_gubun2;
+    public static Boolean my_type_check = false;
+    public static Boolean people_type_check = false;
+
+
+    private String people_name, people_mood, people_uid, people_gubun1, people_gubun2;
+    public static String people_type;
     private float people_speed = 0;
     private float people_control = 0;
 
-    private String people_sub_type = "";
+    public static String people_sub_type = "";
 
     private String people_code = "000";
     private float people_sub_speed = 0;
@@ -165,7 +171,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked == false) {
-
+                    my_type_check = false;
                     if(listview_youtype_switch.isChecked() == false) {
                         double total = Utilities.people_match_int(my_speed, people_speed, my_control, people_control);
                         graph(total);
@@ -197,8 +203,10 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                             break;
                     }
                 } else {
+
                     switch (my_sub_type) {
                         case "A":
+                            my_type_check = true;
                             if (listview_youtype_switch.isChecked() == false) {
                                 double total = Utilities.people_match_int(my_sub_speed, people_speed, my_sub_control, people_control);
                                 graph(total);
@@ -209,6 +217,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                             popup_mytype.setBackgroundResource(R.mipmap.people_type_a);
                             break;
                         case "I":
+                            my_type_check = true;
                             if (listview_youtype_switch.isChecked() == false) {
                                 double total = Utilities.people_match_int(my_sub_speed, people_speed, my_sub_control, people_control);
                                 graph(total);
@@ -219,6 +228,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                             popup_mytype.setBackgroundResource(R.mipmap.people_type_i);
                             break;
                         case "E":
+                            my_type_check = true;
                             if (listview_youtype_switch.isChecked() == false) {
                                 double total = Utilities.people_match_int(my_sub_speed, people_speed, my_sub_control, people_control);
                                 graph(total);
@@ -229,6 +239,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                             popup_mytype.setBackgroundResource(R.mipmap.people_type_e);
                             break;
                         case "D":
+                            my_type_check = true;
                             if (listview_youtype_switch.isChecked() == false) {
                                 double total = Utilities.people_match_int(my_sub_speed, people_speed, my_sub_control, people_control);
                                 graph(total);
@@ -239,6 +250,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                             popup_mytype.setBackgroundResource(R.mipmap.people_type_d);
                             break;
                         default:
+                            my_type_check = false;
                             listview_mytype_switch.setChecked(false);
 
                             switch (people_gubun1)
@@ -298,6 +310,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked == false) {
+                    people_type_check = false;
                     switch (people_type) {
                         case "A":
                             popup_youtype.setBackgroundResource(R.mipmap.people_type_a);
@@ -329,8 +342,10 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                     }
 
                 } else {
+
                     switch (people_sub_type) {
                         case "A":
+                            people_type_check = true;
                             if (listview_mytype_switch.isChecked() == false) {
                                 double total = Utilities.people_match_int(my_speed, people_sub_speed, my_control, people_sub_control);
                                 graph(total);
@@ -345,6 +360,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                             popup_youtype.setBackgroundResource(R.mipmap.people_type_a);
                             break;
                         case "I":
+                            people_type_check = true;
                             popup_youtype.setBackgroundResource(R.mipmap.people_type_i);
                             if (listview_mytype_switch.isChecked() == false) {
                                 double total = Utilities.people_match_int(my_speed, people_sub_speed, my_control, people_sub_control);
@@ -357,6 +373,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                             }
                             break;
                         case "E":
+                            people_type_check = true;
                             popup_youtype.setBackgroundResource(R.mipmap.people_type_e);
                             if (listview_mytype_switch.isChecked() == false) {
                                 double total = Utilities.people_match_int(my_speed, people_sub_speed, my_control, people_sub_control);
@@ -369,6 +386,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                             }
                             break;
                         case "D":
+                            people_type_check = true;
                             popup_youtype.setBackgroundResource(R.mipmap.people_type_d);
                             if (listview_mytype_switch.isChecked() == false) {
                                 double total = Utilities.people_match_int(my_speed, people_sub_speed, my_control, people_sub_control);
@@ -381,6 +399,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                             }
                             break;
                         default:
+                            people_type_check = false;
                             /*
                             popup_youtype.setBackgroundResource(R.mipmap.people_type_default);
                             if (listview_mytype_switch.isChecked() == false) {

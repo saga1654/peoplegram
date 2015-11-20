@@ -31,9 +31,11 @@ public class SubPeopleContents_Activity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        if(intent != null) {
+        if (intent != null) {
             matchNum = intent.getStringExtra("matchNum");
         }
+
+        //SubPeopleListSelect_Activity.my_sub_type;
 
         switch (matchNum) {
             case "1":
@@ -81,16 +83,23 @@ public class SubPeopleContents_Activity extends AppCompatActivity {
             }
         });
 
-        if(people_gubun1.equals("F")) {
+        if (people_gubun1.equals("F")) {
             people_gubun2 = "A";
         }
 
-        if(people_gubun1.equals("L")) {
+        if (people_gubun1.equals("L")) {
             people_gubun2 = "A";
         }
 
-        people_content_webview.loadUrl("file:///android_asset/people_result/" + people_gubun1 + "/" + people_gubun1 + "_" + people_gubun2 + "_" + mytype + people_type + "_" + matchNum + ".html");
-
+        if (SubPeopleListSelect_Activity.my_type_check == false && SubPeopleListSelect_Activity.people_type_check == false) {
+            people_content_webview.loadUrl("file:///android_asset/people_result/" + people_gubun1 + "/" + people_gubun1 + "_" + people_gubun2 + "_" + mytype + people_type + "_" + matchNum + ".html");
+        } else if (SubPeopleListSelect_Activity.my_type_check == true && SubPeopleListSelect_Activity.people_type_check == false) {
+            people_content_webview.loadUrl("file:///android_asset/people_result/" + people_gubun1 + "/" + people_gubun1 + "_" + people_gubun2 + "_" + SubPeopleListSelect_Activity.my_sub_type + people_type + "_" + matchNum + ".html");
+        } else if (SubPeopleListSelect_Activity.my_type_check == false && SubPeopleListSelect_Activity.people_type_check == true) {
+            people_content_webview.loadUrl("file:///android_asset/people_result/" + people_gubun1 + "/" + people_gubun1 + "_" + people_gubun2 + "_" + mytype + SubPeopleListSelect_Activity.people_sub_type + "_" + matchNum + ".html");
+        } else {
+            people_content_webview.loadUrl("file:///android_asset/people_result/" + people_gubun1 + "/" + people_gubun1 + "_" + people_gubun2 + "_" + SubPeopleListSelect_Activity.my_sub_type + SubPeopleListSelect_Activity.people_sub_type + "_" + matchNum + ".html");
+        }
     }
 
     public void closeBtn(View v) {

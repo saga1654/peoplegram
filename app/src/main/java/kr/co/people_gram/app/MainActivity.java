@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity  {
 
         dpc = new DataProfileCount();
 
-        Toast.makeText(MainActivity.this, "진단되었습니다="+dpc.get_user_count(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(MainActivity.this, "진단되었습니다="+dpc.get_user_count(), Toast.LENGTH_LONG).show();
         /*
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
