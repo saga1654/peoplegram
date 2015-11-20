@@ -89,10 +89,20 @@ public class MainActivity extends AppCompatActivity  {
         menu3 = (LinearLayout) findViewById(R.id.menu3);
         menu4 = (LinearLayout) findViewById(R.id.menu4);
 
+        //dpc.set_user_count(10);
+
+        if(dpc.get_user_count() > 0) {
+            menu_icon1.setImageResource(R.mipmap.top_01_on_new);
+        }
+
         menu1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menu_icon1.setImageResource(R.mipmap.top_01_on);
+                if(dpc.get_user_count() > 0) {
+                    menu_icon1.setImageResource(R.mipmap.top_01_on_new);
+                } else {
+                    menu_icon1.setImageResource(R.mipmap.top_01_on);
+                }
                 menu_line1.setBackgroundColor(Color.rgb(50, 53, 77));
 
                 menu_icon2.setImageResource(R.mipmap.top_02_off);
@@ -116,7 +126,11 @@ public class MainActivity extends AppCompatActivity  {
         menu2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                dpc.set_user_count(0);
+
                 menu_icon1.setImageResource(R.mipmap.top_01_off);
+
                 menu_line1.setBackgroundColor(Color.rgb(220, 220, 221));
 
                 menu_icon2.setImageResource(R.mipmap.top_02_on);
@@ -140,6 +154,9 @@ public class MainActivity extends AppCompatActivity  {
         menu3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dpc.set_user_count(0);
+
+
                 menu_icon1.setImageResource(R.mipmap.top_01_off);
                 menu_line1.setBackgroundColor(Color.rgb(220, 220, 221));
 
@@ -164,6 +181,10 @@ public class MainActivity extends AppCompatActivity  {
         menu4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                dpc.set_user_count(0);
+
+
                 menu_icon1.setImageResource(R.mipmap.top_01_off);
                 menu_line1.setBackgroundColor(Color.rgb(220, 220, 221));
 
