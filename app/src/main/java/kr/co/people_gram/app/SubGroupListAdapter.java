@@ -1,7 +1,9 @@
 package kr.co.people_gram.app;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +33,7 @@ public class SubGroupListAdapter extends BaseAdapter{
     LayoutInflater inf;
 
     public String group_code;
+    public final View convertView;
 
 
     public SubGroupListAdapter(Context mContext, int layout, ArrayList<SubGroupListDTO> peoplelist)
@@ -40,7 +43,7 @@ public class SubGroupListAdapter extends BaseAdapter{
 
         this.peoplelist = peoplelist;
         inf = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View convertView = inf.inflate(layout, null);
+        convertView = inf.inflate(layout, null);
 
     }
 
@@ -72,6 +75,8 @@ public class SubGroupListAdapter extends BaseAdapter{
     public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
 
+        final View convertView_return = convertView;
+
         if(convertView == null) {
             convertView = inf.inflate(layout, null);
 
@@ -90,28 +95,39 @@ public class SubGroupListAdapter extends BaseAdapter{
             @Override
             public void onClick(View v) {
 
-                group_code = dto.get_group_code();
-                RequestParams params = new RequestParams();
-                params.put("uid", SharedPreferenceUtil.getSharedPreference(mContext, "uid"));
-                params.put("group_code", dto.get_group_code());
-                HttpClient.post("/group/groupDelete", params, new AsyncHttpResponseHandler() {
-                    public void onStart() {
-
-                    }
-
-                    public void onFailure() {
-                    }
-
-                    public void onFinish() {
-
-                    }
-
+                AlertDialog.Builder alert = new AlertDialog.Builder(convertView_return.getContext());
+                alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onSuccess(String response) {
-                        peoplelist.remove(position);
-                        notifyDataSetChanged();
+                    public void onClick(DialogInterface dialog, int which) {
+                        group_code = dto.get_group_code();
+                        RequestParams params = new RequestParams();
+                        params.put("uid", SharedPreferenceUtil.getSharedPreference(convertView_return.getContext(), "uid"));
+                        params.put("group_code", dto.get_group_code());
+                        HttpClient.post("/group/groupDelete", params, new AsyncHttpResponseHandler() {
+                            public void onStart() {
+
+                            }
+
+                            public void onFailure() {
+                            }
+
+                            public void onFinish() {
+
+                            }
+
+                            @Override
+                            public void onSuccess(String response) {
+                                peoplelist.remove(position);
+                                notifyDataSetChanged();
+                            }
+                        });
                     }
                 });
+                alert.setMessage("삭제하시겠습니까?");
+                alert.setNegativeButton("취소", null);
+                alert.show();
+
+
                 //Log.d("people_gram", "선택="+position);
             }
         });
