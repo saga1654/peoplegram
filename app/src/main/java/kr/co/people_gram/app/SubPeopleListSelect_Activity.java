@@ -104,6 +104,8 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
         paymentResult();
 
+        //Log.d("people_gram", "구분타입"+people_gubun1);
+
         gubun1 = (TextView) findViewById(R.id.gubun1);
 
         switch (people_gubun1) {

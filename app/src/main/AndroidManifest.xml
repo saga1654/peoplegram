@@ -4,8 +4,6 @@
     android:versionCode="2"
     android:versionName="1.1" >
 
-
-
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <!-- 인터넷 권한 -->
@@ -28,6 +26,7 @@
         android:name="android.hardware.camera"
         android:required="false" />
     -->
+
 
     <!-- GCM 등록 권한 -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -102,21 +101,16 @@
             android:name=".LogoActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
-
         </activity>
         <activity
             android:name=".MyQuestion_Activity"
             android:label="질문지"
             android:screenOrientation="portrait" >
-
         </activity>
         <activity
             android:name=".MyQuestionRe_Activity"
@@ -268,7 +262,6 @@
             android:name=".KakaoLoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
-
         </activity>
         <activity
             android:name=".GramPopupMyTypeActivity"
@@ -337,21 +330,11 @@
             android:name=".MemberJoinStep6_Activity"
             android:label="@string/title_activity_member_join_step6_"
             android:theme="@style/AppTheme" >
-
-
-
-
-
-
         </activity>
         <activity
             android:name=".MemberJoinStep7_Activity"
             android:label="@string/title_activity_member_join_step7_"
             android:theme="@style/AppTheme" >
-
-
-
-
         </activity>
         <activity
             android:name=".MemberComplate_Activity"
@@ -426,6 +409,11 @@
         <activity
             android:name=".KakaoLinkMainActivity"
             android:label="@string/title_activity_kakao_link_main"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".PeopleMatchTop10_Activity"
+            android:label="@string/title_activity_people_match_top10_"
             android:theme="@style/AppTheme" >
         </activity>
     </application>

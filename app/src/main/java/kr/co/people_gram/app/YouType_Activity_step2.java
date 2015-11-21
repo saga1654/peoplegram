@@ -67,6 +67,7 @@ public class YouType_Activity_step2 extends FragmentActivity {
     private Boolean right_onoff = false;
 
     private TextView myQuestion_left_textview, myQuestion_right_textview;
+    private PeopleData pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +75,8 @@ public class YouType_Activity_step2 extends FragmentActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_you_type__activity_step2);
+
+        pd = new PeopleData();
 
         ActivityContext = this;
         questionNum = 1;
@@ -87,7 +90,8 @@ public class YouType_Activity_step2 extends FragmentActivity {
         gubun2 = intent.getExtras().getString("gubun2");
 
 
-        Log.d("people_gram", "step2=" + people_email);
+
+        //Log.d("people_gram", "구분=" + gubun1 + ":::" + gubun2);
 
         //Log.d("people_gram", people_username);
 
@@ -287,6 +291,8 @@ public class YouType_Activity_step2 extends FragmentActivity {
                         intent.putExtra("speed", speed);
                         intent.putExtra("control", control);
                         intent.putExtra("youtype", people_type);
+                        intent.putExtra("gubun1", gubun1);
+                        intent.putExtra("gubun2", gubun2);
                         startActivity(intent);
                         overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                         finish();

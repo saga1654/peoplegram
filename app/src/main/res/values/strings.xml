@@ -470,6 +470,7 @@
     <string name="kakaolink_appbutton">View More</string>
     <string name="kakaolink_webbutton">Go to Website</string>
     <string name="send_message">Send the message below?</string>
+    <string name="title_activity_people_match_top10_">PeopleMatchTop10_Activity</string>
 
 
 </resources>

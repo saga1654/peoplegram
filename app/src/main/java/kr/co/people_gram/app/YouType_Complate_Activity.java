@@ -69,6 +69,7 @@ public class YouType_Complate_Activity extends AppCompatActivity {
             youtype = intent.getStringExtra("youtype");
 
 
+
             pd.set_people_uid(people_uid);
             pd.set_people_username(people_username);
             pd.set_people_type(youtype);
