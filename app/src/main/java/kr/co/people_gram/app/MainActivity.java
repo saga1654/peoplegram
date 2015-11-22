@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity  {
 
     private DataProfileCount dpc;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +71,7 @@ public class MainActivity extends AppCompatActivity  {
         */
 
         mainTitle = (TextView) findViewById(R.id.mainTitle);
+
 
 
 

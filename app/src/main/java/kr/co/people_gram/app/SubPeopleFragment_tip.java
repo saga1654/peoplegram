@@ -35,6 +35,7 @@ public class SubPeopleFragment_tip extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.subpeople_fragment, container, false);
 
+        /*
         MY_std = (TextView) rootView.findViewById(R.id.MY_std);
         YOU_std = (TextView) rootView.findViewById(R.id.YOU_std);
 
@@ -50,6 +51,7 @@ public class SubPeopleFragment_tip extends Fragment {
         } else {
             YOU_std.setText("상대방 : 타인 진단 기준");
         }
+        */
 
 
         subpeople_menu1 = (LinearLayout) rootView.findViewById(R.id.subpeople_menu1);

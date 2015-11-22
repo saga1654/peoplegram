@@ -20,6 +20,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.plus.People;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
@@ -82,6 +83,7 @@ public class SubPeopleFragment extends Fragment {
     private Switch listview_youtype_switch;
 
     private Boolean people_popupview = false;
+    private TextView peoplematch_btn;
 
     public SubPeopleFragment() {
     }
@@ -95,6 +97,18 @@ public class SubPeopleFragment extends Fragment {
         mainView = rootView;
 
         people_dto_list_temp = new ArrayList<SubPeopleListDTO_Temp>();
+
+
+        /*
+        peoplematch_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PeopleMatchTop10_Activity.class);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+            }
+        });
+        */
 
         /*
         private TextView my_profile_i_now_cnt, my_profile_i_up_cnt, my_profile_d_now_cnt, my_profile_d_up_cnt, my_profile_e_now_cnt, my_profile_e_up_cnt, my_profile_a_now_cnt, my_profile_a_up_cnt;
@@ -115,6 +129,17 @@ public class SubPeopleFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                startActivityForResult(intent, ACTIVITY_CODE);
+                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+            }
+        });
+
+
+        peoplematch_btn = (TextView) rootView.findViewById(R.id.peoplematch_btn);
+        peoplematch_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PeopleMatchTop10_Activity.class);
                 startActivityForResult(intent, ACTIVITY_CODE);
                 getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
