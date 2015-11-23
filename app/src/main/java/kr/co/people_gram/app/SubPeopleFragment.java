@@ -83,7 +83,6 @@ public class SubPeopleFragment extends Fragment {
     private Switch listview_youtype_switch;
 
     private Boolean people_popupview = false;
-    private TextView peoplematch_btn;
 
     public SubPeopleFragment() {
     }
@@ -135,15 +134,7 @@ public class SubPeopleFragment extends Fragment {
         });
 
 
-        peoplematch_btn = (TextView) rootView.findViewById(R.id.peoplematch_btn);
-        peoplematch_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), PeopleMatchTop10_Activity.class);
-                startActivityForResult(intent, ACTIVITY_CODE);
-                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
-            }
-        });
+
 
 
        // panel_sign = (ImageView) rootView.findViewById(R.id.panel_sign);
