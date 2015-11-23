@@ -101,7 +101,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3506"
                         android:textColor="#1d1d26"
                         android:id="@+id/et_all"
                         android:textSize="12dp" />
@@ -136,7 +135,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2"
                         android:textColor="#1d1d26"
                         android:id="@+id/et_family"
                         android:textSize="12dp" />
@@ -170,7 +168,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2"
                         android:textColor="#1d1d26"
                         android:id="@+id/et_friend"
                         android:textSize="12dp" />
@@ -204,7 +201,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2"
                         android:textColor="#1d1d26"
                         android:id="@+id/et_lover"
                         android:textSize="12dp" />
@@ -238,7 +234,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2"
                         android:textColor="#1d1d26"
                         android:id="@+id/et_job"
                         android:textSize="12dp" />
@@ -273,7 +268,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2"
                         android:textColor="#1d1d26"
                         android:id="@+id/et_client"
                         android:textSize="12dp" />
@@ -363,7 +357,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
                         android:textColor="#1d1d26"
                         android:id="@+id/people_et_all"
                         android:textSize="12dp" />
@@ -394,7 +387,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
                         android:textColor="#1d1d26"
                         android:id="@+id/people_et_family"
                         android:textSize="12dp" />
@@ -425,7 +417,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
                         android:textColor="#1d1d26"
                         android:id="@+id/people_et_friend"
                         android:textSize="12dp" />
@@ -456,7 +447,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
                         android:textColor="#1d1d26"
                         android:id="@+id/people_et_lover"
                         android:textSize="12dp" />
@@ -487,7 +477,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
                         android:textColor="#1d1d26"
                         android:id="@+id/people_et_job"
                         android:textSize="12dp" />
@@ -518,7 +507,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
                         android:textColor="#1d1d26"
                         android:id="@+id/people_et_client"
                         android:textSize="12dp" />
