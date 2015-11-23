@@ -27,7 +27,7 @@ import org.json.JSONObject;
  */
 public class SubMypageFragment extends Fragment {
 
-    private LinearLayout mypage_people_btn, mypage_gram_store_btn;
+    private LinearLayout mypage_people_btn, mypage_gram_store_btn,people_macthing_order_btn;
     private LinearLayout mypage_all_btn, mypage_family_btn, mypage_friend_btn, mypage_lover_btn, mypage_job_btn, mypage_client_btn, mypage_panel_btn;
     private LinearLayout people_all_btn, people_family_btn, people_friend_btn, people_lover_btn, people_job_btn, people_client_btn;
 
@@ -71,7 +71,7 @@ public class SubMypageFragment extends Fragment {
         people_lover_btn = (LinearLayout) rootView.findViewById(R.id.people_lover_btn);
         people_job_btn = (LinearLayout) rootView.findViewById(R.id.people_job_btn);
         people_client_btn = (LinearLayout) rootView.findViewById(R.id.people_client_btn);
-
+        people_macthing_order_btn = (LinearLayout) rootView.findViewById(R.id.people_macthing_order_btn);
         //mypage_panel_btn = (LinearLayout) rootView.findViewById(R.id.mypage_panel_btn);
 
 
@@ -105,6 +105,14 @@ public class SubMypageFragment extends Fragment {
         mWebViewInterface2 = new WebViewInterface(getActivity(), chart_webview2); //JavascriptInterface 객체화
         chart_webview.addJavascriptInterface(mWebViewInterface, "Android");
         chart_webview2.addJavascriptInterface(mWebViewInterface2, "Android");
+        people_macthing_order_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),PeopleMatchTop10_Activity.class);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_up_info,R.anim.slide_down_info);
+            }
+        });
 
 
 
