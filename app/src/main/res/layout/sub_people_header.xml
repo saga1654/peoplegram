@@ -46,23 +46,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.50"
-                android:gravity="right">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="#7c7c7f"
-                    android:textSize="12dp"
-                    android:id="@+id/peoplematch_btn"
-                    android:text="피플매칭순위" />
-
-            </LinearLayout>
-
         </LinearLayout>
 
         <LinearLayout
