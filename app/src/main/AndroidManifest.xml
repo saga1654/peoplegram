@@ -417,7 +417,11 @@
             android:name=".PeopleMatchTop10_Activity"
             android:label="@string/title_activity_people_match_top10_"
             android:theme="@style/AppTheme" >
-
+        </activity>
+        <activity
+            android:name=".Guide_Activity"
+            android:label="@string/title_activity_guide_"
+            android:theme="@style/AppTheme" >
 
         </activity>
     </application>

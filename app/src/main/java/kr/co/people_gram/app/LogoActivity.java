@@ -203,13 +203,13 @@ public class LogoActivity extends AppCompatActivity {
                 Log.d("people_gram", "실행");
 
                 if(SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "uid") == "") {
-                    if(SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "mytype") == "") {
+                    if(SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "intro") == "Y") {
                         Intent intent = new Intent(LogoActivity.this, LoginActivity.class);
                         startActivity(intent);
-                        overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
+                        overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
                         finish();
                     } else {
-                        Intent intent = new Intent(LogoActivity.this, LoginActivity.class);
+                        Intent intent = new Intent(LogoActivity.this, Guide_Activity.class);
                         startActivity(intent);
                         overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
                         finish();
