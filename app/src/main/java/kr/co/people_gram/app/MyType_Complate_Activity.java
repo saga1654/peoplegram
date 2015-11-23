@@ -133,7 +133,7 @@ public class MyType_Complate_Activity extends AppCompatActivity {
                                 mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br> <b>속 깊이 잘 챙기는<b color='#37afec'>꼼꼼주의자</b></b><br>로 진단되었습니다."));
                             }
                         } else if (SPEED >= -1 && CONTROL <= 5) {
-                            mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br> <b>새로운 것을 마다하지 않고 끝까지 완력하게 꼼꼼히 이루는 스타일<br>로 진단되었습니다."));
+                            mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br> <b>새로운 것을 마다하지 않고 끝까지 완벽하게 꼼꼼히 이루는 스타일<br>로 진단되었습니다."));
                         } else {
                             mytype_tv.setText(Html.fromHtml("<font color='#ccc'>" + username + "</font>님의 자기진단 결과<br> <b color='#37afec'>꼼꼼한 완벽주의자</b>로 진단되었습니다."));
                         }
