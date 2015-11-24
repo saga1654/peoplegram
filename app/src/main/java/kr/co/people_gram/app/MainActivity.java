@@ -426,7 +426,7 @@ public class MainActivity extends AppCompatActivity  {
 
 
         if (resultCode==RESULT_OK) {
-            if(requestCode == 6) {
+            if(requestCode == SubPeopleListFragmentCode) {
                 fragmentManager = getSupportFragmentManager();
                 ft = fragmentManager.beginTransaction();
 

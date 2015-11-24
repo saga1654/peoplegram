@@ -399,6 +399,12 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                                 graph(total);
                                 peopleTextView.setText(Utilities.peopleContectView(SubPeopleListSelect_Activity.this, people_gubun1, total));
                             }
+
+                            //SubPeopleFragment_tip fragment_tip = (SubPeopleFragment_tip) getFragmentManager().findFragmentById(R.id.MY_std);
+
+
+                            //SubPeopleFragment_tip fragB = (SubPeopleFragment_tip) getFragmentManager().findFragmentByTag("FRAGMENT_TAG");
+
                             break;
                         default:
                             people_type_check = false;
