@@ -83,6 +83,9 @@ public class SubPeopleFragment extends Fragment {
     private Switch listview_youtype_switch;
 
     private Boolean people_popupview = false;
+    private String my_sub_type = "";
+
+    private NetworkCheck nc;
 
     public SubPeopleFragment() {
     }
@@ -91,6 +94,8 @@ public class SubPeopleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.sub_fragment_people, container, false);
         View header = inflater.inflate(R.layout.sub_people_header, null, false);
+
+        nc = new NetworkCheck();
 
 
         mainView = rootView;
@@ -207,24 +212,28 @@ public class SubPeopleFragment extends Fragment {
                                 if(data.getString("code").equals("000")) {
                                     switch (data.getString("peopleType")) {
                                         case "A":
+                                            my_sub_type = "A";
                                             listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_a);
                                             people_detail_view.setVisibility(View.VISIBLE);
                                             people_detail_view_title.setVisibility(View.VISIBLE);
                                             break;
 
                                         case "I":
+                                            my_sub_type = "I";
                                             listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_i);
                                             people_detail_view.setVisibility(View.VISIBLE);
                                             people_detail_view_title.setVisibility(View.VISIBLE);
                                             break;
 
                                         case "D":
+                                            my_sub_type = "D";
                                             listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_d);
                                             people_detail_view.setVisibility(View.VISIBLE);
                                             people_detail_view_title.setVisibility(View.VISIBLE);
                                             break;
 
                                         case "E":
+                                            my_sub_type = "E";
                                             listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_e);
                                             people_detail_view.setVisibility(View.VISIBLE);
                                             people_detail_view_title.setVisibility(View.VISIBLE);
@@ -299,8 +308,14 @@ public class SubPeopleFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SubMyType_Activity.class);
-                intent.putExtra("mytype", SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype"));
+                if(listview_youtype_switch.isChecked() == false) {
+                    intent.putExtra("mytype", SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype"));
+
+                } else {
+                    intent.putExtra("mytype", my_sub_type);
+                }
                 startActivity(intent);
+
                 //getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
@@ -351,7 +366,6 @@ public class SubPeopleFragment extends Fragment {
                     pos = sf_people_list.getFirstVisiblePosition();
 
                     //Log.d("people_gram", "현재위치="+pos);
-
 
 
 
@@ -870,6 +884,7 @@ public class SubPeopleFragment extends Fragment {
             }
 
             public void onFailure() {
+                Log.d("people_gram", "타임아웃");
             }
 
             public void onFinish() {
