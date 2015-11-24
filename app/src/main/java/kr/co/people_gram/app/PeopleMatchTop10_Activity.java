@@ -606,8 +606,9 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
 
     public void finish()
     {
-        overridePendingTransition(R.anim.slide_clode_up_info, R.anim.slide_close_down_info);
         super.finish();
+        overridePendingTransition(R.anim.slide_close_down_info, R.anim.slide_clode_up_info);
+
     }
 
 
