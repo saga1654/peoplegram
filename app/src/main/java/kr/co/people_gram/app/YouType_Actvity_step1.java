@@ -1,6 +1,8 @@
 package kr.co.people_gram.app;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -644,6 +646,8 @@ public class YouType_Actvity_step1 extends AppCompatActivity {
     }
 
     public void btnNext(View v) {
+        Vibrator vibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+        vibe.vibrate(500);
         if(data1.equals("")) {
             Toast.makeText(this, "구분을 선택해주세요.", Toast.LENGTH_LONG).show();
         } else if(data2.equals("")) {

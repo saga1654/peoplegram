@@ -199,13 +199,14 @@ public class MyQuestionRe_Activity extends FragmentActivity {
     }
 
     public void myQuestion_left_click(View v) {
+        Vibrator vibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+        vibe.vibrate(500);
         right_onoff = false;
         if(left_onoff == false) {
             left_onoff = true;
             myQuestion_left.setBackgroundColor(Color.rgb(250,229,4));
             myQuestion_right.setBackgroundColor(Color.rgb(241,241,241));
-            Vibrator vibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-            vibe.vibrate(40);
+
         } else {
             left_onoff = false;
             myQuestion_left.setBackgroundColor(Color.rgb(241,241,241));
@@ -293,6 +294,8 @@ public class MyQuestionRe_Activity extends FragmentActivity {
     }
 
     public void myQuestion_right_click(View v) {
+        Vibrator vibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+        vibe.vibrate(500);
         left_onoff = false;
         if(left_onoff == false) {
             right_onoff = true;

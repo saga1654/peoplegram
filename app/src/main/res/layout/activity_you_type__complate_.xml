@@ -122,7 +122,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.25"
+                android:layout_weight="0.33"
                 android:gravity="center">
                 <ImageView
                     android:layout_width="wrap_content"
@@ -133,7 +133,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.25"
+                android:layout_weight="0.33"
                 android:gravity="center">
                 <ImageView
                     android:layout_width="wrap_content"
@@ -145,7 +145,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.25"
+                android:layout_weight="0.33"
                 android:gravity="center">
                 <ImageView
                     android:layout_width="wrap_content"
@@ -154,18 +154,7 @@
                     android:onClick="mytype_re_btn"
                     android:src="@drawable/people_popup_btn2_re_style"/>
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.25"
-                android:gravity="center">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="sendBtn"
-                    android:id="@+id/people_popup_btn1"
-                    android:src="@drawable/people_popup_btn1_retype_style"/>
-            </LinearLayout>
+
 
 
         </LinearLayout>

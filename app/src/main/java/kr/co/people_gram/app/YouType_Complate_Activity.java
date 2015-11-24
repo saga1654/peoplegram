@@ -79,13 +79,13 @@ public class YouType_Complate_Activity extends AppCompatActivity {
             pd.set_people_control((int) control);
 
 
-
+            /*
             if(people_email.equals("미가입")) {
                 people_popup_btn1.setImageResource(R.drawable.people_popup_btn1_style);
             } else {
                 people_popup_btn1.setImageResource(R.drawable.people_popup_btn1_reretype_style);
             }
-
+         */
 
             if(speed > 0 && control > 0) {
 
@@ -200,7 +200,7 @@ public class YouType_Complate_Activity extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
     }
 
-    public void sendBtn(View v) {
+   /*public void sendBtn(View v) {
         if(people_email.equals("미가입")) {
             Intent intent = new Intent(YouType_Complate_Activity.this, KakaoLoginActivity.class);
             startActivity(intent);
@@ -226,7 +226,7 @@ public class YouType_Complate_Activity extends AppCompatActivity {
                 }
             });
         }
-    }
+    }*/
 
     public void start_btn(View v) {
         finish();
