@@ -24,8 +24,8 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
 
     private String group_code = "";
 
-    private ArrayList<SubPeopleListDTO> people_dto_list;
-    private SubPeopleListAdapter people_adapter_list;
+    private ArrayList<SubGroupDetailPeopleListDTO> people_dto_list;
+    private SubGroupDetailPeopleListAdapter people_adapter_list;
     private ProgressDialog dialog;
     private ListView sf_people_list;
 
@@ -109,7 +109,7 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
     private void peopleList()
     {
         Log.d("people_gram", "성공");
-        people_dto_list = new ArrayList<SubPeopleListDTO>();
+        people_dto_list = new ArrayList<SubGroupDetailPeopleListDTO>();
         RequestParams params = new RequestParams();
         params.put("uid", SharedPreferenceUtil.getSharedPreference(SubGroupDetailView_Activity.this, "uid"));
         params.put("group_code", group_code);
@@ -196,8 +196,9 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
 
 
 
-                            people_dto_list.add(new SubPeopleListDTO(
-                                    jobj.getString("PEOPLE_UID")
+                            people_dto_list.add(new SubGroupDetailPeopleListDTO(
+                                    group_code
+                                    ,jobj.getString("PEOPLE_UID")
                                     , ""
                                     , jobj.getString("PEOPLE_USERNAME")
                                     , email
@@ -218,7 +219,7 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
                         //Log.d("people_gram", jobj.getInt("NOW_CHECK") + ":::" + jobj.getInt("NOW_MAX"));
                     }
 
-                    people_adapter_list = new SubPeopleListAdapter(SubGroupDetailView_Activity.this, R.layout.sub_people_row_list, people_dto_list);
+                    people_adapter_list = new SubGroupDetailPeopleListAdapter(SubGroupDetailView_Activity.this, R.layout.sub_people_group_detail_row_list, people_dto_list);
                     sf_people_list.setAdapter(people_adapter_list);
                 } catch (JSONException e) {
                     e.printStackTrace();
