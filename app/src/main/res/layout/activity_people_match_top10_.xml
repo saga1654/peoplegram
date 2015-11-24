@@ -29,7 +29,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/prev_btn" />
+                    android:src="@drawable/peopletype_btn_close" />
 
             </LinearLayout>
 
@@ -43,7 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16dp"
-                    android:text="피플순위"
+                    android:text="매칭률 순위"
                     android:id="@+id/top_title"
                     android:textColor="#ffffff"/>
 
