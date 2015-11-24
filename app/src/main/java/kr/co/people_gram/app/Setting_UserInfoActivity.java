@@ -6,13 +6,17 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 
 public class Setting_UserInfoActivity extends AppCompatActivity {
-
+    private WebView info;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting__user_info);
+
+        info = (WebView) findViewById(R.id.user_info);
+        info.loadUrl("http://121.162.209.41:81/user/user_info");
     }
 
     @Override
