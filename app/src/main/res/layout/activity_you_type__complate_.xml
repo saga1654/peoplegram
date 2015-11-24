@@ -46,7 +46,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/close_btn"/>
+                    android:src="@drawable/peopletype_btn_close"/>
 
 
             </LinearLayout>
