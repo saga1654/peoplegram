@@ -41,7 +41,7 @@ public class MemberJoinStep2_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member_join_step2_);
         nextLL = (LinearLayout) findViewById(R.id.nextLL);
-        nextLL.setVisibility(View.INVISIBLE);
+        //nextLL.setVisibility(View.INVISIBLE);
 
         md = new MemberData();
 
@@ -55,6 +55,17 @@ public class MemberJoinStep2_Activity extends AppCompatActivity {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
 
+        nextLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (emailCheck(et_email.getText()) == false) {
+                    Log.d("people_gram", "이메일을 확인해주세요.");
+                } else {
+                    emailData();
+                }
+            }
+        });
+
         et_email.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -64,52 +75,7 @@ public class MemberJoinStep2_Activity extends AppCompatActivity {
                         if (emailCheck(et_email.getText()) == false) {
                             Log.d("people_gram", "이메일을 확인해주세요.");
                         } else {
-                            RequestParams params = new RequestParams();
-                            params.put("userID", et_email.getText().toString());
-                            HttpClient.post("/user/emailCheck", params, new AsyncHttpResponseHandler() {
-                                public void onStart() {
-                                    dialog = ProgressDialog.show(MemberJoinStep2_Activity.this, "", "데이터 수신중");
-                                }
-
-                                public void onFinish() {
-                                    dialog.dismiss();
-                                }
-
-                                @Override
-                                public void onSuccess(String response) {
-                                    try {
-                                        JSONObject jobj = new JSONObject(response);
-                                        String code = jobj.getString("code");
-                                        switch (code) {
-                                            case "000":
-                                                md.set_userid(et_email.getText().toString());
-                                                Intent intent = new Intent(MemberJoinStep2_Activity.this, MemberJoinStep3_Activity.class);
-                                                startActivity(intent);
-                                                overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
-                                                next_finish();
-                                                break;
-                                            case "101":
-                                                memberjoin_step2_string = getString(R.string.memberjoin_step2_text1);
-                                                memberjoin_step2_tv.setText(Html.fromHtml(memberjoin_step2_string));
-                                                enterCheck = false;
-                                                break;
-                                            case "999":
-                                                memberjoin_step2_string = getString(R.string.memberjoin_step2_text2);
-                                                memberjoin_step2_tv.setText(Html.fromHtml(memberjoin_step2_string));
-                                                enterCheck = false;
-                                                break;
-                                        }
-
-
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-
-                                    //Log.d("people_gram", response);
-                                }
-
-
-                            });
+                            emailData();
                         }
                     } else {
                         enterCheck = false;
@@ -120,6 +86,56 @@ public class MemberJoinStep2_Activity extends AppCompatActivity {
 
                 return false;
             }
+        });
+    }
+
+    private void emailData()
+    {
+        RequestParams params = new RequestParams();
+        params.put("userID", et_email.getText().toString());
+        HttpClient.post("/user/emailCheck", params, new AsyncHttpResponseHandler() {
+            public void onStart() {
+                dialog = ProgressDialog.show(MemberJoinStep2_Activity.this, "", "데이터 수신중");
+            }
+
+            public void onFinish() {
+                dialog.dismiss();
+            }
+
+            @Override
+            public void onSuccess(String response) {
+                try {
+                    JSONObject jobj = new JSONObject(response);
+                    String code = jobj.getString("code");
+                    switch (code) {
+                        case "000":
+                            md.set_userid(et_email.getText().toString());
+                            Intent intent = new Intent(MemberJoinStep2_Activity.this, MemberJoinStep3_Activity.class);
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
+                            next_finish();
+                            break;
+                        case "101":
+                            memberjoin_step2_string = getString(R.string.memberjoin_step2_text1);
+                            memberjoin_step2_tv.setText(Html.fromHtml(memberjoin_step2_string));
+                            enterCheck = false;
+                            break;
+                        case "999":
+                            memberjoin_step2_string = getString(R.string.memberjoin_step2_text2);
+                            memberjoin_step2_tv.setText(Html.fromHtml(memberjoin_step2_string));
+                            enterCheck = false;
+                            break;
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                //Log.d("people_gram", response);
+            }
+
+
         });
     }
 
