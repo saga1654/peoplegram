@@ -106,6 +106,24 @@ public class SubPeopleSearch_Activity extends AppCompatActivity {
                     Log.d("people_gram", searchTEXT);
 
                     SubPeopleListDTO_Temp dto = people_dto_list_temp.get(i);
+                    if(SoundSearcher.matchString(dto.get_profile_username().toString(), searchTEXT)) {
+                        people_dto_list.add(new SubPeopleListDTO(
+                                dto.get_profile_uid()
+                                , ""
+                                , dto.get_profile_username()
+                                , dto.get_profile_email()
+                                , dto.get_profile_type()
+                                , ""
+                                , dto.get_profile_gubun1()
+                                , dto.get_profile_gubun2()
+                                , dto.get_profile_speed()
+                                , dto.get_profile_control()
+                                , dto.get_profile_cnt()
+                                , dto.get_profile_friend_cnt()
+                                , dto.get_profile_new_cnt()
+                        ));
+                    }
+                    /*
                     if(dto.get_profile_username().contains(searchTEXT)) {
                         people_dto_list.add(new SubPeopleListDTO(
                                 dto.get_profile_uid()
@@ -125,6 +143,7 @@ public class SubPeopleSearch_Activity extends AppCompatActivity {
                     } else {
                         //Log.d("people_gram", "없음");
                     }
+                    */
 
                 }
 

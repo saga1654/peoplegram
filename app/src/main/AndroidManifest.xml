@@ -326,6 +326,7 @@
             android:name=".MemberJoinStep3_Activity"
             android:label="@string/title_activity_member_join_step3_"
             android:theme="@style/AppTheme" >
+
         </activity>
         <activity
             android:name=".MemberJoinStep4_Activity"
