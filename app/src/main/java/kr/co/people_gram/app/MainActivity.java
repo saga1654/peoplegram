@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity  {
 
     public static AppCompatActivity mainActivity;
 
+    final int SubPeopleListFragmentCode = 1;
     final int SubPeopleTypeFragmentCode = 2;
     private TextView mainTitle;
     private FragmentManager fragmentManager;
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity  {
     private LinearLayout menu1, menu2, menu3, menu4, menu_line1, menu_line2, menu_line3, menu_line4;
 
     private LinearLayout searchbtn, settingbtn;
+
+    private String menuType = "people";
 
     private DataProfileCount dpc;
 
@@ -101,28 +104,33 @@ public class MainActivity extends AppCompatActivity  {
         menu1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(dpc.get_user_count() > 0) {
-                    menu_icon1.setImageResource(R.mipmap.top_01_on_new);
-                } else {
-                    menu_icon1.setImageResource(R.mipmap.top_01_on);
+                if(menuType.equals("people") == false) {
+                    if(dpc.get_user_count() > 0) {
+                        menu_icon1.setImageResource(R.mipmap.top_01_on_new);
+                    } else {
+                        menu_icon1.setImageResource(R.mipmap.top_01_on);
+                    }
+                    menu_line1.setBackgroundColor(Color.rgb(50, 53, 77));
+
+                    menu_icon2.setImageResource(R.mipmap.top_02_off);
+                    menu_line2.setBackgroundColor(Color.rgb(220, 220, 221));
+
+                    menu_icon3.setImageResource(R.mipmap.top_03_off);
+                    menu_line3.setBackgroundColor(Color.rgb(220,220,221));
+
+                    menu_icon4.setImageResource(R.mipmap.top_04_off);
+                    menu_line4.setBackgroundColor(Color.rgb(220,220,221));
+
+                    fragmentManager = getSupportFragmentManager();
+                    ft = fragmentManager.beginTransaction();
+
+                    SubPeopleFragment subpeople_fragment = new SubPeopleFragment();
+                    ft.replace(R.id.viewpager, subpeople_fragment);
+                    ft.commit();
+
+                    menuType = "people";
                 }
-                menu_line1.setBackgroundColor(Color.rgb(50, 53, 77));
 
-                menu_icon2.setImageResource(R.mipmap.top_02_off);
-                menu_line2.setBackgroundColor(Color.rgb(220, 220, 221));
-
-                menu_icon3.setImageResource(R.mipmap.top_03_off);
-                menu_line3.setBackgroundColor(Color.rgb(220,220,221));
-
-                menu_icon4.setImageResource(R.mipmap.top_04_off);
-                menu_line4.setBackgroundColor(Color.rgb(220,220,221));
-
-                fragmentManager = getSupportFragmentManager();
-                ft = fragmentManager.beginTransaction();
-
-                SubPeopleFragment subpeople_fragment = new SubPeopleFragment();
-                ft.replace(R.id.viewpager, subpeople_fragment);
-                ft.commit();
             }
         });
 
@@ -130,54 +138,61 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
 
-                dpc.set_user_count(0);
+                if(menuType.equals("mytype") == false) {
+                    dpc.set_user_count(0);
 
-                menu_icon1.setImageResource(R.mipmap.top_01_off);
+                    menu_icon1.setImageResource(R.mipmap.top_01_off);
 
-                menu_line1.setBackgroundColor(Color.rgb(220, 220, 221));
+                    menu_line1.setBackgroundColor(Color.rgb(220, 220, 221));
 
-                menu_icon2.setImageResource(R.mipmap.top_02_on);
-                menu_line2.setBackgroundColor(Color.rgb(50, 53, 77));
+                    menu_icon2.setImageResource(R.mipmap.top_02_on);
+                    menu_line2.setBackgroundColor(Color.rgb(50, 53, 77));
 
-                menu_icon3.setImageResource(R.mipmap.top_03_off);
-                menu_line3.setBackgroundColor(Color.rgb(220, 220, 221));
+                    menu_icon3.setImageResource(R.mipmap.top_03_off);
+                    menu_line3.setBackgroundColor(Color.rgb(220, 220, 221));
 
-                menu_icon4.setImageResource(R.mipmap.top_04_off);
-                menu_line4.setBackgroundColor(Color.rgb(220,220,221));
+                    menu_icon4.setImageResource(R.mipmap.top_04_off);
+                    menu_line4.setBackgroundColor(Color.rgb(220, 220, 221));
 
-                fragmentManager = getSupportFragmentManager();
-                ft = fragmentManager.beginTransaction();
+                    fragmentManager = getSupportFragmentManager();
+                    ft = fragmentManager.beginTransaction();
 
-                SubPeopleTypeFragment subpeopletype_fragment = new SubPeopleTypeFragment();
-                ft.replace(R.id.viewpager, subpeopletype_fragment);
-                ft.commit();
+                    SubPeopleTypeFragment subpeopletype_fragment = new SubPeopleTypeFragment();
+                    ft.replace(R.id.viewpager, subpeopletype_fragment);
+                    ft.commit();
+
+                    menuType = "mytype";
+                }
             }
         });
 
         menu3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dpc.set_user_count(0);
+                if(menuType.equals("mypage") == false) {
+                    dpc.set_user_count(0);
 
 
-                menu_icon1.setImageResource(R.mipmap.top_01_off);
-                menu_line1.setBackgroundColor(Color.rgb(220, 220, 221));
+                    menu_icon1.setImageResource(R.mipmap.top_01_off);
+                    menu_line1.setBackgroundColor(Color.rgb(220, 220, 221));
 
-                menu_icon2.setImageResource(R.mipmap.top_02_off);
-                menu_line2.setBackgroundColor(Color.rgb(220, 220, 221));
+                    menu_icon2.setImageResource(R.mipmap.top_02_off);
+                    menu_line2.setBackgroundColor(Color.rgb(220, 220, 221));
 
-                menu_icon3.setImageResource(R.mipmap.top_03_on);
-                menu_line3.setBackgroundColor(Color.rgb(50, 53, 77));
+                    menu_icon3.setImageResource(R.mipmap.top_03_on);
+                    menu_line3.setBackgroundColor(Color.rgb(50, 53, 77));
 
-                menu_icon4.setImageResource(R.mipmap.top_04_off);
-                menu_line4.setBackgroundColor(Color.rgb(220,220,221));
+                    menu_icon4.setImageResource(R.mipmap.top_04_off);
+                    menu_line4.setBackgroundColor(Color.rgb(220, 220, 221));
 
-                fragmentManager = getSupportFragmentManager();
-                ft = fragmentManager.beginTransaction();
+                    fragmentManager = getSupportFragmentManager();
+                    ft = fragmentManager.beginTransaction();
 
-                SubMypageFragment submypage_fragment = new SubMypageFragment();
-                ft.replace(R.id.viewpager, submypage_fragment);
-                ft.commit();
+                    SubMypageFragment submypage_fragment = new SubMypageFragment();
+                    ft.replace(R.id.viewpager, submypage_fragment);
+                    ft.commit();
+                    menuType = "mypage";
+                }
             }
         });
 
@@ -185,28 +200,31 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
 
-                dpc.set_user_count(0);
+                if(menuType.equals("group") == false) {
+                    dpc.set_user_count(0);
 
 
-                menu_icon1.setImageResource(R.mipmap.top_01_off);
-                menu_line1.setBackgroundColor(Color.rgb(220, 220, 221));
+                    menu_icon1.setImageResource(R.mipmap.top_01_off);
+                    menu_line1.setBackgroundColor(Color.rgb(220, 220, 221));
 
-                menu_icon2.setImageResource(R.mipmap.top_02_off);
-                menu_line2.setBackgroundColor(Color.rgb(220, 220, 221));
+                    menu_icon2.setImageResource(R.mipmap.top_02_off);
+                    menu_line2.setBackgroundColor(Color.rgb(220, 220, 221));
 
-                menu_icon3.setImageResource(R.mipmap.top_03_off);
-                menu_line3.setBackgroundColor(Color.rgb(220, 220, 221));
+                    menu_icon3.setImageResource(R.mipmap.top_03_off);
+                    menu_line3.setBackgroundColor(Color.rgb(220, 220, 221));
 
-                menu_icon4.setImageResource(R.mipmap.top_04_on);
-                menu_line4.setBackgroundColor(Color.rgb(50,53,77));
+                    menu_icon4.setImageResource(R.mipmap.top_04_on);
+                    menu_line4.setBackgroundColor(Color.rgb(50, 53, 77));
 
 
-                fragmentManager = getSupportFragmentManager();
-                ft = fragmentManager.beginTransaction();
+                    fragmentManager = getSupportFragmentManager();
+                    ft = fragmentManager.beginTransaction();
 
-                SubGroupFragment subgroup_fragment = new SubGroupFragment();
-                ft.replace(R.id.viewpager, subgroup_fragment);
-                ft.commit();
+                    SubGroupFragment subgroup_fragment = new SubGroupFragment();
+                    ft.replace(R.id.viewpager, subgroup_fragment);
+                    ft.commit();
+                    menuType = "group";
+                }
             }
         });
 
@@ -247,7 +265,7 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SubPeopleSearch_Activity.class);
-                startActivity(intent);
+                startActivityForResult(intent, SubPeopleListFragmentCode);
                 overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
@@ -257,7 +275,7 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SettingActivity.class);
-                startActivityForResult(intent, 6);
+                startActivityForResult(intent, 1);
                 overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
@@ -404,8 +422,18 @@ public class MainActivity extends AppCompatActivity  {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        Log.d("people_gram", "체크="+requestCode+":::"+resultCode + "::::"+RESULT_OK);
+
 
         if (resultCode==RESULT_OK) {
+            if(requestCode == 6) {
+                fragmentManager = getSupportFragmentManager();
+                ft = fragmentManager.beginTransaction();
+
+                SubPeopleFragment subpeople_fragment = new SubPeopleFragment();
+                ft.replace(R.id.viewpager, subpeople_fragment);
+                ft.commit();
+            }
             if (requestCode == SubPeopleTypeFragmentCode) {
                 String my_type = SharedPreferenceUtil.getSharedPreference(this, "mytype");
                 String people_type = data.getStringExtra("people_type");

@@ -171,7 +171,8 @@ public class PeopleSync_Activity extends AppCompatActivity {
                                                 finish();
                                             } else {
                                                 Intent intent = new Intent();
-                                                setResult(6, intent);
+                                                setResult(RESULT_OK, intent);
+                                                overridePendingTransition(R.anim.slide_close_down_info, R.anim.slide_clode_up_info);
                                                 finish();
                                             }
                                         }

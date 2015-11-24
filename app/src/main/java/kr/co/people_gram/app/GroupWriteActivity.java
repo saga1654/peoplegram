@@ -174,6 +174,7 @@ public class GroupWriteActivity extends AppCompatActivity {
             if (check != 0) {
                 RequestParams params = new RequestParams();
                 params.put("uid", SharedPreferenceUtil.getSharedPreference(GroupWriteActivity.this, "uid"));
+                params.put("username", SharedPreferenceUtil.getSharedPreference(GroupWriteActivity.this, "username"));
                 params.put("group_name", group_name.getText().toString());
                 params.put("people_uid", people_adapter_list.uid_check);
                 params.put("people_username", people_adapter_list.username_check);

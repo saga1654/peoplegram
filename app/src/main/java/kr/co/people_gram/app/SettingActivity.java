@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -27,6 +28,7 @@ public class SettingActivity extends AppCompatActivity {
     private ProgressDialog dialog;
 
     private LinearLayout notice_btn, agree_btn, userinfo_btn, logout_btn, question_btn, people_btn;
+    private Boolean sync = false;
 
 
     @Override
@@ -230,7 +232,7 @@ public class SettingActivity extends AppCompatActivity {
 
                 case R.id.people_btn:
                     intent = new Intent(SettingActivity.this, SubMyPagePeopleSync_Activity.class);
-                    startActivity(intent);
+                    startActivityForResult(intent, 61);
                     overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
                     break;
 
@@ -244,8 +246,18 @@ public class SettingActivity extends AppCompatActivity {
 
     public void finish()
     {
+        if(sync == true) {
+            Intent intent = new Intent();
+            setResult(RESULT_OK, intent);
+        }
         super.finish();
         overridePendingTransition(R.anim.slide_close_down_info, R.anim.slide_clode_up_info);
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        sync = true;
     }
 
     @Override
