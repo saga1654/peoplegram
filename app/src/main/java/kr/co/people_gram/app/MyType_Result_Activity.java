@@ -7,9 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
@@ -22,6 +24,7 @@ public class MyType_Result_Activity extends AppCompatActivity {
     private TextView mytype_result_activity_title;
     private ImageView myresulttype_activity_typeImg;
     private ImageView myresult_close;
+    private LinearLayout close_menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,7 @@ public class MyType_Result_Activity extends AppCompatActivity {
 
         mytype_result_activity_title = (TextView) findViewById(R.id.mytype_result_activity_title);
         myresult_close = (ImageView) findViewById(R.id.myresult_close);
+        close_menu = (LinearLayout) findViewById(R.id.close_menu);
 
 
         Intent intent = getIntent();
@@ -42,7 +46,14 @@ public class MyType_Result_Activity extends AppCompatActivity {
         mytype_result_activity_webview = (WebView) findViewById(R.id.mytype_result_activity_webview);
         WebSettings webSettings = mytype_result_activity_webview.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        mytype_result_activity_webview.loadUrl("file:///android_asset/myresult/"+mytype+contents_num+".html");
+        mytype_result_activity_webview.loadUrl("file:///android_asset/myresult/" + mytype + contents_num + ".html");
+
+        close_menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
         switch (mytype)

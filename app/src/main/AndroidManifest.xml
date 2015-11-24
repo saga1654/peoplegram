@@ -69,6 +69,15 @@
         <!-- [END gcm_receiver] -->
 
 
+        <receiver android:name=".ConnReceiver" android:enabled="true" android:priority="0">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+
+
+
+
         <!-- [START gcm_listener_service] -->
         <service
             android:name=".MyGcmListenerService"

@@ -84,6 +84,8 @@ public class SubPeopleFragment extends Fragment {
 
     private Boolean people_popupview = false;
 
+    private NetworkCheck nc;
+
     public SubPeopleFragment() {
     }
 
@@ -91,6 +93,8 @@ public class SubPeopleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.sub_fragment_people, container, false);
         View header = inflater.inflate(R.layout.sub_people_header, null, false);
+
+        nc = new NetworkCheck();
 
 
         mainView = rootView;
@@ -351,7 +355,6 @@ public class SubPeopleFragment extends Fragment {
                     pos = sf_people_list.getFirstVisiblePosition();
 
                     //Log.d("people_gram", "현재위치="+pos);
-
 
 
 
@@ -870,6 +873,7 @@ public class SubPeopleFragment extends Fragment {
             }
 
             public void onFailure() {
+                Log.d("people_gram", "타임아웃");
             }
 
             public void onFinish() {

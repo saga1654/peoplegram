@@ -1,5 +1,7 @@
 package kr.co.people_gram.app;
 
+import android.util.Log;
+
 import com.loopj.android.http.*;
 
 public class HttpClient {
@@ -20,7 +22,6 @@ public class HttpClient {
     {
         client.setTimeout(50000);
         client.post(getAbsoluteUrl(url), params, responseHandler);
-
     }
 
     private static String getAbsoluteUrl(String relativeUrl) {

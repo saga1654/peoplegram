@@ -200,71 +200,83 @@ public class LogoActivity extends AppCompatActivity {
             public void run() {
                 frameAnimation.stop();
 
-                Log.d("people_gram", "실행");
+                if(Utilities.getNetworkType(LogoActivity.this) != 3) {
+                    if (SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "uid") == "") {
+                        if (SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "intro") == "Y") {
+                            Intent intent = new Intent(LogoActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+                            finish();
+                        } else {
+                            Intent intent = new Intent(LogoActivity.this, Guide_Activity.class);
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+                            finish();
+                        }
 
-                if(SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "uid") == "") {
-                    if(SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "intro") == "Y") {
-                        Intent intent = new Intent(LogoActivity.this, LoginActivity.class);
-                        startActivity(intent);
-                        overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
-                        finish();
+                        //login_activity_li_btn.setVisibility(View.VISIBLE);
                     } else {
-                        Intent intent = new Intent(LogoActivity.this, Guide_Activity.class);
-                        startActivity(intent);
-                        overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
-                        finish();
-                    }
-                    //login_activity_li_btn.setVisibility(View.VISIBLE);
-                } else {
-                    RequestParams params = new RequestParams();
-                    params.put("uid", SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "uid"));
-                    params.put("token", SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "token"));
-                    HttpClient.post("/user/pointSelect", params, new AsyncHttpResponseHandler() {
-                        public void onStart() {
-                        }
+                        RequestParams params = new RequestParams();
+                        params.put("uid", SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "uid"));
+                        params.put("token", SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "token"));
+                        HttpClient.post("/user/pointSelect", params, new AsyncHttpResponseHandler() {
+                            public void onStart() {
+                            }
 
-                        public void onFinish() {
-                        }
+                            public void onFinish() {
+                            }
 
-                        @Override
-                        public void onSuccess(String response) {
-                            Log.d("people_gram", response);
-                            try {
-                                JSONObject jobj = new JSONObject(response);
+                            @Override
+                            public void onSuccess(String response) {
+                                Log.d("people_gram", response);
+                                try {
+                                    JSONObject jobj = new JSONObject(response);
 
 
-                                SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "point", jobj.getString("POINT"));
-                                SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "mytype", jobj.getString("MYTYPE"));
-                                SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "my_speed", jobj.getString("MY_SPEED"));
-                                SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "my_control", jobj.getString("MY_CONTROL"));
-                                SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "email", jobj.getString("EMAIL"));
-                                SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "panelYN", jobj.getString("PANEL"));
+                                    SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "point", jobj.getString("POINT"));
+                                    SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "mytype", jobj.getString("MYTYPE"));
+                                    SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "my_speed", jobj.getString("MY_SPEED"));
+                                    SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "my_control", jobj.getString("MY_CONTROL"));
+                                    SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "email", jobj.getString("EMAIL"));
+                                    SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "panelYN", jobj.getString("PANEL"));
 
-                                dpc.set_user_count(jobj.getInt("NEW_COUNT"));
+                                    dpc.set_user_count(jobj.getInt("NEW_COUNT"));
 
 
-                                if(jobj.getString("MYTYPE").equals("")) {
-                                    Intent intent = new Intent(LogoActivity.this, MemberComplate_Activity.class);
-                                    startActivity(intent);
-                                    overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
-                                    finish();
-                                } else {
-                                    Intent intent = new Intent(LogoActivity.this, MainActivity.class);
-                                    startActivity(intent);
-                                    overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
-                                    finish();
+                                    if (jobj.getString("MYTYPE").equals("")) {
+                                        Intent intent = new Intent(LogoActivity.this, MemberComplate_Activity.class);
+                                        startActivity(intent);
+                                        overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
+                                        finish();
+                                    } else {
+                                        Intent intent = new Intent(LogoActivity.this, MainActivity.class);
+                                        startActivity(intent);
+                                        overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+                                        finish();
+                                    }
+
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
                                 }
 
 
-                            } catch (JSONException e) {
-                                e.printStackTrace();
                             }
-
-
-
-
-                        }
-                    });
+                        });
+                    }
+                } else {
+                    new AlertDialog.Builder(LogoActivity.this)
+                            .setTitle("프로그램 종료")
+                            .setMessage("네트워크가 정상적으로 연결되지 않았습니다.")
+                            .setPositiveButton("예", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    finish();
+                                    moveTaskToBack(true);
+                                    android.os.Process.killProcess(android.os.Process.myPid());
+                                }
+                            })
+                            .show();
                 }
             }
         };
