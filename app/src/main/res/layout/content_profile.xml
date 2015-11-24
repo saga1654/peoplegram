@@ -20,7 +20,7 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:onClick="btn_back"
             android:layout_weight="0.50"
             android:gravity="center_vertical">
@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:src="@drawable/prev_btn" />
+                android:src="@drawable/peopletype_btn_close" />
 
             <TextView
                 android:layout_width="wrap_content"
