@@ -135,17 +135,17 @@
     <string name="s_7">인생의 동반자</string>
 
 
-    <string name="tip1_PA"> [you_name]님에게 기억에 남는 밥을 한 번 살까 하는데요. 어떤 게 좋을까요?</string>
-    <string name="tip1_PB"> [you_name]님에게 기억에 남는 밥을 한 번 살까 하는데요. 어떤 게 좋을까요?</string>
-    <string name="tip1_PC"> [you_name]님에게 기억에 남는 밥을 한 번 살까 하는데요. 어떤 게 좋을까요?</string>
-    <string name="tip1_PD"> [you_name]님에게 기억에 남는 밥을 한 번 살까 하는데요. 어떤 게 좋을까요?</string>
-    <string name="tip1_PE"> [you_name]님에게 기억에 남는 밥을 한 번 살까 하는데요. 어떤 게 좋을까요?</string>
-    <string name="tip1_F">  [you_name]님에게 기억에 남는 밥을 한 번 살까 하는데요. 어떤 게 좋을까요?</string>
-    <string name="tip1_L">  [you_name]님에게 기억에 남는 밥을 한 번 살까 하는데요. 어떤 게 좋을까요?</string>
-    <string name="tip1_CA"> [you_name]님에게 기억에 남는 밥을 한 번 살까 하는데요. 어떤 게 좋을까요?</string>
-    <string name="tip1_CB"> [you_name]님에게 기억에 남는 밥을 한 번 살까 하는데요. 어떤 게 좋을까요?</string>
-    <string name="tip1_CC"> [you_name]님에게 기억에 남는 밥을 한 번 살까 하는데요. 어떤 게 좋을까요?</string>
-    <string name="tip1_S"> [you_name]님에게 기억에 남는 밥을 한 번 살까 하는데요. 어떤 게 좋을까요?</string>
+    <string name="tip1_PA"> 상황TIP, 관계TIP, 피플타입 내용을 믿어도 되는 건가요?</string>
+    <string name="tip1_PB"> 상황TIP, 관계TIP, 피플타입 내용을 믿어도 되는 건가요?</string>
+    <string name="tip1_PC"> 상황TIP, 관계TIP, 피플타입 내용을 믿어도 되는 건가요?</string>
+    <string name="tip1_PD"> 상황TIP, 관계TIP, 피플타입 내용을 믿어도 되는 건가요?</string>
+    <string name="tip1_PE"> 상황TIP, 관계TIP, 피플타입 내용을 믿어도 되는 건가요?</string>
+    <string name="tip1_F">  상황TIP, 관계TIP, 피플타입 내용을 믿어도 되는 건가요?</string>
+    <string name="tip1_L">  상황TIP, 관계TIP, 피플타입 내용을 믿어도 되는 건가요?</string>
+    <string name="tip1_CA"> 상황TIP, 관계TIP, 피플타입 내용을 믿어도 되는 건가요?</string>
+    <string name="tip1_CB"> 상황TIP, 관계TIP, 피플타입 내용을 믿어도 되는 건가요?</string>
+    <string name="tip1_CC"> 상황TIP, 관계TIP, 피플타입 내용을 믿어도 되는 건가요?</string>
+    <string name="tip1_S"> 상황TIP, 관계TIP, 피플타입 내용을 믿어도 되는 건가요?</string>
 
     <string name="tip2_PA">부모 [you_name]님이 은퇴를 하셨어요. 축하 저녁을 대접하고 싶은데, 어떤 게 좋을까요?</string>
     <string name="tip2_PB">[you_name]님에게 기억에 남는 밥을 한 번 살까 하는데요, 어떤 게 좋을까요?</string>
