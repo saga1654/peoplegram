@@ -196,7 +196,7 @@ public class MyQuestion_Activity extends FragmentActivity {
 
     public void myQuestion_left_click(View v) {
         Vibrator vibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-        vibe.vibrate(40);
+        vibe.vibrate(500);
         right_onoff = false;
         if(left_onoff == false) {
             left_onoff = true;
@@ -276,7 +276,7 @@ public class MyQuestion_Activity extends FragmentActivity {
     public void myQuestion_right_click(View v) {
         left_onoff = false;
         Vibrator vibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-        vibe.vibrate(40);
+        vibe.vibrate(500);
 
         if(left_onoff == false) {
             right_onoff = true;
