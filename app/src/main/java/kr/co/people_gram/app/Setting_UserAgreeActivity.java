@@ -19,7 +19,7 @@ public class Setting_UserAgreeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_setting__user_agree);
 
 
-        agree = (WebView) findViewById(R.id.agree);
+        agree = (WebView) findViewById(R.id.user_agree);
         agree.loadUrl("http://121.162.209.41:81/user/user_agree");
     }
 
