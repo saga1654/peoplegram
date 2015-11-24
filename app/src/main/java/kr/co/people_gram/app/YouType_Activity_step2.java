@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.os.Build;
+import android.os.Vibrator;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -208,6 +209,8 @@ public class YouType_Activity_step2 extends FragmentActivity {
     }
 
     public void myQuestion_left_click(View v) {
+        Vibrator vibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+        vibe.vibrate(500);
         right_onoff = false;
 
         if(left_onoff == false) {
@@ -340,6 +343,8 @@ public class YouType_Activity_step2 extends FragmentActivity {
     }
 
     public void myQuestion_right_click(View v) {
+        Vibrator vibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+        vibe.vibrate(500);
 
         left_onoff = false;
         if(left_onoff == false) {
