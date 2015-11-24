@@ -193,7 +193,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
                     @Override
                     public void onSuccess(String response) {
                         //Log.d("people_gram", response);
-                        Toast.makeText(SubPeopleListPopup_Activity.this, people_username + "님에게 진단요청 PUSH를 발송하였습니다.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(SubPeopleListPopup_Activity.this, people_username + "님에게 재진단요청 PUSH를 발송하였습니다.", Toast.LENGTH_LONG).show();
                     }
                 });
                 break;
