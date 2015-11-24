@@ -3,6 +3,7 @@ package kr.co.people_gram.app;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -30,6 +31,8 @@ public class MemberJoinStep3_Activity extends AppCompatActivity {
     private String password_string2 = "";
 
     private MemberData md;
+
+    private Handler mHandler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,8 +106,14 @@ public class MemberJoinStep3_Activity extends AppCompatActivity {
                             Toast.makeText(MemberJoinStep3_Activity.this, "6자리 이상 입력해주세요.", Toast.LENGTH_LONG).show();
                         } else {
                             et_password2.requestFocus();
-                            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+
+                            mHandler.postDelayed(new Runnable() {
+                                public void run() {
+                                    InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                                    mgr.showSoftInput(et_password2, InputMethodManager.SHOW_FORCED);
+                                }
+                            }, 500);
+
                             /*
                             md.set_userpw(password_string);
                             Intent intent = new Intent(MemberJoinStep3_Activity.this, MemberJoinStep4_Activity.class);
@@ -130,16 +139,18 @@ public class MemberJoinStep3_Activity extends AppCompatActivity {
                 if (keyCode == KeyEvent.KEYCODE_ENTER) {
                     if (enterCheck2 == false) {
                         enterCheck2 = true;
-                        if (password_string_cnt < 6) {
-                            Toast.makeText(MemberJoinStep3_Activity.this, "6자리 이상 입력해주세요.", Toast.LENGTH_LONG).show();
-                        } else if (password_string.equals(password_string2) == false) {
-                            Toast.makeText(MemberJoinStep3_Activity.this, "패스워드가 일치하지 않습니다", Toast.LENGTH_LONG).show();
-                        } else {
-                            md.set_userpw(password_string);
-                            Intent intent = new Intent(MemberJoinStep3_Activity.this, MemberJoinStep4_Activity.class);
-                            startActivity(intent);
-                            overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
-                            next_finish();
+                        if(password_string2.length() > 0) {
+                            if (password_string_cnt < 6) {
+                                Toast.makeText(MemberJoinStep3_Activity.this, "6자리 이상 입력해주세요.", Toast.LENGTH_LONG).show();
+                            } else if (password_string.equals(password_string2) == false) {
+                                Toast.makeText(MemberJoinStep3_Activity.this, "패스워드가 일치하지 않습니다", Toast.LENGTH_LONG).show();
+                            } else {
+                                md.set_userpw(password_string);
+                                Intent intent = new Intent(MemberJoinStep3_Activity.this, MemberJoinStep4_Activity.class);
+                                startActivity(intent);
+                                overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
+                                next_finish();
+                            }
                         }
                     }
                 }
