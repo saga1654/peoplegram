@@ -861,7 +861,7 @@
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#7c7c7f"
                     android:textSize="10dp"
-                    android:text="매칭율" />
+                    android:text="매칭률" />
 
 
             </LinearLayout>
