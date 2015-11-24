@@ -1,5 +1,6 @@
 package kr.co.people_gram.app;
 
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
@@ -23,6 +24,7 @@ public class PeopleSync_Activity extends AppCompatActivity {
     private String userString = "";
     private ProgressBar dialog;
     private TextView progressBarTxt;
+    private ProgressDialog dialog2;
     private int totalCnt = 0;
     private int nowCnt = 0;
 
@@ -46,6 +48,8 @@ public class PeopleSync_Activity extends AppCompatActivity {
             Log.d("people_gram", "오류");
             check = false;
         }
+
+        dialog2 = ProgressDialog.show(PeopleSync_Activity.this, "", "데이터 수신중");
 
         dialog = (ProgressBar) findViewById(R.id.progressBar);
         progressBarTxt = (TextView) findViewById(R.id.progressBarTxt);
@@ -90,6 +94,7 @@ public class PeopleSync_Activity extends AppCompatActivity {
 
 
     private void readContacts() {
+
         Thread background = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -153,8 +158,7 @@ public class PeopleSync_Activity extends AppCompatActivity {
                                     }
 
                                     public void onFinish() {
-
-
+                                        dialog2.dismiss();
                                     }
 
                                     @Override
