@@ -311,7 +311,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:src="@drawable/save_1000p"
-                                    android:id="@+id/imageView5"
+                                    android:id="@+id/point1000"
                                     android:layout_weight="0.10" />
                             </LinearLayout>
 
@@ -346,7 +346,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:src="@drawable/save_3000p"
-                                    android:id="@+id/imageView6"
+                                    android:id="@+id/point3000"
                                     android:layout_weight="0.10" />
                             </LinearLayout>
                         </LinearLayout>
@@ -380,7 +380,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:src="@drawable/save_5000p"
-                                    android:id="@+id/imageView7"
+                                    android:id="@+id/point5000"
                                     android:layout_weight="0.10" />
                             </LinearLayout>
                         </LinearLayout>
@@ -413,7 +413,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:src="@drawable/save_10000p"
-                                    android:id="@+id/imageView8"
+                                    android:id="@+id/point10000"
                                     android:layout_weight="0.10" />
                             </LinearLayout>
                         </LinearLayout>

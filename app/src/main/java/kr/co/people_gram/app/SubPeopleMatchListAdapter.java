@@ -60,9 +60,12 @@ public class SubPeopleMatchListAdapter extends BaseAdapter{
 
         SubPeopleMatchListDTO dto = peoplelist.get(position);
 
+        TextView number = (TextView) convertView.findViewById(R.id.number);
+        number.setText("TOP"+String.valueOf(position+1)+".");
+
         TextView listview_people_list_username = (TextView) convertView.findViewById(R.id.listview_people_list_username);
         TextView listview_people_list_email = (TextView) convertView.findViewById(R.id.listview_people_list_email);
-        ImageView listview_proplelist_img = (ImageView) convertView.findViewById(R.id.listview_proplelist_img);
+        //ImageView listview_proplelist_img = (ImageView) convertView.findViewById(R.id.listview_proplelist_img);
 
         TextView listview_people_list_match_value = (TextView) convertView.findViewById(R.id.listview_people_list_match_value);
 
@@ -78,6 +81,7 @@ public class SubPeopleMatchListAdapter extends BaseAdapter{
 
 
 
+        /*
         switch (people_type) {
             case "A":
                 listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_a);
@@ -95,14 +99,9 @@ public class SubPeopleMatchListAdapter extends BaseAdapter{
             case "":
                 listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_default);
                 break;
-            /*
 
-            default:
-
-                listview_proplelist_img.setVisibility(View.GONE);
-                break;
-             */
         }
+        */
 
         //listview_proplelist_img.setTag(position);
         /*

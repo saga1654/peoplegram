@@ -8,6 +8,7 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
@@ -21,15 +22,28 @@ public class SubGramPoint extends AppCompatActivity {
     private PopupWindow mPopupWindow;
     private TextView mypage_grampoint;
 
+    private ImageView point1000, point3000, point5000, point10000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_gram_point);
 
+
+        point1000 = (ImageView) findViewById(R.id.point1000);
+        point3000 = (ImageView) findViewById(R.id.point3000);
+        point5000 = (ImageView) findViewById(R.id.point5000);
+        point10000 = (ImageView) findViewById(R.id.point10000);
+
         pointhistory_btn = (LinearLayout) findViewById(R.id.pointhistory_btn);
         mypage_grampoint = (TextView) findViewById(R.id.mypage_grampoint);
         pointhistory_btn.setOnTouchListener(onBtnTouchListener);
         pointhistory_btn.setOnClickListener(onBtnClickListener);
+
+        point1000.setOnClickListener(onBtnClickListener);
+        point3000.setOnClickListener(onBtnClickListener);
+        point5000.setOnClickListener(onBtnClickListener);
+        point10000.setOnClickListener(onBtnClickListener);
 
         String Point = SharedPreferenceUtil.getSharedPreference(SubGramPoint.this, "point");
 
@@ -99,6 +113,28 @@ public class SubGramPoint extends AppCompatActivity {
                         mPopupWindow.dismiss();
                     }
 
+                    break;
+
+                case R.id.point1000:
+                    intent = new Intent(SubGramPoint.this, Payment_Activity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                    break;
+
+                case R.id.point3000:
+                    intent = new Intent(SubGramPoint.this, Payment_Activity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                    break;
+                case R.id.point5000:
+                    intent = new Intent(SubGramPoint.this, Payment_Activity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                    break;
+                case R.id.point10000:
+                    intent = new Intent(SubGramPoint.this, Payment_Activity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     break;
 
             }

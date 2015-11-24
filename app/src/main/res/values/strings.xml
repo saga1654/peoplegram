@@ -472,6 +472,7 @@
     <string name="send_message">Send the message below?</string>
     <string name="title_activity_people_match_top10_">PeopleMatchTop10_Activity</string>
     <string name="title_activity_guide_">Guide_Activity</string>
+    <string name="title_activity_payment_">Payment_Activity</string>
 
 
 </resources>
