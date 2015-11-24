@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -72,10 +73,14 @@ public class ProfileActivity extends AppCompatActivity {
         mytype_people.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ProfileActivity.this, SubMyType_Activity.class);
-                intent.putExtra("mytype", people_type_return);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                if(people_type_return.equals("")) {
+                    Toast.makeText(ProfileActivity.this, "타인진단이 데이터가 존재하지 않습니다.피플들에게 진단을 요청해주세요", Toast.LENGTH_LONG).show();
+                } else {
+                    Intent intent = new Intent(ProfileActivity.this, SubMyType_Activity.class);
+                    intent.putExtra("mytype", people_type_return);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                }
             }
         });
 
@@ -214,6 +219,7 @@ public class ProfileActivity extends AppCompatActivity {
                     profile_area.setText(profile.getString("SIDO") + " " + profile.getString("GUGUN") + " " + profile.getString("DONG"));
 
                     mytype_people.setImageResource(R.mipmap.people_type_default);
+
 
                     float my_speed = Float.parseFloat(my_data.getString("SPEED"));
                     float my_control = Float.parseFloat(my_data.getString("CONTROL"));
