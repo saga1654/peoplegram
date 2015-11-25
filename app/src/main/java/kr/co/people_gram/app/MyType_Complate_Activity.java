@@ -183,7 +183,7 @@ public class MyType_Complate_Activity extends AppCompatActivity {
         startActivity(intent);
         overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
     }
-
+/*
     public void start_btn(View v) {
         //Intent intent = new Intent(MyType_Complate_Activity.this, My)
 
@@ -192,6 +192,7 @@ public class MyType_Complate_Activity extends AppCompatActivity {
         finish();
         overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
     }
+    */
     public void closeBtn(View v) {
         finish();
     }
