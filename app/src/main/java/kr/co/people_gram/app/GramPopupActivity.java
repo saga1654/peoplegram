@@ -60,7 +60,7 @@ public class GramPopupActivity extends AppCompatActivity {
 
         if(SharedPreferenceUtil.getSharedPreference(GramPopupActivity.this, "panelYN").equals("Y")) {
             //Toast.makeText(GramPopupActivity.this, "패널가입확인", Toast.LENGTH_LONG).show();
-            panel_check = false;
+            panel_check = true;
 
             panel_join_ll.setVisibility(View.GONE);
             point_plus_ll.setVisibility(View.VISIBLE);
