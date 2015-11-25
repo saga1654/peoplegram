@@ -63,15 +63,15 @@ public class GramPopupActivity extends AppCompatActivity {
             panel_check = true;
 
             panel_join_ll.setVisibility(View.GONE);
-            point_plus_ll.setVisibility(View.VISIBLE);
+            //
         } else {
             //Toast.makeText(GramPopupActivity.this, "미가입", Toast.LENGTH_LONG).show();
             panel_check = false;
 
             panel_join_ll.setVisibility(View.VISIBLE);
-            point_plus_ll.setVisibility(View.GONE);
+            //point_plus_ll.setVisibility(View.GONE);
         }
-
+        point_plus_ll.setVisibility(View.VISIBLE);
     }
 
 
