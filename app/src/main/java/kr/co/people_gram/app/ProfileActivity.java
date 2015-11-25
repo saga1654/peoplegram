@@ -53,7 +53,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         profile_username.setText(SharedPreferenceUtil.getSharedPreference(this, "username"));
         profile_email.setText(SharedPreferenceUtil.getSharedPreference(this, "email"));
-        profile_point.setText(Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(this, "point"))));
+        profile_point.setText(Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(this, "point")))+ "p");
 
         /*추가부분*/
         mytype_tv = (TextView) findViewById(R.id.mytype_tv);
@@ -74,7 +74,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(people_type_return.equals("")) {
-                    Toast.makeText(ProfileActivity.this, "타인진단이 데이터가 존재하지 않습니다.피플들에게 진단을 요청해주세요", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ProfileActivity.this, "타인진단 데이터가 존재하지 않습니다.피플들에게 진단을 요청해주세요", Toast.LENGTH_LONG).show();
                 } else {
                     Intent intent = new Intent(ProfileActivity.this, SubMyType_Activity.class);
                     intent.putExtra("mytype", people_type_return);
