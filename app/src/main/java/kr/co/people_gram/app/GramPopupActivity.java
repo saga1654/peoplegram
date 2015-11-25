@@ -42,7 +42,7 @@ public class GramPopupActivity extends AppCompatActivity {
             people_username = intent.getStringExtra("people_username");
             gubun1 = intent.getStringExtra("gubun1");
             gubun2 = intent.getStringExtra("gubun2");
-            gram_point.setText(Point + "포인트");
+            gram_point.setText(Point + "p");
         }
 
         if(SharedPreferenceUtil.getSharedPreference(GramPopupActivity.this, "panelYN").equals("Y")) {
