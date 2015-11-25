@@ -441,6 +441,11 @@
             android:label="@string/title_activity_group_people_write"
             android:theme="@style/AppTheme" >
         </activity>
+        <activity
+            android:name=".GuideActivityStep1"
+            android:label="@string/title_activity_guide_activity_step1"
+            android:theme="@style/AppTheme">
+        </activity>
     </application>
 
 </manifest>

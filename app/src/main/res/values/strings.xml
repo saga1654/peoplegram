@@ -477,6 +477,7 @@
     <string name="title_activity_guide_">Guide_Activity</string>
     <string name="title_activity_payment_">Payment_Activity</string>
     <string name="title_activity_group_people_write">GroupPeopleWriteActivity</string>
+    <string name="title_activity_guide_activity_step1">GuideActivityStep1</string>
 
 
 </resources>
