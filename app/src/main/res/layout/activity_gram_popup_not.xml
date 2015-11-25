@@ -14,8 +14,9 @@
         android:background="#fae504">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="right"
             android:padding="20dp">
 
             <ImageView
@@ -25,84 +26,205 @@
                 android:src="@drawable/myfilling_commont_close_btn"/>
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="포인트가 부족합니다!"
-                android:textSize="16dp"
-                android:textColor="#1d1d26"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingTop="20dp"
-            android:paddingBottom="30dp">
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="포인트가 부족합니다! "
+                android:textColor="#1d1d26"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:paddingBottom="10dp">
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="포인트를 충전한 후 이용해 주시기 바랍니다."
-                android:textColor="#1d1d26"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:background="#fdf282">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:text="※ 설문조사 회원이 되시면 가입 포인트와 추후 참여하여 \n포인트를 받을 수 있는 기회를 얻을 수 있습니다. "
-                android:textColor="#1d1d26" />
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingLeft="100dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="20dp"
-            android:background="#fdf282">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:text="☞ 설문조사 참여로 포인트 충전"
+                android:text="포인트 충전소를 통해 포인트를 충전하시고 이용바랍니다."
                 android:textColor="#1d1d26"
                 />
 
 
         </LinearLayout>
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingTop="20dp"
-            android:paddingBottom="30dp">
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fdf282"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:gravity="center"
+                android:layout_weight="0.33">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/grampoint_icon"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="현재포인트 : "
+                    android:padding="5dp"
+                    android:textColor="#1d1d26"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:textColor="#1d1d26"
+                    android:id="@+id/now_point"
+                    android:text="100 p"
+                    android:textStyle="bold" />
 
 
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fdf282"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:gravity="center"
+                android:layout_weight="0.33">
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/grampoint_icon"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="결제포인트 : "
+                    android:padding="5dp"
+                    android:textColor="#1d1d26"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:textColor="#1d1d26"
+                    android:id="@+id/gram_point"
+                    android:text="100 p"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fdf282"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:gravity="center"
+                android:layout_weight="0.33">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/grampoint_icon"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="잔여포인트 : "
+                    android:padding="5dp"
+                    android:textColor="#1d1d26"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:textColor="#1d1d26"
+                    android:id="@+id/real_point"
+                    android:text="100 p"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/panel_linear">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:background="#fdf282">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/panel_join_chk"
+                    android:text="※ 무료충전하기를 통해 설문조사 회원이 되시면\n 가입 포인트와 추후 참여하여 \n포인트를 받을 수 있는 기회를 얻을 수 있습니다. "
+                    android:textColor="#1d1d26" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="20dp"
+                android:background="#fdf282">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/free_point_add"
+                    android:text="☞ 무료충전 바로가기"
+                    android:textColor="#1d1d26"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:gravity="center"
+                    android:id="@+id/point_add"
+                    android:text="☞ 포인트 충전소"
+                    android:textColor="#1d1d26"
+                    />
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -112,14 +234,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:paddingBottom="20dp">
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="pointSet"
-                android:src="@drawable/grampoint_payment"
-               />
+                android:onClick="backBtn"
+                android:src="@drawable/grampoint_cancel"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:onClick="paymentBtn"
+                android:src="@drawable/grampoint_ok"/>
 
         </LinearLayout>
 
