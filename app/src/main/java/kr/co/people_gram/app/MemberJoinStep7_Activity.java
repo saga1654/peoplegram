@@ -182,10 +182,6 @@ public class MemberJoinStep7_Activity extends AppCompatActivity {
                 params.put("area3", area3_string);
                 params.put("panel_YN", panel_YN);
 
-                Log.d("people_gram", md.get_sex());
-                Log.d("people_gram", md.get_sex());
-                Log.d("people_gram", md.get_sex());
-                Log.d("people_gram", md.get_sex());
 
                 HttpClient.post("/user/memberCheck", params, new AsyncHttpResponseHandler() {
                     public void onStart() {
@@ -213,9 +209,9 @@ public class MemberJoinStep7_Activity extends AppCompatActivity {
 
                                 SharedPreferenceUtil.putSharedPreference(MemberJoinStep7_Activity.this, "uid", uid);
                                 SharedPreferenceUtil.putSharedPreference(MemberJoinStep7_Activity.this, "username", userNickName);
-                                SharedPreferenceUtil.putSharedPreference(MemberJoinStep7_Activity.this, "email", email);
+                                SharedPreferenceUtil.putSharedPreference(MemberJoinStep7_Activity.this, "email", md.get_userid());
 
-                                SharedPreferenceUtil.putSharedPreference(MemberJoinStep7_Activity.this, "point", "2000");
+                                SharedPreferenceUtil.putSharedPreference(MemberJoinStep7_Activity.this, "point", jobj_data.getString("POINT"));
                                 SharedPreferenceUtil.putSharedPreference(MemberJoinStep7_Activity.this, "mytype", "");
                                 SharedPreferenceUtil.putSharedPreference(MemberJoinStep7_Activity.this, "my_speed", "");
                                 SharedPreferenceUtil.putSharedPreference(MemberJoinStep7_Activity.this, "my_control", "");
