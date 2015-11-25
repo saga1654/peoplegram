@@ -37,7 +37,7 @@ android:background="#8C666666">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/help_people"/>
+            android:src="@drawable/guide_content_1"/>
 
 
 
