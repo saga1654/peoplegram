@@ -73,6 +73,8 @@ public class SubGroupPeopleListAdapter extends BaseAdapter{
     }
 
 
+
+
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
@@ -90,9 +92,19 @@ public class SubGroupPeopleListAdapter extends BaseAdapter{
         viewHolder.cBox.setFocusable(false);
 
 
+
+
         SubGroupPeopleListDTO dto = peoplelist.get(position);
 
-        viewHolder.cBox.setChecked(isCheckedConfrim[position]);
+        if(dto.get_group_count() == 0) {
+            isCheckedConfrim[position] = false;
+            uid_check[position] = "";
+            username_check[position] = "";
+        } else {
+            uid_check[position] = dto.get_profile_uid();
+            username_check[position] = dto.get_profile_username();
+            isCheckedConfrim[position] = true;
+        }
 
         TextView listview_people_list_username = (TextView) convertView.findViewById(R.id.listview_people_list_username);
         TextView listview_people_list_email = (TextView) convertView.findViewById(R.id.listview_people_list_email);

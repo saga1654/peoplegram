@@ -35,6 +35,9 @@ public class GroupWriteActivity extends AppCompatActivity {
     private LinearLayout groupBtn;
     private EditText group_name;
 
+    private String group_code = "";
+    private String group_name_txt = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +46,16 @@ public class GroupWriteActivity extends AppCompatActivity {
 
         sf_people_list = (ListView) findViewById(R.id.sf_people_list);
 
+        Intent intent = getIntent();
+        if(intent != null) {
+            group_code = intent.getStringExtra("group_code");
+            group_name_txt = intent.getStringExtra("group_name");
+        }
+
         now_cnt = (TextView) findViewById(R.id.now_cnt);
         groupBtn = (LinearLayout) findViewById(R.id.groupBtn);
         group_name = (EditText) findViewById(R.id.group_name);
+        group_name.setText(group_name_txt);
         groupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,8 +83,9 @@ public class GroupWriteActivity extends AppCompatActivity {
         people_dto_list = new ArrayList<SubGroupPeopleListDTO>();
         RequestParams params = new RequestParams();
         params.put("uid", SharedPreferenceUtil.getSharedPreference(GroupWriteActivity.this, "uid"));
+        params.put("group_code", group_code);
         //params.put("searchType", searchType);
-        HttpClient.post("/user/member_sub_people", params, new AsyncHttpResponseHandler() {
+        HttpClient.post("/group/groupPeopleList", params, new AsyncHttpResponseHandler() {
             public void onStart() {
                 dialog = ProgressDialog.show(GroupWriteActivity.this, "", "데이터 수신중");
             }
@@ -139,6 +150,7 @@ public class GroupWriteActivity extends AppCompatActivity {
                                 , gubun2
                                 , speed
                                 , control
+                                , jobj.getInt("GROUP_COUNT")
                         ));
 
 
@@ -175,6 +187,7 @@ public class GroupWriteActivity extends AppCompatActivity {
                 RequestParams params = new RequestParams();
                 params.put("uid", SharedPreferenceUtil.getSharedPreference(GroupWriteActivity.this, "uid"));
                 params.put("username", SharedPreferenceUtil.getSharedPreference(GroupWriteActivity.this, "username"));
+                params.put("group_code", group_code);
                 params.put("group_name", group_name.getText().toString());
                 params.put("people_uid", people_adapter_list.uid_check);
                 params.put("people_username", people_adapter_list.username_check);

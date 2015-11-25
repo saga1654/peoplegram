@@ -14,12 +14,13 @@ public class SubGroupPeopleListDTO {
     String profile_gubun2 = "";
     int profile_speed = 0;
     int profile_control = 0;
+    int group_count = 0;
 
     public SubGroupPeopleListDTO() {
 
     }
 
-    public SubGroupPeopleListDTO(String profile_uid, String profile_img, String profile_username, String profile_email, String profile_type, String profile_mood, String profile_gubun1, String profile_gubun2, int profile_speed, int profile_control)
+    public SubGroupPeopleListDTO(String profile_uid, String profile_img, String profile_username, String profile_email, String profile_type, String profile_mood, String profile_gubun1, String profile_gubun2, int profile_speed, int profile_control, int group_count)
     {
         this.profile_uid = profile_uid;
         this.profile_img = profile_img;
@@ -32,6 +33,7 @@ public class SubGroupPeopleListDTO {
 
         this.profile_speed = profile_speed;
         this.profile_control = profile_control;
+        this.group_count = group_count;
 
     }
 
@@ -64,6 +66,10 @@ public class SubGroupPeopleListDTO {
 
     public void set_profile_control(int profile_control) { this.profile_control = profile_control; }
     public int get_profile_control() { return this.profile_control; }
+
+
+    public void set_group_count(int group_count) { this.group_count = group_count; }
+    public int get_group_count() { return this.group_count; }
 
 
 }
