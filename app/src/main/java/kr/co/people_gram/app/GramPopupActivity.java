@@ -188,7 +188,13 @@ public class GramPopupActivity extends AppCompatActivity {
         }
     }
 
+    public void point_add_Btn(View v) {
 
+        Intent intent = new Intent(GramPopupActivity.this, SubGramPoint.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
+        super.finish();
+    }
     public void backBtn(View v) {
         finish();
     }
