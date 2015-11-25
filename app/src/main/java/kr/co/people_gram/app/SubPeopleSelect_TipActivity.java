@@ -47,6 +47,8 @@ public class SubPeopleSelect_TipActivity extends AppCompatActivity {
         gubun2 = pd.get_people_gubun2();
         people_username = pd.get_people_username();
 
+        mytype = SharedPreferenceUtil.getSharedPreference(SubPeopleSelect_TipActivity.this, "mytype");
+
         people_content_webview = (WebView) findViewById(R.id.people_content_webview);
         WebSettings webSettings = people_content_webview.getSettings();
         webSettings.setJavaScriptEnabled(true);
