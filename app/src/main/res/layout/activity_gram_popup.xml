@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:background="#fff"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:gravity="center_horizontal">
 
     <LinearLayout
@@ -225,23 +225,19 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#fce703"
             android:gravity="center"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:onClick="pointBtn">
+            android:onClick="point_add_Btn"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <TextView
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="포인트 충전소"
-                    android:textSize="12dp"
-                    android:layout_gravity="center"
-                    android:textColor="#2f334b" />
+                    android:src="@drawable/point_supply"/>
 
             </LinearLayout>
 

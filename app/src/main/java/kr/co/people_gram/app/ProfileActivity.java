@@ -24,10 +24,10 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView mytype_tv;
 
     private String people_type_return = "";
-    private ImageView mytype_me, mytype_people;
+    private ImageView mytype_me, mytype_people, point_add;
     private TextView mytype_per, profile_sex, profile_age, profile_area;
     private TextView profile_username, profile_email, profile_point;
-    private TextView point_add;
+
 
     private int ACTIVITY_CODE = 00002;
 
@@ -49,7 +49,7 @@ public class ProfileActivity extends AppCompatActivity {
         profile_email = (TextView) findViewById(R.id.profile_email);
         profile_point = (TextView) findViewById(R.id.profile_point);
 
-        point_add = (TextView) findViewById(R.id.point_add);
+        point_add = (ImageView) findViewById(R.id.point_add);
 
         profile_username.setText(SharedPreferenceUtil.getSharedPreference(this, "username"));
         profile_email.setText(SharedPreferenceUtil.getSharedPreference(this, "email"));

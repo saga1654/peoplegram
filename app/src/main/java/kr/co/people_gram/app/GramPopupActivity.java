@@ -60,7 +60,7 @@ public class GramPopupActivity extends AppCompatActivity {
 
         if(SharedPreferenceUtil.getSharedPreference(GramPopupActivity.this, "panelYN").equals("Y")) {
             //Toast.makeText(GramPopupActivity.this, "패널가입확인", Toast.LENGTH_LONG).show();
-            panel_check = false;
+            panel_check = true;
 
             panel_join_ll.setVisibility(View.GONE);
             point_plus_ll.setVisibility(View.VISIBLE);
@@ -117,7 +117,7 @@ public class GramPopupActivity extends AppCompatActivity {
 
 
                                     } else {
-                                        Toast.makeText(GramPopupActivity.this, "잔여 포인트가 부족합니다(" + jobj.getString("data_point") + "포인트)", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(GramPopupActivity.this, "잔여 포인트가 부족합니다(" + jobj.getString("data_point") + "포인트) 포인트 충전 후 이용부탁드립니다.", Toast.LENGTH_LONG).show();
                                         intent.putExtra("data_OK", "NO");
                                         setResult(RESULT_OK, intent);
                                         finish();
@@ -188,7 +188,13 @@ public class GramPopupActivity extends AppCompatActivity {
         }
     }
 
+    public void point_add_Btn(View v) {
 
+        Intent intent = new Intent(GramPopupActivity.this, SubGramPoint.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
+        super.finish();
+    }
     public void backBtn(View v) {
         finish();
     }
