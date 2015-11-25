@@ -20,23 +20,13 @@
             android:gravity="center"
             android:weightSum="1">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.10"
-                android:onClick="close_match"
-                android:gravity="center">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/peopletype_btn_close" />
 
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.80"
+                android:layout_weight="0.90"
+                android:paddingLeft="20dp"
                 android:gravity="center">
 
                 <TextView
@@ -49,16 +39,21 @@
 
 
             </LinearLayout>
-
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="0.10"
-                android:id="@+id/settingbtn"
-                android:gravity="center">
+                android:onClick="close_match"
+                android:gravity="right"
+                android:layout_gravity="center_horizontal">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/peopletype_btn_close" />
 
             </LinearLayout>
+
+
         </LinearLayout>
     </LinearLayout>
 
