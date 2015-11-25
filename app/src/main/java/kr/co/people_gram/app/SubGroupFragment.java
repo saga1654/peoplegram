@@ -53,6 +53,8 @@ public class SubGroupFragment extends Fragment {
         //group_delete = (ImageView) rootView.findViewById(R.id.group_delete);
 
 
+
+
         group_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

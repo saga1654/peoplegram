@@ -448,6 +448,8 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.sub_fragment_peopletype, container, false);
 
+
+
         peopletype_menu1 = (LinearLayout) rootView.findViewById(R.id.peopletype_menu1);
         peopletype_menu2 = (LinearLayout) rootView.findViewById(R.id.peopletype_menu2);
         peopletype_menu3 = (LinearLayout) rootView.findViewById(R.id.peopletype_menu3);

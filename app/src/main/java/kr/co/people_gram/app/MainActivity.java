@@ -14,11 +14,14 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +38,7 @@ public class MainActivity extends AppCompatActivity  {
     private TextView mainTitle;
     private FragmentManager fragmentManager;
     private FragmentTransaction ft;
+    private ImageView guide_content_1;
 
     private Toolbar toolbar;
     private TabLayout tabLayout;
@@ -55,6 +59,7 @@ public class MainActivity extends AppCompatActivity  {
 
     private DataProfileCount dpc;
 
+    private PopupWindow mPopupWindow;
 
 
     @Override
@@ -63,6 +68,21 @@ public class MainActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_main);
 
         mainActivity = this;
+
+
+
+
+        if(SharedPreferenceUtil.getSharedPreference(MainActivity.this, "step1").equals("Y") == false) {
+            View popupView = getLayoutInflater().inflate(R.layout.activity_guide_activity_step1, null);
+            mPopupWindow = new PopupWindow(popupView,
+                    RelativeLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+
+            mPopupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
+
+            guide_content_1 = (ImageView) popupView.findViewById(R.id.guide_img);
+            guide_content_1.setImageResource(R.drawable.guide_content_1);
+            SharedPreferenceUtil.putSharedPreference(MainActivity.this, "step1", "Y");
+        }
 
         dpc = new DataProfileCount();
 
@@ -94,6 +114,8 @@ public class MainActivity extends AppCompatActivity  {
         menu2 = (LinearLayout) findViewById(R.id.menu2);
         menu3 = (LinearLayout) findViewById(R.id.menu3);
         menu4 = (LinearLayout) findViewById(R.id.menu4);
+
+
 
         //dpc.set_user_count(10);
 
@@ -139,6 +161,30 @@ public class MainActivity extends AppCompatActivity  {
             public void onClick(View v) {
 
                 if(menuType.equals("mytype") == false) {
+
+                    //if(SharedPreferenceUtil.getSharedPreference(MainActivity.this, "step2").equals("Y") == false) {
+                    /*
+                        Intent intent = new Intent(MainActivity.this, GuideActivityStep1.class);
+                        intent.putExtra("step", "2");
+                        SharedPreferenceUtil.putSharedPreference(MainActivity.this, "step2", "Y");
+                        startActivity(intent);
+                    */
+                    //}
+
+                    if(SharedPreferenceUtil.getSharedPreference(MainActivity.this, "step2").equals("Y") == false) {
+                        View popupView = getLayoutInflater().inflate(R.layout.activity_guide_activity_step1, null);
+                        mPopupWindow = new PopupWindow(popupView,
+                                RelativeLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+
+                        mPopupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
+
+                        guide_content_1 = (ImageView) popupView.findViewById(R.id.guide_img);
+                        guide_content_1.setImageResource(R.drawable.guide_content_2);
+                        SharedPreferenceUtil.putSharedPreference(MainActivity.this, "step2", "Y");
+                    }
+
+
+
                     dpc.set_user_count(0);
 
                     menu_icon1.setImageResource(R.mipmap.top_01_off);
@@ -172,6 +218,18 @@ public class MainActivity extends AppCompatActivity  {
                 if(menuType.equals("mypage") == false) {
                     dpc.set_user_count(0);
 
+                    if(SharedPreferenceUtil.getSharedPreference(MainActivity.this, "step3").equals("Y") == false) {
+                        View popupView = getLayoutInflater().inflate(R.layout.activity_guide_activity_step1, null);
+                        mPopupWindow = new PopupWindow(popupView,
+                                RelativeLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+
+                        mPopupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
+
+                        guide_content_1 = (ImageView) popupView.findViewById(R.id.guide_img);
+                        guide_content_1.setImageResource(R.drawable.guide_content_3);
+                        SharedPreferenceUtil.putSharedPreference(MainActivity.this, "step3", "Y");
+                    }
+
 
                     menu_icon1.setImageResource(R.mipmap.top_01_off);
                     menu_line1.setBackgroundColor(Color.rgb(220, 220, 221));
@@ -201,6 +259,20 @@ public class MainActivity extends AppCompatActivity  {
             public void onClick(View v) {
 
                 if(menuType.equals("group") == false) {
+
+                    if(SharedPreferenceUtil.getSharedPreference(MainActivity.this, "step4").equals("Y") == false) {
+                        View popupView = getLayoutInflater().inflate(R.layout.activity_guide_activity_step1, null);
+                        mPopupWindow = new PopupWindow(popupView,
+                                RelativeLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+
+                        mPopupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
+
+                        guide_content_1 = (ImageView) popupView.findViewById(R.id.guide_img);
+                        guide_content_1.setImageResource(R.drawable.guide_content_4);
+                        SharedPreferenceUtil.putSharedPreference(MainActivity.this, "step4", "Y");
+                    }
+
+
                     dpc.set_user_count(0);
 
 
@@ -531,5 +603,11 @@ public class MainActivity extends AppCompatActivity  {
         }
 
         return super.onKeyDown(keyCode, event);
+    }
+
+    public void step1_close_btn(View v) {
+        if (mPopupWindow != null && mPopupWindow.isShowing()) {
+            mPopupWindow.dismiss();
+        }
     }
 }
