@@ -53,7 +53,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         profile_username.setText(SharedPreferenceUtil.getSharedPreference(this, "username"));
         profile_email.setText(SharedPreferenceUtil.getSharedPreference(this, "email"));
-        profile_point.setText(Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(this, "point"))));
+        profile_point.setText(Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(this, "point")))+ "p");
 
         /*추가부분*/
         mytype_tv = (TextView) findViewById(R.id.mytype_tv);
