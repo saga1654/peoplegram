@@ -286,17 +286,7 @@ public class MainActivity extends AppCompatActivity  {
 
         //viewPager = (ViewPager) findViewById(R.id.viewpager);
 
-        if(SharedPreferenceUtil.getSharedPreference(MainActivity.this, "step4").equals("Y") == false) {
-            View popupView = getLayoutInflater().inflate(R.layout.activity_guide_activity_step1, null);
-            mPopupWindow = new PopupWindow(popupView,
-                    RelativeLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
 
-            mPopupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
-
-            guide_content_1 = (ImageView) popupView.findViewById(R.id.guide_img);
-            guide_content_1.setImageResource(R.drawable.guide_content_4);
-            SharedPreferenceUtil.putSharedPreference(MainActivity.this, "step4", "Y");
-        }
 
 
         fragmentManager = getSupportFragmentManager();
