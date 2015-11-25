@@ -19,7 +19,7 @@
             android:textSize="14dp"
             android:textColorHint="#afafb0"
             android:padding="10dp"
-            android:hint="이름으로 검색해주세요."
+            android:hint="이름(초성)으로 검색해주세요."
             android:id="@+id/serachET"
             android:singleLine="true"
             android:background="@drawable/search_round" />
