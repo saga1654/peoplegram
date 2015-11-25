@@ -74,7 +74,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(people_type_return.equals("")) {
-                    Toast.makeText(ProfileActivity.this, "타인진단이 데이터가 존재하지 않습니다.피플들에게 진단을 요청해주세요", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ProfileActivity.this, "타인진단 데이터가 존재하지 않습니다.피플들에게 진단을 요청해주세요", Toast.LENGTH_LONG).show();
                 } else {
                     Intent intent = new Intent(ProfileActivity.this, SubMyType_Activity.class);
                     intent.putExtra("mytype", people_type_return);
