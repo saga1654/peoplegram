@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
@@ -40,6 +41,8 @@ public class MemberJoinStep7_Activity extends AppCompatActivity {
 
     private MemberData md;
 
+    InputMethodManager mImm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +52,11 @@ public class MemberJoinStep7_Activity extends AppCompatActivity {
         panel_join_chk = (CheckBox) findViewById(R.id.panel_join_chk);
 
 
+
         md = new MemberData();
+
+        mImm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+        mImm.hideSoftInputFromWindow(panel_join_chk.getWindowToken(),0);
 
         area1_string = "시/도";
         area2_string = "시/구/군";
