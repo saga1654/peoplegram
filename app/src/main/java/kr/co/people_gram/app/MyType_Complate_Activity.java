@@ -170,6 +170,14 @@ public class MyType_Complate_Activity extends AppCompatActivity {
          finish();
      }
 
+    public void sync_btn(View v)
+    {
+        Intent intent = new Intent(MyType_Complate_Activity.this, PeopleSync_Activity.class);
+        startActivity(intent);
+        finish();
+        overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+    }
+
     public void mytype_view_btn(View v) {
         Intent intent = new Intent(MyType_Complate_Activity.this, MyType_Activity.class);
         startActivity(intent);

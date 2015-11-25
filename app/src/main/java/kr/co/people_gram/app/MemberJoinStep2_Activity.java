@@ -13,6 +13,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -59,7 +60,7 @@ public class MemberJoinStep2_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (emailCheck(et_email.getText()) == false) {
-                    Log.d("people_gram", "이메일을 확인해주세요.");
+                    Toast.makeText(MemberJoinStep2_Activity.this,"이메일을 확인해주세요.", Toast.LENGTH_LONG).show();
                 } else {
                     emailData();
                 }
@@ -73,7 +74,7 @@ public class MemberJoinStep2_Activity extends AppCompatActivity {
                     if(enterCheck == false) {
                         enterCheck = true;
                         if (emailCheck(et_email.getText()) == false) {
-                            Log.d("people_gram", "이메일을 확인해주세요.");
+                            Toast.makeText(MemberJoinStep2_Activity.this,"이메일을 확인해주세요.", Toast.LENGTH_LONG).show();
                         } else {
                             emailData();
                         }
