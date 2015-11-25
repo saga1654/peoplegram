@@ -1,5 +1,6 @@
 package kr.co.people_gram.app;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -22,12 +24,15 @@ import java.util.ArrayList;
 
 public class SubGroupDetailView_Activity extends AppCompatActivity {
 
+    public static Activity subgroupdetailview_activity;
     private String group_code = "";
+    private String group_name = "";
 
     private ArrayList<SubGroupDetailPeopleListDTO> people_dto_list;
     private SubGroupDetailPeopleListAdapter people_adapter_list;
     private ProgressDialog dialog;
     private ListView sf_people_list;
+    private ImageView group_create;
 
 
     @Override
@@ -35,15 +40,17 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_group_detail_view_);
 
+        subgroupdetailview_activity = this;
+
         sf_people_list = (ListView) findViewById(R.id.sf_people_list);
         sf_people_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                people_adapter_list.setChecked(position);
+                people_adapter_list.notifyDataSetChanged();
 
-
-
-                    final SubPeopleListDTO dto = (SubPeopleListDTO) sf_people_list.getItemAtPosition(position);
+                final SubGroupDetailPeopleListDTO dto = (SubGroupDetailPeopleListDTO) sf_people_list.getItemAtPosition(position);
 
 
 
@@ -91,8 +98,21 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent != null) {
             group_code = intent.getStringExtra("group_code");
+            group_name = intent.getStringExtra("group_name");
             Log.d("people_gram", group_code);
         }
+
+        group_create = (ImageView) findViewById(R.id.group_create);
+        group_create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SubGroupDetailView_Activity.this, GroupWriteActivity.class);
+                intent.putExtra("group_code", group_code);
+                intent.putExtra("group_name", group_name);
+                startActivityForResult(intent, 42);
+                overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+            }
+        });
 
         peopleList();
     }
@@ -105,6 +125,7 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+
 
     private void peopleList()
     {

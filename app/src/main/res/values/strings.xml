@@ -474,6 +474,7 @@
     <string name="title_activity_people_match_top10_">PeopleMatchTop10_Activity</string>
     <string name="title_activity_guide_">Guide_Activity</string>
     <string name="title_activity_payment_">Payment_Activity</string>
+    <string name="title_activity_group_people_write">GroupPeopleWriteActivity</string>
 
 
 </resources>

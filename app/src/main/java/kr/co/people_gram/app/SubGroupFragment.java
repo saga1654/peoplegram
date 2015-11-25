@@ -75,8 +75,11 @@ public class SubGroupFragment extends Fragment {
 
                 SubGroupListDTO dto = (SubGroupListDTO) sf_people_list.getItemAtPosition(position);
                 String group_code = dto.get_group_code();
+                String group_name = dto.get_group_name();
                 Intent intent = new Intent(getActivity(), SubGroupDetailView_Activity.class);
                 intent.putExtra("group_code", group_code);
+                intent.putExtra("group_name", group_name);
+
                 startActivityForResult(intent, 41);
                 getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
 

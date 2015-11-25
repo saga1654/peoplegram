@@ -436,6 +436,11 @@
             android:label="@string/title_activity_payment_"
             android:theme="@style/AppTheme" >
         </activity>
+        <activity
+            android:name=".GroupPeopleWriteActivity"
+            android:label="@string/title_activity_group_people_write"
+            android:theme="@style/AppTheme" >
+        </activity>
     </application>
 
 </manifest>

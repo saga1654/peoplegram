@@ -12,6 +12,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -91,6 +92,44 @@ public class SubGroupDetailPeopleListAdapter extends BaseAdapter{
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(SharedPreferenceUtil.getSharedPreference(mContext, "uid").equals(people_uid)) {
+                    Toast.makeText(mContext, "본인은 삭제하실수 없습니다.", Toast.LENGTH_LONG).show();
+                } else {
+
+                    AlertDialog.Builder alert = new AlertDialog.Builder(mContext);
+                    alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            RequestParams params = new RequestParams();
+                            params.put("uid", SharedPreferenceUtil.getSharedPreference(mContext, "uid"));
+                            params.put("group_code", group_code);
+                            params.put("people_uid", people_uid);
+                            HttpClient.post("/group/groupDetailDelete", params, new AsyncHttpResponseHandler() {
+                                public void onStart() {
+
+                                }
+
+                                public void onFailure() {
+                                }
+
+                                public void onFinish() {
+
+                                }
+
+                                @Override
+                                public void onSuccess(String response) {
+                                    peoplelist.remove(position);
+                                    notifyDataSetChanged();
+                                }
+                            });
+                        }
+                    });
+                    alert.setMessage("삭제하시겠습니까?");
+                    alert.setNegativeButton("취소", null);
+                    alert.show();
+                }
+
             }
         });
 

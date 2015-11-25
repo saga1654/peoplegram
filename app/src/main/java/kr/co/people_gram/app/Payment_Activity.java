@@ -120,8 +120,16 @@ public class Payment_Activity extends AppCompatActivity {
 
     IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener  = new IabHelper.OnIabPurchaseFinishedListener() {
         public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
+            if(result.isFailure()) {
+                //구매 실패 및 취소
+                Log.d("people_gram", "inApp Error: " + result);
 
-           finish();
+                finish();
+            } else if(purchase.getSku().equals("point1000")) {
+                Log.d("people_gram", "구매성공");
+            }
+
+
             // 여기서 아이템 추가 해주시면 됩니다.
             // 만약 서버로 영수증 체크후에 아이템 추가한다면, 서버로 purchase.getOriginalJson() , purchase.getSignature() 2개 보내시면 됩니다.
         }
