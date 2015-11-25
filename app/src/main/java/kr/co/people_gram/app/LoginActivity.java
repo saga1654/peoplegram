@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.util.Log;
+import android.widget.Toast;
 
 
 import org.json.JSONArray;
@@ -119,7 +120,66 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(String response)
             {
+                Log.d("people_gram", response);
+
                 try {
+                    JSONObject jobj = new JSONObject(response);
+                    JSONObject user_data = new JSONObject(jobj.getString("user_data"));
+                    String code = jobj.getString("code");
+                    String panel = jobj.getString("panel");
+
+
+                    switch (code.toString()) {
+                        case "000":
+                            String uid = user_data.getString("UID");
+                            String username = user_data.getString("USERNICKNAME");
+                            String mytype = user_data.getString("MYTYPE");
+
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "uid", uid);
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "username", username);
+
+                            if(mytype.equals("N")) {
+                                SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", "");
+                                intent = new Intent(LoginActivity.this, MyQuestion_Activity.class);
+                            } else {
+                                SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", mytype);
+                                intent = new Intent(LoginActivity.this, MainActivity.class);
+                            }
+
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "point", user_data.get("POINT").toString());
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_speed", "");
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_control", "");
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "panelYN", panel);
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "email", user_data.getString("EMAIL_RETURN"));
+
+                            startActivity(intent);
+                            finish();
+
+                            break;
+                        case "101":
+                            Log.d("people_gram", "Error");
+                            break;
+                        case "102":
+                            Log.d("people_gram", "Error");
+                            break;
+                        case "999":
+                            Toast.makeText(LoginActivity.this, "아이디가 존재하지 않습니다.", Toast.LENGTH_LONG).show();
+                            //Log.d("people_gram", "아이디가 존재하지 않습니다.");
+                            break;
+                        case "998":
+                            Toast.makeText(LoginActivity.this, "패스워드가 일치하지 않습니다.", Toast.LENGTH_LONG).show();
+                            //Log.d("people_gram", "패스워드가 일치하지 않습니다.");
+                            break;
+                    }
+
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                 /*
+                try {
+
                     JSONArray json = new JSONArray(response);
                     JSONObject jobj = json.getJSONObject(0);
                     String code = jobj.getString("code");
@@ -187,6 +247,7 @@ public class LoginActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+                */
 
             }
 
