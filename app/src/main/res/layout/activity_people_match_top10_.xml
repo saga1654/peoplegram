@@ -25,7 +25,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.80"
+                android:layout_weight="0.90"
                 android:gravity="center">
 
                 <TextView
@@ -43,10 +43,11 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.10"
                 android:onClick="close_match"
-                android:gravity="right">
+                android:gravity="right"
+                android:layout_gravity="center_horizontal">
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:src="@drawable/peopletype_btn_close" />
 
             </LinearLayout>
