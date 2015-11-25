@@ -3,6 +3,7 @@ package kr.co.people_gram.app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -49,6 +50,9 @@ public class SubPeopleSelect_TipActivity extends AppCompatActivity {
 
         mytype = SharedPreferenceUtil.getSharedPreference(SubPeopleSelect_TipActivity.this, "mytype");
 
+
+        Log.d("people_gram", "tip_check="+tipType);
+
         people_content_webview = (WebView) findViewById(R.id.people_content_webview);
         WebSettings webSettings = people_content_webview.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -76,8 +80,8 @@ public class SubPeopleSelect_TipActivity extends AppCompatActivity {
                 }
             } else if(gubun1.equals("S")) {
                 people_content_webview.loadUrl("file:///android_asset/tip/" + gubun1 + "/tip" + tipType + "_" + gubun1 + "_YOU_" + peopletype + ".html");
-            } else if(gubun1.equals("PD")) {
-                if(tipType.equals("2")) {
+            } else if(gubun1.equals("P") == true && gubun2.equals("D") == true) {
+                if(tipType.equals("2") ) {
                     people_content_webview.loadUrl("file:///android_asset/tip/" + gubun1 + gubun2 + "/tip" + tipType + "_" + gubun1 + gubun2 + "_MY_" + mytype + ".html");
                 } else {
                     people_content_webview.loadUrl("file:///android_asset/tip/" + gubun1 + gubun2 + "/tip" + tipType + "_" + gubun1 + gubun2 +  "_YOU_" + peopletype + ".html");

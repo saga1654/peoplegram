@@ -117,22 +117,26 @@ public class SubGramPoint extends AppCompatActivity {
 
                 case R.id.point1000:
                     intent = new Intent(SubGramPoint.this, Payment_Activity.class);
+                    intent.putExtra("point", "point1000");
                     startActivity(intent);
                     overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     break;
 
                 case R.id.point3000:
                     intent = new Intent(SubGramPoint.this, Payment_Activity.class);
+                    intent.putExtra("point", "point3000");
                     startActivity(intent);
                     overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     break;
                 case R.id.point5000:
                     intent = new Intent(SubGramPoint.this, Payment_Activity.class);
+                    intent.putExtra("point", "point5000");
                     startActivity(intent);
                     overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     break;
                 case R.id.point10000:
                     intent = new Intent(SubGramPoint.this, Payment_Activity.class);
+                    intent.putExtra("point", "point10000");
                     startActivity(intent);
                     overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     break;

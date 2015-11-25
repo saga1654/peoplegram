@@ -2,10 +2,13 @@ package kr.co.people_gram.app;
 
 
 import com.android.vending.billing.IInAppBillingService;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 
 import android.app.AlertDialog;
 import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -19,6 +22,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -34,6 +38,8 @@ public class Payment_Activity extends AppCompatActivity {
 
     IInAppBillingService mService;
     IabHelper mHelper;
+
+    private String point_payment = "";
 
     ServiceConnection mServiceConn = new ServiceConnection() {
         @Override
@@ -51,6 +57,9 @@ public class Payment_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
+
+        Intent intent = getIntent();
+        point_payment = intent.getStringExtra("point");
 
         bindService(new Intent("com.android.vending.billing.InAppBillingService.BIND"), mServiceConn, Context.BIND_AUTO_CREATE);
 
@@ -72,7 +81,7 @@ public class Payment_Activity extends AppCompatActivity {
                 // 이 메서드는 상품 구매전 혹은 후에 반드시 호출해야합니다. ( 재구매가 불가능한 1회성 아이템의경우 호출하면 안됩니다 )
                 AlreadyPurchaseItems();
 
-                Buy("point1000");
+                Buy(point_payment);
             }
         });
 
@@ -103,11 +112,11 @@ public class Payment_Activity extends AppCompatActivity {
     // 구매
     public void Buy(String id_item) {
         try {
-            Bundle buyIntentBundle = mService.getBuyIntent(3, getPackageName(),	id_item, "inapp", "test");
+            Bundle buyIntentBundle = mService.getBuyIntent(3, getPackageName(),	id_item, "inapp", SharedPreferenceUtil.getSharedPreference(Payment_Activity.this, "uid"));
             PendingIntent pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
 
             if (pendingIntent != null) {
-                mHelper.launchPurchaseFlow(this, getPackageName(), 1001,  mPurchaseFinishedListener, "test");
+                mHelper.launchPurchaseFlow(this, getPackageName(), 1001,  mPurchaseFinishedListener, SharedPreferenceUtil.getSharedPreference(Payment_Activity.this, "uid"));
 
             } else {
                 Toast.makeText(Payment_Activity.this, "결제실패", Toast.LENGTH_LONG).show();
@@ -122,11 +131,37 @@ public class Payment_Activity extends AppCompatActivity {
         public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
             if(result.isFailure()) {
                 //구매 실패 및 취소
-                Log.d("people_gram", "inApp Error: " + result);
+
+                //Log.d("people_gram", "inApp Error: " + result);
 
                 finish();
-            } else if(purchase.getSku().equals("point1000")) {
-                Log.d("people_gram", "구매성공");
+            } else if(purchase.getSku().equals(point_payment)) {
+
+                String payment_string = point_payment;
+                RequestParams params = new RequestParams();
+                params.put("uid", SharedPreferenceUtil.getSharedPreference(Payment_Activity.this, "uid"));
+                params.put("point_payment", point_payment);
+                params.put("getOriginalJson", purchase.getOriginalJson());
+                params.put("getSignature", purchase.getSignature());
+                HttpClient.post("/payment/paymentInsert", params, new AsyncHttpResponseHandler() {
+                    public void onStart() {
+
+                    }
+
+                    public void onFinish() {
+
+                    }
+
+                    @Override
+                    public void onSuccess(String response) {
+                        Toast.makeText(Payment_Activity.this, response, Toast.LENGTH_LONG).show();
+
+
+                    }
+                });
+
+                finish();
+                //Log.d("people_gram", "구매성공");
             }
 
 
