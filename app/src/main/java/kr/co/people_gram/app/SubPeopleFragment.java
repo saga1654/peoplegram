@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -86,6 +89,8 @@ public class SubPeopleFragment extends Fragment {
     private String my_sub_type = "";
 
     private NetworkCheck nc;
+    private PopupWindow mPopupWindow;
+    private ImageView guide_content_1;
 
     public SubPeopleFragment() {
     }
@@ -94,6 +99,10 @@ public class SubPeopleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.sub_fragment_people, container, false);
         View header = inflater.inflate(R.layout.sub_people_header, null, false);
+
+
+
+
 
         nc = new NetworkCheck();
 
@@ -1130,6 +1139,27 @@ public class SubPeopleFragment extends Fragment {
 
                     //dialog.dismiss();
                     //listview_noticeList.setAdapter(notice_adapter);
+
+                    if(SharedPreferenceUtil.getSharedPreference(getActivity(), "step1").equals("Y") == false) {
+                        View popupView = getActivity().getLayoutInflater().inflate(R.layout.activity_guide_activity_step1, null);
+                        mPopupWindow = new PopupWindow(popupView,
+                                RelativeLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+
+                        mPopupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
+
+                        guide_content_1 = (ImageView) popupView.findViewById(R.id.guide_img);
+                        guide_content_1.setImageResource(R.drawable.guide_content_1);
+                        SharedPreferenceUtil.putSharedPreference(getActivity(), "step1", "Y");
+                        LinearLayout step1_close_btn = (LinearLayout) popupView.findViewById(R.id.step1_close_btn);
+                        step1_close_btn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                if (mPopupWindow != null && mPopupWindow.isShowing()) {
+                                    mPopupWindow.dismiss();
+                                }
+                            }
+                        });
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

@@ -38,6 +38,7 @@
             android:paddingTop="10dp"
             android:gravity="center"
             android:paddingBottom="10dp"
+            android:id="@+id/step1_close_btn"
             android:onClick="step1_close_btn">
 
             <TextView
