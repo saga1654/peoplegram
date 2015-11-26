@@ -647,7 +647,7 @@ public class YouType_Actvity_step1 extends AppCompatActivity {
 
     public void btnNext(View v) {
         Vibrator vibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-        vibe.vibrate(500);
+        vibe.vibrate(300);
         if(data1.equals("")) {
             Toast.makeText(this, "구분을 선택해주세요.", Toast.LENGTH_LONG).show();
         } else if(data2.equals("")) {
