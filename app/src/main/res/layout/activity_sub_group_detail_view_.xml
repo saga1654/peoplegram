@@ -98,7 +98,7 @@
                 android:text="아래 설정된 그룹 내 멤버가 나를 바라보는 유형"
                 android:gravity="center"
                 android:textColor="#000"
-                android:textSize="18dp"/>
+                android:textSize="15dp"/>
 
         </LinearLayout>
         <RelativeLayout
