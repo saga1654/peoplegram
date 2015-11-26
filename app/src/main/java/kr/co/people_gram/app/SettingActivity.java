@@ -24,10 +24,10 @@ public class SettingActivity extends AppCompatActivity {
 
     private TextView top_title;
     private Intent intent;
-    private Switch push_switch;
+    private Switch push_switch, push_survey;
     private ProgressDialog dialog;
 
-    private LinearLayout notice_btn, agree_btn, userinfo_btn, logout_btn, question_btn, people_btn;
+    private LinearLayout point_add, notice_btn, agree_btn, userinfo_btn, logout_btn, question_btn, people_btn;
     private Boolean sync = false;
 
 
@@ -40,7 +40,9 @@ public class SettingActivity extends AppCompatActivity {
 
 
         push_switch = (Switch) findViewById(R.id.push_switch);
+        push_survey = (Switch) findViewById(R.id.push_survey);
 
+        point_add = (LinearLayout) findViewById(R.id.point_add);
         notice_btn = (LinearLayout) findViewById(R.id.notice_btn);
         agree_btn = (LinearLayout) findViewById(R.id.agree_btn);
         userinfo_btn = (LinearLayout) findViewById(R.id.userinfo_btn);
@@ -48,6 +50,9 @@ public class SettingActivity extends AppCompatActivity {
         logout_btn = (LinearLayout) findViewById(R.id.logout_btn);
 
         people_btn = (LinearLayout) findViewById(R.id.people_btn);
+
+        point_add.setOnClickListener(onBtnClickListener);
+        point_add.setOnTouchListener(onBtnTouchListener);
 
         notice_btn.setOnTouchListener(onBtnTouchListener);
         notice_btn.setOnClickListener(onBtnClickListener);
@@ -185,6 +190,11 @@ public class SettingActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
+                case R.id.point_add:
+                    intent = new Intent(SettingActivity.this, GramPopupActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+                    break;
                 case R.id.notice_btn:
                     intent = new Intent(SettingActivity.this, NoticeActivity.class);
                     startActivity(intent);
