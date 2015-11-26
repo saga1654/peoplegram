@@ -129,40 +129,40 @@ public class Payment_Activity extends AppCompatActivity {
 
     IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener  = new IabHelper.OnIabPurchaseFinishedListener() {
         public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
+
+
             if(result.isFailure()) {
-                //구매 실패 및 취소
-
-                //Log.d("people_gram", "inApp Error: " + result);
-
-                finish();
+                Toast.makeText(Payment_Activity.this, "결제 실패되었습니다.", Toast.LENGTH_LONG).show();
             } else if(purchase.getSku().equals(point_payment)) {
 
-                String payment_string = point_payment;
-                RequestParams params = new RequestParams();
-                params.put("uid", SharedPreferenceUtil.getSharedPreference(Payment_Activity.this, "uid"));
-                params.put("point_payment", point_payment);
-                params.put("getOriginalJson", purchase.getOriginalJson());
-                params.put("getSignature", purchase.getSignature());
-                HttpClient.post("/payment/paymentInsert", params, new AsyncHttpResponseHandler() {
-                    public void onStart() {
+                if(purchase != null) {
+                    String payment_string = point_payment;
+                    RequestParams params = new RequestParams();
+                    params.put("uid", SharedPreferenceUtil.getSharedPreference(Payment_Activity.this, "uid"));
+                    params.put("getOriginalJson", purchase.getOriginalJson());
+                    params.put("getSignature", purchase.getSignature());
+                    HttpClient.post("/payment/paymentInsert", params, new AsyncHttpResponseHandler() {
+                        public void onStart() {
 
-                    }
+                        }
 
-                    public void onFinish() {
+                        public void onFinish() {
 
-                    }
+                        }
 
-                    @Override
-                    public void onSuccess(String response) {
-                        Toast.makeText(Payment_Activity.this, response, Toast.LENGTH_LONG).show();
+                        @Override
+                        public void onSuccess(String response) {
+                            Toast.makeText(Payment_Activity.this, response, Toast.LENGTH_LONG).show();
+                            SharedPreferenceUtil.putSharedPreference(Payment_Activity.this, "point", response);
+                        }
+                    });
 
 
-                    }
-                });
-
-                finish();
+                    finish();
+                }
                 //Log.d("people_gram", "구매성공");
             }
+
 
 
             // 여기서 아이템 추가 해주시면 됩니다.
@@ -192,6 +192,7 @@ public class Payment_Activity extends AppCompatActivity {
 
         switch (keyCode) {
             case KeyEvent.KEYCODE_BACK:
+
                 finish();
                 break;
 
@@ -200,6 +201,13 @@ public class Payment_Activity extends AppCompatActivity {
         }
 
         return super.onKeyDown(keyCode, event);
+    }
+
+    public void finish()
+    {
+        Intent intent = getIntent();
+        setResult(62, intent);
+        super.finish();
     }
 
 

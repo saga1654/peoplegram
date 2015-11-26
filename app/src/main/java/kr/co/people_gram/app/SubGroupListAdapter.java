@@ -135,13 +135,13 @@ public class SubGroupListAdapter extends BaseAdapter{
         //SubGroupPeopleListDTO dto = peoplelist.get(position);
 
 
-        TextView listview_people_list_username = (TextView) convertView.findViewById(R.id.listview_people_list_username);
+       //TextView listview_people_list_username = (TextView) convertView.findViewById(R.id.listview_people_list_username);
         TextView listview_people_list_all = (TextView) convertView.findViewById(R.id.listview_people_list_all);
         TextView listview_people_list_cnt = (TextView) convertView.findViewById(R.id.listview_people_list_cnt);
         //LinearLayout group_delete = (LinearLayout) convertView.findViewById(R.id.group_delete);
 
 
-        listview_people_list_username.setText(dto.get_group_name());
+        //listview_people_list_username.setText(dto.get_group_name());
         listview_people_list_all.setText(dto.get_all_people_name());
         String[] split = dto.get_all_people_name().split(",");
         listview_people_list_cnt.setText(split.length + "명");

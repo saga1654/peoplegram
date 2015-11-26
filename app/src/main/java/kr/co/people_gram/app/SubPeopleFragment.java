@@ -1116,7 +1116,6 @@ public class SubPeopleFragment extends Fragment {
                                 , jobj.getInt("NOW_MAX")
                         ));
 
-                        //Log.d("people_gram", jobj.getInt("NOW_CHECK") + ":::" + jobj.getInt("NOW_MAX"));
                     }
 
                     people_adapter_list = new SubPeopleListAdapter(getActivity().getBaseContext(), R.layout.sub_people_row_list, people_dto_list);

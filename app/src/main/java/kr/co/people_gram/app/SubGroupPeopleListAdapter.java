@@ -7,8 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -65,9 +67,12 @@ public class SubGroupPeopleListAdapter extends BaseAdapter{
         if(isCheckedConfrim[position] == true) {
             uid_check[position] = "";
             username_check[position] = "";
+            dto.set_checked(false);
         } else {
             uid_check[position] = dto.get_profile_uid();
             username_check[position] = dto.get_profile_username();
+
+            dto.set_checked(true);
         }
         isCheckedConfrim[position] = !isCheckedConfrim[position];
     }
@@ -91,28 +96,27 @@ public class SubGroupPeopleListAdapter extends BaseAdapter{
         viewHolder.cBox.setClickable(false);
         viewHolder.cBox.setFocusable(false);
 
+        viewHolder.cBox.setChecked(isCheckedConfrim[position]);
+
+        viewHolder.cBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                //setChecked(position);
+                //Log.d("people_gram", "선택="+isChecked);
+            }
+        });
 
 
 
         SubGroupPeopleListDTO dto = peoplelist.get(position);
 
-        if(dto.get_group_count() == 0) {
-            isCheckedConfrim[position] = false;
-            uid_check[position] = "";
-            username_check[position] = "";
-        } else {
-            uid_check[position] = dto.get_profile_uid();
-            username_check[position] = dto.get_profile_username();
-            isCheckedConfrim[position] = true;
-        }
-
         TextView listview_people_list_username = (TextView) convertView.findViewById(R.id.listview_people_list_username);
-        TextView listview_people_list_email = (TextView) convertView.findViewById(R.id.listview_people_list_email);
+        //TextView listview_people_list_email = (TextView) convertView.findViewById(R.id.listview_people_list_email);
         ImageView listview_proplelist_img = (ImageView) convertView.findViewById(R.id.listview_proplelist_img);
 
 
         listview_people_list_username.setText(dto.get_profile_username());
-        listview_people_list_email.setText(dto.get_profile_email());
+        //listview_people_list_email.setText(dto.get_profile_email());
 
         //CheckBox chk_user = (CheckBox) convertView.findViewById(R.id.chk_user);
         //chk_user.setChecked(false);
@@ -126,20 +130,20 @@ public class SubGroupPeopleListAdapter extends BaseAdapter{
 
         switch (people_type) {
             case "A":
-                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_a);
+                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_small_type_a);
                 break;
             case "I":
-                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_i);
+                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_small_type_i);
                 break;
             case "E":
-                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_e);
+                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_small_type_e);
                 break;
             case "D":
-                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_d);
+                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_small_type_d);
                 break;
 
             case "":
-                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_default);
+                listview_proplelist_img.setImageResource(R.mipmap.peoplelist_small_type_defailt);
                 break;
             /*
 

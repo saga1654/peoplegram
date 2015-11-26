@@ -88,7 +88,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ProfileActivity.this, SubGramPoint.class);
-                startActivity(intent);
+                startActivityForResult(intent, ACTIVITY_CODE);
                 overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
             }
         });
@@ -333,6 +333,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.d("people_gram", "성공");
+        profile_point.setText(Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(this, "point"))) + "p");
         dataResult();
     }
 
