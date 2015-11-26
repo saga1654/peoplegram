@@ -169,19 +169,19 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
 
                     switch (people_type) {
                         case "I":
-                            popup_type.setImageResource(R.mipmap.peoplelist_type_i);
+                            popup_type.setImageResource(R.mipmap.people_type_i);
                             break;
                         case "D":
-                            popup_type.setImageResource(R.mipmap.peoplelist_type_d);
+                            popup_type.setImageResource(R.mipmap.people_type_d);
                             break;
                         case "E":
-                            popup_type.setImageResource(R.mipmap.peoplelist_type_e);
+                            popup_type.setImageResource(R.mipmap.people_type_e);
                             break;
                         case "A":
-                            popup_type.setImageResource(R.mipmap.peoplelist_type_a);
+                            popup_type.setImageResource(R.mipmap.people_type_a);
                             break;
                         default:
-                            popup_type.setImageResource(R.mipmap.peoplelist_type_default);
+                            popup_type.setImageResource(R.mipmap.people_type_default);
                             break;
                     }
 
