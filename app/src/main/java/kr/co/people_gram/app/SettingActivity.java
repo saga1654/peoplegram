@@ -191,7 +191,7 @@ public class SettingActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.point_add:
-                    intent = new Intent(SettingActivity.this, GramPopupActivity.class);
+                    intent = new Intent(SettingActivity.this, SubGramPoint.class);
                     startActivity(intent);
                     overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
                     break;
