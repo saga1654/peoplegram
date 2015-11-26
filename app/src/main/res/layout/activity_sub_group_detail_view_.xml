@@ -59,26 +59,7 @@
         android:layout_height="wrap_content">
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:gravity="center_vertical"
-            android:background="#fff">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="그룹 내 설정된 멤버로  평가된 결과를 반영한 결과입니다."
-                android:textColor="#000"
-                android:textSize="10dp"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#f1f1f1">
-        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
