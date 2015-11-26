@@ -100,8 +100,8 @@ public class SubMypageFragment extends Fragment {
         WebSettings webSettings2 = chart_webview2.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings2.setJavaScriptEnabled(true);
-        chart_webview.loadUrl("http://121.162.209.41:81/mypage/chart?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=all");
-        chart_webview2.loadUrl("http://121.162.209.41:81/mypage/chart2?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=all");
+        chart_webview.loadUrl("http://app.peoplegram.co.kr/mypage/chart?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=all");
+        chart_webview2.loadUrl("http://app.peoplegram.co.kr/mypage/chart2?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=all");
 
         mWebViewInterface = new WebViewInterface(getActivity(), chart_webview); //JavascriptInterface 객체화
         mWebViewInterface2 = new WebViewInterface(getActivity(), chart_webview2); //JavascriptInterface 객체화
@@ -131,7 +131,7 @@ public class SubMypageFragment extends Fragment {
 
                 WebSettings webSettings = chart_webview.getSettings();
                 webSettings.setJavaScriptEnabled(true);
-                chart_webview.loadUrl("http://121.162.209.41:81/mypage/chart?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=all");
+                chart_webview.loadUrl("http://app.peoplegram.co.kr/mypage/chart?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=all");
                 my_type = "";
             }
         });
@@ -146,7 +146,7 @@ public class SubMypageFragment extends Fragment {
                 people_job_btn.setBackgroundResource(R.drawable.mypage_btn_off);
                 people_client_btn.setBackgroundResource(R.drawable.mypage_btn_off);
 
-                chart_webview2.loadUrl("http://121.162.209.41:81/mypage/chart2?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=all");
+                chart_webview2.loadUrl("http://app.peoplegram.co.kr/mypage/chart2?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=all");
                 people_type = "";
             }
         });
@@ -164,7 +164,7 @@ public class SubMypageFragment extends Fragment {
 
                 WebSettings webSettings = chart_webview.getSettings();
                 webSettings.setJavaScriptEnabled(true);
-                chart_webview.loadUrl("http://121.162.209.41:81/mypage/chart?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=family");
+                chart_webview.loadUrl("http://app.peoplegram.co.kr/mypage/chart?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=family");
 
                 my_type = "P";
             }
@@ -180,7 +180,7 @@ public class SubMypageFragment extends Fragment {
                 people_job_btn.setBackgroundResource(R.drawable.mypage_btn_off);
                 people_client_btn.setBackgroundResource(R.drawable.mypage_btn_off);
 
-                chart_webview2.loadUrl("http://121.162.209.41:81/mypage/chart2?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=family");
+                chart_webview2.loadUrl("http://app.peoplegram.co.kr/mypage/chart2?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=family");
 
                 people_type = "P";
 
@@ -201,7 +201,7 @@ public class SubMypageFragment extends Fragment {
 
                 WebSettings webSettings = chart_webview.getSettings();
                 webSettings.setJavaScriptEnabled(true);
-                chart_webview.loadUrl("http://121.162.209.41:81/mypage/chart?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=friend");
+                chart_webview.loadUrl("http://app.peoplegram.co.kr/mypage/chart?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=friend");
 
                 my_type = "F";
             }
@@ -217,7 +217,7 @@ public class SubMypageFragment extends Fragment {
                 people_job_btn.setBackgroundResource(R.drawable.mypage_btn_off);
                 people_client_btn.setBackgroundResource(R.drawable.mypage_btn_off);
 
-                chart_webview2.loadUrl("http://121.162.209.41:81/mypage/chart2?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=friend");
+                chart_webview2.loadUrl("http://app.peoplegram.co.kr/mypage/chart2?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=friend");
                 people_type = "F";
             }
         });
@@ -235,7 +235,7 @@ public class SubMypageFragment extends Fragment {
 
                 WebSettings webSettings = chart_webview.getSettings();
                 webSettings.setJavaScriptEnabled(true);
-                chart_webview.loadUrl("http://121.162.209.41:81/mypage/chart?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=lover");
+                chart_webview.loadUrl("http://app.peoplegram.co.kr/mypage/chart?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=lover");
 
                 my_type = "L";
             }
@@ -250,7 +250,7 @@ public class SubMypageFragment extends Fragment {
                 people_lover_btn.setBackgroundResource(R.drawable.mypage_btn_on);
                 people_job_btn.setBackgroundResource(R.drawable.mypage_btn_off);
                 people_client_btn.setBackgroundResource(R.drawable.mypage_btn_off);
-                chart_webview2.loadUrl("http://121.162.209.41:81/mypage/chart2?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=lover");
+                chart_webview2.loadUrl("http://app.peoplegram.co.kr/mypage/chart2?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=lover");
                 people_type = "L";
             }
         });
@@ -268,7 +268,7 @@ public class SubMypageFragment extends Fragment {
 
                 WebSettings webSettings = chart_webview.getSettings();
                 webSettings.setJavaScriptEnabled(true);
-                chart_webview.loadUrl("http://121.162.209.41:81/mypage/chart?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=job");
+                chart_webview.loadUrl("http://app.peoplegram.co.kr/mypage/chart?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=job");
 
                 my_type = "C";
             }
@@ -284,7 +284,7 @@ public class SubMypageFragment extends Fragment {
                 people_job_btn.setBackgroundResource(R.drawable.mypage_btn_on);
                 people_client_btn.setBackgroundResource(R.drawable.mypage_btn_off);
 
-                chart_webview2.loadUrl("http://121.162.209.41:81/mypage/chart2?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=job");
+                chart_webview2.loadUrl("http://app.peoplegram.co.kr/mypage/chart2?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=job");
                 people_type = "C";
             }
         });
@@ -298,7 +298,7 @@ public class SubMypageFragment extends Fragment {
                 mypage_lover_btn.setBackgroundResource(R.drawable.mypage_btn_off);
                 mypage_job_btn.setBackgroundResource(R.drawable.mypage_btn_off);
                 mypage_client_btn.setBackgroundResource(R.drawable.mypage_btn_on);
-                chart_webview.loadUrl("http://121.162.209.41:81/mypage/chart?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=client");
+                chart_webview.loadUrl("http://app.peoplegram.co.kr/mypage/chart?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=client");
 
                 my_type = "S";
             }
@@ -314,7 +314,7 @@ public class SubMypageFragment extends Fragment {
                 people_job_btn.setBackgroundResource(R.drawable.mypage_btn_off);
                 people_client_btn.setBackgroundResource(R.drawable.mypage_btn_on);
 
-                chart_webview2.loadUrl("http://121.162.209.41:81/mypage/chart2?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=client");
+                chart_webview2.loadUrl("http://app.peoplegram.co.kr/mypage/chart2?uid=" + SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "uid") + "&type=client");
                 people_type = "S";
             }
         });
