@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -23,6 +24,8 @@ public class SubGramPoint extends AppCompatActivity {
     private TextView mypage_grampoint;
 
     private ImageView point1000, point3000, point5000, point10000;
+
+    private int VIEW_CODE = 62;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,26 +121,26 @@ public class SubGramPoint extends AppCompatActivity {
                 case R.id.point1000:
                     intent = new Intent(SubGramPoint.this, Payment_Activity.class);
                     intent.putExtra("point", "point1000");
-                    startActivity(intent);
+                    startActivityForResult(intent, VIEW_CODE);
                     overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     break;
 
                 case R.id.point3000:
                     intent = new Intent(SubGramPoint.this, Payment_Activity.class);
                     intent.putExtra("point", "point3000");
-                    startActivity(intent);
+                    startActivityForResult(intent, VIEW_CODE);
                     overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     break;
                 case R.id.point5000:
                     intent = new Intent(SubGramPoint.this, Payment_Activity.class);
                     intent.putExtra("point", "point5000");
-                    startActivity(intent);
+                    startActivityForResult(intent, VIEW_CODE);
                     overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     break;
                 case R.id.point10000:
                     intent = new Intent(SubGramPoint.this, Payment_Activity.class);
                     intent.putExtra("point", "point10000");
-                    startActivity(intent);
+                    startActivityForResult(intent, VIEW_CODE);
                     overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     break;
 
@@ -166,8 +169,18 @@ public class SubGramPoint extends AppCompatActivity {
         finish();
     }
 
+
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d("people_gram", "성공="+SharedPreferenceUtil.getSharedPreference(SubGramPoint.this,"point"));
+        mypage_grampoint.setText(Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(SubGramPoint.this,"point"))) + "p");
+    }
+
     public void finish()
     {
+        //SharedPreferenceUtil.putSharedPreference(SubGramPoint.this, "point", "10000");
+        Intent intent = getIntent();
+        setResult(00002, intent);
         super.finish();
         overridePendingTransition(R.anim.end_enter, R.anim.end_exit);
     }

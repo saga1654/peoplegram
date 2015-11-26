@@ -4,9 +4,12 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -27,6 +30,7 @@ import java.util.ArrayList;
 public class GroupWriteActivity extends AppCompatActivity {
 
     private ArrayList<SubGroupPeopleListDTO> people_dto_list;
+    private ArrayList<SubGroupPeopleListDTO_Temp> people_dto_list_temp;
     private SubGroupPeopleListAdapter people_adapter_list;
     private ListView sf_people_list;
     private ProgressDialog dialog;
@@ -34,9 +38,10 @@ public class GroupWriteActivity extends AppCompatActivity {
 
     private LinearLayout groupBtn;
     private EditText group_name;
+    private EditText search_edit_name;
+    private String search_edit_name_string = "";
 
     private String group_code = "";
-    private String group_name_txt = "";
 
 
     @Override
@@ -49,13 +54,15 @@ public class GroupWriteActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent != null) {
             group_code = intent.getStringExtra("group_code");
-            group_name_txt = intent.getStringExtra("group_name");
+            //group_name_txt = intent.getStringExtra("group_name");
         }
+
+        //search_edit_name = (EditText) findViewById(R.id.search_edit_name);
 
         now_cnt = (TextView) findViewById(R.id.now_cnt);
         groupBtn = (LinearLayout) findViewById(R.id.groupBtn);
-        group_name = (EditText) findViewById(R.id.group_name);
-        group_name.setText(group_name_txt);
+        //group_name = (EditText) findViewById(R.id.group_name);
+        //group_name.setText(group_name_txt);
         groupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,6 +81,75 @@ public class GroupWriteActivity extends AppCompatActivity {
                 people_adapter_list.notifyDataSetChanged();
             }
         });
+
+
+        /*
+        TextWatcher watcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                people_dto_list.clear();
+                for(int i = 0; i<people_dto_list_temp.size(); i++) {
+                    search_edit_name_string = String.valueOf(search_edit_name.getText());
+                    Log.d("people_gram", search_edit_name_string);
+
+                    SubGroupPeopleListDTO_Temp dto = people_dto_list_temp.get(i);
+                    //people_adapter_list.setChecked(i);
+                    if(SoundSearcher.matchString(dto.get_profile_username().toString(), search_edit_name_string)) {
+                        Boolean check = dto.get_checked();
+                        people_dto_list.add(new SubGroupPeopleListDTO(
+                                dto.get_profile_uid()
+                                , ""
+                                , dto.get_profile_username()
+                                , dto.get_profile_email()
+                                , dto.get_profile_type()
+                                , ""
+                                , dto.get_profile_gubun1()
+                                , dto.get_profile_gubun2()
+                                , dto.get_profile_speed()
+                                , dto.get_profile_control()
+                                , dto.get_group_count()
+                                , check
+                        ));
+                    }
+                }
+
+                people_adapter_list = new SubGroupPeopleListAdapter(GroupWriteActivity.this, R.layout.sub_group_people_row_list, people_dto_list);
+                sf_people_list.setAdapter(people_adapter_list);
+                //people_adapter_list = new SubPeopleListAdapter(GroupWriteActivity.this, R.layout.sub_people_rowsearch_list, people_dto_list);
+
+
+                //sf_people_list.setAdapter(people_adapter_list);
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        };
+
+        search_edit_name.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                switch (keyCode) {
+                    case KeyEvent.KEYCODE_ENTER:
+                        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(search_edit_name.getWindowToken(), 0);
+                        //finish();
+                        break;
+
+                    default:
+                        break;
+                }
+                return false;
+            }
+        });
+        search_edit_name.addTextChangedListener(watcher);
+        */
     }
 
 
@@ -81,6 +157,7 @@ public class GroupWriteActivity extends AppCompatActivity {
     {
         Log.d("people_gram", "성공");
         people_dto_list = new ArrayList<SubGroupPeopleListDTO>();
+        people_dto_list_temp = new ArrayList<SubGroupPeopleListDTO_Temp>();
         RequestParams params = new RequestParams();
         params.put("uid", SharedPreferenceUtil.getSharedPreference(GroupWriteActivity.this, "uid"));
         params.put("group_code", group_code);
@@ -151,6 +228,22 @@ public class GroupWriteActivity extends AppCompatActivity {
                                 , speed
                                 , control
                                 , jobj.getInt("GROUP_COUNT")
+                                , false
+                        ));
+
+                        people_dto_list_temp.add(new SubGroupPeopleListDTO_Temp(
+                                jobj.getString("PEOPLE_UID")
+                                , ""
+                                , jobj.getString("PEOPLE_USERNAME")
+                                , email
+                                , type
+                                , ""
+                                , gubun1
+                                , gubun2
+                                , speed
+                                , control
+                                , jobj.getInt("GROUP_COUNT")
+                                , false
                         ));
 
 
@@ -179,16 +272,14 @@ public class GroupWriteActivity extends AppCompatActivity {
 
         Log.d("people_gram", String.valueOf(check));
 
-        if(group_name.getText().length() == 0) {
-            Toast.makeText(GroupWriteActivity.this, "그룹이름을 입력해주세요.", Toast.LENGTH_LONG).show();
-        } else {
+
 
             if (check != 0) {
                 RequestParams params = new RequestParams();
                 params.put("uid", SharedPreferenceUtil.getSharedPreference(GroupWriteActivity.this, "uid"));
                 params.put("username", SharedPreferenceUtil.getSharedPreference(GroupWriteActivity.this, "username"));
                 params.put("group_code", group_code);
-                params.put("group_name", group_name.getText().toString());
+                //params.put("group_name", group_name.getText().toString());
                 params.put("people_uid", people_adapter_list.uid_check);
                 params.put("people_username", people_adapter_list.username_check);
                 HttpClient.post("/group/groupWrite", params, new AsyncHttpResponseHandler() {
@@ -216,7 +307,7 @@ public class GroupWriteActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(GroupWriteActivity.this, "그룹에 등록할 피플을 선택해주세요.", Toast.LENGTH_LONG).show();
             }
-        }
+
 
     }
 
