@@ -42,7 +42,8 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_group_detail_view_);
-
+        mytype_tv = (TextView) findViewById(R.id.mytype_tv);
+        mytype_tv.setText(Html.fromHtml("그룹 내 멤버 아무도 진단하지 않았습니다."));
         subgroupdetailview_activity = this;
 
         sf_people_list = (ListView) findViewById(R.id.sf_people_list);
