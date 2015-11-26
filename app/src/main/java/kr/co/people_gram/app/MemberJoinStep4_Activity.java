@@ -75,7 +75,7 @@ public class MemberJoinStep4_Activity extends AppCompatActivity {
                 nickname_string = String.valueOf(et_nickname.getText());
                 nickname_string_cnt = nickname_string.length();
 
-                if(nickname_string_cnt < 3) {
+                if(nickname_string_cnt < 2) {
                     nextLL.setVisibility(View.INVISIBLE);
                 } else {
                     nextLL.setVisibility(View.VISIBLE);
@@ -95,7 +95,7 @@ public class MemberJoinStep4_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 if (enterCheck == false) {
                     enterCheck = true;
-                    if (nickname_string_cnt < 3) {
+                    if (nickname_string_cnt < 2) {
                         Toast.makeText(MemberJoinStep4_Activity.this, "이름을 입력해주세요.", Toast.LENGTH_LONG).show();
                     } else {
                         md.set_nickname(nickname_string);
