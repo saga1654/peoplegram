@@ -96,7 +96,7 @@ public class MemberJoinStep4_Activity extends AppCompatActivity {
                 if (enterCheck == false) {
                     enterCheck = true;
                     if (nickname_string_cnt < 2) {
-                        Toast.makeText(MemberJoinStep4_Activity.this, "이름을 입력해주세요.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MemberJoinStep4_Activity.this, "이름을 2자 이상 입력해주세요.", Toast.LENGTH_LONG).show();
                     } else {
                         md.set_nickname(nickname_string);
                         Intent intent = new Intent(MemberJoinStep4_Activity.this, MemberJoinStep5_Activity.class);
