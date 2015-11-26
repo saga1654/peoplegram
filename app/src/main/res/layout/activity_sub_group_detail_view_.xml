@@ -90,6 +90,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/popup_type"
                 android:background="@android:color/transparent"
+                android:onClick="people_type_btn"
                 android:src="@mipmap/people_type_default" />
 
         </RelativeLayout>
