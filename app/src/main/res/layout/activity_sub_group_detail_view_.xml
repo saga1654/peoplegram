@@ -25,7 +25,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="그룹 내 관계유형"
+                android:text="그룹 내 멤버가 생각하는 유형"
                 android:textSize="16dp"
                 android:textColor="#fff"
                 android:id="@+id/group_name" />
@@ -62,24 +62,82 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="20dp"
+            android:paddingTop="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:paddingBottom="20dp"
+            android:paddingBottom="10dp"
             android:gravity="center_vertical"
             android:background="#fff">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="그룹 내 설정된 멤버로 서로 평가된 결과를 반영한 결과입니다."
+                android:text="그룹 내 설정된 멤버로  평가된 결과를 반영한 결과입니다."
                 android:textColor="#000"
                 android:textSize="12dp"/>
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f1f1f1">
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:gravity="center_vertical"
+            android:background="#fff">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="아래 설정된 그룹 내 멤버가 나를 바라보는 유형"
+                android:gravity="center"
+                android:textColor="#000"
+                android:textSize="18dp"/>
 
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:layout_gravity="center_horizontal">
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/popup_type"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/people_type_default" />
+
+        </RelativeLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:background="#f1f1f1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(조채철)님의 자기진단 결과 (표출형 특징을 가진 주도형) 으로 진단되었습니다."
+                android:gravity="center"
+                android:textSize="14dp"
+                android:lineSpacingExtra="10dp"
+                android:textColor="#000"
+                android:id="@+id/mytype_tv"></TextView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ffffff">
+        </LinearLayout>
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -107,24 +165,6 @@
                         android:text="멤버"
                         android:textColor="#000"
                         android:textSize="12dp"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.50"
-                    android:gravity="right"
-                    android:paddingRight="15dp"
-                    android:paddingBottom="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="그룹 내 진단 피플수"
-                        android:textSize="12dp"
-                        android:textColor="#000" />
-
 
                 </LinearLayout>
 
