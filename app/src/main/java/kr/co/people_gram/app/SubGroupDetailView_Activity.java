@@ -35,7 +35,7 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
     private SubGroupDetailPeopleListAdapter people_adapter_list;
     private ProgressDialog dialog;
     private ListView sf_people_list;
-    private ImageView group_create;
+
 
 
     @Override
@@ -105,7 +105,7 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
             group_name = intent.getStringExtra("group_name");
             Log.d("people_gram", group_code);
         }
-
+/*
         group_create = (ImageView) findViewById(R.id.group_create);
         group_create.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,7 +117,7 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
-
+*/
         peopleList();
     }
 
