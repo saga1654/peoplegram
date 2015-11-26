@@ -154,8 +154,32 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
                 try {
 
                     JSONObject data = new JSONObject(response);
+                    JSONObject my_data = new JSONObject(data.getString("my_data"));
                     JSONArray people_list = data.getJSONArray("people");
 
+                    String people_type = data.getString("peopleType");
+                    int people_speed = my_data.getInt("PEOPLE_SPEED");
+                    int people_control = my_data.getInt("PEOPLE_CONTROL");
+
+                    ImageView popup_type = (ImageView) findViewById(R.id.popup_type);
+
+                    switch (people_type) {
+                        case "I":
+                            popup_type.setImageResource(R.mipmap.peoplelist_type_i);
+                            break;
+                        case "D":
+                            popup_type.setImageResource(R.mipmap.peoplelist_type_d);
+                            break;
+                        case "E":
+                            popup_type.setImageResource(R.mipmap.peoplelist_type_e);
+                            break;
+                        case "A":
+                            popup_type.setImageResource(R.mipmap.peoplelist_type_a);
+                            break;
+                        default:
+                            popup_type.setImageResource(R.mipmap.peoplelist_small_type_defailt);
+                            break;
+                    }
 
 
                     /*
@@ -178,7 +202,6 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
                     my_profile_e_up_cnt = (TextView) rootView.findViewById(R.id.my_profile_e_up_cnt);
                     my_profile_a_up_cnt = (TextView) rootView.findViewById(R.id.my_profile_a_up_cnt);
                     */
-
 
 
                     for (int i = 0; i < people_list.length(); i++) {
@@ -214,27 +237,22 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
                         }
 
 
-
-
-
-                            people_dto_list.add(new SubGroupDetailPeopleListDTO(
-                                    group_code
-                                    ,jobj.getString("PEOPLE_UID")
-                                    , ""
-                                    , jobj.getString("PEOPLE_USERNAME")
-                                    , email
-                                    , type
-                                    , ""
-                                    , gubun1
-                                    , gubun2
-                                    , speed
-                                    , control
-                                    , 0
-                                    , 0
-                                    , 0
-                            ));
-
-
+                        people_dto_list.add(new SubGroupDetailPeopleListDTO(
+                                group_code
+                                , jobj.getString("PEOPLE_UID")
+                                , ""
+                                , jobj.getString("PEOPLE_USERNAME")
+                                , email
+                                , type
+                                , ""
+                                , gubun1
+                                , gubun2
+                                , speed
+                                , control
+                                , 0
+                                , 0
+                                , 0
+                        ));
 
 
                         //Log.d("people_gram", jobj.getInt("NOW_CHECK") + ":::" + jobj.getInt("NOW_MAX"));
