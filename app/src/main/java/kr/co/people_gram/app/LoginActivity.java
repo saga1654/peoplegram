@@ -147,8 +147,8 @@ public class LoginActivity extends AppCompatActivity {
                             }
 
                             SharedPreferenceUtil.putSharedPreference(ActivityContext, "point", user_data.get("POINT").toString());
-                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_speed", "");
-                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_control", "");
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_speed", jobj.getString("speed"));
+                            SharedPreferenceUtil.putSharedPreference(ActivityContext, "my_control", jobj.getString("control"));
                             SharedPreferenceUtil.putSharedPreference(ActivityContext, "panelYN", panel);
                             SharedPreferenceUtil.putSharedPreference(ActivityContext, "email", user_data.getString("EMAIL_RETURN"));
 
