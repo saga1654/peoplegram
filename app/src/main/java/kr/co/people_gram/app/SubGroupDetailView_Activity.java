@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -35,6 +36,8 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
     private SubGroupDetailPeopleListAdapter people_adapter_list;
     private ProgressDialog dialog;
     private ListView sf_people_list;
+
+    private String people_type_return = "";
 
 
 
@@ -169,15 +172,19 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
 
                     switch (people_type) {
                         case "I":
+                            people_type_return = "I";
                             popup_type.setImageResource(R.mipmap.people_type_i);
                             break;
                         case "D":
+                            people_type_return = "D";
                             popup_type.setImageResource(R.mipmap.people_type_d);
                             break;
                         case "E":
+                            people_type_return = "E";
                             popup_type.setImageResource(R.mipmap.people_type_e);
                             break;
                         case "A":
+                            people_type_return = "A";
                             popup_type.setImageResource(R.mipmap.people_type_a);
                             break;
                         default:
@@ -356,5 +363,16 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
     public void detailClose(View v)
     {
         finish();
+    }
+
+    public void people_type_btn(View v) {
+        if(people_type_return.equals("")) {
+            Toast.makeText(SubGroupDetailView_Activity.this, "타인진단 데이터가 존재하지 않습니다.피플들에게 진단을 요청해주세요", Toast.LENGTH_LONG).show();
+        } else {
+            Intent intent = new Intent(SubGroupDetailView_Activity.this, SubMyType_Activity.class);
+            intent.putExtra("mytype", people_type_return);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+        }
     }
 }

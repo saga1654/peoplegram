@@ -79,4 +79,8 @@ public class SubQnaWriteActivity extends AppCompatActivity {
         super.finish();
         overridePendingTransition(R.anim.end_enter, R.anim.end_exit);
     }
+
+    public void qna_prevBtn(View v) {
+        finish();
+    }
 }
