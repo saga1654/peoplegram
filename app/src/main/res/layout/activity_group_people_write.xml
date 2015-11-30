@@ -134,6 +134,11 @@
                         android:layout_height="wrap_content"
                         android:text="멤버 설정"
                         android:textSize="12dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" (나를 진단한 피플 기준)"
+                        android:textSize="10dp"/>
 
                 </LinearLayout>
 
