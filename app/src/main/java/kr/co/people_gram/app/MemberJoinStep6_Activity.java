@@ -123,16 +123,16 @@ public class MemberJoinStep6_Activity extends AppCompatActivity {
                     Toast.makeText(MemberJoinStep6_Activity.this, "2005년보다 작게 입력 해주세요.", Toast.LENGTH_LONG).show();
                     et_year.setText("");
                     et_year.requestFocus();
-                } else if(et_month.getText().toString().length() < 2) {
-                    Toast.makeText(MemberJoinStep6_Activity.this, "월을 2자리로 입력해주세요.", Toast.LENGTH_LONG).show();
-                    et_year.setText("");
-                    et_year.requestFocus();
+                } else if(et_month.getText().toString().length() < 1) {
+                    Toast.makeText(MemberJoinStep6_Activity.this, "월을 입력해주세요", Toast.LENGTH_LONG).show();
+                    et_month.setText("");
+                    et_month.requestFocus();
                 } else if(Integer.parseInt(et_month.getText().toString()) > 12) {
                     Toast.makeText(MemberJoinStep6_Activity.this, "12보다 크게 입력 할 수 없습니다.", Toast.LENGTH_LONG).show();
                     et_month.setText("");
                     et_month.requestFocus();
-                } else if(et_day.getText().toString().length() < 2) {
-                    Toast.makeText(MemberJoinStep6_Activity.this, "일을 2자리로 입력해주세요.", Toast.LENGTH_LONG).show();
+                } else if(et_day.getText().toString().length() < 1) {
+                    Toast.makeText(MemberJoinStep6_Activity.this, "일을 입력해주세요", Toast.LENGTH_LONG).show();
                     et_day.setText("");
                     et_day.requestFocus();
                 } else if(Integer.parseInt(et_day.getText().toString()) > 31) {
@@ -140,7 +140,22 @@ public class MemberJoinStep6_Activity extends AppCompatActivity {
                     et_day.setText("");
                     et_day.requestFocus();
                 } else {
-                    birthday = et_year.getText().toString() + et_month.getText().toString() + et_day.getText().toString();
+
+                    String month = "";
+                    String day = "";
+                    if(Integer.parseInt(et_month.getText().toString()) < 10) {
+                        month = "0"+et_month.getText().toString();
+                    } else {
+                        month = et_month.getText().toString();
+                    }
+
+                    if(Integer.parseInt(et_day.getText().toString()) < 10) {
+                        day = "0" + et_day.getText().toString();
+                    } else {
+                        day = et_day.getText().toString();
+                    }
+
+                    birthday = et_year.getText().toString() + month + et_day.getText().toString();
 
                     md.set_birthtype(birthday_check);
                     md.set_birthday(birthday);

@@ -164,6 +164,7 @@ public class PeopleSync_Activity extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(String response) {
                                         if(response.equals("000")) {
+                                            Log.d("people_gram", "동기화="+check);
                                             if(check == false) {
                                                 Intent intent = new Intent(PeopleSync_Activity.this, MainActivity.class);
                                                 startActivity(intent);
