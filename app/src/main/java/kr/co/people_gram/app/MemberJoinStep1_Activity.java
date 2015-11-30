@@ -25,6 +25,8 @@ public class MemberJoinStep1_Activity extends AppCompatActivity {
 
         md = new MemberData();
 
+        agree_btn = (LinearLayout) findViewById(R.id.agree_btn);
+        userinfo_btn = (LinearLayout) findViewById(R.id.userinfo_btn);
         agree_btn.setOnClickListener(onBtnClickListener);
         userinfo_btn.setOnClickListener(onBtnClickListener);
 
