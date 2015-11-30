@@ -20,7 +20,7 @@ public class SubPeopleFragment_tip extends Fragment {
     private LinearLayout subpeople_menu1, subpeople_menu2, subpeople_menu3, subpeople_menu4, subpeople_menu5, subpeople_menu6;
     private PeopleData pd;
 
-    private TextView MY_std, YOU_std;
+    //private TextView MY_std, YOU_std;
 
     public SubPeopleFragment_tip() {
     }
@@ -36,6 +36,7 @@ public class SubPeopleFragment_tip extends Fragment {
         View rootView = inflater.inflate(R.layout.subpeople_fragment, container, false);
 
 
+        /*
         MY_std = (TextView) rootView.findViewById(R.id.MY_std);
         YOU_std = (TextView) rootView.findViewById(R.id.YOU_std);
 
@@ -51,7 +52,7 @@ public class SubPeopleFragment_tip extends Fragment {
         } else {
             YOU_std.setText("상대방 : 타인 진단 기준");
         }
-
+        */
 
 
         subpeople_menu1 = (LinearLayout) rootView.findViewById(R.id.subpeople_menu1);

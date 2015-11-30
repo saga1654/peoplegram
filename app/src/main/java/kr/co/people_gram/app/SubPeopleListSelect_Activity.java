@@ -1,5 +1,6 @@
 package kr.co.people_gram.app;
 
+import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -76,6 +77,9 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
     private CircularProgressBar c2;
 
+    private LinearLayout tip_view;
+    private TextView MY_std, YOU_std;
+
 
 
 
@@ -101,6 +105,10 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
         people_gubun2 = pd.get_people_gubun2();
         people_speed = pd.get_people_speed();
         people_control = pd.get_people_control();
+
+        tip_view = (LinearLayout) findViewById(R.id.tip_view);
+        MY_std = (TextView) findViewById(R.id.MY_std);
+        YOU_std = (TextView) findViewById(R.id.YOU_std);
 
         paymentResult();
 
@@ -204,10 +212,12 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                             popup_mytype.setBackgroundResource(R.mipmap.people_type_default);
                             break;
                     }
+                    MY_std.setText("나 : 내진단 기준");
                 } else {
 
                     switch (my_sub_type) {
                         case "A":
+                            MY_std.setText("나 : 타인 진단 기준");
                             my_type_check = true;
                             if (listview_youtype_switch.isChecked() == false) {
                                 double total = Utilities.people_match_int(my_sub_speed, people_speed, my_sub_control, people_control);
@@ -219,6 +229,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                             popup_mytype.setBackgroundResource(R.mipmap.people_type_a);
                             break;
                         case "I":
+                            MY_std.setText("나 : 타인 진단 기준");
                             my_type_check = true;
                             if (listview_youtype_switch.isChecked() == false) {
                                 double total = Utilities.people_match_int(my_sub_speed, people_speed, my_sub_control, people_control);
@@ -230,6 +241,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                             popup_mytype.setBackgroundResource(R.mipmap.people_type_i);
                             break;
                         case "E":
+                            MY_std.setText("나 : 타인 진단 기준");
                             my_type_check = true;
                             if (listview_youtype_switch.isChecked() == false) {
                                 double total = Utilities.people_match_int(my_sub_speed, people_speed, my_sub_control, people_control);
@@ -241,6 +253,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                             popup_mytype.setBackgroundResource(R.mipmap.people_type_e);
                             break;
                         case "D":
+                            MY_std.setText("나 : 타인 진단 기준");
                             my_type_check = true;
                             if (listview_youtype_switch.isChecked() == false) {
                                 double total = Utilities.people_match_int(my_sub_speed, people_speed, my_sub_control, people_control);
@@ -252,6 +265,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                             popup_mytype.setBackgroundResource(R.mipmap.people_type_d);
                             break;
                         default:
+                            MY_std.setText("나 : 내 진단 기준");
                             my_type_check = false;
                             listview_mytype_switch.setChecked(false);
 
@@ -312,6 +326,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked == false) {
+                    YOU_std.setText("상대방 : 내 진단 기준");
                     people_type_check = false;
                     switch (people_type) {
                         case "A":
@@ -347,6 +362,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
                     switch (people_sub_type) {
                         case "A":
+                            YOU_std.setText("상대방 : 타인 진단 기준");
                             people_type_check = true;
                             if (listview_mytype_switch.isChecked() == false) {
                                 double total = Utilities.people_match_int(my_speed, people_sub_speed, my_control, people_sub_control);
@@ -362,6 +378,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                             popup_youtype.setBackgroundResource(R.mipmap.people_type_a);
                             break;
                         case "I":
+                            YOU_std.setText("상대방 : 타인 진단 기준");
                             people_type_check = true;
                             popup_youtype.setBackgroundResource(R.mipmap.people_type_i);
                             if (listview_mytype_switch.isChecked() == false) {
@@ -375,6 +392,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                             }
                             break;
                         case "E":
+                            YOU_std.setText("상대방 : 타인 진단 기준");
                             people_type_check = true;
                             popup_youtype.setBackgroundResource(R.mipmap.people_type_e);
                             if (listview_mytype_switch.isChecked() == false) {
@@ -388,6 +406,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                             }
                             break;
                         case "D":
+                            YOU_std.setText("상대방 : 타인 진단 기준");
                             people_type_check = true;
                             popup_youtype.setBackgroundResource(R.mipmap.people_type_d);
                             if (listview_mytype_switch.isChecked() == false) {
@@ -407,6 +426,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
                             break;
                         default:
+                            YOU_std.setText("상대방 : 내 진단 기준");
                             people_type_check = false;
                             /*
                             popup_youtype.setBackgroundResource(R.mipmap.people_type_default);
@@ -485,6 +505,9 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.li_tip1:
+
+                    tip_view.setVisibility(View.GONE);
+
                     tv_tip1.setTextColor(Color.rgb(254, 23, 5));
                     tv_tip2.setTextColor(Color.rgb(0, 0, 0));
                     tv_tip3.setTextColor(Color.rgb(0, 0, 0));
@@ -536,6 +559,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                         tip3_line.setBackgroundColor(Color.rgb(255,255,255));
 
 
+                        tip_view.setVisibility(View.VISIBLE);
 
                         fragmentManager = getSupportFragmentManager();
                         ft = fragmentManager.beginTransaction();
@@ -576,6 +600,9 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                                         tip3_line.setBackgroundColor(Color.rgb(255, 255, 255));
 
 
+                                        tip_view.setVisibility(View.VISIBLE);
+
+
                                         fragmentManager = getSupportFragmentManager();
                                         ft = fragmentManager.beginTransaction();
 
@@ -603,6 +630,8 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
                     break;
                 case R.id.li_tip3:
+                    tip_view.setVisibility(View.GONE);
+
                     if(payment_result == true) {
                         /*
                         li_tip1.setBackgroundColor(Color.rgb(241, 241, 241));

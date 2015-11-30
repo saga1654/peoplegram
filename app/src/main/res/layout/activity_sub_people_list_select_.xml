@@ -448,15 +448,79 @@
             android:layout_below="@+id/linearLayoutHeader1"
             android:layout_centerHorizontal="true" >
 
-
-            <FrameLayout
-                android:orientation="horizontal"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/toolbar"
-                android:id="@+id/fragment_sub_people"
-                android:layout_centerHorizontal="true">
-            </FrameLayout>
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tip_view"
+                    android:visibility="gone">
+
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="1"
+                        android:id="@+id/linearLayout3"
+                        android:padding="10dp"
+                        android:background="#f1f1f1"
+                        android:gravity="right">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.70"
+                            android:gravity="right">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="8dp"
+                                android:textColor="#1d1d26"
+                                android:text="나 : 내진단 기준"
+                                android:gravity="right"
+                                android:id="@+id/MY_std" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.30"
+                            android:gravity="right">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="8dp"
+                                android:textColor="#1d1d26"
+                                android:text="상대방 : 내 진단 기준"
+                                android:layout_marginRight="50dp"
+                                android:id="@+id/YOU_std" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+                <FrameLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/toolbar"
+                    android:id="@+id/fragment_sub_people"
+                    android:layout_centerHorizontal="true">
+                </FrameLayout>
+
+            </LinearLayout>
+
         </ScrollView>
 
 

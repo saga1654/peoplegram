@@ -92,17 +92,19 @@ public class SubPeopleFragment extends Fragment {
     private PopupWindow mPopupWindow;
     private ImageView guide_content_1;
 
+
     public SubPeopleFragment() {
+    }
+
+    public void test()
+    {
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.sub_fragment_people, container, false);
         View header = inflater.inflate(R.layout.sub_people_header, null, false);
-
-
-
-
 
         nc = new NetworkCheck();
 
