@@ -71,7 +71,11 @@ public class SubPeopleMatchListAdapter extends BaseAdapter{
 
 
         listview_people_list_username.setText(dto.get_profile_username());
-        listview_people_list_email.setText(dto.get_profile_email());
+        if(dto.get_profile_email().equals("null")) {
+            listview_people_list_email.setText("미가입");
+        } else {
+            listview_people_list_email.setText(dto.get_profile_email());
+        }
         listview_people_list_match_value.setText(String.valueOf(Math.round(dto.get_profile_match_value())) + "%");
 
 
