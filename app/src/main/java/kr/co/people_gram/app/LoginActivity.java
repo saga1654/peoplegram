@@ -124,13 +124,14 @@ public class LoginActivity extends AppCompatActivity {
 
                 try {
                     JSONObject jobj = new JSONObject(response);
-                    JSONObject user_data = new JSONObject(jobj.getString("user_data"));
+
                     String code = jobj.getString("code");
                     String panel = jobj.getString("panel");
 
 
                     switch (code.toString()) {
                         case "000":
+                            JSONObject user_data = new JSONObject(jobj.getString("user_data"));
                             String uid = user_data.getString("UID");
                             String username = user_data.getString("USERNICKNAME");
                             String mytype = user_data.getString("MYTYPE");

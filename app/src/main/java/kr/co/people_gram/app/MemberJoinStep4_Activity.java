@@ -98,6 +98,7 @@ public class MemberJoinStep4_Activity extends AppCompatActivity {
                     if (nickname_string_cnt < 2) {
                         Toast.makeText(MemberJoinStep4_Activity.this, "이름을 2자 이상 입력해주세요.", Toast.LENGTH_LONG).show();
                     } else {
+                        hideSoftKeyboard(v);
                         md.set_nickname(nickname_string);
                         Intent intent = new Intent(MemberJoinStep4_Activity.this, MemberJoinStep5_Activity.class);
                         startActivity(intent);
@@ -138,10 +139,15 @@ public class MemberJoinStep4_Activity extends AppCompatActivity {
 
 
 
-    public void closeMember(View v)
-    {
+    public void closeMember(View v) {
         finish();
     }
+
+    protected void hideSoftKeyboard(View view) {
+        InputMethodManager mgr = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        mgr.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
 
 
 

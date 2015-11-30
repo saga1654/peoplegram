@@ -224,6 +224,8 @@ public class MemberJoinStep7_Activity extends AppCompatActivity {
                                 SharedPreferenceUtil.putSharedPreference(MemberJoinStep7_Activity.this, "my_control", "");
                                 SharedPreferenceUtil.putSharedPreference(MemberJoinStep7_Activity.this, "panelYN", panel_YN);
 
+                                LoginActivity.loginActivity.finish();
+
                                 Intent intent = new Intent(MemberJoinStep7_Activity.this, MemberComplate_Activity.class);
                                 startActivity(intent);
                                 overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);

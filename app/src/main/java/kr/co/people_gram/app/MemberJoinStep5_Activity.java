@@ -1,11 +1,13 @@
 package kr.co.people_gram.app;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -25,6 +27,7 @@ public class MemberJoinStep5_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_member_join_step5_);
 
         Log.d("people_gram", "성별 실행");
+
 
         md = new MemberData();
 
