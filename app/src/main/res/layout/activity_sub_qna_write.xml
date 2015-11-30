@@ -75,17 +75,17 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.90"
+            android:layout_weight="1"
             android:padding="10dp">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/qna_subjectQ"
                 android:gravity="top"
-                android:background="@drawable/qna_style"
+               android:background="@drawable/qna_style"
                 android:singleLine="false"
                 android:padding="10dp"
-                android:textColor="#000" />
+                android:textColor="#0000" />
 
         </LinearLayout>
 
