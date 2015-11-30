@@ -7,17 +7,18 @@ public class QnaDTO {
     String title;
     String create_join;
     String code;
-    String qna_yn;
+    String answer_result;
 
     public QnaDTO()
     {
     }
 
-    public QnaDTO(String code, String title, String create_join, String qna_yn)
+    public QnaDTO(String code, String title, String create_join, String answer_result)
     {
         this.code = code;
         this.title = title;
         this.create_join = create_join;
+        this.answer_result = answer_result;
     }
 
     public void set_QnaCode(String code) { this.code = code; }
@@ -38,6 +39,6 @@ public class QnaDTO {
     }
     public String get_CreateJoin() { return this.create_join; }
 
-    public void set_QnaYn(String qna_yn) { this.qna_yn = qna_yn; }
-    public String get_QnaYn() { return this.qna_yn; }
+    public void set_answer_result(String answer_result) { this.answer_result = answer_result; }
+    public String get_answer_result() { return this.answer_result; }
 }
