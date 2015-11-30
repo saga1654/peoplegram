@@ -8,8 +8,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
+
         android:id="@+id/linearLayout2"
         android:background="#32354d">
 
