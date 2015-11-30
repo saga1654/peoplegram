@@ -50,6 +50,7 @@ public class KakaoLinkMainActivity extends BaseActivity {
             //kakaoTalkLinkMessageBuilder.addAppLink("자세히 보기", new AppActionBuilder().setUrl("market://details?id=kr.co.people_gram.app").build()); // PC 카카오톡 에서 사용하게 될 웹사이트 주소
             //kakaoTalkLinkMessageBuilder.addText("피플그램 접속").addAppButton("kakao0009ba5b604d156639ccb9670f4aabef://kakaolink?execparamkey1=1111 ", new AppActionBuilder().setUrl("http://www.peoplegram.co.kr").build()); // PC 카카오톡 에서 사용하게 될 웹사이트 주소
             kakaoLink.sendMessage(kakaoTalkLinkMessageBuilder, this);
+            finish();
 
         } catch (KakaoParameterException e) {
             Log.d("people_gram", "실패");
