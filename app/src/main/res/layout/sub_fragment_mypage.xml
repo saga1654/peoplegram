@@ -314,7 +314,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="나를 진단한 피플현황"
+                android:text="나를 바라보는 타입현황"
                 android:textSize="14dp"
                 android:textColor="#1d1d26" />
 
