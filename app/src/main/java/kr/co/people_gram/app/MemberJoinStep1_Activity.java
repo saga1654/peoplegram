@@ -10,12 +10,13 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.LinearLayout;
 
 
 public class MemberJoinStep1_Activity extends AppCompatActivity {
     private String PhoneNumber, telecom;
     private MemberData md;
-    private Intent intent;
+    private LinearLayout agree_btn, userinfo_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,9 @@ public class MemberJoinStep1_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_member_join_step1_);
 
         md = new MemberData();
+
+        agree_btn.setOnClickListener(onBtnClickListener);
+        userinfo_btn.setOnClickListener(onBtnClickListener);
 
         TelephonyManager systemService = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
         try {
@@ -76,6 +80,9 @@ public class MemberJoinStep1_Activity extends AppCompatActivity {
     private View.OnClickListener onBtnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            Intent intent = new Intent();
+
+
             switch (v.getId()) {
 
                 case R.id.agree_btn:
