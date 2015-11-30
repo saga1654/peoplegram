@@ -68,8 +68,8 @@ public class SubPeopleListAdapter extends BaseAdapter{
 
         TextView listview_people_list_new_cnt = (TextView) convertView.findViewById(R.id.listview_people_list_new_cnt);
 
-        listview_people_list_username.setText(dto.get_profile_username());
-        listview_people_list_email.setText(dto.get_profile_email());
+        listview_people_list_username.setText(dto.get_profile_username().trim());
+        listview_people_list_email.setText(dto.get_profile_email().trim());
         listview_people_list_cnt.setText(dto.get_profile_cnt() + "명");
 
         //Log.d("people_gram", String.valueOf(dto.get_profile_new_cnt()));
