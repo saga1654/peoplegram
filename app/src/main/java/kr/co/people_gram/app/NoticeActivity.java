@@ -2,12 +2,15 @@ package kr.co.people_gram.app;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 
@@ -27,12 +30,14 @@ public class NoticeActivity extends AppCompatActivity {
 
     private ProgressDialog dialog;
     ExpandableListAdapter listAdapter;
-    ExpandableListView expListView;
+    ListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
     private Context mContext;
 
     private TextView top_title;
+    private NoticeAdapter notice_adapter;
+    private ArrayList<NoticeDTO> noticeDTOList;
 
 
 
@@ -45,8 +50,21 @@ public class NoticeActivity extends AppCompatActivity {
         top_title.setText("공지사항");
 
 
-        expListView = (ExpandableListView) findViewById(R.id.lvExp);
-        expListView.setGroupIndicator(null);
+        noticeDTOList = new ArrayList<NoticeDTO>();
+
+
+        expListView = (ListView) findViewById(R.id.lvExp);
+        expListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                NoticeDTO dto = (NoticeDTO) expListView.getItemAtPosition(position);
+                Intent intent = new Intent(NoticeActivity.this, NoticeViewActivity.class);
+                intent.putExtra("CODE", dto.get_NoticeCode());
+                startActivity(intent);
+                overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+            }
+        });
+        //expListView.setGroupIndicator(null);
         //prepareListData();
 
         RequestParams params = new RequestParams();
@@ -74,36 +92,35 @@ public class NoticeActivity extends AppCompatActivity {
                 try {
                     JSONArray noticeList = new JSONArray(response);
 
-                    listDataHeader = new ArrayList<String>();
-                    listDataChild = new HashMap<String, List<String>>();
-
-
                     for(int i = 0; i < noticeList.length(); i++) {
                         JSONObject jobj = noticeList.getJSONObject(i);
-                        /*
+
+
                         noticeDTOList.add(new NoticeDTO(
                                 jobj.getString("CODE")
                                 , jobj.getString("SUBJECT")
                                 , jobj.getString("CREATE_DATE")
                         ));
 
-                        notice_adapter = new NoticeAdapter(getBaseContext(), R.layout.activity_notice_rowlist, noticeDTOList);
-                        listview_noticeList.setAdapter(notice_adapter);
-                        */
 
 
 
+
+
+                        /*
                         listDataHeader.add(jobj.getString("SUBJECT") + "///" + jobj.getString("CREATE_DATE"));
                         List<String> nowShowing = new ArrayList<String>();
                         nowShowing.add(jobj.getString("CONTENTS"));
                         listDataChild.put(listDataHeader.get(i), nowShowing);
                         listAdapter = new NoticeAdapter(NoticeActivity.this, listDataHeader, listDataChild);
+                        */
 
                     }
 
 
-
-                    expListView.setAdapter(listAdapter);
+                    notice_adapter = new NoticeAdapter(getBaseContext(), R.layout.activity_notice_rowlist, noticeDTOList);
+                    expListView.setAdapter(notice_adapter);
+                    //expListView.setAdapter(listAdapter);
 
 
 

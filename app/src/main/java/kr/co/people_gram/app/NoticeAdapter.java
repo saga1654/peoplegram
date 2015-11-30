@@ -4,113 +4,71 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseExpandableListAdapter;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import java.util.HashMap;
-import java.util.List;
+import java.util.ArrayList;
 
 
 /**
  * Created by 광희 on 2015-09-18.
  */
-public class NoticeAdapter extends BaseExpandableListAdapter {
-    private Context _context;
-    private List<String> _listDataHeader; // header titles
-    // child data in format of header title, child title
-    private HashMap<String, List<String>> _listDataChild;
+public class NoticeAdapter extends BaseAdapter {
+    private Context mContext;
+
+    private int layout;
+    private ArrayList<NoticeDTO> contentsList;
+    LayoutInflater inf;
 
 
-    public NoticeAdapter(Context context, List<String> listDataHeader, HashMap<String, List<String>> listChildData) {
-        this._context = context;
-        this._listDataHeader = listDataHeader;
-        this._listDataChild = listChildData;
+    public NoticeAdapter(Context mContext, int layout, ArrayList<NoticeDTO> contentsList)
+    {
+        this.mContext = mContext;
+        this.layout = layout;
+        this.contentsList = contentsList;
+        inf = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View convertView = inf.inflate(layout, null);
     }
 
     @Override
-    public Object getChild(int groupPosition, int childPosititon) {
-        return this._listDataChild.get(this._listDataHeader.get(groupPosition))
-                .get(childPosititon);
+    public int getCount() {
+        return contentsList.size();
     }
 
     @Override
-    public long getChildId(int groupPosition, int childPosition) {
-        return childPosition;
+    public Object getItem(int position) {
+        return contentsList.get(position);
     }
 
     @Override
-    public View getChildView(int groupPosition, final int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+    public long getItemId(int position) {
+        return position;
+    }
 
-        final String childText = (String) getChild(groupPosition, childPosition);
-
-        if (convertView == null) {
-            LayoutInflater infalInflater = (LayoutInflater) this._context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = infalInflater.inflate(R.layout.activity_notice_rowlist, null);
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        if(convertView == null) {
+            convertView = inf.inflate(layout, null);
         }
 
-        TextView txtListChild = (TextView) convertView
-                .findViewById(R.id.lblListItem);
+        NoticeDTO dto = contentsList.get(position);
 
-        txtListChild.setText(childText);
+
+        TextView noticeTitle = (TextView) convertView.findViewById(R.id.noticeTitle);
+        TextView noticedatetime = (TextView) convertView.findViewById(R.id.noticedatetime);
+        noticeTitle.setText(dto.get_NoticeTitle());
+        noticedatetime.setText(dto.get_CreateJoin());
+
+        /*
+        TextView qnaTitle = (TextView) convertView.findViewById(R.id.qnaTitle);
+        TextView qna_datetime = (TextView) convertView.findViewById(R.id.qnadatetime);
+
+
+        qnaTitle.setText(dto.get_QnaTitle());
+        qna_datetime.setText(dto.get_CreateJoin());
+        */
 
 
         return convertView;
     }
-
-    @Override
-    public int getChildrenCount(int groupPosition) {
-        return this._listDataChild.get(this._listDataHeader.get(groupPosition))
-                .size();
-    }
-
-    @Override
-    public Object getGroup(int groupPosition) {
-        return this._listDataHeader.get(groupPosition);
-    }
-
-    @Override
-    public int getGroupCount() {
-        return this._listDataHeader.size();
-    }
-
-    @Override
-    public long getGroupId(int groupPosition) {
-        return groupPosition;
-    }
-
-    @Override
-    public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        String headerTitle = (String) getGroup(groupPosition);
-
-        if (convertView == null) {
-            LayoutInflater infalInflater = (LayoutInflater) this._context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = infalInflater.inflate(R.layout.activity_notice_group, null);
-        }
-
-        TextView lblListHeader = (TextView) convertView
-                .findViewById(R.id.lblListHeader);
-        TextView lblListdatetime = (TextView) convertView
-                .findViewById(R.id.lblListdatetime);
-
-        String[] temp = headerTitle.split("///");
-
-        lblListHeader.setText(temp[0]);
-        lblListdatetime.setText(temp[1]);
-
-
-        return convertView;
-    }
-
-    @Override
-    public boolean hasStableIds() {
-        return false;
-    }
-
-    @Override
-    public boolean isChildSelectable(int groupPosition, int childPosition) {
-        return true;
-    }
-
 }

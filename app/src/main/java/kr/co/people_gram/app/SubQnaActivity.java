@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -35,6 +36,18 @@ public class SubQnaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sub_qna);
 
         listView = (ListView) findViewById(R.id.listView);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                QnaDTO dto = (QnaDTO) listView.getItemAtPosition(position);
+                Intent intent = new Intent(SubQnaActivity.this, SubQnaViewActivity.class);
+                Log.d("people_gram", dto.get_QnaCode());
+                intent.putExtra("CODE", dto.get_QnaCode());
+                startActivity(intent);
+                overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+            }
+        });
+
         //qnaData();
     }
 

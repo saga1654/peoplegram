@@ -200,7 +200,7 @@ public class LogoActivity extends AppCompatActivity {
             public void run() {
                 frameAnimation.stop();
 
-                if(Utilities.getNetworkType(LogoActivity.this) != 3) {
+                //if(Utilities.getNetworkType(LogoActivity.this) != 3) {
                     if (SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "uid") == "") {
                         if (SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "intro") == "Y") {
                             Intent intent = new Intent(LogoActivity.this, LoginActivity.class);
@@ -264,6 +264,7 @@ public class LogoActivity extends AppCompatActivity {
                             }
                         });
                     }
+                /*
                 } else {
                     new AlertDialog.Builder(LogoActivity.this)
                             .setTitle("프로그램 종료")
@@ -278,6 +279,7 @@ public class LogoActivity extends AppCompatActivity {
                             })
                             .show();
                 }
+                */
             }
         };
         timer.schedule(timerTask, totalDuration);

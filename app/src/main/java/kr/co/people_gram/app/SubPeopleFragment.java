@@ -217,6 +217,7 @@ public class SubPeopleFragment extends Fragment {
 
                         @Override
                         public void onSuccess(String response) {
+                            Log.d("people_gram", response);
                             try {
                                 JSONObject data = new JSONObject(response);
 

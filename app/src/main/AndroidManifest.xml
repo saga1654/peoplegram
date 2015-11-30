@@ -444,7 +444,17 @@
         <activity
             android:name=".GuideActivityStep1"
             android:label="@string/title_activity_guide_activity_step1"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".SubQnaViewActivity"
+            android:label="@string/title_activity_sub_qna_view"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".NoticeViewActivity"
+            android:label="@string/title_activity_notice_view"
+            android:theme="@style/AppTheme" >
         </activity>
     </application>
 
