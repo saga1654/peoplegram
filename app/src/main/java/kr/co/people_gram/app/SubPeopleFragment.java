@@ -992,97 +992,85 @@ public class SubPeopleFragment extends Fragment {
                     c_cnt = 0;
                     s_cnt = 0;
                     n_cnt = 0;
-                    for (int i = 0; i < people_list.length(); i++) {
-                        JSONObject jobj = people_list.getJSONObject(i);
+                    if(people_list.length() == 0) {
+                        Intent intent = new Intent(getActivity(), PeopleSync_Activity.class);
+                        intent.putExtra("mypage", "ok");
+                        startActivityForResult(intent, ACTIVITY_CODE);
+                        getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                    } else {
+                        for (int i = 0; i < people_list.length(); i++) {
+                            JSONObject jobj = people_list.getJSONObject(i);
 
-                        String email = "";
-                        String type = "";
-                        String gubun1 = "";
-                        String gubun2 = "";
-                        int speed = 0;
-                        int control = 0;
+                            String email = "";
+                            String type = "";
+                            String gubun1 = "";
+                            String gubun2 = "";
+                            int speed = 0;
+                            int control = 0;
 
-                        if (jobj.getString("JOIN_EMAIL").equals("null") == false) {
-                            email = jobj.getString("JOIN_EMAIL");
-                        } else {
-                            email = "미가입";
-                        }
-                        if (jobj.getString("YOU_TYPE") != "null") {
-                            type = jobj.getString("YOU_TYPE");
-                        }
-                        if (jobj.getString("GUBUN1") != "null") {
-                            gubun1 = jobj.getString("GUBUN1");
-                        }
-                        if (jobj.getString("GUBUN2") != "null") {
-                            gubun2 = jobj.getString("GUBUN2");
-                        }
+                            if (jobj.getString("JOIN_EMAIL").equals("null") == false) {
+                                email = jobj.getString("JOIN_EMAIL");
+                            } else {
+                                email = "미가입";
+                            }
+                            if (jobj.getString("YOU_TYPE") != "null") {
+                                type = jobj.getString("YOU_TYPE");
+                            }
+                            if (jobj.getString("GUBUN1") != "null") {
+                                gubun1 = jobj.getString("GUBUN1");
+                            }
+                            if (jobj.getString("GUBUN2") != "null") {
+                                gubun2 = jobj.getString("GUBUN2");
+                            }
 
-                        if (jobj.getString("SPEED") != "null") {
-                            speed = Integer.parseInt(jobj.getString("SPEED"));
-                        }
-                        if (jobj.getString("CONTROL") != "null") {
-                            control = Integer.parseInt(jobj.getString("CONTROL"));
-                        }
+                            if (jobj.getString("SPEED") != "null") {
+                                speed = Integer.parseInt(jobj.getString("SPEED"));
+                            }
+                            if (jobj.getString("CONTROL") != "null") {
+                                control = Integer.parseInt(jobj.getString("CONTROL"));
+                            }
 
-                        all_cnt++;
+                            all_cnt++;
 
-                        if (gubun1.equals("P")) {
-                            p_cnt++;
-                        } else if (gubun1.equals("F")) {
-                            f_cnt++;
-                        } else if (gubun1.equals("L")) {
-                            l_cnt++;
-                        } else if (gubun1.equals("C")) {
-                            c_cnt++;
-                        } else if (gubun1.equals("S")) {
-                            s_cnt++;
-                        } else {
-                            n_cnt++;
-                        }
+                            if (gubun1.equals("P")) {
+                                p_cnt++;
+                            } else if (gubun1.equals("F")) {
+                                f_cnt++;
+                            } else if (gubun1.equals("L")) {
+                                l_cnt++;
+                            } else if (gubun1.equals("C")) {
+                                c_cnt++;
+                            } else if (gubun1.equals("S")) {
+                                s_cnt++;
+                            } else {
+                                n_cnt++;
+                            }
 
-                        switch (searchType) {
-                            case "ALL":
-                                people_cnt.setText("전체 (" + String.valueOf(all_cnt) + "명)");
-                                break;
-                            case "P":
-                                people_cnt.setText("가족 (" + String.valueOf(p_cnt) + "명)");
-                                break;
-                            case "F":
-                                people_cnt.setText("친구 (" + String.valueOf(f_cnt) + "명)");
-                                break;
-                            case "L":
-                                people_cnt.setText("연인 (" + String.valueOf(l_cnt) + "명)");
-                                break;
-                            case "C":
-                                people_cnt.setText("직장 (" + String.valueOf(c_cnt) + "명)");
-                                break;
-                            case "S":
-                                people_cnt.setText("고객 (" + String.valueOf(s_cnt) + "명)");
-                                break;
-                        }
+                            switch (searchType) {
+                                case "ALL":
+                                    people_cnt.setText("전체 (" + String.valueOf(all_cnt) + "명)");
+                                    break;
+                                case "P":
+                                    people_cnt.setText("가족 (" + String.valueOf(p_cnt) + "명)");
+                                    break;
+                                case "F":
+                                    people_cnt.setText("친구 (" + String.valueOf(f_cnt) + "명)");
+                                    break;
+                                case "L":
+                                    people_cnt.setText("연인 (" + String.valueOf(l_cnt) + "명)");
+                                    break;
+                                case "C":
+                                    people_cnt.setText("직장 (" + String.valueOf(c_cnt) + "명)");
+                                    break;
+                                case "S":
+                                    people_cnt.setText("고객 (" + String.valueOf(s_cnt) + "명)");
+                                    break;
+                            }
 
 
-                        //Log.d("people_gram", searchType);
+                            //Log.d("people_gram", searchType);
 
-                        if (searchType.equals("ALL")) {
-                            people_dto_list.add(new SubPeopleListDTO(
-                                    jobj.getString("PEOPLE_UID")
-                                    , ""
-                                    , jobj.getString("PEOPLE_USERNAME")
-                                    , email
-                                    , type
-                                    , ""
-                                    , gubun1
-                                    , gubun2
-                                    , speed
-                                    , control
-                                    , jobj.getInt("TOTAL_COUNT")
-                                    , jobj.getInt("FRIEND_COUNT")
-                                    , jobj.getInt("NOW_MAX")
-                            ));
-                        } else {
-
-                            if (gubun1.equals(searchType)) {
+                            if (searchType.equals("ALL")) {
                                 people_dto_list.add(new SubPeopleListDTO(
                                         jobj.getString("PEOPLE_UID")
                                         , ""
@@ -1098,41 +1086,60 @@ public class SubPeopleFragment extends Fragment {
                                         , jobj.getInt("FRIEND_COUNT")
                                         , jobj.getInt("NOW_MAX")
                                 ));
+                            } else {
+
+                                if (gubun1.equals(searchType)) {
+                                    people_dto_list.add(new SubPeopleListDTO(
+                                            jobj.getString("PEOPLE_UID")
+                                            , ""
+                                            , jobj.getString("PEOPLE_USERNAME")
+                                            , email
+                                            , type
+                                            , ""
+                                            , gubun1
+                                            , gubun2
+                                            , speed
+                                            , control
+                                            , jobj.getInt("TOTAL_COUNT")
+                                            , jobj.getInt("FRIEND_COUNT")
+                                            , jobj.getInt("NOW_MAX")
+                                    ));
+                                }
                             }
+
+
+                            people_dto_list_temp.add(new SubPeopleListDTO_Temp(
+                                    jobj.getString("PEOPLE_UID")
+                                    , ""
+                                    , jobj.getString("PEOPLE_USERNAME")
+                                    , email
+                                    , type
+                                    , ""
+                                    , gubun1
+                                    , gubun2
+                                    , speed
+                                    , control
+                                    , jobj.getInt("TOTAL_COUNT")
+                                    , jobj.getInt("FRIEND_COUNT")
+                                    , jobj.getInt("NOW_MAX")
+                            ));
+
                         }
 
+                        people_adapter_list = new SubPeopleListAdapter(getActivity().getBaseContext(), R.layout.sub_people_row_list, people_dto_list);
+                        sf_people_list.setAdapter(people_adapter_list);
 
-                        people_dto_list_temp.add(new SubPeopleListDTO_Temp(
-                                jobj.getString("PEOPLE_UID")
-                                , ""
-                                , jobj.getString("PEOPLE_USERNAME")
-                                , email
-                                , type
-                                , ""
-                                , gubun1
-                                , gubun2
-                                , speed
-                                , control
-                                , jobj.getInt("TOTAL_COUNT")
-                                , jobj.getInt("FRIEND_COUNT")
-                                , jobj.getInt("NOW_MAX")
-                        ));
+                        sf_people_list.setSelection(pos);
 
+
+                        et_all_cnt.setText(String.valueOf(all_cnt));
+                        et_p_cnt.setText(String.valueOf(p_cnt));
+                        et_f_cnt.setText(String.valueOf(f_cnt));
+                        et_l_cnt.setText(String.valueOf(l_cnt));
+                        et_c_cnt.setText(String.valueOf(c_cnt));
+                        et_s_cnt.setText(String.valueOf(s_cnt));
+                        et_n_cnt.setText(String.valueOf(n_cnt));
                     }
-
-                    people_adapter_list = new SubPeopleListAdapter(getActivity().getBaseContext(), R.layout.sub_people_row_list, people_dto_list);
-                    sf_people_list.setAdapter(people_adapter_list);
-
-                    sf_people_list.setSelection(pos);
-
-
-                    et_all_cnt.setText(String.valueOf(all_cnt));
-                    et_p_cnt.setText(String.valueOf(p_cnt));
-                    et_f_cnt.setText(String.valueOf(f_cnt));
-                    et_l_cnt.setText(String.valueOf(l_cnt));
-                    et_c_cnt.setText(String.valueOf(c_cnt));
-                    et_s_cnt.setText(String.valueOf(s_cnt));
-                    et_n_cnt.setText(String.valueOf(n_cnt));
 
 
                     //Log.d("people_gram", all_cnt + "::" + p_cnt + "::" + f_cnt + "::" + c_cnt + "::" + c_cnt + ":::" + s_cnt + "::" + n_cnt);
