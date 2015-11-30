@@ -15,7 +15,7 @@ import android.view.View;
 public class MemberJoinStep1_Activity extends AppCompatActivity {
     private String PhoneNumber, telecom;
     private MemberData md;
-
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +73,26 @@ public class MemberJoinStep1_Activity extends AppCompatActivity {
         overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
         super.finish();
     }
+    private View.OnClickListener onBtnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
 
+                case R.id.agree_btn:
+                    intent = new Intent(MemberJoinStep1_Activity.this, Setting_UserAgreeActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+                    break;
+                case R.id.userinfo_btn:
+                    intent = new Intent(MemberJoinStep1_Activity.this, Setting_UserInfoActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+                    break;
+
+
+            }
+        }
+    };
     public void closeMember(View v) {
         finish();
     }
