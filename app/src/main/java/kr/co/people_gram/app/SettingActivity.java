@@ -20,6 +20,9 @@ import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class SettingActivity extends AppCompatActivity {
 
     private TextView top_title;
@@ -81,7 +84,7 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 String push_yn = "N";
-                if(isChecked == true) {
+                if (isChecked == true) {
                     push_yn = "Y";
                 } else {
                     push_yn = "N";
@@ -92,16 +95,47 @@ public class SettingActivity extends AppCompatActivity {
                 params.put("push_yn", push_yn);
                 HttpClient.post("/user/pushSetting", params, new AsyncHttpResponseHandler() {
                     public void onStart() {
-                        dialog = ProgressDialog.show(SettingActivity.this, "", "데이터 수신중");
+                        //dialog = ProgressDialog.show(SettingActivity.this, "", "데이터 수신중");
                     }
 
                     public void onFinish() {
-                        dialog.dismiss();
+                        //dialog.dismiss();
                     }
 
                     @Override
                     public void onSuccess(String response) {
-                        if(response.equals("000") == false) {
+                        if (response.equals("000") == false) {
+                            Toast.makeText(SettingActivity.this, "다시 시도해주세요.", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+            }
+        });
+
+        push_survey.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                String panel_push_yn = "N";
+                if (isChecked == true) {
+                    panel_push_yn = "Y";
+                } else {
+                    panel_push_yn = "N";
+                }
+
+                RequestParams params = new RequestParams();
+                params.put("uid", SharedPreferenceUtil.getSharedPreference(SettingActivity.this, "uid"));
+                params.put("panel_push_yn", panel_push_yn);
+                HttpClient.post("/user/surveyPushSetting", params, new AsyncHttpResponseHandler() {
+                    public void onStart() {
+                    }
+
+                    public void onFinish() {
+
+                    }
+
+                    @Override
+                    public void onSuccess(String response) {
+                        if (response.equals("000") == false) {
                             Toast.makeText(SettingActivity.this, "다시 시도해주세요.", Toast.LENGTH_LONG).show();
                         }
                     }
@@ -109,6 +143,7 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void pushdata() {
         RequestParams params = new RequestParams();
@@ -125,11 +160,31 @@ public class SettingActivity extends AppCompatActivity {
             }
 
             public void onSuccess(String response) {
+                try {
+                    JSONObject jobj = new JSONObject(response);
+
+                    if(jobj.getString("PUSH_YN").equals("Y")) {
+                        push_switch.setChecked(true);
+                    } else {
+                        push_switch.setChecked(false);
+                    }
+
+                    if(jobj.getString("SURVEY_PUSH_YN").equals("Y")) {
+                        push_survey.setChecked(true);
+                    } else {
+                        push_survey.setChecked(false);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                /*
                 if(response.equals("Y")) {
                     push_switch.setChecked(true);
                 } else {
                     push_switch.setChecked(false);
                 }
+                */
             }
         });
     }

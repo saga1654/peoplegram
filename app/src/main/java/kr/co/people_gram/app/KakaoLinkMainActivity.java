@@ -44,12 +44,14 @@ public class KakaoLinkMainActivity extends BaseActivity {
             kakaoTalkLinkMessageBuilder.addAppButton("피플그램", new AppActionBuilder()
                     .addActionInfo(AppActionInfoBuilder.createAndroidActionInfoBuilder().setExecuteParam("execparamkey2=2222").setMarketParam("referrer=kakaotalklink").build())
                     .addActionInfo(AppActionInfoBuilder.createiOSActionInfoBuilder(AppActionBuilder.DEVICE_TYPE.PHONE).setExecuteParam("execparamkey2=2222").build())
-                    .setUrl("http://www.peoplegram.co.kr").build());
+                    //.setUrl("http://www.peoplegram.co.kr")
+                    .build());
 
 
             //kakaoTalkLinkMessageBuilder.addAppLink("자세히 보기", new AppActionBuilder().setUrl("market://details?id=kr.co.people_gram.app").build()); // PC 카카오톡 에서 사용하게 될 웹사이트 주소
             //kakaoTalkLinkMessageBuilder.addText("피플그램 접속").addAppButton("kakao0009ba5b604d156639ccb9670f4aabef://kakaolink?execparamkey1=1111 ", new AppActionBuilder().setUrl("http://www.peoplegram.co.kr").build()); // PC 카카오톡 에서 사용하게 될 웹사이트 주소
             kakaoLink.sendMessage(kakaoTalkLinkMessageBuilder, this);
+            finish();
 
         } catch (KakaoParameterException e) {
             Log.d("people_gram", "실패");
@@ -83,7 +85,7 @@ public class KakaoLinkMainActivity extends BaseActivity {
                         new AppActionBuilder()
                                 .addActionInfo(AppActionInfoBuilder.createAndroidActionInfoBuilder().setExecuteParam("execparamkey1=1111").setMarketParam("referrer=kakaotalklink").build())
                                 .addActionInfo(AppActionInfoBuilder.createiOSActionInfoBuilder(AppActionBuilder.DEVICE_TYPE.PHONE).setExecuteParam("execparamkey1=1111").build())
-                                .setUrl("http://www.kakao.com")
+                                //.setUrl("http://www.kakao.com")
                                 .build());
             }
             // 웹싸이트에 등록한 "http://www.kakao.com"을 overwrite함. overwrite는 같은 도메인만 가능.
