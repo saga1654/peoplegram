@@ -140,7 +140,22 @@ public class MemberJoinStep6_Activity extends AppCompatActivity {
                     et_day.setText("");
                     et_day.requestFocus();
                 } else {
-                    birthday = et_year.getText().toString() + et_month.getText().toString() + et_day.getText().toString();
+
+                    String month = "";
+                    String day = "";
+                    if(Integer.parseInt(et_month.getText().toString()) < 10) {
+                        month = "0"+et_month.getText().toString();
+                    } else {
+                        month = et_month.getText().toString();
+                    }
+
+                    if(Integer.parseInt(et_day.getText().toString()) < 10) {
+                        day = "0" + et_day.getText().toString();
+                    } else {
+                        day = et_day.getText().toString();
+                    }
+
+                    birthday = et_year.getText().toString() + month + et_day.getText().toString();
 
                     md.set_birthtype(birthday_check);
                     md.set_birthday(birthday);
