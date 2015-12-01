@@ -82,7 +82,7 @@ public class SubPeopleListAdapter extends BaseAdapter{
         double match = dto.get_profile_matching(my_speed, my_control, people_speed, people_control);
 
         //Log.d("people_gram", my_speed + "::::" + my_control + ":::" + people_speed + ":::" + people_control + ":::" + match);
-        if(dto.get_profile_email().equals("null")){
+        if(dto.get_profile_email().equals("")){
             listview_people_MC.setText("미가입");
         }else {
 
