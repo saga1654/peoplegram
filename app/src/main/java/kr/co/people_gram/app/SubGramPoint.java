@@ -40,7 +40,7 @@ public class SubGramPoint extends AppCompatActivity {
         point10000 = (ImageView) findViewById(R.id.point10000);
 
         pointhistory_btn = (LinearLayout) findViewById(R.id.pointhistory_btn);
-        mypage_grampoint = (TextView) findViewById(R.id.mypage_grampoint);
+        //mypage_grampoint = (TextView) findViewById(R.id.mypage_grampoint);
         pointhistory_btn.setOnTouchListener(onBtnTouchListener);
         pointhistory_btn.setOnClickListener(onBtnClickListener);
 
@@ -51,7 +51,7 @@ public class SubGramPoint extends AppCompatActivity {
 
         String Point = SharedPreferenceUtil.getSharedPreference(SubGramPoint.this, "point");
 
-        mypage_grampoint.setText(Utilities.comma(Integer.parseInt(Point)) + "p");
+        //mypage_grampoint.setText(Utilities.comma(Integer.parseInt(Point)) + "p");
 
         //pointcoupon_btn = (LinearLayout) findViewById(R.id.pointcoupon_btn);
         //pointcoupon_btn.setOnTouchListener(onBtnTouchListener);
@@ -173,8 +173,7 @@ public class SubGramPoint extends AppCompatActivity {
 
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Toast.makeText(SubGramPoint.this, "성공=" + SharedPreferenceUtil.getSharedPreference(SubGramPoint.this, "point"), Toast.LENGTH_LONG).show();
-        mypage_grampoint.setText(Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(SubGramPoint.this,"point"))) + "p");
+        //mypage_grampoint.setText(Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(SubGramPoint.this,"point"))) + "p");
     }
 
     public void finish()
