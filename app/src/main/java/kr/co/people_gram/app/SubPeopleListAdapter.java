@@ -80,8 +80,7 @@ public class SubPeopleListAdapter extends BaseAdapter{
 
         int match = dto.get_profile_matching(my_speed, my_control, people_speed, people_control);
 
-
-        listview_people_MC.setText("나와의 매칭률 : " +String.valueOf(match)+"%");
+        listview_people_MC.setText("매칭률 : " +dto.get_profile_speed()+"%");
 
 
         listview_people_list_cnt.setText(dto.get_profile_cnt() + "명");
