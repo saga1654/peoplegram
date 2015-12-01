@@ -60,7 +60,8 @@ public class SubPeopleListAdapter extends BaseAdapter{
         SubPeopleListDTO dto = peoplelist.get(position);
 
         TextView listview_people_list_username = (TextView) convertView.findViewById(R.id.listview_people_list_username);
-        TextView listview_people_list_email = (TextView) convertView.findViewById(R.id.listview_people_list_email);
+        //TextView listview_people_list_email = (TextView) convertView.findViewById(R.id.listview_people_list_email);
+        TextView listview_people_MC = (TextView) convertView.findViewById(R.id.listview_people_MC);
         ImageView listview_proplelist_img = (ImageView) convertView.findViewById(R.id.listview_proplelist_img);
         TextView listview_people_list_cnt = (TextView) convertView.findViewById(R.id.listview_people_list_cnt);
 
@@ -69,7 +70,20 @@ public class SubPeopleListAdapter extends BaseAdapter{
         TextView listview_people_list_new_cnt = (TextView) convertView.findViewById(R.id.listview_people_list_new_cnt);
 
         listview_people_list_username.setText(dto.get_profile_username().trim());
-        listview_people_list_email.setText(dto.get_profile_email().trim());
+        //listview_people_list_email.setText(dto.get_profile_email().trim());
+
+
+        float my_speed = Float.parseFloat(SharedPreferenceUtil.getSharedPreference(mContext, "my_speed"));
+        float my_control = Float.parseFloat(SharedPreferenceUtil.getSharedPreference(mContext, "my_control"));
+        float people_speed = dto.get_profile_speed();
+        float people_control = dto.get_profile_control();
+
+        int match = dto.get_profile_matching(my_speed, my_control, people_speed, people_control);
+
+
+        listview_people_MC.setText("나와의 매칭률 : " +String.valueOf(match)+"%");
+
+
         listview_people_list_cnt.setText(dto.get_profile_cnt() + "명");
 
         //Log.d("people_gram", String.valueOf(dto.get_profile_new_cnt()));

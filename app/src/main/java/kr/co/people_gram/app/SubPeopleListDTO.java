@@ -82,4 +82,10 @@ public class SubPeopleListDTO {
     public void set_profile_new_cnt(int profile_new_cnt) { this.profile_new_cnt = profile_new_cnt; }
     public int get_profile_new_cnt() { return this.profile_new_cnt; }
 
+    public  int get_profile_matching(float my_speed, float my_control, float people_speed, float people_control)
+    {
+        double match = Utilities.people_match_int(my_speed, my_control, people_speed, people_control);
+        return 0;
+    }
+
 }
