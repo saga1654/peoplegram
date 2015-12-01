@@ -155,6 +155,8 @@ public class LogoActivity extends AppCompatActivity {
 
         dpc = new DataProfileCount();
 
+        SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "panelYN", "N");
+
 
         if(SharedPreferenceUtil.getSharedPreference(LogoActivity.this, "token") == "") {
             registBroadcastReceiver();

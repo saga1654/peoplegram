@@ -460,6 +460,11 @@
             android:name=".free_point"
             android:label="@string/title_activity_free_point" >
         </activity>
+        <activity
+            android:name=".PointFreeActivity"
+            android:label="@string/title_activity_point_free"
+            android:theme="@style/AppTheme" >
+        </activity>
     </application>
 
 </manifest>
