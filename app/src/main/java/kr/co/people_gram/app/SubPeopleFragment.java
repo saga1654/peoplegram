@@ -67,6 +67,7 @@ public class SubPeopleFragment extends Fragment {
     private LinearLayout people_gubun_all, people_gubun_family, people_gubun_friend, people_gubun_lover, people_gubun_job, people_gubun_client, people_gubun_not;
     private TextView people_cnt, et_all_cnt, et_p_cnt, et_f_cnt, et_l_cnt, et_c_cnt, et_s_cnt, et_n_cnt;
     private TextView et_all_title, et_p_title, et_f_title, et_l_title, et_c_title, et_s_title, et_n_title;
+    private ImageView myprofile_btn2;
 
     private LinearLayout people_gubun_all_line, people_gubun_family_line, people_gubun_friend_line, people_gubun_lover_line, people_gubun_job_line, people_gubun_client_line, people_gubun_not_line;
 
@@ -139,8 +140,17 @@ public class SubPeopleFragment extends Fragment {
         people_detail_view = (LinearLayout) rootView.findViewById(R.id.people_detail_view);
         people_detail_view_title = (LinearLayout) rootView.findViewById(R.id.people_detail_view_title);
         myprofile_btn = (LinearLayout) rootView.findViewById(R.id.myprofile_btn);
+        myprofile_btn2 = (ImageView) rootView.findViewById(R.id.myprofile_btn2);
 
         myprofile_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                startActivityForResult(intent, ACTIVITY_CODE);
+                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+            }
+        });
+        myprofile_btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProfileActivity.class);
