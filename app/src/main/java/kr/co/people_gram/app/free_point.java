@@ -17,7 +17,7 @@ public class free_point extends AppCompatActivity {
         setContentView(R.layout.activity_free_point);
 
         free = (WebView) findViewById(R.id.free);
-        free.loadUrl("http://121.162.209.41:81/User/user_info");
+        free.loadUrl("http://121.162.209.41:81/User/free");
     }
 
     @Override
