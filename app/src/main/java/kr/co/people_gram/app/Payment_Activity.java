@@ -152,12 +152,13 @@ public class Payment_Activity extends AppCompatActivity {
 
                         @Override
                         public void onSuccess(String response) {
-                            Toast.makeText(Payment_Activity.this, response, Toast.LENGTH_LONG).show();
+                            //Toast.makeText(Payment_Activity.this, response, Toast.LENGTH_LONG).show();
                             SharedPreferenceUtil.putSharedPreference(Payment_Activity.this, "point", response);
                         }
                     });
 
-
+                    Intent intent = getIntent();
+                    setResult(62, intent);
                     finish();
                 }
                 //Log.d("people_gram", "구매성공");
@@ -205,8 +206,7 @@ public class Payment_Activity extends AppCompatActivity {
 
     public void finish()
     {
-        Intent intent = getIntent();
-        setResult(62, intent);
+
         super.finish();
     }
 
