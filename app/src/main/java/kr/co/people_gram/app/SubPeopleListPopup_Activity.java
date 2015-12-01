@@ -84,7 +84,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
 
             if(people_type.equals("")) {
 
-                today_coaching.setText("먼저 '진단하기를' 해주세요.");
+                today_coaching.setText("먼저 '진단하기'를 해주세요.");
             } else {
                 int resID = getResources().getIdentifier("@string/co_" + people_coaching, "string", getPackageName());
                 today_coaching.setText(resID);
