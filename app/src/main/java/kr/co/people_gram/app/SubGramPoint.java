@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 public class SubGramPoint extends AppCompatActivity {
 
-    private LinearLayout pointhistory_btn, pointcoupon_btn, coupon_close_btn;
+    private LinearLayout pointhistory_btn, pointcoupon_btn, coupon_close_btn,free_btn;
     private Intent intent;
     private PopupWindow mPopupWindow;
     private TextView mypage_grampoint;
@@ -33,7 +33,7 @@ public class SubGramPoint extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_gram_point);
 
-
+        free_btn = (LinearLayout) findViewById(R.id.free_btn);
         point1000 = (ImageView) findViewById(R.id.point1000);
         point3000 = (ImageView) findViewById(R.id.point3000);
         point5000 = (ImageView) findViewById(R.id.point5000);
@@ -44,6 +44,7 @@ public class SubGramPoint extends AppCompatActivity {
         pointhistory_btn.setOnTouchListener(onBtnTouchListener);
         pointhistory_btn.setOnClickListener(onBtnClickListener);
 
+        free_btn.setOnClickListener(onBtnClickListener);
         point1000.setOnClickListener(onBtnClickListener);
         point3000.setOnClickListener(onBtnClickListener);
         point5000.setOnClickListener(onBtnClickListener);
@@ -118,7 +119,11 @@ public class SubGramPoint extends AppCompatActivity {
                     }
 
                     break;
-
+                case R.id.free_btn:
+                    intent = new Intent(SubGramPoint.this, free_point.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+                    break;
                 case R.id.point1000:
                     intent = new Intent(SubGramPoint.this, Payment_Activity.class);
                     intent.putExtra("point", "point1000");
