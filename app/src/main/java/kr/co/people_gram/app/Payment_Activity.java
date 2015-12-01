@@ -133,6 +133,7 @@ public class Payment_Activity extends AppCompatActivity {
 
             if(result.isFailure()) {
                 Toast.makeText(Payment_Activity.this, "결제 실패되었습니다.", Toast.LENGTH_LONG).show();
+                finish();
             } else if(purchase.getSku().equals(point_payment)) {
 
                 if(purchase != null) {
