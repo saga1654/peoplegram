@@ -172,7 +172,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
         RequestParams params = new RequestParams();
         switch (request) {
             case "N":
-                    Intent intent = new Intent(SubPeopleListPopup_Activity.this, KakaoLoginActivity.class);
+                    Intent intent = new Intent(SubPeopleListPopup_Activity.this, KakaoLinkMainActivity.class);
                     startActivity(intent);
                     overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
                 break;
