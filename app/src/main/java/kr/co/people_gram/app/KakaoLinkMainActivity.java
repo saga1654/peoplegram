@@ -40,11 +40,11 @@ public class KakaoLinkMainActivity extends BaseActivity {
 
         try {
             Log.d("people_gram", "성공");
-            kakaoTalkLinkMessageBuilder.addText("인간 관계에서 자신이 맡은 역할, 사람들과의 관계 형태, 자신의 경험, 가치관 등에 따라 행동을 달리 할 수 있습니다.\n\n피플그램에서 사용하는 4가지 행동 유형은 본인에 의한 주관적인 진단보다 타인에 의한 객관적 진단을 함으로써 내가 바라보는 나와 나와 함께하는 타인(피플)이 보는 나를 알 수 있게 해주며 그로 인해 여러가지 상황별,관계TIP을 제공하여 보다 좋은 관계에 도움을 주고자 합니다.");
+            kakaoTalkLinkMessageBuilder.addText("이 테스트 해봤어요?\n\n어디에 가도 알 수 없는 부분을 진단해드립니다\n당신과 관계된 사람들은 어떨까요..?\n\n당신의 결과가 궁금하다면 지금 바로 테스트 해 보세요!");
             kakaoTalkLinkMessageBuilder.addAppButton("피플그램", new AppActionBuilder()
                     .addActionInfo(AppActionInfoBuilder.createAndroidActionInfoBuilder().setExecuteParam("execparamkey2=2222").setMarketParam("referrer=kakaotalklink").build())
                     .addActionInfo(AppActionInfoBuilder.createiOSActionInfoBuilder(AppActionBuilder.DEVICE_TYPE.PHONE).setExecuteParam("execparamkey2=2222").build())
-                    //.setUrl("http://www.peoplegram.co.kr")
+                            //.setUrl("http://www.peoplegram.co.kr")
                     .build());
 
 
