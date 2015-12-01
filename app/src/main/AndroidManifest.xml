@@ -456,6 +456,10 @@
             android:label="@string/title_activity_notice_view"
             android:theme="@style/AppTheme" >
         </activity>
+        <activity
+            android:name=".free_point"
+            android:label="@string/title_activity_free_point" >
+        </activity>
     </application>
 
 </manifest>
