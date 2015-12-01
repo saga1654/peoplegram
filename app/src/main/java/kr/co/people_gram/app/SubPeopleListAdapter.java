@@ -1,6 +1,7 @@
 package kr.co.people_gram.app;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,10 +79,15 @@ public class SubPeopleListAdapter extends BaseAdapter{
         float people_speed = dto.get_profile_speed();
         float people_control = dto.get_profile_control();
 
-        int match = dto.get_profile_matching(my_speed, my_control, people_speed, people_control);
+        double match = dto.get_profile_matching(my_speed, my_control, people_speed, people_control);
 
-        listview_people_MC.setText("매칭률 : " +dto.get_profile_speed()+"%");
+        //Log.d("people_gram", my_speed + "::::" + my_control + ":::" + people_speed + ":::" + people_control + ":::" + match);
+        if(dto.get_profile_email().equals("null")){
+            listview_people_MC.setText("미가입");
+        }else {
 
+            listview_people_MC.setText("매칭률 : " + Integer.parseInt(String.valueOf(Math.round(match))) + "%");
+        }
 
         listview_people_list_cnt.setText(dto.get_profile_cnt() + "명");
 
