@@ -209,8 +209,7 @@ public class YouType_Activity_step2 extends FragmentActivity {
     }
 
     public void myQuestion_left_click(View v) {
-        Vibrator vibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-        vibe.vibrate(300);
+
         right_onoff = false;
 
         if(left_onoff == false) {
@@ -343,8 +342,6 @@ public class YouType_Activity_step2 extends FragmentActivity {
     }
 
     public void myQuestion_right_click(View v) {
-        Vibrator vibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-        vibe.vibrate(500);
 
         left_onoff = false;
         if(left_onoff == false) {
