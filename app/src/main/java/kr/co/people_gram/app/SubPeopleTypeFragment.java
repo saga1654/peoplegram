@@ -497,7 +497,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                         Toast.makeText(getActivity(), "본인 포함 최소 2명 이상 진단된 경우에 볼 수 있습니다.\n진단 요청해주세요.", Toast.LENGTH_LONG).show();
                     } else {
                         Log.d("people_gram", String.valueOf(P_point));
-                        Intent intent = new Intent(getActivity(), GramPopupMyTypeActivity.class);
+                        Intent intent = new Intent(getActivity(), GramPopupActivity.class);
                         intent.putExtra("point", String.valueOf(P_point));
                         intent.putExtra("gubun1", "P");
                         getActivity().startActivityForResult(intent, SubPeopleTypeFragmentCode);
@@ -564,7 +564,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                         Toast.makeText(getActivity(), "본인 포함 최소 3명 이상 진단된 경우에 볼 수 있습니다.\n진단 요청해주세요.", Toast.LENGTH_LONG).show();
                     } else {
                         Log.d("people_gram", String.valueOf(F_point));
-                        Intent intent = new Intent(getActivity(), GramPopupMyTypeActivity.class);
+                        Intent intent = new Intent(getActivity(), GramPopupActivity.class);
                         intent.putExtra("point", String.valueOf(F_point));
                         intent.putExtra("gubun1", "F");
                         getActivity().startActivityForResult(intent, SubPeopleTypeFragmentCode);
@@ -630,7 +630,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     if(L_cnt < 1) {
                         Toast.makeText(getActivity(), "연인에게 진단을 요청해 주세요.", Toast.LENGTH_LONG).show();
                     } else {
-                        Intent intent = new Intent(getActivity(), GramPopupMyTypeActivity.class);
+                        Intent intent = new Intent(getActivity(), GramPopupActivity.class);
                         intent.putExtra("point", String.valueOf(L_point));
                         intent.putExtra("gubun1", "L");
                         getActivity().startActivityForResult(intent, SubPeopleTypeFragmentCode);
@@ -696,7 +696,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     if(C_cnt < 3) {
                         Toast.makeText(getActivity(), "본인 포함 최소 3명 이상 진단된 경우에 볼 수 있습니다.\n진단 요청해주세요.", Toast.LENGTH_LONG).show();
                     } else {
-                        Intent intent = new Intent(getActivity(), GramPopupMyTypeActivity.class);
+                        Intent intent = new Intent(getActivity(), GramPopupActivity.class);
                         intent.putExtra("point", String.valueOf(C_point));
                         intent.putExtra("gubun1", "C");
                         getActivity().startActivityForResult(intent, SubPeopleTypeFragmentCode);
@@ -762,7 +762,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     if(S_cnt < 1) {
                         Toast.makeText(getActivity(), "진단이 존재하지 않습니다.", Toast.LENGTH_LONG).show();
                     } else {
-                        Intent intent = new Intent(getActivity(), GramPopupMyTypeActivity.class);
+                        Intent intent = new Intent(getActivity(), GramPopupActivity.class);
                         intent.putExtra("point", String.valueOf(C_point));
                         intent.putExtra("gubun1", "S");
                         getActivity().startActivityForResult(intent, SubPeopleTypeFragmentCode);
