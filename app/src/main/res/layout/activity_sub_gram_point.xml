@@ -187,7 +187,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/spend"
-                                />
+                               />
                         </LinearLayout>
                     </LinearLayout>
                     <LinearLayout
@@ -267,7 +267,7 @@
                             android:paddingTop="10dp"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:id="@+id/mytype_menu04">
+                            android:id="@+id/free_btn">
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
