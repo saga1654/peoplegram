@@ -41,6 +41,7 @@ public class Payment_Activity extends AppCompatActivity {
     IabHelper mHelper;
 
     private String point_payment = "";
+    private Intent intent;
 
     ServiceConnection mServiceConn = new ServiceConnection() {
         @Override
@@ -59,7 +60,7 @@ public class Payment_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
 
-        Intent intent = getIntent();
+        intent = getIntent();
         point_payment = intent.getStringExtra("point");
 
 
@@ -131,6 +132,7 @@ public class Payment_Activity extends AppCompatActivity {
 
             } else {
                 Toast.makeText(Payment_Activity.this, "결제실패", Toast.LENGTH_LONG).show();
+                finish();
                 // 결제가 막혔다면
             }
         } catch (Exception e) {
@@ -169,8 +171,8 @@ public class Payment_Activity extends AppCompatActivity {
                         }
                     });
 
-                    Intent intent = getIntent();
-                    setResult(62, intent);
+                    intent = getIntent();
+                    setResult(RESULT_OK, intent);
                     finish();
                 }
                 //Log.d("people_gram", "구매성공");

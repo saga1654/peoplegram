@@ -15,6 +15,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.view.WindowManager.LayoutParams;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SubGramPoint extends AppCompatActivity {
 
@@ -172,7 +173,7 @@ public class SubGramPoint extends AppCompatActivity {
 
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.d("people_gram", "성공="+SharedPreferenceUtil.getSharedPreference(SubGramPoint.this,"point"));
+        Toast.makeText(SubGramPoint.this, "성공=" + SharedPreferenceUtil.getSharedPreference(SubGramPoint.this, "point"), Toast.LENGTH_LONG).show();
         mypage_grampoint.setText(Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(SubGramPoint.this,"point"))) + "p");
     }
 
@@ -180,7 +181,7 @@ public class SubGramPoint extends AppCompatActivity {
     {
         //SharedPreferenceUtil.putSharedPreference(SubGramPoint.this, "point", "10000");
         Intent intent = getIntent();
-        setResult(00002, intent);
+        setResult(RESULT_OK, intent);
         super.finish();
         overridePendingTransition(R.anim.end_enter, R.anim.end_exit);
     }
