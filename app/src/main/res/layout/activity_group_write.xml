@@ -133,26 +133,15 @@
                         android:layout_height="wrap_content"
                         android:text="멤버 설정"
                         android:textSize="12dp"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.50"
-                    android:gravity="right"
-                    android:paddingRight="15dp"
-                    android:paddingBottom="10dp">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0명"
-                        android:textSize="12dp"
-                        android:id="@+id/now_cnt" />
-
+                        android:text=" (나를 진단한 피플 기준)"
+                        android:textSize="10dp"/>
 
                 </LinearLayout>
+
+
 
             </LinearLayout>
 
