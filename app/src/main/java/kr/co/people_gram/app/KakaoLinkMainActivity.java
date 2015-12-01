@@ -40,7 +40,7 @@ public class KakaoLinkMainActivity extends BaseActivity {
 
         try {
             Log.d("people_gram", "성공");
-            kakaoTalkLinkMessageBuilder.addText("이 테스트 해봤어요?\n\n어디에 가도 알 수 없는 부분을 진단해드립니다\n당신과 관계된 사람들은 어떨까요..?\n\n당신의 결과가 궁금하다면 지금 바로 테스트 해 보세요!");
+            kakaoTalkLinkMessageBuilder.addText("이 테스트 해봤어요?\n\n나는 누구일까요? \n다른 사람은 나를 어떻게 생각할까요?\n관계는 어떻게 풀어나갈까요? \n\n결과가 궁금하다면 지금 바로 테스트 해 보세요!");
             kakaoTalkLinkMessageBuilder.addAppButton("피플그램", new AppActionBuilder()
                     .addActionInfo(AppActionInfoBuilder.createAndroidActionInfoBuilder().setExecuteParam("execparamkey2=2222").setMarketParam("referrer=kakaotalklink").build())
                     .addActionInfo(AppActionInfoBuilder.createiOSActionInfoBuilder(AppActionBuilder.DEVICE_TYPE.PHONE).setExecuteParam("execparamkey2=2222").build())
