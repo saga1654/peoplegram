@@ -62,12 +62,15 @@ public class SubGramHistory extends AppCompatActivity {
                         String point_msg = jobj.getString("POINT_MSG");
                         String type = jobj.getString("TYPE");
                         String point = jobj.getString("ADD_POINT");
+                        String now_point = jobj.getString("NOW_POINT");
 
                         point_dto.add(
                                 new PointHistoryDTO(
-                                        datetime
+                                        type
+                                        ,datetime
                                         ,point_msg
                                         ,point
+                                        ,now_point
                                 )
                         );
 
