@@ -90,11 +90,10 @@ public class SubQnaActivity extends AppCompatActivity {
                                 , jobj.getString("CREATE_DATE")
                                 , jobj.getString("SUBJECT_A")
                         ));
-                        qna_adapter = new QnaAdapter(getApplication(), R.layout.activity_qna_rowlist, qna_dto);
-                        listView.setAdapter(qna_adapter);
+
                     }
-
-
+                    qna_adapter = new QnaAdapter(getApplication(), R.layout.activity_qna_rowlist, qna_dto);
+                    listView.setAdapter(qna_adapter);
 
 
                 } catch (JSONException e) {

@@ -155,7 +155,7 @@ public class MemberJoinStep6_Activity extends AppCompatActivity {
                         day = et_day.getText().toString();
                     }
 
-                    birthday = et_year.getText().toString() + month + et_day.getText().toString();
+                    birthday = et_year.getText().toString() + month + day;
 
                     md.set_birthtype(birthday_check);
                     md.set_birthday(birthday);

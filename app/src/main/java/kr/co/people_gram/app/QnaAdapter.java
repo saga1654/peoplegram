@@ -1,10 +1,13 @@
 package kr.co.people_gram.app;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -15,6 +18,7 @@ import java.util.ArrayList;
  */
 public class QnaAdapter extends BaseAdapter {
     private Context mContext;
+    private String answer;
 
     private int layout;
     private ArrayList<QnaDTO> contentsList;
@@ -28,6 +32,8 @@ public class QnaAdapter extends BaseAdapter {
         this.contentsList = contentsList;
         inf = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View convertView = inf.inflate(layout, null);
+
+
     }
 
     @Override
@@ -55,11 +61,32 @@ public class QnaAdapter extends BaseAdapter {
 
         TextView qnaTitle = (TextView) convertView.findViewById(R.id.qnaTitle);
         TextView qna_datetime = (TextView) convertView.findViewById(R.id.qnadatetime);
-
+        ImageView answer_yn = (ImageView) convertView.findViewById(R.id.answer_yn);
 
         qnaTitle.setText(dto.get_QnaTitle());
         qna_datetime.setText(dto.get_CreateJoin());
 
+
+        String qna_subject = dto.get_answer_result();
+        //Log.d("people_gram", "선택="+qna_subject + ":::" + dto.get_QnaTitle());
+
+        if(qna_subject.equals("")){
+            answer_yn.setImageResource(R.drawable.answer_wait);
+        } else {
+            answer_yn.setImageResource(R.drawable.answer_complete);
+        }
+
+
+
+
+        //내용 유무를 판별 하여 이미지 변경
+        /*
+        if(dto.get_QnaYn().equals("null")) {
+            answer_yn.setImageResource(R.drawable.answer_wait);
+        }else{
+            answer_yn.setImageResource(R.drawable.answer_complete);
+        }
+        */
 
         return convertView;
     }
