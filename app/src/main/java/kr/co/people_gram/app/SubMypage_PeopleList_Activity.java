@@ -108,6 +108,8 @@ public class SubMypage_PeopleList_Activity extends AppCompatActivity {
 
                 final SubPeopleListDTO dto = (SubPeopleListDTO) sf_people_list.getItemAtPosition(position);
 
+                Log.d("people_gram", dto.get_profile_uid());
+
 
                 RequestParams params = new RequestParams();
                 params.put("uid", SharedPreferenceUtil.getSharedPreference(SubMypage_PeopleList_Activity.this, "uid"));
@@ -354,7 +356,7 @@ public class SubMypage_PeopleList_Activity extends AppCompatActivity {
 
 
                         people_dto_list.add(new SubPeopleListDTO(
-                                jobj.getString("PEOPLE_UID")
+                                jobj.getString("UID")
                                 , ""
                                 , jobj.getString("PEOPLE_USERNAME")
                                 , email

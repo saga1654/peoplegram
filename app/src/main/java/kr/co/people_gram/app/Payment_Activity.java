@@ -14,6 +14,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.design.widget.TabLayout;
@@ -61,7 +62,17 @@ public class Payment_Activity extends AppCompatActivity {
         Intent intent = getIntent();
         point_payment = intent.getStringExtra("point");
 
-        bindService(new Intent("com.android.vending.billing.InAppBillingService.BIND"), mServiceConn, Context.BIND_AUTO_CREATE);
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            bindService(new Intent("com.android.vending.billing.InAppBillingService.BIND"), mServiceConn, Context.BIND_AUTO_CREATE);
+            //bindService(new Intent("com.android.vending.billing.InAppBillingService.BIND"),
+                    //mServiceConn, Context.BIND_AUTO_CREATE);
+        } else {
+            Intent serviceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
+            serviceIntent.setPackage("com.android.vending");
+            bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
+        }
+        //
 
         // 구글에서 발급받은 바이너리키를 입력해줍니다
         String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAySWhOImmkWBYbHSJj3VKl8m4XOG1XaVIJ8h5wvImw1LX/hFOFx0QnUDAGaeJJGTA21+LvZAezy+4FSL60iYP0kNM3r5qwOQUEtryzdr22DI1cpoqS2DDAXV9FEOM2Rp2rT9YqlSWauQRE6QJyb6HDsrqQ6Rof2FEzFStsD7MXQccjDXMJenXeYK1XBaE4ZVkHSxG5Pc8mzDMOyiHYdAHZiIuhmalV1ZsufdhjS6cgXlfQD8xi1mwUUzUeFwd4CTXy8UUF6e02HBMxxA2buX3JxNJIwpa4IeO+cm4TWTE5f1uqwf5sodaayszA8TSfsy4lCILuIQhb3iSnQEAbHD3SwIDAQAB";
@@ -207,7 +218,7 @@ public class Payment_Activity extends AppCompatActivity {
 
     public void finish()
     {
-
+        overridePendingTransition(R.anim.slide_close_down_info, R.anim.slide_clode_up_info);
         super.finish();
     }
 
