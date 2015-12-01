@@ -91,6 +91,7 @@
                 android:layout_height="match_parent"
                 android:background="#ffffff"
                 >
+                <!--
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
@@ -145,6 +146,7 @@
                     </LinearLayout>
 
                 </LinearLayout>
+                -->
 
 
                 <LinearLayout
