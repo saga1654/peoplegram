@@ -120,7 +120,7 @@ public class SubGramPoint extends AppCompatActivity {
 
                     break;
                 case R.id.free_btn:
-                    intent = new Intent(SubGramPoint.this, free_point.class);
+                    intent = new Intent(SubGramPoint.this, PointFreeActivity.class);
                     startActivity(intent);
                     overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
                     break;

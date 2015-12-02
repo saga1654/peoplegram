@@ -5,7 +5,7 @@ import android.util.Log;
 import com.loopj.android.http.*;
 
 public class HttpClient {
-    private static final String BASE_URL = "http://app.peoplegram.co.kr";
+    public static final String BASE_URL = "http://app.peoplegram.co.kr";
     private static AsyncHttpClient client = new AsyncHttpClient();
 
     public static AsyncHttpClient getInstance()
