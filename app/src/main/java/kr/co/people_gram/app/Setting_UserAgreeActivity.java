@@ -20,7 +20,7 @@ public class Setting_UserAgreeActivity extends AppCompatActivity {
 
 
         agree = (WebView) findViewById(R.id.user_agree);
-        agree.loadUrl("http://121.162.209.41:81/user/user_agree");
+        agree.loadUrl(HttpClient.BASE_URL+"/user/user_agree");
     }
 
     @Override

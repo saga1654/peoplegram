@@ -16,7 +16,7 @@ public class Setting_UserInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_setting__user_info);
 
         info = (WebView) findViewById(R.id.user_info);
-        info.loadUrl("http://121.162.209.41:81/user/user_info");
+        info.loadUrl(HttpClient.BASE_URL+"/user/user_info");
     }
 
     @Override
