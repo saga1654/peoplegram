@@ -640,7 +640,7 @@ public class SubPeopleFragment extends Fragment {
 
                 repeopleList();
 
-                people_cnt.setText("친구 (" + String.valueOf(f_cnt) + "명)");
+                people_cnt.setText("친구(지인) (" + String.valueOf(f_cnt) + "명)");
                 //peopleList();
 
 
@@ -1065,7 +1065,7 @@ public class SubPeopleFragment extends Fragment {
                                     people_cnt.setText("가족 (" + String.valueOf(p_cnt) + "명)");
                                     break;
                                 case "F":
-                                    people_cnt.setText("친구 (" + String.valueOf(f_cnt) + "명)");
+                                    people_cnt.setText("친구(지인) (" + String.valueOf(f_cnt) + "명)");
                                     break;
                                 case "L":
                                     people_cnt.setText("연인 (" + String.valueOf(l_cnt) + "명)");
