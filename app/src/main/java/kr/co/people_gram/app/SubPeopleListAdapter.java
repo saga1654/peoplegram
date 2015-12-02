@@ -62,7 +62,7 @@ public class SubPeopleListAdapter extends BaseAdapter{
 
         TextView listview_people_list_username = (TextView) convertView.findViewById(R.id.listview_people_list_username);
         //TextView listview_people_list_email = (TextView) convertView.findViewById(R.id.listview_people_list_email);
-        TextView listview_people_MC = (TextView) convertView.findViewById(R.id.listview_people_MC);
+        //TextView listview_people_MC = (TextView) convertView.findViewById(R.id.listview_people_MC);
         ImageView listview_proplelist_img = (ImageView) convertView.findViewById(R.id.listview_proplelist_img);
         TextView listview_people_list_cnt = (TextView) convertView.findViewById(R.id.listview_people_list_cnt);
 
@@ -82,12 +82,16 @@ public class SubPeopleListAdapter extends BaseAdapter{
         double match = dto.get_profile_matching(my_speed, my_control, people_speed, people_control);
 
         //Log.d("people_gram", my_speed + "::::" + my_control + ":::" + people_speed + ":::" + people_control + ":::" + match);
-        if(dto.get_profile_email().equals("")){
+        //Log.d("people_gram",dto.get_profile_email());
+        /*
+        if(dto.get_profile_email().trim().equals("null")){
             listview_people_MC.setText("미가입");
         }else {
 
             listview_people_MC.setText("매칭률 : " + Integer.parseInt(String.valueOf(Math.round(match))) + "%");
+            //listview_people_MC.setText(dto.get_profile_email().trim());
         }
+        */
 
         listview_people_list_cnt.setText(dto.get_profile_cnt() + "명");
 
