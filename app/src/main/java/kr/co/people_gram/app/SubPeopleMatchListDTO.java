@@ -6,7 +6,7 @@ package kr.co.people_gram.app;
 public class SubPeopleMatchListDTO {
     String profile_uid = "";
     String profile_username = "";
-   // String profile_email = "";
+    String profile_email = "";
     String profile_type = "";
     String profile_gubun1 = "";
     String profile_gubun2 = "";
@@ -20,11 +20,11 @@ public class SubPeopleMatchListDTO {
 
     }
 
-    public SubPeopleMatchListDTO(String profile_uid, String profile_username,  String profile_type, String profile_gubun1, String profile_gubun2, int profile_people_speed, int profile_people_control, int profile_total_value, int profile_score_temp, double profile_match_value)
+    public SubPeopleMatchListDTO(String profile_uid, String profile_username, String profile_email, String profile_type, String profile_gubun1, String profile_gubun2, int profile_people_speed, int profile_people_control, int profile_total_value, int profile_score_temp, double profile_match_value)
     {
         this.profile_uid = profile_uid;
         this.profile_username = profile_username;
-       // this.profile_email = profile_email;
+        this.profile_email = profile_email;
         this.profile_type = profile_type;
         this.profile_gubun1 = profile_gubun1;
         this.profile_gubun2 = profile_gubun2;
@@ -45,8 +45,8 @@ public class SubPeopleMatchListDTO {
     public void set_profile_username(String profile_username) { this.profile_username = profile_username; }
     public String get_profile_username() { return this.profile_username; }
 
-   // public void set_profile_email(String profile_email) { this.profile_username = profile_email; }
-   // public String get_profile_email() { return this.profile_email; }
+    public void set_profile_email(String profile_email) { this.profile_username = profile_email; }
+    public String get_profile_email() { return this.profile_email; }
 
     public void set_profile_type(String profile_type) { this.profile_type = profile_type; }
     public String get_profile_type() { return this.profile_type; }
