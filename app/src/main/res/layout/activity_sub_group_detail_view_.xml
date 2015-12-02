@@ -38,13 +38,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:onClick="closeBtn"
+            android:onClick="detailClose"
             android:layout_weight="0.50">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="detailClose"
                 android:src="@drawable/close_btn"/>
 
 
