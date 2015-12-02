@@ -149,6 +149,40 @@
                     android:id="@+id/mytype_per" />
 
 
+                <!--
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/mytype_linear"
+                    android:layout_height="wrap_content">
+
+                    <kr.co.people_gram.app.RollingItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/mytype_per1">
+
+                    </kr.co.people_gram.app.RollingItem>
+
+                    <kr.co.people_gram.app.RollingItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/mytype_per2">
+
+                    </kr.co.people_gram.app.RollingItem>
+
+                    <kr.co.people_gram.app.RollingItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/mytype_per3">
+
+                    </kr.co.people_gram.app.RollingItem>
+                </LinearLayout>
+                -->
+
+
+
+
+
 
             </LinearLayout>
 

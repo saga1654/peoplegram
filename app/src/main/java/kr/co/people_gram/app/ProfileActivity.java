@@ -25,7 +25,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private String people_type_return = "";
     private ImageView mytype_me, mytype_people, point_add;
-    private TextView mytype_per, profile_sex, profile_age, profile_area;
+    private TextView profile_sex, profile_age, profile_area;
     private TextView profile_username, profile_email, profile_point;
 
 
@@ -41,7 +41,6 @@ public class ProfileActivity extends AppCompatActivity {
         mytype_me = (ImageView) findViewById(R.id.mytype_me);
         mytype_people = (ImageView) findViewById(R.id.mytype_people);
 
-        mytype_per = (TextView) findViewById(R.id.mytype_per);
         profile_sex = (TextView) findViewById(R.id.profile_sex);
         profile_age = (TextView) findViewById(R.id.profile_age);
         profile_area = (TextView) findViewById(R.id.profile_area);
@@ -248,7 +247,11 @@ public class ProfileActivity extends AppCompatActivity {
                     }
 
                     String per = String.valueOf(Math.ceil(Utilities.people_match_int(my_speed, people_speed, my_control, people_control)));
+                    Log.d("people_gram", per);
+                    TextView mytype_per = (TextView) findViewById(R.id.mytype_per);
+
                     if (you_data.getString("peopleType").equals("")) {
+
                         mytype_per.setText("?");
                     } else {
                         mytype_per.setText(per + "%");
