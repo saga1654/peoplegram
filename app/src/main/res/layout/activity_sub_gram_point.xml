@@ -312,7 +312,7 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/save_1000p"
+                                    android:src="@drawable/save_1100p"
                                     android:id="@+id/point1000"
                                     android:layout_weight="0.10" />
                             </LinearLayout>
@@ -347,7 +347,7 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/save_3000p"
+                                    android:src="@drawable/save_3300p"
                                     android:id="@+id/point3000"
                                     android:layout_weight="0.10" />
                             </LinearLayout>
@@ -381,7 +381,7 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/save_5000p"
+                                    android:src="@drawable/save_5500p"
                                     android:id="@+id/point5000"
                                     android:layout_weight="0.10" />
                             </LinearLayout>
@@ -414,7 +414,7 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/save_10000p"
+                                    android:src="@drawable/save_11000p"
                                     android:id="@+id/point10000"
                                     android:layout_weight="0.10" />
                             </LinearLayout>
