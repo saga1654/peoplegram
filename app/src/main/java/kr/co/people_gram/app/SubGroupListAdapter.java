@@ -102,6 +102,7 @@ public class SubGroupListAdapter extends BaseAdapter{
                         group_code = dto.get_group_code();
                         RequestParams params = new RequestParams();
                         params.put("uid", SharedPreferenceUtil.getSharedPreference(convertView_return.getContext(), "uid"));
+                        //Log.d("people_gram", dto.get_group_code());
                         params.put("group_code", dto.get_group_code());
                         HttpClient.post("/group/groupDelete", params, new AsyncHttpResponseHandler() {
                             public void onStart() {
