@@ -260,7 +260,7 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
                                 , gubun2
                                 , speed
                                 , control
-                                , 0
+                                , Integer.parseInt(jobj.getString("TOTAL_COUNT"))
                                 , 0
                                 , 0
                         ));
