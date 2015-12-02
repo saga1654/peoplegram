@@ -201,7 +201,7 @@ public class SubPeopleFragment_peopletip extends Fragment {
         you_type5 = (TextView) rootView.findViewById(R.id.you_type5);
 
         you_type1.setText(Html.fromHtml("가족들이 생각하는 <b color='#32354d;'>"+people_name+"</b>님의 타입"));
-        you_type2.setText(Html.fromHtml("친구들이 생각하는 <b color='#32354d;'>"+people_name+"</b>님의 타입"));
+        you_type2.setText(Html.fromHtml("친구(지인)들이 생각하는 <b color='#32354d;'>"+people_name+"</b>님의 타입"));
         you_type3.setText(Html.fromHtml("연인이 생각하는 <b color='#32354d;'>"+people_name+"</b>님의 타입"));
         you_type4.setText(Html.fromHtml("직장에서 생각하는 <b color='#32354d;'>"+people_name+"</b>님의 타입"));
         you_type5.setText(Html.fromHtml("고객들이 생각하는 <b color='#32354d;'>"+people_name+"</b>님의 타입"));
