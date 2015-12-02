@@ -217,7 +217,7 @@ public class GroupWriteActivity extends AppCompatActivity {
 
 
                         people_dto_list.add(new SubGroupPeopleListDTO(
-                                jobj.getString("PEOPLE_UID")
+                                jobj.getString("UID")
                                 , ""
                                 , jobj.getString("PEOPLE_USERNAME")
                                 , email
@@ -232,7 +232,7 @@ public class GroupWriteActivity extends AppCompatActivity {
                         ));
 
                         people_dto_list_temp.add(new SubGroupPeopleListDTO_Temp(
-                                jobj.getString("PEOPLE_UID")
+                                jobj.getString("UID")
                                 , ""
                                 , jobj.getString("PEOPLE_USERNAME")
                                 , email
@@ -282,6 +282,7 @@ public class GroupWriteActivity extends AppCompatActivity {
                 //params.put("group_name", group_name.getText().toString());
                 params.put("people_uid", people_adapter_list.uid_check);
                 params.put("people_username", people_adapter_list.username_check);
+
                 HttpClient.post("/group/groupWrite", params, new AsyncHttpResponseHandler() {
                     public void onStart() {
                         dialog = ProgressDialog.show(GroupWriteActivity.this, "", "데이터 수신중");

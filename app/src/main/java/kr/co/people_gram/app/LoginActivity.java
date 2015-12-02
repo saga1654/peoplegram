@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
             alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    finish();
+                    //finish();
                 }
             });
             alert.setMessage("패스워드를 입력해주세요.");
