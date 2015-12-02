@@ -187,7 +187,7 @@ public class SubMypage_PeopleList_Activity extends AppCompatActivity {
                             titleCnt.setText("가족 ("+people_list.length()+"명)");
                             break;
                         case "F":
-                            titleCnt.setText("친구 ("+people_list.length()+"명)");
+                            titleCnt.setText("친구(지인) ("+people_list.length()+"명)");
                             break;
                         case "L":
                             titleCnt.setText("연인 ("+people_list.length()+"명)");
@@ -304,7 +304,7 @@ public class SubMypage_PeopleList_Activity extends AppCompatActivity {
                             titleCnt.setText("가족 ("+people_list.length()+"명)");
                             break;
                         case "F":
-                            titleCnt.setText("친구 ("+people_list.length()+"명)");
+                            titleCnt.setText("친구(지인) ("+people_list.length()+"명)");
                             break;
                         case "L":
                             titleCnt.setText("연인 ("+people_list.length()+"명)");
