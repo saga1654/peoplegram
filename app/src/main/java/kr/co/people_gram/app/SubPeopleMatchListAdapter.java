@@ -64,8 +64,8 @@ public class SubPeopleMatchListAdapter extends BaseAdapter{
         number.setText("TOP"+String.valueOf(position+1)+".");
 
         TextView listview_people_list_username = (TextView) convertView.findViewById(R.id.listview_people_list_username);
-        //TextView listview_people_list_email = (TextView) convertView.findViewById(R.id.listview_people_list_email);
-        //ImageView listview_proplelist_img = (ImageView) convertView.findViewById(R.id.listview_proplelist_img);
+        TextView listview_people_list_email = (TextView) convertView.findViewById(R.id.listview_people_list_email);
+        ImageView listview_proplelist_img = (ImageView) convertView.findViewById(R.id.listview_proplelist_img);
 
         TextView listview_people_list_match_value = (TextView) convertView.findViewById(R.id.listview_people_list_match_value);
 
@@ -79,6 +79,8 @@ public class SubPeopleMatchListAdapter extends BaseAdapter{
         }
         */
         listview_people_list_match_value.setText(String.valueOf(Math.round(dto.get_profile_match_value())) + "%");
+
+
 
 
         String people_type = dto.get_profile_type();
