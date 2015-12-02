@@ -664,7 +664,7 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                         people_dto_list.add(new SubPeopleMatchListDTO(
                                 jobj.getString("PEOPLE_UID")
                                 , jobj.getString("PEOPLE_USERNAME")
-                                , jobj.getString("PEOPLE_EMAIL")
+                                , jobj.getString("EMAIL")
                                 , jobj.getString("YOU_TYPE")
                                 , jobj.getString("GUBUN1")
                                 , jobj.getString("GUBUN2")
@@ -679,7 +679,7 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                         people_dto_list_temp.add(new SubPeopleMatchListDTO_Temp(
                                 jobj.getString("PEOPLE_UID")
                                 , jobj.getString("PEOPLE_USERNAME")
-                                , jobj.getString("PEOPLE_EMAIL")
+                                , jobj.getString("EMAIL")
                                 , jobj.getString("YOU_TYPE")
                                 , jobj.getString("GUBUN1")
                                 , jobj.getString("GUBUN2")
