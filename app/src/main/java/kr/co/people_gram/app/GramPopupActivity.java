@@ -167,8 +167,11 @@ public class GramPopupActivity extends AppCompatActivity {
                                 JSONObject jobj = new JSONObject(response);
                                 if(jobj.getString("code").equals("000")) {
                                     SharedPreferenceUtil.putSharedPreference(GramPopupActivity.this, "point", jobj.getString("point"));
+                                    SharedPreferenceUtil.putSharedPreference(GramPopupActivity.this, "panelYN", "Y");
+                                    panel_join_ll.setVisibility(View.GONE);
                                     panel_check = true;
                                     my_point.setText("현재 포인트 " + Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(GramPopupActivity.this, "point"))) + "p");
+                                    Toast.makeText(GramPopupActivity.this, "2000포인트 적립되었습니다.", Toast.LENGTH_LONG).show();
 
                                 }
 
