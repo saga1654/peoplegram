@@ -81,8 +81,6 @@ public class SubPeopleMatchListAdapter extends BaseAdapter{
         listview_people_list_match_value.setText(String.valueOf(Math.round(dto.get_profile_match_value())) + "%");
 
 
-
-
         String people_type = dto.get_profile_type();
 
 
