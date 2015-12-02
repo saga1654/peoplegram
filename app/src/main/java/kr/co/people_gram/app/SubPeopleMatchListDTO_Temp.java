@@ -45,7 +45,7 @@ public class SubPeopleMatchListDTO_Temp {
     public void set_profile_username(String profile_username) { this.profile_username = profile_username; }
     public String get_profile_username() { return this.profile_username; }
 
-    public void set_profile_email(String profile_email) { this.profile_username = profile_email; }
+   // public void set_profile_email(String profile_email) { this.profile_username = profile_email; }
     //public String get_profile_email() { return this.profile_email; }
 
     public void set_profile_type(String profile_type) { this.profile_type = profile_type; }
