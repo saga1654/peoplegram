@@ -146,7 +146,7 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                             //Log.d("people_gram", response);
                             Intent intent = new Intent(PeopleMatchTop10_Activity.this, SubPeopleListPopup_Activity.class);
                             intent.putExtra("people_uid", dto.get_profile_uid());
-                            //intent.putExtra("people_email", dto.get_profile_email());
+                            intent.putExtra("people_email", dto.get_profile_email());
                             intent.putExtra("people_username", dto.get_profile_username());
                             intent.putExtra("people_mood", "");
                             intent.putExtra("people_type", dto.get_profile_type());
@@ -206,6 +206,7 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                     people_dto_list.add(new SubPeopleMatchListDTO(
                             dto.get_profile_uid()
                             , dto.get_profile_username()
+                            , dto.get_profile_email()
                             , dto.get_profile_type()
                             , dto.get_profile_gubun1()
                             , dto.get_profile_gubun2()
@@ -275,7 +276,7 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                         people_dto_list.add(new SubPeopleMatchListDTO(
                             dto.get_profile_uid()
                             , dto.get_profile_username()
-
+                            , dto.get_profile_email()
                             , dto.get_profile_type()
                             , dto.get_profile_gubun1()
                             , dto.get_profile_gubun2()
@@ -332,6 +333,7 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                         people_dto_list.add(new SubPeopleMatchListDTO(
                                 dto.get_profile_uid()
                                 , dto.get_profile_username()
+                                , dto.get_profile_email()
                                 , dto.get_profile_type()
                                 , dto.get_profile_gubun1()
                                 , dto.get_profile_gubun2()
@@ -387,6 +389,7 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                         people_dto_list.add(new SubPeopleMatchListDTO(
                                 dto.get_profile_uid()
                                 , dto.get_profile_username()
+                                , dto.get_profile_email()
                                 , dto.get_profile_type()
                                 , dto.get_profile_gubun1()
                                 , dto.get_profile_gubun2()
@@ -442,6 +445,7 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                         people_dto_list.add(new SubPeopleMatchListDTO(
                                 dto.get_profile_uid()
                                 , dto.get_profile_username()
+                                , dto.get_profile_email()
                                 , dto.get_profile_type()
                                 , dto.get_profile_gubun1()
                                 , dto.get_profile_gubun2()
@@ -499,6 +503,7 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                         people_dto_list.add(new SubPeopleMatchListDTO(
                                 dto.get_profile_uid()
                                 , dto.get_profile_username()
+                                , dto.get_profile_email()
                                 , dto.get_profile_type()
                                 , dto.get_profile_gubun1()
                                 , dto.get_profile_gubun2()
@@ -556,6 +561,7 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                         people_dto_list.add(new SubPeopleMatchListDTO(
                                 dto.get_profile_uid()
                                 , dto.get_profile_username()
+                                , dto.get_profile_email()
                                 , dto.get_profile_type()
                                 , dto.get_profile_gubun1()
                                 , dto.get_profile_gubun2()
@@ -658,6 +664,7 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                         people_dto_list.add(new SubPeopleMatchListDTO(
                                 jobj.getString("PEOPLE_UID")
                                 , jobj.getString("PEOPLE_USERNAME")
+                                , jobj.getString("PEOPLE_EMAIL")
                                 , jobj.getString("YOU_TYPE")
                                 , jobj.getString("GUBUN1")
                                 , jobj.getString("GUBUN2")
@@ -672,6 +679,7 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                         people_dto_list_temp.add(new SubPeopleMatchListDTO_Temp(
                                 jobj.getString("PEOPLE_UID")
                                 , jobj.getString("PEOPLE_USERNAME")
+                                , jobj.getString("PEOPLE_EMAIL")
                                 , jobj.getString("YOU_TYPE")
                                 , jobj.getString("GUBUN1")
                                 , jobj.getString("GUBUN2")
