@@ -201,7 +201,7 @@ public class SubPeopleSelect_MainFragment extends Fragment {
                 returnString = "가족";
                 break;
             case "F":
-                returnString = "친구";
+                returnString = "친구(지인)";
                 break;
             case "L":
                 returnString = "연인";
