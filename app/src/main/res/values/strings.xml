@@ -32,7 +32,7 @@
     <string name="step4_right">표현하지 않는 편</string>
     <string name="step5_left">느린 편</string>
     <string name="step5_right">빠른 편</string>
-    <string name="step6_left">친절하고 따뜻하다</string>
+    <string name="step6_left">친철하고 따뜻하다</string>
     <string name="step6_right">진지하고 냉정하다</string>
     <string name="step7_left">따라가는 편</string>
     <string name="step7_right">주도하는 편</string>
@@ -82,7 +82,7 @@
     <string name="title_activity_sub_my_type_contents_">SubMyTypeContents_Activity</string>
     <string name="title_activity_sub_people_type_contents_">SubPeopleTypeContents_Activity</string>
     <string name="title_activity_sub_people_contents_type_">SubPeopleContentsType_Activity</string>
-
+    <string name="title_activity_free_point">free_point</string>
 
 
 
@@ -481,10 +481,6 @@
     <string name="title_activity_guide_activity_step1">GuideActivityStep1</string>
     <string name="title_activity_sub_qna_view">SubQnaViewActivity</string>
     <string name="title_activity_notice_view">NoticeViewActivity</string>
-    <string name="title_activity_free_point">free_point</string>
-
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
 
 
 </resources>

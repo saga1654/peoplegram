@@ -102,7 +102,7 @@ public class Payment_Activity extends AppCompatActivity {
 
     public void AlreadyPurchaseItems() {
         try {
-            Bundle ownedItems = mService.getPurchases(3, getPackageName(), "inapp", null);
+            Bundle ownedItems = mService.getPurchases(3, getPackageName(), "inapp", "");
             int response = ownedItems.getInt("RESPONSE_CODE");
             if (response == 0) {
 

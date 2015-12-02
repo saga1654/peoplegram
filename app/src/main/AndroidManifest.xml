@@ -302,79 +302,95 @@
         </activity>
         <activity
             android:name=".SubPeopleSearch_Activity"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".PanelActivity"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".People_Help_Activity"
-            android:theme="@style/TransparentTheme" >
+            android:theme="@style/TransparentTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".MemberJoinStep1_Activity"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".MemberJoinStep2_Activity"
             android:label="@string/title_activity_member_join_step2_"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".MemberJoinStep3_Activity"
             android:label="@string/title_activity_member_join_step3_"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".MemberJoinStep4_Activity"
             android:label="@string/title_activity_member_join_step4_"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".MemberJoinStep5_Activity"
             android:label="@string/title_activity_member_join_step5_"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".MemberJoinStep6_Activity"
             android:label="@string/title_activity_member_join_step6_"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".MemberJoinStep7_Activity"
             android:label="@string/title_activity_member_join_step7_"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".MemberComplate_Activity"
             android:label="@string/title_activity_member_complate_"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".MyType_Complate_Activity"
             android:label="@string/title_activity_my_type__complate_"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".MyProfile_Activity"
             android:label="@string/title_activity_my_profile_"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".YouType_Complate_Activity"
             android:label="@string/title_activity_you_type__complate_"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".SubMyPagePeopleSync_Activity"
             android:label="@string/title_activity_sub_my_page_people_sync_"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".SubMyPagePeopleHide_Activity"
             android:label="@string/title_activity_sub_my_page_people_hide_"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
 
         <meta-data
@@ -384,81 +400,101 @@
         <activity
             android:name=".PanelJoinActivity"
             android:label="@string/title_activity_panel_join"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".GroupWriteActivity"
             android:label="@string/title_activity_group_write"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".SubGroupDetailView_Activity"
             android:label="@string/title_activity_sub_group_detail_view_"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".SubMypage_PeopleList_Activity"
             android:label="@string/title_activity_sub_mypage__people_list_"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".KeyHash"
             android:label="@string/title_activity_key_hash"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".KakaoSignupActivity"
             android:label="@string/title_activity_kakao_signup"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".KakaoServiceListActivity"
             android:label="@string/title_activity_kakao_service_list"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".KakaoLinkMainActivity"
             android:label="@string/title_activity_kakao_link_main"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".PeopleMatchTop10_Activity"
             android:label="@string/title_activity_people_match_top10_"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".Guide_Activity"
             android:label="@string/title_activity_guide_"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".Payment_Activity"
             android:label="@string/title_activity_payment_"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".GroupPeopleWriteActivity"
             android:label="@string/title_activity_group_people_write"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".GuideActivityStep1"
             android:label="@string/title_activity_guide_activity_step1"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".SubQnaViewActivity"
             android:label="@string/title_activity_sub_qna_view"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".NoticeViewActivity"
             android:label="@string/title_activity_notice_view"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".free_point"
             android:label="@string/title_activity_free_point" >
+        </activity>
+        <activity
+            android:name=".PointFreeActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 
