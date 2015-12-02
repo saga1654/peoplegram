@@ -871,7 +871,7 @@
                         android:textColor="#1d1d26"
                         android:textSize="10dp"
                         android:id="@+id/p_cnt"
-                        android:text="1000" />
+                        android:text="0" />
 
                 </LinearLayout>
 
@@ -905,7 +905,7 @@
                         android:textColor="#1d1d26"
                         android:textSize="12dp"
                         android:id="@+id/f_title"
-                        android:text="친구" />
+                        android:text="친구(지인" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -914,7 +914,7 @@
                         android:textColor="#1d1d26"
                         android:textSize="10dp"
                         android:id="@+id/f_cnt"
-                        android:text="1000" />
+                        android:text="0" />
                 </LinearLayout>
 
 
@@ -958,7 +958,7 @@
                         android:textColor="#1d1d26"
                         android:textSize="10dp"
                         android:id="@+id/l_cnt"
-                        android:text="1000" />
+                        android:text="0" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -1000,7 +1000,7 @@
                         android:textColor="#1d1d26"
                         android:textSize="10dp"
                         android:id="@+id/c_cnt"
-                        android:text="1000" />
+                        android:text="0" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -1044,7 +1044,7 @@
                         android:textColor="#1d1d26"
                         android:textSize="10dp"
                         android:id="@+id/s_cnt"
-                        android:text="1000" />
+                        android:text="0" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -1087,7 +1087,7 @@
                         android:textColor="#1d1d26"
                         android:textSize="10dp"
                         android:id="@+id/n_cnt"
-                        android:text="1000" />
+                        android:text="0" />
                 </LinearLayout>
 
                 <LinearLayout
