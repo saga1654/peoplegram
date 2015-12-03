@@ -80,7 +80,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/survey_icon"/>
+                        android:src="@drawable/coin"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -94,7 +94,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="20dp"
-                        android:src="@drawable/timer_icon"/>
+                        android:src="@drawable/time"/>
 
                     <TextView
                         android:layout_width="wrap_content"
