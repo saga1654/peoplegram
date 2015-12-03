@@ -482,6 +482,8 @@
     <string name="title_activity_sub_qna_view">SubQnaViewActivity</string>
     <string name="title_activity_notice_view">NoticeViewActivity</string>
     <string name="title_activity_point_free_panel">PointFreePanelActivity</string>
+    <string name="title_activity_survey_view">SurveyViewActivity</string>
+    <string name="title_activity_survey_start">SurveyStartActivity</string>
 
 
 </resources>

@@ -498,7 +498,17 @@
         </activity>
         <activity
             android:name=".PointFreePanelActivity"
-            android:label="@string/title_activity_point_free_panel"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".SurveyViewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TransparentTheme" >
+        </activity>
+        <activity
+            android:name=".SurveyStartActivity"
+            android:label="@string/title_activity_survey_start"
             android:theme="@style/AppTheme" >
         </activity>
     </application>
