@@ -26,10 +26,10 @@
             android:weightSum="1">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.05"
-                android:gravity="center">
+                android:layout_width="47dp"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:background="@drawable/top_bg">
 
                 <TextView
                     android:layout_width="wrap_content"
