@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/number"
                     android:textColor="#000"
-                    android:textSize="14dp"/>
+                    android:textSize="12dp"/>
 
                 <!--
                 <ImageView
