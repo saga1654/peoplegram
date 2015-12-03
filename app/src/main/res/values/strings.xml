@@ -481,6 +481,7 @@
     <string name="title_activity_guide_activity_step1">GuideActivityStep1</string>
     <string name="title_activity_sub_qna_view">SubQnaViewActivity</string>
     <string name="title_activity_notice_view">NoticeViewActivity</string>
+    <string name="title_activity_point_free_panel">PointFreePanelActivity</string>
 
 
 </resources>

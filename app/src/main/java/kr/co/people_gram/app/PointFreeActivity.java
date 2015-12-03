@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 public class PointFreeActivity extends AppCompatActivity {
@@ -19,6 +20,10 @@ public class PointFreeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_point_free);
 
         free = (WebView) findViewById(R.id.free);
+
+        WebSettings webSettings = free.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+
         free.loadUrl(HttpClient.BASE_URL + "/survey/sList");
     }
 
