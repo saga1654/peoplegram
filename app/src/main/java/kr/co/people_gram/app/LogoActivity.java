@@ -234,6 +234,8 @@ public class LogoActivity extends AppCompatActivity {
                                 try {
                                     JSONObject jobj = new JSONObject(response);
 
+                                    Log.d("people_gram", jobj.getString("PANEL"));
+
 
                                     SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "point", jobj.getString("POINT"));
                                     SharedPreferenceUtil.putSharedPreference(LogoActivity.this, "mytype", jobj.getString("MYTYPE"));
