@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#fff">
 
     <LinearLayout
         android:orientation="vertical"
@@ -43,7 +44,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16dp"
-                    android:text="패널가입"
+                    android:text="무료 충전 이용하기"
                     android:id="@+id/top_title"
                     android:textColor="#ffffff"/>
 
@@ -61,40 +62,46 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+           <ImageView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:src="@drawable/panel_guide"/>
+
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp">
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#fce703">
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="패널가입"
+                android:text="무료 충전 이용하기"
+                android:background="#d6d7d7"
                 android:textColor="#ffffff"
                 android:id="@+id/panel_join_btn" />
 
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="설문조사 회원이 되시면 추가 가입 포인트(+2,000P)와 조사에 참여하여 포인트를 얻을 수 있는 기회를 제공 받을 수 있습니다. "
-                android:textSize="11dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:textColor="#ffffff"/>
-
-        </LinearLayout>
 
 
     </LinearLayout>
