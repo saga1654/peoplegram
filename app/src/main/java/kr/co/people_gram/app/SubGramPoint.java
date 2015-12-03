@@ -120,9 +120,17 @@ public class SubGramPoint extends AppCompatActivity {
 
                     break;
                 case R.id.free_btn:
-                    intent = new Intent(SubGramPoint.this, PointFreeActivity.class);
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+                    //Log.d("people_gram", "패널"+SharedPreferenceUtil.getSharedPreference(SubGramPoint.this, "panelYN"));
+                    if(SharedPreferenceUtil.getSharedPreference(SubGramPoint.this, "panelYN").equals("Y")) {
+                        intent = new Intent(SubGramPoint.this, PointFreeActivity.class);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+                    } else {
+                        intent = new Intent(SubGramPoint.this, PointFreePanelActivity.class);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+                    }
+
                     break;
                 case R.id.point1000:
                     intent = new Intent(SubGramPoint.this, Payment_Activity.class);
