@@ -61,7 +61,7 @@ public class SubPeopleMatchListAdapter extends BaseAdapter{
         SubPeopleMatchListDTO dto = peoplelist.get(position);
 
         TextView number = (TextView) convertView.findViewById(R.id.number);
-        number.setText("TOP"+String.valueOf(position+1)+".");
+        number.setText("TOP"+String.valueOf(position+1));
 
         TextView listview_people_list_username = (TextView) convertView.findViewById(R.id.listview_people_list_username);
         TextView listview_people_list_email = (TextView) convertView.findViewById(R.id.listview_people_list_email);
@@ -71,13 +71,13 @@ public class SubPeopleMatchListAdapter extends BaseAdapter{
 
 
         listview_people_list_username.setText(dto.get_profile_username());
-        /*
+       /*
         if(dto.get_profile_email().equals("null")) {
             listview_people_list_email.setText("미가입");
         } else {
             listview_people_list_email.setText(dto.get_profile_email());
         }
-        */
+       */
         listview_people_list_match_value.setText(String.valueOf(Math.round(dto.get_profile_match_value())) + "%");
 
 
