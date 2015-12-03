@@ -5,7 +5,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.AnimationDrawable;
+import android.net.Uri;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +20,7 @@ import android.view.KeyEvent;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -246,6 +250,26 @@ public class LogoActivity extends AppCompatActivity {
 
                                     dpc.set_user_count(jobj.getInt("NEW_COUNT"));
 
+
+                                    String app_version = "";
+                                    try {
+                                        PackageInfo i = getPackageManager().getPackageInfo(getPackageName(), 0);
+                                        app_version = i.versionName;
+                                    } catch (PackageManager.NameNotFoundException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                    if(app_version.equals(jobj.getString("VERSION")) == false) {
+                                        //Toast.makeText(LogoActivity.this, "최신버전이 업데이트 되었습니다.", Toast.LENGTH_LONG).show();
+
+                                        Intent marketLaunch = new Intent(Intent.ACTION_VIEW);
+                                        marketLaunch.setData(Uri.parse("market://details?id=kr.co.people_gram.app"));
+                                        startActivity(marketLaunch);
+
+                                        finish();
+                                        moveTaskToBack(true);
+                                        android.os.Process.killProcess(android.os.Process.myPid());
+                                    }
 
                                     if (jobj.getString("MYTYPE").equals("")) {
                                         Intent intent = new Intent(LogoActivity.this, MemberComplate_Activity.class);
