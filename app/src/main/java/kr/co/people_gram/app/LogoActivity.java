@@ -259,18 +259,6 @@ public class LogoActivity extends AppCompatActivity {
                                         e.printStackTrace();
                                     }
 
-                                    if(app_version.equals(jobj.getString("VERSION")) == false) {
-                                        //Toast.makeText(LogoActivity.this, "최신버전이 업데이트 되었습니다.", Toast.LENGTH_LONG).show();
-
-                                        Intent marketLaunch = new Intent(Intent.ACTION_VIEW);
-                                        marketLaunch.setData(Uri.parse("market://details?id=kr.co.people_gram.app"));
-                                        startActivity(marketLaunch);
-
-                                        finish();
-                                        moveTaskToBack(true);
-                                        android.os.Process.killProcess(android.os.Process.myPid());
-                                    }
-
                                     if (jobj.getString("MYTYPE").equals("")) {
                                         Intent intent = new Intent(LogoActivity.this, MemberComplate_Activity.class);
                                         startActivity(intent);

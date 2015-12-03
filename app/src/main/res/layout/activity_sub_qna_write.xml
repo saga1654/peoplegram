@@ -85,7 +85,7 @@
                android:background="@drawable/qna_style"
                 android:singleLine="false"
                 android:padding="10dp"
-                android:textColor="#0000" />
+                android:textColor="#000" />
 
         </LinearLayout>
 

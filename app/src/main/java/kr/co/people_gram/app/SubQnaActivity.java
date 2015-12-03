@@ -62,7 +62,7 @@ public class SubQnaActivity extends AppCompatActivity {
 
         qna_dto = new ArrayList<QnaDTO>();
         RequestParams params = new RequestParams();
-
+        params.put("uid", SharedPreferenceUtil.getSharedPreference(SubQnaActivity.this, "uid"));
         HttpClient.post("/setting/qnaList", params, new AsyncHttpResponseHandler() {
             public void onStart() {
                 //Log.d("people_gram", "시작");
