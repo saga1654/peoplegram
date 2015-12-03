@@ -29,7 +29,7 @@ public class PointFreeActivity extends AppCompatActivity {
         WebSettings webSettings = free.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
-        free.loadUrl(HttpClient.BASE_URL + "/survey/sList");
+        free.loadUrl(HttpClient.BASE_URL + "/survey/sList/"+SharedPreferenceUtil.getSharedPreference(PointFreeActivity.this, "uid"));
         mWebViewInterface = new WebViewInterface(PointFreeActivity.this, free); //JavascriptInterface 객체화
         free.addJavascriptInterface(mWebViewInterface, "Android");
     }

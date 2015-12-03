@@ -93,6 +93,10 @@ public class SurveyComplateActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    public void survey_close(View v) {
+        finish();
+    }
+
     public void finish()
     {
         Intent intent = getIntent();

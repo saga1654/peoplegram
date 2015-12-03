@@ -20,7 +20,7 @@ import android.webkit.WebView;
 
 public class SurveyStartActivity extends AppCompatActivity {
 
-    private WebView surveyView;
+    WebView surveyView;
     private String campaign_code = "";
 
     private WebViewInterface mWebViewInterface;
@@ -33,12 +33,12 @@ public class SurveyStartActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
 
         Intent intent = getIntent();
-        if(intent != null) {
+        if (intent != null) {
             campaign_code = intent.getStringExtra("campaign_code");
         }
 
         surveyView = (WebView) findViewById(R.id.surveyView);
-        surveyView.loadUrl(HttpClient.BASE_URL+"/survey/sView/"+campaign_code);
+        surveyView.loadUrl(HttpClient.BASE_URL + "/survey/sView/" + campaign_code);
 
         WebSettings webSettings = surveyView.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -49,16 +49,13 @@ public class SurveyStartActivity extends AppCompatActivity {
         surveyView.addJavascriptInterface(mWebViewInterface, "Android");
         surveyView.setWebChromeClient(new WebChromeClient() {
             @Override
-            public boolean onJsAlert(WebView view, String url, String message, final android.webkit.JsResult result)
-            {
+            public boolean onJsAlert(WebView view, String url, String message, final android.webkit.JsResult result) {
                 new AlertDialog.Builder(myApp)
                         .setTitle("AlertDialog")
                         .setMessage(message)
                         .setPositiveButton(android.R.string.ok,
-                                new AlertDialog.OnClickListener()
-                                {
-                                    public void onClick(DialogInterface dialog, int which)
-                                    {
+                                new AlertDialog.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
                                         result.confirm();
                                     }
                                 })
@@ -67,10 +64,11 @@ public class SurveyStartActivity extends AppCompatActivity {
                         .show();
 
                 return true;
-            };
+            }
+
+            ;
 
         });
-
 
 
     }
@@ -112,8 +110,7 @@ public class SurveyStartActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-    public void finish()
-    {
+    public void finish() {
         super.finish();
         overridePendingTransition(R.anim.end_enter, R.anim.end_exit);
     }
@@ -125,8 +122,9 @@ public class SurveyStartActivity extends AppCompatActivity {
 
         /**
          * 생성자.
+         *
          * @param activity : context
-         * @param view : 적용될 웹뷰
+         * @param view     : 적용될 웹뷰
          */
         public WebViewInterface(Activity activity, WebView view) {
             mAppView = view;
@@ -134,16 +132,27 @@ public class SurveyStartActivity extends AppCompatActivity {
         }
 
         @JavascriptInterface
-        public void campaignComplate(String campaign_code)
-        {
+        public void campaignComplate(String campaign_code) {
             Log.d("people_gram", "성공");
             Intent intent = new Intent(SurveyStartActivity.this, SurveyComplateActivity.class);
             intent.putExtra("campaign_code", campaign_code);
             startActivity(intent);
             finish();
+        }
+
+        @JavascriptInterface
+        public void qNext(final String campaign_code, final String uid, final String page) {
+
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Log.d("people_gram", campaign_code + ":::" + uid + ":::" + page);
+                    surveyView.loadUrl(HttpClient.BASE_URL + "/survey/sView/" + campaign_code.toString() + "/" + uid.toString() + "/" + page.toString());
+                }
+            });
+
 
         }
 
     }
-
 }
