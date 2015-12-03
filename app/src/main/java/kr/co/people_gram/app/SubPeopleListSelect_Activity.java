@@ -122,7 +122,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                 break;
 
             case "F":
-                gubun1.setText("친구 관계");
+                gubun1.setText("친구(지인) 관계");
                 break;
 
             case "L":
