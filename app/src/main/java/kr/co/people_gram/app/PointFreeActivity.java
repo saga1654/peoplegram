@@ -34,6 +34,11 @@ public class PointFreeActivity extends AppCompatActivity {
         free.addJavascriptInterface(mWebViewInterface, "Android");
     }
 
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d("people_gram", "성공");
+        free.loadUrl(HttpClient.BASE_URL + "/survey/sList");
+    }
+
     public void free_prevBtn(View v) {
         finish();
     }

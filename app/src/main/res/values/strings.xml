@@ -484,6 +484,7 @@
     <string name="title_activity_point_free_panel">PointFreePanelActivity</string>
     <string name="title_activity_survey_view">SurveyViewActivity</string>
     <string name="title_activity_survey_start">SurveyStartActivity</string>
+    <string name="title_activity_survey_complate">SurveyComplateActivity</string>
 
 
 </resources>

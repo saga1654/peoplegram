@@ -511,6 +511,11 @@
             android:label="@string/title_activity_survey_start"
             android:theme="@style/AppTheme" >
         </activity>
+        <activity
+            android:name=".SurveyComplateActivity"
+            android:label="@string/title_activity_survey_complate"
+            android:theme="@style/AppTheme" >
+        </activity>
     </application>
 
 </manifest>

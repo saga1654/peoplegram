@@ -1,5 +1,6 @@
 package kr.co.people_gram.app;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -19,6 +22,7 @@ public class PointFreePanelActivity extends AppCompatActivity {
 
     private Button panel_join_btn;
     private ProgressDialog dialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,4 +64,5 @@ public class PointFreePanelActivity extends AppCompatActivity {
     public void free_prevBtn(View v) {
         finish();
     }
+
 }
