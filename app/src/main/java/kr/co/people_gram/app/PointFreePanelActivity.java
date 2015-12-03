@@ -25,6 +25,7 @@ public class PointFreePanelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_point_free_panel);
 
+
         panel_join_btn = (Button) findViewById(R.id.panel_join_btn);
         panel_join_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,5 +56,8 @@ public class PointFreePanelActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+    public void free_prevBtn(View v) {
+        finish();
     }
 }
