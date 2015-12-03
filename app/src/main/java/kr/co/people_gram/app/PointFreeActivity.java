@@ -35,8 +35,7 @@ public class PointFreeActivity extends AppCompatActivity {
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.d("people_gram", "성공");
-        free.loadUrl(HttpClient.BASE_URL + "/survey/sList");
+        free.loadUrl(HttpClient.BASE_URL + "/survey/sList"+SharedPreferenceUtil.getSharedPreference(PointFreeActivity.this, "uid"));
     }
 
     public void free_prevBtn(View v) {
