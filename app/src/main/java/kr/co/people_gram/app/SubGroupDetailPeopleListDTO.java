@@ -9,6 +9,7 @@ public class SubGroupDetailPeopleListDTO {
     String profile_img = "";
     String profile_username = "";
     String profile_email = "";
+    String profile_mytype = "";
     String profile_type = "";
     String profile_mood = "";
     String profile_gubun1 = "";
@@ -23,7 +24,9 @@ public class SubGroupDetailPeopleListDTO {
 
     }
 
-    public SubGroupDetailPeopleListDTO(String group_code, String profile_uid, String profile_img, String profile_username, String profile_email, String profile_type, String profile_mood, String profile_gubun1, String profile_gubun2, int profile_speed, int profile_control, int profile_cnt, int profile_friend_cnt, int profile_new_cnt)
+    public void set_profile_uid(String profile_uid) { this.profile_uid = profile_uid; }
+
+    public SubGroupDetailPeopleListDTO(String group_code, String profile_uid, String profile_img, String profile_username, String profile_email, String profile_mytype,  String profile_type, String profile_mood, String profile_gubun1, String profile_gubun2, int profile_speed, int profile_control, int profile_cnt, int profile_friend_cnt, int profile_new_cnt)
     {
         this.group_code = group_code;
         this.profile_uid = profile_uid;
@@ -42,9 +45,9 @@ public class SubGroupDetailPeopleListDTO {
 
         this.profile_new_cnt = profile_new_cnt;
 
-    }
+        this.profile_mytype = profile_mytype;
 
-    public void set_profile_uid(String profile_uid) { this.profile_uid = profile_uid; }
+    }
     public String get_profile_uid() { return this.profile_uid; }
 
     public void set_profile_img(String profile_img) { this.profile_uid = profile_img; }
@@ -87,5 +90,9 @@ public class SubGroupDetailPeopleListDTO {
 
     public void set_group_code(String group_code) { this.group_code = group_code; }
     public String get_group_code() { return this.group_code; }
+
+
+    public void set_profile_mytype(String profile_mytype) { this.profile_mytype = profile_mytype; }
+    public String get_profile_mytype() { return this.profile_mytype; }
 
 }

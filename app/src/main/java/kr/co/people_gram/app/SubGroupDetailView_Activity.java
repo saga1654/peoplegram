@@ -86,7 +86,7 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
                             intent.putExtra("people_email", dto.get_profile_email());
                             intent.putExtra("people_username", dto.get_profile_username());
                             intent.putExtra("people_mood", dto.get_profile_mood());
-                            intent.putExtra("people_type", dto.get_profile_type());
+                            intent.putExtra("people_type", dto.get_profile_mytype());
                             intent.putExtra("people_gubun1", dto.get_profile_gubun1());
                             intent.putExtra("people_gubun2", dto.get_profile_gubun2());
                             intent.putExtra("people_speed", dto.get_profile_speed());
@@ -255,6 +255,7 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
                                 , ""
                                 , jobj.getString("PEOPLE_USERNAME")
                                 , email
+                                , jobj.getString("MYTYPE")
                                 , type
                                 , ""
                                 , gubun1
