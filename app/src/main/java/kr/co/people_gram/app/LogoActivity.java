@@ -265,7 +265,7 @@ public class LogoActivity extends AppCompatActivity {
                                         overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);
                                         finish();
                                     } else {
-                                        Intent intent = new Intent(LogoActivity.this, MainActivity.class);
+                                        Intent intent = new Intent(LogoActivity.this, MainActivity2.class);
                                         startActivity(intent);
                                         overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
                                         finish();

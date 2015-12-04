@@ -144,7 +144,7 @@ public class LoginActivity extends AppCompatActivity {
                                 intent = new Intent(LoginActivity.this, MyQuestion_Activity.class);
                             } else {
                                 SharedPreferenceUtil.putSharedPreference(ActivityContext, "mytype", mytype);
-                                intent = new Intent(LoginActivity.this, MainActivity.class);
+                                intent = new Intent(LoginActivity.this, MainActivity2.class);
                             }
 
                             SharedPreferenceUtil.putSharedPreference(ActivityContext, "point", user_data.get("POINT").toString());

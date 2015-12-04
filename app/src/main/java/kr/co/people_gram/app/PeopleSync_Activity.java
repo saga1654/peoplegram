@@ -166,7 +166,7 @@ public class PeopleSync_Activity extends AppCompatActivity {
                                         if(response.equals("000")) {
                                             Log.d("people_gram", "동기화="+check);
                                             if(check == false) {
-                                                Intent intent = new Intent(PeopleSync_Activity.this, MainActivity.class);
+                                                Intent intent = new Intent(PeopleSync_Activity.this, MainActivity2.class);
                                                 startActivity(intent);
                                                 overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
                                                 finish();
