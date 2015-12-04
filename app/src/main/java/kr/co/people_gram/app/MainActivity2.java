@@ -111,7 +111,7 @@ public class MainActivity2 extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
         ft = fragmentManager.beginTransaction();
 
-        txtTitle.setText("PEOPLE GRAM");
+        txtTitle.setText("피플그램");
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
