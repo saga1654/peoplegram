@@ -68,13 +68,16 @@ public class SubGroupPeopleListAdapter extends BaseAdapter{
             uid_check[position] = "";
             username_check[position] = "";
             dto.set_checked(false);
+
+            isCheckedConfrim[position] = false;
         } else {
             uid_check[position] = dto.get_profile_uid();
             username_check[position] = dto.get_profile_username();
 
             dto.set_checked(true);
+            isCheckedConfrim[position] = !isCheckedConfrim[position];
         }
-        isCheckedConfrim[position] = !isCheckedConfrim[position];
+
     }
 
 
