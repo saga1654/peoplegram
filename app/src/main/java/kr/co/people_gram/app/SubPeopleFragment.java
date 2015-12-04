@@ -836,6 +836,7 @@ public class SubPeopleFragment extends Fragment {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         peopleList();
+        listview_youtype_switch.setChecked(false);
         switch (SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype")) {
             case "A":
                 listview_proplelist_img.setImageResource(R.mipmap.peoplelist_type_a);
