@@ -5,7 +5,7 @@
         <item
             android:id="@+id/navigation_item_type"
             android:textColor="#ffffff"
-            android:title="유형특징" />
+            android:title="유형별 특징" />
         <item
             android:id="@+id/navigation_item_point"
             android:textColor="#ffffff"
