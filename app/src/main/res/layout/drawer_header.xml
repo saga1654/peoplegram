@@ -36,11 +36,12 @@
 
     </LinearLayout>
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="left"
         android:paddingTop="20dp"
+        android:paddingLeft="20dp"
         android:paddingBottom="20dp">
 
         <LinearLayout
@@ -54,8 +55,10 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp">
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -67,9 +70,11 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
             android:paddingTop="5dp"
-            android:paddingBottom="5dp">
+            android:paddingBottom="5dp"
+            android:gravity="center_vertical">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -80,11 +85,7 @@
         </LinearLayout>
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#f1f1f1">
-    </LinearLayout>
+
     <!--
     <LinearLayout
         android:orientation="horizontal"
