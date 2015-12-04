@@ -4,20 +4,24 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/navigation_item_type"
+            android:icon="@mipmap/left_menu_06_off"
             android:textColor="#ffffff"
             android:title="유형별 특징" />
         <item
             android:id="@+id/navigation_item_point"
+            android:icon="@mipmap/coin_icon3"
             android:textColor="#ffffff"
             android:title="포인트충전" />
 
         <item
             android:id="@+id/navigation_item_mypage"
+            android:icon="@mipmap/left_menu_04_off"
             android:textColor="#ffffff"
             android:title="마이페이지" />
 
         <item
             android:id="@+id/navigation_item_setting"
+            android:icon="@mipmap/left_menu_08_off"
             android:textColor="#ffffff"
             android:title="설정" />
     </group>
