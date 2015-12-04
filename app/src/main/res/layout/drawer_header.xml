@@ -3,7 +3,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#31344d">
+    android:id="@+id/backImg"
+    android:background="@drawable/people_popup_img1">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -60,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#ffffff"
-                android:textSize="18dp"
+                android:textSize="15dp"
                 android:id="@+id/menu_username"
                 android:text="스테파니 박"></TextView>
         </LinearLayout>
@@ -74,9 +75,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1,200P"
-                android:textColor="#ffffff"
+                android:textColor="#fce703"
                 android:id="@+id/menu_point"
-                android:textSize="24dp"></TextView>
+                android:textSize="25dp"></TextView>
         </LinearLayout>
 
     </LinearLayout>
@@ -85,7 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="9"
-        android:background="#67676d"
+        android:background="#4d4d4d"
         android:paddingTop="10dp"
         android:paddingBottom="10dp">
         <LinearLayout
