@@ -230,8 +230,8 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
                         } else {
                             email = "미가입";
                         }
-                        if (jobj.getString("MY_TYPE") != "null") {
-                            type = jobj.getString("MY_TYPE");
+                        if (jobj.getString("YOU_TYPE") != "null") {
+                            type = jobj.getString("YOU_TYPE");
                         }
                         if (jobj.getString("GUBUN1") != "null") {
                             gubun1 = jobj.getString("GUBUN1");
