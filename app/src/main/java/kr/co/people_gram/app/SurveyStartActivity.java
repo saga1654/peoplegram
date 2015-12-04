@@ -42,7 +42,7 @@ public class SurveyStartActivity extends AppCompatActivity {
         }
 
         surveyView = (WebView) findViewById(R.id.surveyView);
-        surveyView.loadUrl(HttpClient.BASE_URL + "/survey/sView/" + campaign_code);
+        surveyView.loadUrl(HttpClient.BASE_URL + "/survey/sView/" + campaign_code + "/" + SharedPreferenceUtil.getSharedPreference(SurveyStartActivity.this, "uid") + "/" + 1);
 
         WebSettings webSettings = surveyView.getSettings();
         webSettings.setJavaScriptEnabled(true);
