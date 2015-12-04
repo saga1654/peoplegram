@@ -220,6 +220,7 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
 
                         String email = "";
                         String type = "";
+                        String type2="";
                         String gubun1 = "";
                         String gubun2 = "";
                         int speed = 0;
@@ -232,6 +233,9 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
                         }
                         if (jobj.getString("YOU_TYPE") != "null") {
                             type = jobj.getString("YOU_TYPE");
+                        }
+                        if (jobj.getString("MY_TYPE") != "null") {
+                            type2 = jobj.getString("MY_TYPE");
                         }
                         if (jobj.getString("GUBUN1") != "null") {
                             gubun1 = jobj.getString("GUBUN1");
@@ -254,7 +258,7 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
                                 , ""
                                 , jobj.getString("PEOPLE_USERNAME")
                                 , email
-                                , type
+                                , type2
                                 , ""
                                 , gubun1
                                 , gubun2
