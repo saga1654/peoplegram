@@ -3,8 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/backImg"
-    android:background="@drawable/people_popup_img1">
+    android:background="#4d4d4d">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -60,7 +59,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#ffffff"
+                android:textColor="#fff"
                 android:textSize="15dp"
                 android:id="@+id/menu_username"
                 android:text="스테파니 박"></TextView>
@@ -75,7 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1,200P"
-                android:textColor="#fce703"
+                android:textColor="#fbed51"
                 android:id="@+id/menu_point"
                 android:textSize="25dp"></TextView>
         </LinearLayout>
