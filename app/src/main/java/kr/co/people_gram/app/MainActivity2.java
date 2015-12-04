@@ -67,7 +67,7 @@ public class MainActivity2 extends AppCompatActivity {
     private PopupWindow mPopupWindow;
     final int SubPeopleListFragmentCode = 1;
     final int SubPeopleTypeFragmentCode = 2;
-    private TextView menu_username;
+    private TextView menu_username, menu_point;
     private ImageView menu_mytype;
 
     private Handler mHandler;
@@ -152,13 +152,7 @@ public class MainActivity2 extends AppCompatActivity {
                         }
                     }
                 };
-                mHandler = new Handler();
                 mHandler.postDelayed(mRunnable, 200);
-
-
-
-
-
 
                 return false;
             }
@@ -190,8 +184,8 @@ public class MainActivity2 extends AppCompatActivity {
         menu_username = (TextView) findViewById(R.id.menu_username);
         menu_username.setText(SharedPreferenceUtil.getSharedPreference(MainActivity2.this, "username"));
 
-       // menu_point = (TextView) findViewById(R.id.menu_point);
-       // menu_point.setText(Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(MainActivity2.this, "point"))) + "p");
+        menu_point = (TextView) findViewById(R.id.menu_point);
+        menu_point.setText(Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(MainActivity2.this, "point"))) + "p");
 
         menu_mytype = (ImageView) findViewById(R.id.menu_mytype);
 
@@ -490,28 +484,28 @@ public class MainActivity2 extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        //menu_point.setText(Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(MainActivity2.this, "point"))) + "p");
+        menu_point.setText(Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(MainActivity2.this, "point"))) + "p");
         menu_mytype = (ImageView) findViewById(R.id.menu_mytype);
 
         switch (SharedPreferenceUtil.getSharedPreference(MainActivity2.this, "mytype")) {
             case "A":
-                menu_mytype.setImageResource(R.mipmap.peoplelist_type_a);
+                menu_mytype.setImageResource(R.mipmap.people_type_a);
                 break;
 
             case "I":
-                menu_mytype.setImageResource(R.mipmap.peoplelist_type_i);
+                menu_mytype.setImageResource(R.mipmap.people_type_i);
                 break;
 
             case "D":
-                menu_mytype.setImageResource(R.mipmap.peoplelist_type_d);
+                menu_mytype.setImageResource(R.mipmap.people_type_d);
                 break;
 
             case "E":
-                menu_mytype.setImageResource(R.mipmap.peoplelist_type_e);
+                menu_mytype.setImageResource(R.mipmap.people_type_e);
                 break;
 
             default:
-                menu_mytype.setImageResource(R.mipmap.peoplelist_type_default);
+                menu_mytype.setImageResource(R.mipmap.people_type_default);
                 break;
         }
 

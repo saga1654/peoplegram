@@ -3,101 +3,87 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#fbed51"   >
-
-
+    android:background="@drawable/menu_bg">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="left"
-        android:paddingTop="8dp"
-        android:paddingLeft="20dp"
-        android:paddingBottom="8dp">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/menu_mytype"
-                android:src="@mipmap/peoplelist_type_a"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:paddingLeft="10dp"
-            android:gravity="center_vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#4d4d4d"
-                android:textSize="15dp"
-                android:id="@+id/menu_username"
-                android:text="스테파니 박"
-                android:textStyle="bold"></TextView>
-        </LinearLayout>
-<!--
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:gravity="center_vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1,200P"
-                android:textColor="#fbed51"
-                android:id="@+id/menu_point"
-                android:textSize="25dp"></TextView>
-        </LinearLayout>
--->
-    </LinearLayout>
-
-    <!--
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="9"
-        android:background="#4d4d4d"
-        android:paddingTop="10dp"
+        android:weightSum="1"
+        android:paddingTop="30dp"
         android:paddingBottom="10dp">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:gravity="center">
+            android:layout_weight="0.50"
+            android:paddingLeft="20dp">
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="peopletype_btn"
+                android:src="@drawable/close_btn"
+                android:onClick="mainmenu_close_btn"
                 android:background="@android:color/transparent"/>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:gravity="center">
+            android:layout_weight="0.50"
+            android:paddingRight="20dp"
+            android:gravity="right">
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:color/transparent"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:gravity="center">
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:src="@mipmap/left_menu_profile"
                 android:background="@android:color/transparent"/>
         </LinearLayout>
     </LinearLayout>
- -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:id="@+id/menu_mytype"
+                android:background="@mipmap/people_type_default"></ImageView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="18dp"
+                android:id="@+id/menu_username"
+                android:text="스테파니 박"></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1,200P"
+                android:textColor="#ffffff"
+                android:id="@+id/menu_point"
+                android:textSize="16dp"></TextView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
 </LinearLayout>
