@@ -154,7 +154,7 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                             intent.putExtra("people_gubun2", dto.get_profile_gubun2());
                             intent.putExtra("people_speed", dto.get_profile_speed());
                             intent.putExtra("people_control", dto.get_profile_control());
-                            intent.putExtra("people_result_count", 0);
+                            intent.putExtra("people_result_count", dto.get_profile_user_count());
                             intent.putExtra("people_friend_count", 0);
                             intent.putExtra("people_coaching", response);
 
@@ -215,6 +215,7 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                             , dto.get_profile_total_value()
                             , dto.get_profile_score()
                             , dto.get_profile_match_value()
+                            , dto.get_profile_user_count()
                     ));
 
                 }
@@ -275,16 +276,17 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                     if(dto.get_profile_gubun1().equals("P"))
                         people_dto_list.add(new SubPeopleMatchListDTO(
                             dto.get_profile_uid()
-                            , dto.get_profile_username()
-                            , dto.get_profile_email()
-                            , dto.get_profile_type()
-                            , dto.get_profile_gubun1()
-                            , dto.get_profile_gubun2()
-                            , dto.get_profile_speed()
-                            , dto.get_profile_control()
-                            , dto.get_profile_total_value()
-                            , dto.get_profile_score()
-                            , dto.get_profile_match_value()
+                                , dto.get_profile_username()
+                                , dto.get_profile_email()
+                                , dto.get_profile_type()
+                                , dto.get_profile_gubun1()
+                                , dto.get_profile_gubun2()
+                                , dto.get_profile_speed()
+                                , dto.get_profile_control()
+                                , dto.get_profile_total_value()
+                                , dto.get_profile_score()
+                                , dto.get_profile_match_value()
+                                , dto.get_profile_user_count()
                         ));
 
                 }
@@ -342,6 +344,7 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                                 , dto.get_profile_total_value()
                                 , dto.get_profile_score()
                                 , dto.get_profile_match_value()
+                                , dto.get_profile_user_count()
                         ));
 
                 }
@@ -398,6 +401,7 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                                 , dto.get_profile_total_value()
                                 , dto.get_profile_score()
                                 , dto.get_profile_match_value()
+                                , dto.get_profile_user_count()
                         ));
 
                 }
@@ -454,6 +458,7 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                                 , dto.get_profile_total_value()
                                 , dto.get_profile_score()
                                 , dto.get_profile_match_value()
+                                , dto.get_profile_user_count()
                         ));
 
                 }
@@ -512,6 +517,7 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                                 , dto.get_profile_total_value()
                                 , dto.get_profile_score()
                                 , dto.get_profile_match_value()
+                                , dto.get_profile_user_count()
                         ));
 
                 }
@@ -570,6 +576,7 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                                 , dto.get_profile_total_value()
                                 , dto.get_profile_score()
                                 , dto.get_profile_match_value()
+                                , dto.get_profile_user_count()
                         ));
 
                 }
@@ -673,6 +680,7 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                                 , jobj.getInt("TOTAL_VALUE")
                                 , jobj.getInt("SCORE_TEMP")
                                 , jobj.getDouble("MATCH_VALUE")
+                                , jobj.getInt("USER_TOTAL")
                         ));
 
 
@@ -688,6 +696,7 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                                 , jobj.getInt("TOTAL_VALUE")
                                 , jobj.getInt("SCORE_TEMP")
                                 , jobj.getDouble("MATCH_VALUE")
+                                , jobj.getInt("USER_TOTAL")
                         ));
 
 
