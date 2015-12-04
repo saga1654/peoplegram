@@ -15,12 +15,13 @@ public class SubPeopleMatchListDTO_Temp {
     int profile_total_value = 0;
     int profile_score_temp = 0;
     double profile_match_value = 0;
+    int profile_user_count = 0;
 
     public SubPeopleMatchListDTO_Temp() {
 
     }
 
-    public SubPeopleMatchListDTO_Temp(String profile_uid, String profile_username, String profile_email, String profile_type, String profile_gubun1, String profile_gubun2, int profile_people_speed, int profile_people_control, int profile_total_value, int profile_score_temp, double profile_match_value)
+    public SubPeopleMatchListDTO_Temp(String profile_uid, String profile_username, String profile_email, String profile_type, String profile_gubun1, String profile_gubun2, int profile_people_speed, int profile_people_control, int profile_total_value, int profile_score_temp, double profile_match_value, int profile_user_count)
     {
         this.profile_uid = profile_uid;
         this.profile_username = profile_username;
@@ -33,6 +34,7 @@ public class SubPeopleMatchListDTO_Temp {
         this.profile_total_value = profile_total_value;
         this.profile_score_temp = profile_score_temp;
         this.profile_match_value = profile_match_value;
+        this.profile_user_count = profile_user_count;
 
 
 
@@ -71,6 +73,9 @@ public class SubPeopleMatchListDTO_Temp {
 
     public void set_profile_match_value(int profile_match_value) { this.profile_match_value = profile_match_value; }
     public double get_profile_match_value() { return this.profile_match_value; }
+
+    public void set_profile_user_count(int profile_user_count) { this.profile_user_count = profile_user_count; }
+    public int get_profile_user_count() { return this.profile_user_count; }
 
 
 
