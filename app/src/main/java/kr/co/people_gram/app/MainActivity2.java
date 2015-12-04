@@ -73,19 +73,24 @@ public class MainActivity2 extends AppCompatActivity {
     private Handler mHandler;
     private Runnable mRunnable;
 
-
+    private LinearLayout backImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+        int random_code = (int) (Math.random() * 10) + 1;
+        String resName = "@drawable/people_popup_img"+String.valueOf(random_code);
+        String packName = this.getPackageName(); // 패키지명
+        int resImg = getResources().getIdentifier(resName, "drawable", packName);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         txtTitle = (TextView) findViewById(R.id.txtTitle);
 
         dlDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-
+        backImg = (LinearLayout) findViewById(R.id.backImg);
+        backImg.setBackgroundResource(resImg);
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
         if (null != ab) {
