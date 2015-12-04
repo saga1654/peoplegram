@@ -25,18 +25,6 @@
                 android:background="@android:color/transparent"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.50"
-            android:paddingRight="20dp"
-            android:gravity="right">
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/left_menu_profile"
-                android:background="@android:color/transparent"/>
-        </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
