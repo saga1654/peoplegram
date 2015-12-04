@@ -1,6 +1,10 @@
 package kr.co.people_gram.app;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,13 +15,17 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.JavascriptInterface;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 public class PointFreeActivity extends AppCompatActivity {
 
     private WebView free;
     private WebViewInterface mWebViewInterface;
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +34,56 @@ public class PointFreeActivity extends AppCompatActivity {
 
         free = (WebView) findViewById(R.id.free);
 
+        final Context myApp = this;
+
         WebSettings webSettings = free.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
-        free.loadUrl(HttpClient.BASE_URL + "/survey/sList/"+SharedPreferenceUtil.getSharedPreference(PointFreeActivity.this, "uid"));
+        free.loadUrl(HttpClient.BASE_URL + "/survey/sList/" + SharedPreferenceUtil.getSharedPreference(PointFreeActivity.this, "uid"));
         mWebViewInterface = new WebViewInterface(PointFreeActivity.this, free); //JavascriptInterface 객체화
         free.addJavascriptInterface(mWebViewInterface, "Android");
+        free.setWebViewClient(new WebViewClient() {
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return true;
+            }
+
+            public void onReceivedError(WebView view, int errorCode,
+                                        String description, String failingUrl) {
+            }
+        });
+
+        free.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public boolean onJsAlert(WebView view, String url, String message, final android.webkit.JsResult result) {
+                new AlertDialog.Builder(myApp)
+                        .setTitle("AlertDialog")
+                        .setMessage(message)
+                        .setPositiveButton(android.R.string.ok,
+                                new AlertDialog.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        result.confirm();
+                                    }
+                                })
+                        .setCancelable(false)
+                        .create()
+                        .show();
+
+                return true;
+            }
+
+            ;
+
+            public void onProgressChanged(WebView view, int newProgress) {
+                if (newProgress == 0) {
+                    dialog = ProgressDialog.show(PointFreeActivity.this, "", "데이터 수신중");
+                }
+                if (newProgress >= 100) {
+                    dialog.dismiss();
+                }
+            }
+
+        });
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

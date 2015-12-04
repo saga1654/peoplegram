@@ -2,6 +2,7 @@ package kr.co.people_gram.app;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,6 +18,8 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 public class SurveyStartActivity extends AppCompatActivity {
 
@@ -24,6 +27,7 @@ public class SurveyStartActivity extends AppCompatActivity {
     private String campaign_code = "";
 
     private WebViewInterface mWebViewInterface;
+    private ProgressDialog dialog;
 
 
     @Override
@@ -47,6 +51,17 @@ public class SurveyStartActivity extends AppCompatActivity {
 
         mWebViewInterface = new WebViewInterface(SurveyStartActivity.this, surveyView); //JavascriptInterface 객체화
         surveyView.addJavascriptInterface(mWebViewInterface, "Android");
+        surveyView.setWebViewClient(new WebViewClient() {
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return true;
+            }
+
+            public void onReceivedError(WebView view, int errorCode,
+                                        String description, String failingUrl) {
+                Toast.makeText(myApp, "Some Error :" + description, Toast.LENGTH_SHORT).show();
+            }
+        });
         surveyView.setWebChromeClient(new WebChromeClient() {
             @Override
             public boolean onJsAlert(WebView view, String url, String message, final android.webkit.JsResult result) {
@@ -64,9 +79,16 @@ public class SurveyStartActivity extends AppCompatActivity {
                         .show();
 
                 return true;
-            }
+            };
 
-            ;
+            public void onProgressChanged(WebView view, int newProgress) {
+                if(newProgress == 0) {
+                    dialog = ProgressDialog.show(SurveyStartActivity.this, "", "데이터 수신중");
+                }
+                if(newProgress >= 100) {
+                    dialog.dismiss();
+                }
+            }
 
         });
 
