@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -14,21 +16,23 @@ import android.widget.LinearLayout;
 /**
  * Created by 광희 on 2015-09-15.
  */
-public class SubTypeFragment extends Fragment {
+public class SubTypeFragment extends AppCompatActivity {
     private LinearLayout type_i, type_e, type_d, type_a;
 
 
-    public SubTypeFragment() {
-    }
+
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.sub_fragment_type, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-        type_i = (LinearLayout) rootView.findViewById(R.id.type_i);
-        type_d = (LinearLayout) rootView.findViewById(R.id.type_d);
-        type_e = (LinearLayout) rootView.findViewById(R.id.type_e);
-        type_a = (LinearLayout) rootView.findViewById(R.id.type_a);
+        setContentView(R.layout.sub_fragment_type);
+        //View rootView = inflater.inflate(R.layout.sub_fragment_type, container, false);
+
+        type_i = (LinearLayout) findViewById(R.id.type_i);
+        type_d = (LinearLayout) findViewById(R.id.type_d);
+        type_e = (LinearLayout) findViewById(R.id.type_e);
+        type_a = (LinearLayout) findViewById(R.id.type_a);
 
         type_i.setOnTouchListener(onBtnTouchListener);
         type_i.setOnClickListener(onBtnClickListener);
@@ -44,7 +48,6 @@ public class SubTypeFragment extends Fragment {
 
 
 
-        return rootView;
     }
 
     private View.OnTouchListener onBtnTouchListener = new View.OnTouchListener() {
@@ -92,7 +95,7 @@ public class SubTypeFragment extends Fragment {
 
 
 
-            Intent intent = new Intent(getActivity().getBaseContext(), SubMyType_Activity.class);
+            Intent intent = new Intent(SubTypeFragment.this, SubMyType_Activity.class);
             switch (v.getId()) {
                 case R.id.type_i:
                     intent.putExtra("mytype", "I");
@@ -110,8 +113,33 @@ public class SubTypeFragment extends Fragment {
             }
 
             startActivity(intent);
-            getActivity().overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+            overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
         }
     };
+
+    public void subtype_prevBtn(View v) {
+        finish();
+    }
+
+    public void finish()
+    {
+        super.finish();
+        overridePendingTransition(R.anim.slide_close_down_info, R.anim.slide_clode_up_info);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                finish();
+                break;
+
+            default:
+                break;
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
 
 }

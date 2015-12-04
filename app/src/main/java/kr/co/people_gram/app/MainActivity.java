@@ -438,7 +438,7 @@ public class MainActivity extends AppCompatActivity  {
         adapter.addFrag(new SubPeopleFragment(), "PEOPLE_LIST");
         adapter.addFrag(new SubPeopleTypeFragment(), "PEOPLE_TYPE");
         adapter.addFrag(new SubMypageFragment(), "MYPAGE");
-        adapter.addFrag(new SubTypeFragment(), "TYPE");
+        //adapter.addFrag(new SubTypeFragment(), "TYPE");
         viewPager.setAdapter(adapter);
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override

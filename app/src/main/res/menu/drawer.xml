@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_item_type"
+            android:textColor="#ffffff"
+            android:title="유형특징" />
+        <item
+            android:id="@+id/navigation_item_point"
+            android:textColor="#ffffff"
+            android:title="포인트충전" />
+
+        <item
+            android:id="@+id/navigation_item_mypage"
+            android:textColor="#ffffff"
+            android:title="마이페이지" />
+
+        <item
+            android:id="@+id/navigation_item_setting"
+            android:textColor="#ffffff"
+            android:title="설정" />
+    </group>
+
+    <!--
+    <item android:title="서브내용">
+        <menu>
+            <item
+                android:title="서브1" />
+            <item
+                android:title="서브2" />
+        </menu>
+    </item>
+    -->
+
+</menu>

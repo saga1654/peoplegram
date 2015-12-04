@@ -797,8 +797,8 @@ public class SubPeopleFragment extends Fragment {
             }
         });
 
-        TextView mainTitle = (TextView) getActivity().findViewById(R.id.mainTitle);
-        mainTitle.setText("피플그램");
+        //TextView mainTitle = (TextView) getActivity().findViewById(R.id.mainTitle);
+        //mainTitle.setText("피플그램");
 
 
 
