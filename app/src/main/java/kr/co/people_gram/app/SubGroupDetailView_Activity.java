@@ -233,6 +233,7 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
                         if (jobj.getString("YOU_TYPE") != "null") {
                             type = jobj.getString("YOU_TYPE");
                         }
+
                         if (jobj.getString("GUBUN1") != "null") {
                             gubun1 = jobj.getString("GUBUN1");
                         }
