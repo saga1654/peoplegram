@@ -67,7 +67,7 @@ public class MainActivity2 extends AppCompatActivity {
     private PopupWindow mPopupWindow;
     final int SubPeopleListFragmentCode = 1;
     final int SubPeopleTypeFragmentCode = 2;
-    private TextView menu_username, menu_point;
+    private TextView menu_username;
     private ImageView menu_mytype;
 
     private Handler mHandler;
@@ -191,7 +191,7 @@ public class MainActivity2 extends AppCompatActivity {
         menu_username.setText(SharedPreferenceUtil.getSharedPreference(MainActivity2.this, "username"));
 
        // menu_point = (TextView) findViewById(R.id.menu_point);
-        menu_point.setText(Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(MainActivity2.this, "point"))) + "p");
+       // menu_point.setText(Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(MainActivity2.this, "point"))) + "p");
 
         menu_mytype = (ImageView) findViewById(R.id.menu_mytype);
 
