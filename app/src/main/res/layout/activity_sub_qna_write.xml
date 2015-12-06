@@ -82,10 +82,11 @@
                 android:layout_height="match_parent"
                 android:id="@+id/qna_subjectQ"
                 android:gravity="top"
-               android:background="@drawable/qna_style"
+                android:background="@drawable/qna_style"
                 android:singleLine="false"
                 android:padding="10dp"
-                android:textColor="#000" />
+                android:textColor="#000"
+                android:textSize="12dp" />
 
         </LinearLayout>
 
