@@ -78,6 +78,11 @@ public class SubGroupPeopleListAdapter extends BaseAdapter{
             isCheckedConfrim[position] = !isCheckedConfrim[position];
         }
 
+
+        for(int i = 0; i<isCheckedConfrim.length; i++) {
+            Log.d("people_gram", "그룹선택="+isCheckedConfrim[i] + "::::" + uid_check[i]);
+        }
+
     }
 
 

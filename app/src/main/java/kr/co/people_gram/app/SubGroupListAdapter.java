@@ -34,6 +34,10 @@ public class SubGroupListAdapter extends BaseAdapter{
 
     public String group_code;
     public final View convertView;
+    public String uid = "";
+    public RequestParams params;
+
+    public AlertDialog.Builder alert;
 
 
     public SubGroupListAdapter(Context mContext, int layout, ArrayList<SubGroupListDTO> peoplelist)
@@ -44,6 +48,11 @@ public class SubGroupListAdapter extends BaseAdapter{
         this.peoplelist = peoplelist;
         inf = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         convertView = inf.inflate(layout, null);
+
+        uid = SharedPreferenceUtil.getSharedPreference(mContext, "uid");
+        params = new RequestParams();
+
+
 
     }
 
@@ -95,6 +104,106 @@ public class SubGroupListAdapter extends BaseAdapter{
             @Override
             public void onClick(View v) {
 
+                /*
+                alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+
+                        group_code = dto.get_group_code();
+                        params.remove("uid");
+                        params.remove("group_code");
+                        params.put("uid", uid);
+                        //Log.d("people_gram", dto.get_group_code());
+                        params.put("group_code", dto.get_group_code());
+                        HttpClient.post("/group/groupDelete", params, new AsyncHttpResponseHandler() {
+                            public void onStart() {
+
+                            }
+
+                            public void onFailure() {
+                            }
+
+                            public void onFinish() {
+
+                            }
+
+                            @Override
+                            public void onSuccess(String response) {
+                                peoplelist.remove(position);
+                                notifyDataSetChanged();
+                            }
+                        });
+
+                    }
+                });
+                alert.setMessage("삭제하시겠습니까?");
+                alert.setNegativeButton("취소", null);
+                alert.show();
+                */
+
+                group_code = dto.get_group_code();
+                params.remove("uid");
+                params.remove("group_code");
+                params.put("uid", uid);
+                //Log.d("people_gram", dto.get_group_code());
+                params.put("group_code", dto.get_group_code());
+                HttpClient.post("/group/groupDelete", params, new AsyncHttpResponseHandler() {
+                    public void onStart() {
+
+                    }
+
+                    public void onFailure() {
+                    }
+
+                    public void onFinish() {
+
+                    }
+
+                    @Override
+                    public void onSuccess(String response) {
+                        peoplelist.remove(position);
+                        notifyDataSetChanged();
+                    }
+                });
+
+
+            }
+        });
+
+
+        //SubGroupPeopleListDTO dto = peoplelist.get(position);
+
+
+       //TextView listview_people_list_username = (TextView) convertView.findViewById(R.id.listview_people_list_username);
+        TextView listview_people_list_all = (TextView) convertView.findViewById(R.id.listview_people_list_all);
+        TextView listview_people_list_cnt = (TextView) convertView.findViewById(R.id.listview_people_list_cnt);
+        //LinearLayout group_delete = (LinearLayout) convertView.findViewById(R.id.group_delete);
+
+
+        //listview_people_list_username.setText(dto.get_group_name());
+        listview_people_list_all.setText(dto.get_all_people_name());
+        String[] split = dto.get_all_people_name().split(",");
+        listview_people_list_cnt.setText(split.length + "명");
+
+
+
+
+
+
+        return convertView;
+    }
+
+    public class ViewHolder
+    {
+        private LinearLayout layout;
+    }
+
+    View.OnClickListener mOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                /*
                 AlertDialog.Builder alert = new AlertDialog.Builder(convertView_return.getContext());
                 alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
@@ -127,38 +236,10 @@ public class SubGroupListAdapter extends BaseAdapter{
                 alert.setMessage("삭제하시겠습니까?");
                 alert.setNegativeButton("취소", null);
                 alert.show();
-
-
-                //Log.d("people_gram", "선택="+position);
+                */
             }
-        });
-
-        //SubGroupPeopleListDTO dto = peoplelist.get(position);
-
-
-       //TextView listview_people_list_username = (TextView) convertView.findViewById(R.id.listview_people_list_username);
-        TextView listview_people_list_all = (TextView) convertView.findViewById(R.id.listview_people_list_all);
-        TextView listview_people_list_cnt = (TextView) convertView.findViewById(R.id.listview_people_list_cnt);
-        //LinearLayout group_delete = (LinearLayout) convertView.findViewById(R.id.group_delete);
-
-
-        //listview_people_list_username.setText(dto.get_group_name());
-        listview_people_list_all.setText(dto.get_all_people_name());
-        String[] split = dto.get_all_people_name().split(",");
-        listview_people_list_cnt.setText(split.length + "명");
-
-
-
-
-
-
-        return convertView;
-    }
-
-    public class ViewHolder
-    {
-        private LinearLayout layout;
-    }
+        }
+    };
 
 
 

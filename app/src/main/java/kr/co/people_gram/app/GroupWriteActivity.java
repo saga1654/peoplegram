@@ -297,6 +297,7 @@ public class GroupWriteActivity extends AppCompatActivity {
 
                     @Override
                     public void onSuccess(String response) {
+                        Log.d("people_gram", response);
                         if(response.equals("000")) {
                             Intent intent = new Intent();
                             setResult(41, intent);
