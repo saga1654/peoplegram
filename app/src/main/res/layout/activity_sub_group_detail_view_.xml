@@ -145,7 +145,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="그룹 내 멤버가 나를 바라보는 유형"
+                        android:text="그룹 내에서 멤버가 나를 바라보는 유형"
                         android:textColor="#000"
                         android:textSize="12dp"/>
 
