@@ -279,7 +279,7 @@ public class SettingActivity extends AppCompatActivity {
                             SharedPreferenceUtil.putSharedPreference(SettingActivity.this, "email", "");
 
                             finish();
-                            MainActivity.mainActivity.finish();
+                            MainActivity2.mainActivity.finish();
 
                             Intent intent = new Intent(SettingActivity.this, LoginActivity.class);
                             startActivity(intent);
