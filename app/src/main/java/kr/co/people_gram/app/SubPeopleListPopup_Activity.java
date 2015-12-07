@@ -80,6 +80,8 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
             people_friend_count = intent.getIntExtra("people_friend_count", 0);
             people_coaching = intent.getStringExtra("people_coaching");
 
+            people_email = people_email.trim();
+
             Log.d("people_gram", "팝업이메일="+people_email);
 
             if(people_type.equals("")) {

@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -30,16 +31,26 @@ public class PointFreeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //super.getWindow().requestFeature(Window.FEATURE_PROGRESS);
+
         setContentView(R.layout.activity_point_free);
 
         free = (WebView) findViewById(R.id.free);
 
         final Context myApp = this;
 
+
+        free.clearCache(true);
+        free.clearHistory();
+
+
         WebSettings webSettings = free.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
+
         free.loadUrl(HttpClient.BASE_URL + "/survey/sList/" + SharedPreferenceUtil.getSharedPreference(PointFreeActivity.this, "uid"));
+
         mWebViewInterface = new WebViewInterface(PointFreeActivity.this, free); //JavascriptInterface 객체화
         free.addJavascriptInterface(mWebViewInterface, "Android");
         free.setWebViewClient(new WebViewClient() {
@@ -70,10 +81,9 @@ public class PointFreeActivity extends AppCompatActivity {
                         .show();
 
                 return true;
-            }
+            };
 
-            ;
-
+            /*
             public void onProgressChanged(WebView view, int newProgress) {
                 if (newProgress == 0) {
                     dialog = ProgressDialog.show(PointFreeActivity.this, "", "데이터 수신중");
@@ -82,8 +92,10 @@ public class PointFreeActivity extends AppCompatActivity {
                     dialog.dismiss();
                 }
             }
+            */
 
         });
+
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

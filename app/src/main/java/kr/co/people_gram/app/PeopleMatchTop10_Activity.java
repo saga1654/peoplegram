@@ -113,12 +113,14 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
 
 
 
+
                 if(position == 0) {
 
 
                 } else {
 
                     final SubPeopleMatchListDTO dto = (SubPeopleMatchListDTO) sf_people_list.getItemAtPosition(position);
+                    Log.d("people_gram", dto.get_profile_email());
 
                     //Log.d("people_gram", "현재위치="+pos);
 
@@ -144,6 +146,8 @@ public class PeopleMatchTop10_Activity extends AppCompatActivity {
                         @Override
                         public void onSuccess(String response) {
                             //Log.d("people_gram", response);
+
+
                             Intent intent = new Intent(PeopleMatchTop10_Activity.this, SubPeopleListPopup_Activity.class);
                             intent.putExtra("people_uid", dto.get_profile_uid());
                             intent.putExtra("people_email", dto.get_profile_email());

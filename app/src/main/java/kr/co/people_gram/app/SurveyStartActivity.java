@@ -80,7 +80,7 @@ public class SurveyStartActivity extends AppCompatActivity {
 
                 return true;
             };
-
+            /*
             public void onProgressChanged(WebView view, int newProgress) {
                 if(newProgress == 0) {
                     dialog = ProgressDialog.show(SurveyStartActivity.this, "", "데이터 수신중");
@@ -89,6 +89,7 @@ public class SurveyStartActivity extends AppCompatActivity {
                     dialog.dismiss();
                 }
             }
+            */
 
         });
 
