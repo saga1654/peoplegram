@@ -67,6 +67,7 @@ public class MainActivity2 extends AppCompatActivity {
     private PopupWindow mPopupWindow;
     final int SubPeopleListFragmentCode = 1;
     final int SubPeopleTypeFragmentCode = 2;
+    final int SubPeopleTypeFragmentCode_new = 3;
     private TextView menu_username, menu_point;
     private ImageView menu_mytype;
 
@@ -519,16 +520,86 @@ public class MainActivity2 extends AppCompatActivity {
                 ft.replace(R.id.viewpager, subpeople_fragment);
                 ft.commit();
             }
+            if(requestCode == SubPeopleTypeFragmentCode_new) {
+                fragmentManager = getSupportFragmentManager();
+                ft = fragmentManager.beginTransaction();
+
+                SubPeopleTypeFragment subpeopletype_fragment = new SubPeopleTypeFragment();
+                ft.replace(R.id.viewpager, subpeopletype_fragment);
+                ft.commit();
+            }
             if (requestCode == SubPeopleTypeFragmentCode) {
+
+
                 String my_type = SharedPreferenceUtil.getSharedPreference(this, "mytype");
                 String people_type = data.getStringExtra("people_type");
                 String gubun1 = data.getStringExtra("gubun1");
+                String my_data1 = data.getStringExtra("my_data1");
+                String my_data2 = data.getStringExtra("my_data2");
+                String my_data3 = data.getStringExtra("my_data3");
+                String my_data4 = data.getStringExtra("my_data4");
+                String my_data5 = data.getStringExtra("my_data5");
+                String my_data6 = data.getStringExtra("my_data6");
+                String my_data7 = data.getStringExtra("my_data7");
+                String my_data8 = data.getStringExtra("my_data8");
+                String my_data9 = data.getStringExtra("my_data9");
+                String my_data10 = data.getStringExtra("my_data10");
+
+                String people_total = data.getStringExtra("people_total");
+                String people_data1 = data.getStringExtra("people_data1");
+                String people_data2 = data.getStringExtra("people_data2");
+                String people_data3 = data.getStringExtra("people_data3");
+                String people_data4 = data.getStringExtra("people_data4");
+                String people_data5 = data.getStringExtra("people_data5");
+                String people_data6 = data.getStringExtra("people_data6");
+                String people_data7 = data.getStringExtra("people_data7");
+                String people_data8 = data.getStringExtra("people_data8");
+                String people_data9 = data.getStringExtra("people_data9");
+                String people_data10 = data.getStringExtra("people_data10");
+
+                String my_speed = data.getStringExtra("my_speed");
+                String my_control = data.getStringExtra("my_control");
+                String people_speed = data.getStringExtra("people_speed");
+                String people_control = data.getStringExtra("people_control");
+
+
+                Log.d("people_gram", people_data1 + ":::" + people_data2);
 
                 Intent intent = new Intent(MainActivity2.this, SubPeopleTypeContents_Activity.class);
                 intent.putExtra("mytype", my_type);
                 intent.putExtra("people_type", people_type);
                 intent.putExtra("gubun1", gubun1);
-                startActivity(intent);
+                intent.putExtra("my_data1", my_data1);
+                intent.putExtra("my_data2", my_data2);
+                intent.putExtra("my_data3", my_data3);
+                intent.putExtra("my_data4", my_data4);
+                intent.putExtra("my_data5", my_data5);
+                intent.putExtra("my_data6", my_data6);
+                intent.putExtra("my_data7", my_data7);
+                intent.putExtra("my_data8", my_data8);
+                intent.putExtra("my_data9", my_data9);
+                intent.putExtra("my_data10", my_data10);
+
+                intent.putExtra("people_total", people_total);
+                intent.putExtra("people_data1", people_data1);
+                intent.putExtra("people_data2", people_data2);
+                intent.putExtra("people_data3", people_data3);
+                intent.putExtra("people_data4", people_data4);
+                intent.putExtra("people_data5", people_data5);
+                intent.putExtra("people_data6", people_data6);
+                intent.putExtra("people_data7", people_data7);
+                intent.putExtra("people_data8", people_data8);
+                intent.putExtra("people_data9", people_data9);
+                intent.putExtra("people_data10", people_data10);
+
+                intent.putExtra("my_speed", my_speed);
+                intent.putExtra("my_control", my_control);
+                intent.putExtra("people_speed", people_speed);
+                intent.putExtra("people_control", people_control);
+                intent.putExtra("viewType", "my");
+
+
+                startActivityForResult(intent, SubPeopleTypeFragmentCode_new);
                 overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
 
 
