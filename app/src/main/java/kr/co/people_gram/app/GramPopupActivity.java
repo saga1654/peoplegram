@@ -63,36 +63,38 @@ public class GramPopupActivity extends AppCompatActivity {
             gram_point.setText(Point);
             viewType = intent.getStringExtra("viewType");
 
-            mytype = intent.getStringExtra("mytype");
-            my_data1 = intent.getStringExtra("my_data1");
-            my_data2 = intent.getStringExtra("my_data2");
-            my_data3 = intent.getStringExtra("my_data3");
-            my_data4 = intent.getStringExtra("my_data4");
-            my_data5 = intent.getStringExtra("my_data5");
-            my_data6 = intent.getStringExtra("my_data6");
-            my_data7 = intent.getStringExtra("my_data7");
-            my_data8 = intent.getStringExtra("my_data8");
-            my_data9 = intent.getStringExtra("my_data9");
-            my_data10 = intent.getStringExtra("my_data10");
+            if(viewType.equals("my")) {
+                mytype = intent.getStringExtra("mytype");
+                my_data1 = intent.getStringExtra("my_data1");
+                my_data2 = intent.getStringExtra("my_data2");
+                my_data3 = intent.getStringExtra("my_data3");
+                my_data4 = intent.getStringExtra("my_data4");
+                my_data5 = intent.getStringExtra("my_data5");
+                my_data6 = intent.getStringExtra("my_data6");
+                my_data7 = intent.getStringExtra("my_data7");
+                my_data8 = intent.getStringExtra("my_data8");
+                my_data9 = intent.getStringExtra("my_data9");
+                my_data10 = intent.getStringExtra("my_data10");
 
-            people_type = intent.getStringExtra("people_type");
-            my_speed = intent.getStringExtra("my_speed");
-            my_control = intent.getStringExtra("my_control");
-            people_speed = intent.getStringExtra("people_speed");
-            people_control = intent.getStringExtra("people_control");
+                people_type = intent.getStringExtra("people_type");
+                my_speed = intent.getStringExtra("my_speed");
+                my_control = intent.getStringExtra("my_control");
+                people_speed = intent.getStringExtra("people_speed");
+                people_control = intent.getStringExtra("people_control");
 
-            people_data1 = intent.getStringExtra("people_data1");
-            people_data2 = intent.getStringExtra("people_data2");
-            people_data3 = intent.getStringExtra("people_data3");
-            people_data4 = intent.getStringExtra("people_data4");
-            people_data5 = intent.getStringExtra("people_data5");
-            people_data6 = intent.getStringExtra("people_data6");
-            people_data7 = intent.getStringExtra("people_data7");
-            people_data8 = intent.getStringExtra("people_data8");
-            people_data9 = intent.getStringExtra("people_data9");
-            people_data10 = intent.getStringExtra("people_data10");
+                people_data1 = intent.getStringExtra("people_data1");
+                people_data2 = intent.getStringExtra("people_data2");
+                people_data3 = intent.getStringExtra("people_data3");
+                people_data4 = intent.getStringExtra("people_data4");
+                people_data5 = intent.getStringExtra("people_data5");
+                people_data6 = intent.getStringExtra("people_data6");
+                people_data7 = intent.getStringExtra("people_data7");
+                people_data8 = intent.getStringExtra("people_data8");
+                people_data9 = intent.getStringExtra("people_data9");
+                people_data10 = intent.getStringExtra("people_data10");
 
-            people_total = intent.getStringExtra("people_total");
+                people_total = intent.getStringExtra("people_total");
+            }
 
         }
 
