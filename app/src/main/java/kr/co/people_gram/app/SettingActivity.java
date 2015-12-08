@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,6 +35,8 @@ public class SettingActivity extends AppCompatActivity {
     private LinearLayout point_add, notice_btn, agree_btn, userinfo_btn, logout_btn, question_btn, people_btn;
     private Boolean sync = false;
 
+    private TextView setting_version;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,21 @@ public class SettingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_setting);
         top_title = (TextView) findViewById(R.id.top_title);
         top_title.setText("설정");
+
+        setting_version = (TextView) findViewById(R.id.setting_version);
+
+        PackageInfo pi = null;
+
+        try {
+            pi = getPackageManager().getPackageInfo(getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        String verSion = pi.versionName;
+
+        setting_version.setText("버전정보 : " + verSion);
+
 
 
         push_switch = (Switch) findViewById(R.id.push_switch);

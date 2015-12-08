@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:layout_weight="0.93"
+        android:layout_weight="0.90"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingTop="100dp">
@@ -119,9 +119,11 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="회원 동의"
+                android:text="설문 회원 동의"
                 android:textColor="#30344c"
-                android:id="@+id/panel_join_chk" />
+                android:button="@xml/custom_checkbox"
+                android:id="@+id/panel_join_chk"
+                android:checked="false" />
 
         </LinearLayout>
         <LinearLayout
@@ -180,7 +182,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.07"
+        android:layout_weight="0.10"
         android:gravity="center"
         android:onClick="closeMember"
         android:background="#e8e8e8">
