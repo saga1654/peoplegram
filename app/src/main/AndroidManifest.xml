@@ -308,7 +308,7 @@
         <activity
             android:name=".SubPeopleSearch_Activity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/TransparentTheme" >
         </activity>
         <activity
             android:name=".PanelActivity"
