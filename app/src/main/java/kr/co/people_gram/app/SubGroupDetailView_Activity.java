@@ -273,6 +273,11 @@ public class SubGroupDetailView_Activity extends AppCompatActivity {
 
                     people_adapter_list = new SubGroupDetailPeopleListAdapter(SubGroupDetailView_Activity.this, R.layout.sub_people_group_detail_row_list, people_dto_list);
                     sf_people_list.setAdapter(people_adapter_list);
+                    if (people_speed == 0 || people_control == 0) {
+
+                            mytype_tv.setText(Html.fromHtml("그룹 내 멤버들은 귀하를 서로 상반되게 생각하고 있어 귀하에 대한 유형을 정확히 알기 어렵습니다. 멤버를 재구성하여 다른 그룹을 만들어주시기 바랍니다."));
+
+                    }
 
                     if (people_speed > 0 && people_control > 0) {
 
