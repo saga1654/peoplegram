@@ -61,7 +61,7 @@ public class SubPeopleMatchListAdapter extends BaseAdapter{
         SubPeopleMatchListDTO dto = peoplelist.get(position);
 
         TextView number = (TextView) convertView.findViewById(R.id.number);
-        number.setText("TOP"+String.valueOf(position+1));
+        number.setText("TOP"+String.valueOf(position+1)+".");
 
         TextView listview_people_list_username = (TextView) convertView.findViewById(R.id.listview_people_list_username);
         TextView listview_people_list_email = (TextView) convertView.findViewById(R.id.listview_people_list_email);
