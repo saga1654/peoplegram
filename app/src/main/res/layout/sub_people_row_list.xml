@@ -61,10 +61,18 @@
                     android:layout_height="wrap_content"
                     android:paddingTop="4dp">
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/listview_people_list_cnt"
+                        android:text="진단수 : "
+                        android:textSize="10dp"
+                        android:textColor="#a8a8aa"/>
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingRight="10dp"
+                        android:paddingLeft="10dp"
                         android:id="@+id/new_cnt"
                         android:visibility="invisible"
                         android:layout_weight="0.50">
@@ -88,13 +96,7 @@
                     </LinearLayout>
 
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/listview_people_list_cnt"
-                        android:text="진단수 : "
-                        android:textSize="10dp"
-                        android:textColor="#a8a8aa"/>
+
 
 
                 </LinearLayout>
