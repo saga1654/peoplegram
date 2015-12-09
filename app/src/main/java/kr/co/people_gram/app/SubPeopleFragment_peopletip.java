@@ -418,12 +418,14 @@ public class SubPeopleFragment_peopletip extends Fragment {
                     }
 
 
-                    if(S_code.equals("000") == false) {
-                        peopletype_icon5.setImageResource(R.drawable.item_no_key);
-                    }
+
 
                     S_code = s_data.getString("code");
                     S_cnt = Integer.parseInt(s_data.getString("people_total"));
+
+                    if(S_code.equals("000") == false) {
+                        peopletype_icon5.setImageResource(R.drawable.item_no_key);
+                    }
 
                     people5_cnt.setText(String.valueOf(S_cnt));
 
