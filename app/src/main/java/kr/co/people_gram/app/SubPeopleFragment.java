@@ -93,6 +93,8 @@ public class SubPeopleFragment extends Fragment {
     private PopupWindow mPopupWindow;
     private ImageView guide_content_1;
 
+    private PeopleData pd;
+
 
     public SubPeopleFragment() {
     }
@@ -108,6 +110,7 @@ public class SubPeopleFragment extends Fragment {
         View header = inflater.inflate(R.layout.sub_people_header, null, false);
 
         nc = new NetworkCheck();
+        pd = new PeopleData();
 
 
         mainView = rootView;
@@ -410,22 +413,26 @@ public class SubPeopleFragment extends Fragment {
                         @Override
                         public void onSuccess(String response) {
                             //Log.d("people_gram", response);
-                            Intent intent = new Intent(getActivity().getBaseContext(), SubPeopleListPopup_Activity.class);
-                            intent.putExtra("people_uid", dto.get_profile_uid());
-                            intent.putExtra("people_email", dto.get_profile_email());
-                            intent.putExtra("people_username", dto.get_profile_username());
-                            intent.putExtra("people_mood", dto.get_profile_mood());
-                            intent.putExtra("people_type", dto.get_profile_type());
-                            intent.putExtra("people_gubun1", dto.get_profile_gubun1());
-                            intent.putExtra("people_gubun2", dto.get_profile_gubun2());
-                            intent.putExtra("people_speed", dto.get_profile_speed());
-                            intent.putExtra("people_control", dto.get_profile_control());
-                            intent.putExtra("people_result_count", dto.get_profile_cnt());
-                            intent.putExtra("people_friend_count", dto.get_profile_friend_cnt());
-                            intent.putExtra("people_coaching", response);
+                            if(dto.get_profile_type().equals("")) {
 
-                            startActivityForResult(intent, ACTIVITY_CODE);
-                            getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                            } else {
+                                Intent intent = new Intent(getActivity().getBaseContext(), SubPeopleListPopup_Activity.class);
+                                intent.putExtra("people_uid", dto.get_profile_uid());
+                                intent.putExtra("people_email", dto.get_profile_email());
+                                intent.putExtra("people_username", dto.get_profile_username());
+                                intent.putExtra("people_mood", dto.get_profile_mood());
+                                intent.putExtra("people_type", dto.get_profile_type());
+                                intent.putExtra("people_gubun1", dto.get_profile_gubun1());
+                                intent.putExtra("people_gubun2", dto.get_profile_gubun2());
+                                intent.putExtra("people_speed", dto.get_profile_speed());
+                                intent.putExtra("people_control", dto.get_profile_control());
+                                intent.putExtra("people_result_count", dto.get_profile_cnt());
+                                intent.putExtra("people_friend_count", dto.get_profile_friend_cnt());
+                                intent.putExtra("people_coaching", response);
+
+                                startActivityForResult(intent, ACTIVITY_CODE);
+                                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                            }
                         }
                     });
                 }
