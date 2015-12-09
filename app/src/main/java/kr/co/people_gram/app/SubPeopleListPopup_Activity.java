@@ -7,10 +7,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
+import android.view.WindowManager.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +44,38 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
     private ProgressDialog dialog;
 
     private LinearLayout backImg;
+    private ImageView guide_content;
+    private PopupWindow mPopupWindow;
+
+    private void newPopup()
+    {
+        if(SharedPreferenceUtil.getSharedPreference(this, "popup").equals("C") == false) {
+            final View popupView = getLayoutInflater().inflate(R.layout.activity_guide_activity_step1, null);
+            mPopupWindow = new PopupWindow(popupView,
+                    RelativeLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+
+            popupView.post(new Runnable() {
+                @Override
+                public void run() {
+                    mPopupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
+                }
+            });
+
+
+            guide_content = (ImageView) popupView.findViewById(R.id.guide_img);
+            guide_content.setImageResource(R.drawable.sub_guide_peoplepopup);
+            SharedPreferenceUtil.putSharedPreference(this, "popup", "C");
+            LinearLayout step1_close_btn = (LinearLayout) popupView.findViewById(R.id.step1_close_btn);
+            step1_close_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mPopupWindow != null && mPopupWindow.isShowing()) {
+                        mPopupWindow.dismiss();
+                    }
+                }
+            });
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +88,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
         int resImg = getResources().getIdentifier(resName, "drawable", packName);
 
 
-
+        newPopup();
 
         popup_username = (TextView) findViewById(R.id.popup_username);
         popup_type = (ImageView) findViewById(R.id.popup_type);
@@ -155,15 +191,21 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
                     if(people_type.equals("")) {
                         Toast.makeText(SubPeopleListPopup_Activity.this, people_username +"님을 진단해주세요.", Toast.LENGTH_LONG).show();
                     } else {
+
                         Intent intent = new Intent(SubPeopleListPopup_Activity.this, SubMyType_Activity.class);
                         intent.putExtra("mytype", people_type);
                         startActivity(intent);
                         overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+
+
+
                     }
                 }
             });
 
         }
+
+
 
 
     }
@@ -369,5 +411,7 @@ public class SubPeopleListPopup_Activity extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
+
+
 
 }

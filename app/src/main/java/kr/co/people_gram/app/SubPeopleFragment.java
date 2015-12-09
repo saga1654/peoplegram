@@ -1200,7 +1200,7 @@ public class SubPeopleFragment extends Fragment {
                     //dialog.dismiss();
                     //listview_noticeList.setAdapter(notice_adapter);
 
-                    if(SharedPreferenceUtil.getSharedPreference(getActivity(), "step1").equals("Y") == false) {
+                    if(SharedPreferenceUtil.getSharedPreference(getActivity(), "step1").equals("C") == false) {
                         View popupView = getActivity().getLayoutInflater().inflate(R.layout.activity_guide_activity_step1, null);
                         mPopupWindow = new PopupWindow(popupView,
                                 RelativeLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
@@ -1208,8 +1208,8 @@ public class SubPeopleFragment extends Fragment {
                         mPopupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
 
                         guide_content_1 = (ImageView) popupView.findViewById(R.id.guide_img);
-                        guide_content_1.setImageResource(R.drawable.guide_content_1);
-                        SharedPreferenceUtil.putSharedPreference(getActivity(), "step1", "Y");
+                        guide_content_1.setImageResource(R.drawable.sub_guide);
+                        SharedPreferenceUtil.putSharedPreference(getActivity(), "step1", "C");
                         LinearLayout step1_close_btn = (LinearLayout) popupView.findViewById(R.id.step1_close_btn);
                         step1_close_btn.setOnClickListener(new View.OnClickListener() {
                             @Override

@@ -93,6 +93,9 @@ public class MainActivity2 extends AppCompatActivity {
         }
 
 
+
+
+
         dtToggle = new ActionBarDrawerToggle(this, dlDrawer, R.string.app_name, R.string.app_name) {
             @Override
             public void onDrawerClosed(View drawerView) {
@@ -398,6 +401,9 @@ public class MainActivity2 extends AppCompatActivity {
         SubPeopleFragment subpeople_fragment = new SubPeopleFragment();
         ft.replace(R.id.viewpager, subpeople_fragment);
         ft.commit();
+
+
+
 
 
 
