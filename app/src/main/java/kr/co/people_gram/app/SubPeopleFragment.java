@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -95,6 +97,9 @@ public class SubPeopleFragment extends Fragment {
 
     private PeopleData pd;
 
+    private TextView search_edit_people;
+    private String searchData;
+
 
     public SubPeopleFragment() {
     }
@@ -112,10 +117,20 @@ public class SubPeopleFragment extends Fragment {
         nc = new NetworkCheck();
         pd = new PeopleData();
 
-
+        search_edit_people = (TextView) header.findViewById(R.id.search_edit_people);
         mainView = rootView;
 
         people_dto_list_temp = new ArrayList<SubPeopleListDTO_Temp>();
+
+        search_edit_people.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SubPeopleSearch_Activity.class);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_search_up_info, R.anim.slide_search_down_info);
+            }
+        });
+
 
 
         /*

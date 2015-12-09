@@ -752,10 +752,28 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="#f1f1f1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:textColorHint="#ccc"
+            android:textColor="#000"
+            android:textSize="12dp"
+            android:padding="3dp"
+            android:id="@+id/search_edit_people"
+            android:hint="매칭할 피플찾기 : 이름 및 초성으로 검색해주세요."/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="5dp"
         android:paddingBottom="10dp"
         android:gravity="center"
         android:background="#f1f1f1">
@@ -764,9 +782,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#fff"
-            android:paddingTop="10dp"
+            android:paddingTop="5dp"
             android:paddingLeft="15dp"
-            android:paddingBottom="10dp">
+            android:paddingBottom="5dp">
 
             <TextView
                 android:layout_width="wrap_content"

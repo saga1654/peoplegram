@@ -64,22 +64,36 @@ public class SubPeopleSearch_Activity extends AppCompatActivity {
 
                     @Override
                     public void onSuccess(String response) {
-                        Intent intent = new Intent(SubPeopleSearch_Activity.this, SubPeopleListPopup_Activity.class);
-                        intent.putExtra("people_uid", dto.get_profile_uid());
-                        intent.putExtra("people_email", dto.get_profile_email());
-                        intent.putExtra("people_username", dto.get_profile_username());
-                        intent.putExtra("people_mood", dto.get_profile_mood());
-                        intent.putExtra("people_type", dto.get_profile_type());
-                        intent.putExtra("people_gubun1", dto.get_profile_gubun1());
-                        intent.putExtra("people_gubun2", dto.get_profile_gubun2());
-                        intent.putExtra("people_speed", dto.get_profile_speed());
-                        intent.putExtra("people_control", dto.get_profile_control());
-                        intent.putExtra("people_result_count", dto.get_profile_cnt());
-                        intent.putExtra("people_friend_count", dto.get_profile_friend_cnt());
-                        intent.putExtra("people_coaching", response);
+                        if(dto.get_profile_type().equals("")) {
 
-                        startActivityForResult(intent, 000001);
-                        overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                            Intent intent = new Intent(SubPeopleSearch_Activity.this, YouType_Actvity_step1.class);
+
+                            intent.putExtra("people_uid", dto.get_profile_uid());
+                            intent.putExtra("people_username", dto.get_profile_username());
+                            intent.putExtra("people_email", dto.get_profile_email());
+
+                            startActivityForResult(intent, 000001);
+                            overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+
+                        } else {
+                            Intent intent = new Intent(SubPeopleSearch_Activity.this, SubPeopleListPopup_Activity.class);
+                            intent.putExtra("people_uid", dto.get_profile_uid());
+                            intent.putExtra("people_email", dto.get_profile_email());
+                            intent.putExtra("people_username", dto.get_profile_username());
+                            intent.putExtra("people_mood", dto.get_profile_mood());
+                            intent.putExtra("people_type", dto.get_profile_type());
+                            intent.putExtra("people_gubun1", dto.get_profile_gubun1());
+                            intent.putExtra("people_gubun2", dto.get_profile_gubun2());
+                            intent.putExtra("people_speed", dto.get_profile_speed());
+                            intent.putExtra("people_control", dto.get_profile_control());
+                            intent.putExtra("people_result_count", dto.get_profile_cnt());
+                            intent.putExtra("people_friend_count", dto.get_profile_friend_cnt());
+                            intent.putExtra("people_coaching", response);
+
+                            startActivityForResult(intent, 000001);
+                            overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                        }
+
                     }
                 });
 
