@@ -666,6 +666,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                         params.put("people_uid", people_uid);
                         params.put("gubun1", people_gubun1);
                         params.put("gubun2", people_gubun2);
+
                         HttpClient.post("/people/peopleMatchView", params, new AsyncHttpResponseHandler() {
                             public void onStart() {
                                 dialog = ProgressDialog.show(SubPeopleListSelect_Activity.this, "", "데이터 수신중");
@@ -703,6 +704,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                                         intent.putExtra("people_username", people_name);
                                         intent.putExtra("gubun1", people_gubun1);
                                         intent.putExtra("gubun2", people_gubun2);
+                                        intent.putExtra("viewType", "you");
                                         startActivityForResult(intent, 1);
                                         overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                                     }
