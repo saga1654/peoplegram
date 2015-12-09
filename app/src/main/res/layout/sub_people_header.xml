@@ -766,7 +766,7 @@
             android:textSize="12dp"
             android:padding="3dp"
             android:id="@+id/search_edit_people"
-            android:hint="매칭할 피플찾기 : 이름 및 초성으로 검색해주세요."/>
+            android:hint="매칭 할 피플찾기 : 이름 및 초성으로 검색해주세요."/>
 
     </LinearLayout>
 
@@ -1363,24 +1363,6 @@
 
             </LinearLayout>
 
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.20"
-                android:gravity="right">
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="#7c7c7f"
-                    android:textSize="10dp"
-                    android:text="진단피플수" />
-
-
-            </LinearLayout>
 
         </LinearLayout>
 
