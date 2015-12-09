@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -26,8 +27,14 @@ public class GramPopupActivity extends AppCompatActivity {
     private ProgressDialog progressdialog;
     private String uid, people_uid, people_username, gubun1, gubun2;
     private LinearLayout panel_linear;
+    private String viewType = "";
 
     private LinearLayout panel_join_ll, point_plus_ll;
+
+    private String  mytype, my_data1, my_data2, my_data3, my_data4, my_data5, my_data6, my_data7, my_data8, my_data9, my_data10;
+    private String people_type, my_speed, my_control, people_speed, people_control;
+    private String people_data1, people_data2, people_data3, people_data4, people_data5, people_data6, people_data7, people_data8, people_data9, people_data10;
+    private String people_total;
 
     private Boolean panel_check = false;
 
@@ -54,6 +61,41 @@ public class GramPopupActivity extends AppCompatActivity {
             gubun1 = intent.getStringExtra("gubun1");
             gubun2 = intent.getStringExtra("gubun2");
             gram_point.setText(Point);
+            viewType = intent.getStringExtra("viewType");
+
+            if(viewType.equals("my")) {
+                mytype = intent.getStringExtra("mytype");
+                my_data1 = intent.getStringExtra("my_data1");
+                my_data2 = intent.getStringExtra("my_data2");
+                my_data3 = intent.getStringExtra("my_data3");
+                my_data4 = intent.getStringExtra("my_data4");
+                my_data5 = intent.getStringExtra("my_data5");
+                my_data6 = intent.getStringExtra("my_data6");
+                my_data7 = intent.getStringExtra("my_data7");
+                my_data8 = intent.getStringExtra("my_data8");
+                my_data9 = intent.getStringExtra("my_data9");
+                my_data10 = intent.getStringExtra("my_data10");
+
+                people_type = intent.getStringExtra("people_type");
+                my_speed = intent.getStringExtra("my_speed");
+                my_control = intent.getStringExtra("my_control");
+                people_speed = intent.getStringExtra("people_speed");
+                people_control = intent.getStringExtra("people_control");
+
+                people_data1 = intent.getStringExtra("people_data1");
+                people_data2 = intent.getStringExtra("people_data2");
+                people_data3 = intent.getStringExtra("people_data3");
+                people_data4 = intent.getStringExtra("people_data4");
+                people_data5 = intent.getStringExtra("people_data5");
+                people_data6 = intent.getStringExtra("people_data6");
+                people_data7 = intent.getStringExtra("people_data7");
+                people_data8 = intent.getStringExtra("people_data8");
+                people_data9 = intent.getStringExtra("people_data9");
+                people_data10 = intent.getStringExtra("people_data10");
+
+                people_total = intent.getStringExtra("people_total");
+            }
+
         }
 
         my_point.setText("현재 포인트 " + Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(GramPopupActivity.this, "point"))) + "p");
@@ -88,6 +130,7 @@ public class GramPopupActivity extends AppCompatActivity {
                 params.put("gubun1",gubun1);
                 params.put("gubun2",gubun2);
                 params.put("point",Point);
+                params.put("viewType", viewType);
                 HttpClient.post("/people/peoplePointPayment",params,new
 
                         AsyncHttpResponseHandler() {
@@ -108,8 +151,50 @@ public class GramPopupActivity extends AppCompatActivity {
                                     if (jobj.getString("code").equals("000") == true) {
                                         SharedPreferenceUtil.putSharedPreference(GramPopupActivity.this, "point", jobj.getString("data_point"));
                                         intent.putExtra("data_OK", "OK");
+                                        //intent.putExtra("mytype", mytype);
+
+
+                                        if (viewType.equals("my")) {
+
+                                            intent.putExtra("mytype", mytype);
+
+                                            intent.putExtra("my_data1", my_data1);
+                                            intent.putExtra("my_data2", my_data2);
+                                            intent.putExtra("my_data3", my_data3);
+                                            intent.putExtra("my_data4", my_data4);
+                                            intent.putExtra("my_data5", my_data5);
+                                            intent.putExtra("my_data6", my_data6);
+                                            intent.putExtra("my_data7", my_data7);
+                                            intent.putExtra("my_data8", my_data8);
+                                            intent.putExtra("my_data9", my_data9);
+                                            intent.putExtra("my_data10", my_data10);
+
+                                            intent.putExtra("people_type", people_type);
+                                            intent.putExtra("my_speed", my_speed);
+                                            intent.putExtra("my_control", my_control);
+                                            intent.putExtra("people_speed", people_speed);
+                                            intent.putExtra("people_control", people_control);
+                                            intent.putExtra("people_total", people_total);
+                                            intent.putExtra("people_data1", people_data1);
+                                            intent.putExtra("people_data2", people_data2);
+                                            intent.putExtra("people_data3", people_data3);
+                                            intent.putExtra("people_data4", people_data4);
+                                            intent.putExtra("people_data5", people_data5);
+                                            intent.putExtra("people_data6", people_data6);
+                                            intent.putExtra("people_data7", people_data7);
+                                            intent.putExtra("people_data8", people_data8);
+                                            intent.putExtra("people_data9", people_data9);
+                                            intent.putExtra("people_data10", people_data10);
+
+                                            intent.putExtra("viewType", "my");
+
+
+
+                                            Toast.makeText(GramPopupActivity.this, "결제가 완료되었습니다.", Toast.LENGTH_LONG).show();
+                                        } else {
+                                            Toast.makeText(GramPopupActivity.this, "결제가 완료되었습니다. 관계팁과 피플타입을 보실수 있습니다.", Toast.LENGTH_LONG).show();
+                                        }
                                         setResult(RESULT_OK, intent);
-                                        Toast.makeText(GramPopupActivity.this, "결제가 완료되었습니다. 관계팁과 피플타입을 보실수 있습니다.", Toast.LENGTH_LONG).show();
                                         finish();
 
 

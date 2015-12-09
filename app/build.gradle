@@ -8,8 +8,8 @@ android {
         applicationId "kr.co.people_gram.app"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 18
-        versionName "1.1.6"
+        versionCode 20
+        versionName "1.1.8"
     }
     buildTypes {
         release {
@@ -17,8 +17,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
-
 }
 
 dependencies {

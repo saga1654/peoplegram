@@ -76,6 +76,7 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
             people_control = intent.getStringExtra("people_control");
             viewType = intent.getStringExtra("viewType");
 
+
             switch (gubun1)
             {
 
@@ -221,6 +222,7 @@ public class SubPeopleTypeContents_Activity extends AppCompatActivity {
 
     public void finish()
     {
+        setResult(RESULT_OK);
         super.finish();
         overridePendingTransition(R.anim.slide_close_down_info, R.anim.slide_clode_up_info);
     }
