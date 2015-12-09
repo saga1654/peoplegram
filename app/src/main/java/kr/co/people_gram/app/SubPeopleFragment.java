@@ -414,7 +414,25 @@ public class SubPeopleFragment extends Fragment {
                         public void onSuccess(String response) {
                             //Log.d("people_gram", response);
                             if(dto.get_profile_type().equals("")) {
+                                /*
+                                pd.set_people_uid(dto.get_profile_uid());
+                                pd.set_people_gubun1(dto.get_profile_gubun1());
+                                pd.set_people_gubun2(dto.get_profile_gubun2());
+                                pd.set_people_mood(dto.get_profile_mood());
+                                pd.set_people_type(dto.get_profile_type());
+                                pd.set_people_username(dto.get_profile_username());
+                                pd.set_people_speed(dto.get_profile_speed());
+                                pd.set_people_control(dto.get_profile_control());
+                                */
 
+                                Intent intent = new Intent(getActivity(), YouType_Actvity_step1.class);
+
+                                intent.putExtra("people_uid", dto.get_profile_uid());
+                                intent.putExtra("people_username", dto.get_profile_username());
+                                intent.putExtra("people_email", dto.get_profile_email());
+
+                                startActivityForResult(intent, ACTIVITY_CODE);
+                                getActivity().overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
                             } else {
                                 Intent intent = new Intent(getActivity().getBaseContext(), SubPeopleListPopup_Activity.class);
                                 intent.putExtra("people_uid", dto.get_profile_uid());

@@ -204,8 +204,8 @@ public class YouType_Activity_step2 extends FragmentActivity {
     {
         left_onoff = false;
         right_onoff = false;
-        myQuestion_left.setBackgroundColor(Color.rgb(241,241,241));
-        myQuestion_right.setBackgroundColor(Color.rgb(241,241,241));
+        myQuestion_left.setBackgroundColor(Color.rgb(241, 241, 241));
+        myQuestion_right.setBackgroundColor(Color.rgb(241, 241, 241));
     }
 
     public void myQuestion_left_click(View v) {
@@ -276,7 +276,19 @@ public class YouType_Activity_step2 extends FragmentActivity {
 
                         String people_type = jobj.getString("people_type");
 
-                        intent = new Intent(YouType_Activity_step2.this, YouType_Complate_Activity.class);
+                        intent = new Intent(YouType_Activity_step2.this, SubPeopleListSelect_Activity.class);
+
+
+
+                        pd.set_people_uid(people_uid);
+                        pd.set_people_username(people_username);
+                        pd.set_people_type(people_type);
+                        pd.set_people_mood("");
+                        pd.set_people_gubun1(gubun1);
+                        pd.set_people_gubun2(gubun2);
+                        pd.set_people_speed(Integer.parseInt(String.valueOf(speed)));
+                        pd.set_people_control(Integer.parseInt(String.valueOf(control)));
+                        /*
                         intent.putExtra("people_uid", people_uid);
                         intent.putExtra("people_email", people_email);
                         intent.putExtra("people_username", people_username);
@@ -295,8 +307,11 @@ public class YouType_Activity_step2 extends FragmentActivity {
                         intent.putExtra("youtype", people_type);
                         intent.putExtra("gubun1", gubun1);
                         intent.putExtra("gubun2", gubun2);
+                        */
+
+
                         startActivity(intent);
-                        overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                        overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
                         finish();
 
                     } catch (JSONException e) {
@@ -412,7 +427,7 @@ public class YouType_Activity_step2 extends FragmentActivity {
 
 
 
-
+                        /*
                         intent = new Intent(YouType_Activity_step2.this, YouType_Complate_Activity.class);
                         intent.putExtra("people_uid", people_uid);
                         intent.putExtra("people_email", people_email);
@@ -432,8 +447,21 @@ public class YouType_Activity_step2 extends FragmentActivity {
                         intent.putExtra("youtype", people_type);
                         intent.putExtra("gubun1", gubun1);
                         intent.putExtra("gubun2", gubun2);
+                        */
+                        intent = new Intent(YouType_Activity_step2.this, SubPeopleListSelect_Activity.class);
+
+
+
+                        pd.set_people_uid(people_uid);
+                        pd.set_people_username(people_username);
+                        pd.set_people_type(people_type);
+                        pd.set_people_mood("");
+                        pd.set_people_gubun1(gubun1);
+                        pd.set_people_gubun2(gubun2);
+                        pd.set_people_speed(Integer.parseInt(String.valueOf(speed)));
+                        pd.set_people_control(Integer.parseInt(String.valueOf(control)));
                         startActivity(intent);
-                        overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                        overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
                         finish();
 
                     } catch (JSONException e) {
