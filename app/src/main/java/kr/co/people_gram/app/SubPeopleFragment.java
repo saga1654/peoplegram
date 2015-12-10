@@ -549,7 +549,7 @@ public class SubPeopleFragment extends Fragment {
                 people_adapter_list = new SubPeopleListAdapter(getActivity().getBaseContext(), R.layout.sub_people_row_list, people_dto_list);
                 sf_people_list.setAdapter(people_adapter_list);
 
-                people_cnt.setText("전체 (" + String.valueOf(all_cnt) + "명)");
+               // people_cnt.setText("전체 (" + String.valueOf(all_cnt) + "명)");
 
             }
         });
