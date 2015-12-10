@@ -258,14 +258,6 @@ public class MainActivity2 extends AppCompatActivity {
 
                 if(menuType.equals("mytype") == false) {
 
-                    //if(SharedPreferenceUtil.getSharedPreference(MainActivity.this, "step2").equals("Y") == false) {
-                    /*
-                        Intent intent = new Intent(MainActivity.this, GuideActivityStep1.class);
-                        intent.putExtra("step", "2");
-                        SharedPreferenceUtil.putSharedPreference(MainActivity.this, "step2", "Y");
-                        startActivity(intent);
-                    */
-                    //}
 
 
 
@@ -304,18 +296,6 @@ public class MainActivity2 extends AppCompatActivity {
                 if(menuType.equals("mypage") == false) {
                     dpc.set_user_count(0);
 
-                    if(SharedPreferenceUtil.getSharedPreference(MainActivity2.this, "step3").equals("Y") == false) {
-                        View popupView = getLayoutInflater().inflate(R.layout.activity_guide_activity_step1, null);
-                        mPopupWindow = new PopupWindow(popupView,
-                                RelativeLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-
-                        mPopupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
-
-                        guide_content_1 = (ImageView) popupView.findViewById(R.id.guide_img);
-                        guide_content_1.setImageResource(R.drawable.guide_content_3);
-                        SharedPreferenceUtil.putSharedPreference(MainActivity2.this, "step3", "Y");
-                    }
-
 
                     menu_icon1.setImageResource(R.mipmap.top_01_off);
                     menu_line1.setBackgroundColor(Color.rgb(220, 220, 221));
@@ -345,19 +325,6 @@ public class MainActivity2 extends AppCompatActivity {
             public void onClick(View v) {
 
                 if(menuType.equals("group") == false) {
-
-                    if(SharedPreferenceUtil.getSharedPreference(MainActivity2.this, "step4").equals("Y") == false) {
-                        View popupView = getLayoutInflater().inflate(R.layout.activity_guide_activity_step1, null);
-                        mPopupWindow = new PopupWindow(popupView,
-                                RelativeLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-
-                        mPopupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
-
-                        guide_content_1 = (ImageView) popupView.findViewById(R.id.guide_img);
-                        guide_content_1.setImageResource(R.drawable.guide_content_4);
-                        SharedPreferenceUtil.putSharedPreference(MainActivity2.this, "step4", "Y");
-                    }
-
 
                     dpc.set_user_count(0);
 

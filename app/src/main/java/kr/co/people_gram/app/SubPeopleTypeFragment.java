@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Html;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -176,6 +179,41 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
     private TextView tv_mytype1,tv_mytype2,tv_mytype3,tv_mytype4,tv_mytype5;
 
     private String username = "";
+
+    private ImageView guide_content;
+    private PopupWindow mPopupWindow;
+
+    private void newPopup()
+    {
+
+        if(SharedPreferenceUtil.getSharedPreference(getActivity(), "people_mype").equals("C") == false) {
+            final View popupView = getActivity().getLayoutInflater().inflate(R.layout.activity_guide_activity_step1, null);
+            mPopupWindow = new PopupWindow(popupView,
+                    RelativeLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+
+            popupView.post(new Runnable() {
+                @Override
+                public void run() {
+                    mPopupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
+                }
+            });
+
+
+            guide_content = (ImageView) popupView.findViewById(R.id.guide_img);
+            guide_content.setImageResource(R.drawable.sub_guide_mytype);
+            SharedPreferenceUtil.putSharedPreference(getActivity(), "people_mype", "C");
+            LinearLayout step1_close_btn = (LinearLayout) popupView.findViewById(R.id.step1_close_btn);
+            step1_close_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mPopupWindow != null && mPopupWindow.isShowing()) {
+                        mPopupWindow.dismiss();
+                    }
+                }
+            });
+        }
+
+    }
 
     public void dataResult()
     {
@@ -452,6 +490,8 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.sub_fragment_peopletype, container, false);
+
+        newPopup();
 
 
 

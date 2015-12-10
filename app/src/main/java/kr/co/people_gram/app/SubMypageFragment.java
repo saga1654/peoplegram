@@ -5,13 +5,17 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -45,12 +49,50 @@ public class SubMypageFragment extends Fragment {
     private WebViewInterface mWebViewInterface;
     private WebViewInterface mWebViewInterface2;
 
+    private ImageView guide_content;
+    private PopupWindow mPopupWindow;
+
     public SubMypageFragment() {
+    }
+
+
+    private void newPopup()
+    {
+
+        if(SharedPreferenceUtil.getSharedPreference(getActivity(), "people_mypage").equals("C") == false) {
+            final View popupView = getActivity().getLayoutInflater().inflate(R.layout.activity_guide_activity_step1, null);
+            mPopupWindow = new PopupWindow(popupView,
+                    RelativeLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+
+            popupView.post(new Runnable() {
+                @Override
+                public void run() {
+                    mPopupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
+                }
+            });
+
+
+            guide_content = (ImageView) popupView.findViewById(R.id.guide_img);
+            guide_content.setImageResource(R.drawable.sub_guide_mypage);
+            SharedPreferenceUtil.putSharedPreference(getActivity(), "people_mype", "C");
+            LinearLayout step1_close_btn = (LinearLayout) popupView.findViewById(R.id.step1_close_btn);
+            step1_close_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mPopupWindow != null && mPopupWindow.isShowing()) {
+                        mPopupWindow.dismiss();
+                    }
+                }
+            });
+        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.sub_fragment_mypage, container, false);
+
+        newPopup();
 
         //mypage_people_btn = (LinearLayout) rootView.findViewById(R.id.mypage_people_btn);
         //mypage_gram_store_btn = (LinearLayout) rootView.findViewById(R.id.mypage_gram_store_btn);
