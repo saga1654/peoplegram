@@ -754,39 +754,32 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
+        android:padding="10dp"
         android:background="#f1f1f1"
         android:weightSum="1">
+
 
         <ImageView
             android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/toolbar_find"
-            android:paddingRight="2dp"
+            android:paddingRight="5dp"
+            android:paddingLeft="2dp"
             android:layout_weight="0.1"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.2"
-            android:text="매칭 할 피플찾기 :"
-            android:textColor="#4d4d4d"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#fff"
             android:textColorHint="#ccc"
             android:textColor="#000"
-            android:textSize="12dp"
+            android:textSize="14dp"
             android:padding="3dp"
             android:paddingRight="10dp"
             android:id="@+id/search_edit_people"
-            android:layout_weight="0.6"
-            android:hint=" 이름 및 초성으로 검색해주세요."/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.1"/>
+            android:layout_weight="0.9"
+            android:hint="매칭 할 피플찾기 : 이름 및 초성으로 검색해주세요."/>
+
 
 
     </LinearLayout>
@@ -1329,65 +1322,6 @@
 
         </LinearLayout>
         -->
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:background="#f1f1f1"
-        android:layout_gravity="center_horizontal">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#f3f3f4">
-
-        </LinearLayout>
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="15dp"
-            android:weightSum="1">
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:layout_weight="0.80">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="#7c7c7f"
-                    android:textSize="12dp"
-                    android:id="@+id/people_cnt"
-                    android:text="피플" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="10dp"
-                    android:id="@+id/help_btn"
-                    android:src="@drawable/q_btn" />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-.
 
     </LinearLayout>
 
