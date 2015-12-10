@@ -74,7 +74,7 @@ public class SubMypageFragment extends Fragment {
 
             guide_content = (ImageView) popupView.findViewById(R.id.guide_img);
             guide_content.setImageResource(R.drawable.sub_guide_mypage);
-            SharedPreferenceUtil.putSharedPreference(getActivity(), "people_mype", "C");
+            SharedPreferenceUtil.putSharedPreference(getActivity(), "people_mypage", "C");
             LinearLayout step1_close_btn = (LinearLayout) popupView.findViewById(R.id.step1_close_btn);
             step1_close_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
