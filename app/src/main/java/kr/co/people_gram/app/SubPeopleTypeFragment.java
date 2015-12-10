@@ -491,7 +491,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.sub_fragment_peopletype, container, false);
 
-        newPopup();
+        //newPopup();
 
 
 
