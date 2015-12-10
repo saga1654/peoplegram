@@ -300,31 +300,11 @@ public class SubPeopleFragment extends Fragment {
         });
 
         //listview_people_all_cnt = (TextView) rootView.findViewById(R.id.listview_people_all_cnt);
-        help_btn = (ImageView) rootView.findViewById(R.id.help_btn);
-        help_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                /*
-                View popupView = getActivity().getLayoutInflater().inflate(R.layout.activity_help_people, null);
-                PopupWindow mPopupWindow = new PopupWindow(popupView, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
-                mPopupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
-
-                people_popupview = true;
-                */
-
-                Intent intent = new Intent(getActivity(), People_Help_Activity.class);
-                startActivity(intent);
-                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
-
-
-                //mPopupWindow.setAnimationStyle(-1);
-                //mPopupWindow.showAsDropDown(q_btn, 50, 50);
-            }
-        });
 
 
 
-        people_cnt = (TextView) rootView.findViewById(R.id.people_cnt);
+
+       // people_cnt = (TextView) rootView.findViewById(R.id.people_cnt);
        // btn_question_re = (ImageView) header.findViewById(R.id.btn_question_re);
         /*
         btn_question_re.setOnClickListener(new View.OnClickListener() {
@@ -644,7 +624,7 @@ public class SubPeopleFragment extends Fragment {
                 sf_people_list.setAdapter(people_adapter_list);
                 //peopleList();
 
-                people_cnt.setText("가족 (" + String.valueOf(p_cnt) + "명)");
+               // people_cnt.setText("가족 (" + String.valueOf(p_cnt) + "명)");
             }
         });
         people_gubun_friend.setOnClickListener(new View.OnClickListener() {
@@ -680,7 +660,7 @@ public class SubPeopleFragment extends Fragment {
 
                 repeopleList();
 
-                people_cnt.setText("친구(지인) (" + String.valueOf(f_cnt) + "명)");
+               // people_cnt.setText("친구(지인) (" + String.valueOf(f_cnt) + "명)");
                 //peopleList();
 
 
@@ -719,7 +699,7 @@ public class SubPeopleFragment extends Fragment {
 
                 repeopleList();
 
-                people_cnt.setText("연인 (" + String.valueOf(l_cnt) + "명)");
+               // people_cnt.setText("연인 (" + String.valueOf(l_cnt) + "명)");
                 //peopleList();
             }
         });
@@ -757,7 +737,7 @@ public class SubPeopleFragment extends Fragment {
 
                 repeopleList();
 
-                people_cnt.setText("직장 (" + String.valueOf(c_cnt) + "명)");
+                //people_cnt.setText("직장 (" + String.valueOf(c_cnt) + "명)");
                 //peopleList();
             }
         });
@@ -795,7 +775,7 @@ public class SubPeopleFragment extends Fragment {
 
                 repeopleList();
 
-                people_cnt.setText("고객 (" + String.valueOf(s_cnt) + "명)");
+                //people_cnt.setText("고객 (" + String.valueOf(s_cnt) + "명)");
                 //peopleList();
             }
         });
@@ -832,7 +812,7 @@ public class SubPeopleFragment extends Fragment {
                 pos = 0;
                 repeopleList();
 
-                people_cnt.setText("미분류 (" + String.valueOf(n_cnt) + "명)");
+                //people_cnt.setText("미분류 (" + String.valueOf(n_cnt) + "명)");
                 //peopleList();
             }
         });
@@ -1035,7 +1015,7 @@ public class SubPeopleFragment extends Fragment {
                     */
 
 
-                    people_cnt.setText("전체 (" + people_list.length() + "명)");
+                  //  people_cnt.setText("전체 (" + people_list.length() + "명)");
 
                     all_cnt = 0;
                     p_cnt = 0;
@@ -1097,7 +1077,7 @@ public class SubPeopleFragment extends Fragment {
                             } else {
                                 n_cnt++;
                             }
-
+/*
                             switch (searchType) {
                                 case "ALL":
                                     people_cnt.setText("전체 (" + String.valueOf(all_cnt) + "명)");
@@ -1119,7 +1099,7 @@ public class SubPeopleFragment extends Fragment {
                                     break;
                             }
 
-
+*/
                             //Log.d("people_gram", searchType);
 
                             if (searchType.equals("ALL")) {
