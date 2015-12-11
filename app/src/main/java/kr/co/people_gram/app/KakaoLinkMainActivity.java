@@ -26,6 +26,13 @@ public class KakaoLinkMainActivity extends BaseActivity {
     private final String imageSrc = "http://mud-kage.kakao.co.kr/14/dn/btqb9rFG3H5/esjGPSigv4Gv2qokXyTbGK/o.jpg";
     private final String weblink = "http://www.kakao.com/services/8";
     private final String inWeblink = "http://www.kakao.com/services/8";
+    private final String msg = "이 테스트 해봤어요?\n" +
+            "\n" +
+            "나는 누구일까요? \n" +
+            "다른 사람은 나를 어떻게 생각할까요?  \n" +
+            "좋은 관계를 만들려면 어떻게 해야 할까요? \n" +
+            "\n" +
+            "나와 다른 사람의 행동 유형이 궁금하다면 지금 진단해 보세요!\n\n(아이폰유저는 1월말 출시예정)";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +47,7 @@ public class KakaoLinkMainActivity extends BaseActivity {
 
         try {
             Log.d("people_gram", "성공");
-            kakaoTalkLinkMessageBuilder.addText("이 테스트 해봤어요?\n\n나는 누구일까요? \n다른 사람은 나를 어떻게 생각할까요?  \n좋은 관계를 만들려면 어떻게 해야 할까요? \n\n나와 다른 사람의 행동 유형이 궁금하다면 지금 진단해 보세요!");
+            kakaoTalkLinkMessageBuilder.addText(msg);
             kakaoTalkLinkMessageBuilder.addAppButton("피플그램", new AppActionBuilder()
                     .addActionInfo(AppActionInfoBuilder.createAndroidActionInfoBuilder().setExecuteParam("execparamkey2=2222").setMarketParam("referrer=kakaotalklink").build())
                     .addActionInfo(AppActionInfoBuilder.createiOSActionInfoBuilder(AppActionBuilder.DEVICE_TYPE.PHONE).setExecuteParam("execparamkey2=2222").build())
