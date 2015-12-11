@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kr.co.people_gram.app"
-    android:versionCode="22"
-    android:versionName="1.1.10" >
+    android:versionCode="23"
+    android:versionName="1.1.11" >
 
     <!-- 결제 권한 -->
     <uses-permission android:name="com.android.vending.BILLING" />
@@ -111,16 +111,11 @@
             android:name=".LogoActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
-
         </activity>
         <activity
             android:name=".MyQuestion_Activity"
@@ -360,10 +355,6 @@
             android:label="@string/title_activity_member_join_step7_"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
-
-
-
-
         </activity>
         <activity
             android:name=".MemberComplate_Activity"
@@ -532,14 +523,15 @@
             android:label="@string/title_activity_main2"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
-
-
-
-
         </activity>
         <activity
             android:name=".SubTypeFragment"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".SubMyDrop_Activity"
+            android:label="@string/title_activity_sub_my_drop_"
             android:theme="@style/AppTheme" >
         </activity>
     </application>

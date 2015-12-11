@@ -148,6 +148,8 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
         MY_std = (TextView) findViewById(R.id.MY_std);
         YOU_std = (TextView) findViewById(R.id.YOU_std);
 
+        Log.d("people_gram", uid + ":::" + people_uid);
+
         paymentResult();
 
         //Log.d("people_gram", "구분타입"+people_gubun1);
@@ -398,6 +400,8 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
 
                 } else {
 
+                    Log.d("people_gram", my_speed + ":" + people_sub_speed + ":" + my_control + ":" + people_sub_control);
+                    Log.d("people_gram", my_sub_type);
                     switch (people_sub_type) {
                         case "A":
                             YOU_std.setText("상대방 : 타인 진단 기준");

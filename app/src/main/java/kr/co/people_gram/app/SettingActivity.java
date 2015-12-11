@@ -32,16 +32,20 @@ public class SettingActivity extends AppCompatActivity {
     private Switch push_switch, push_survey;
     private ProgressDialog dialog;
 
-    private LinearLayout point_add, notice_btn, agree_btn, userinfo_btn, logout_btn, question_btn, people_btn;
+    private LinearLayout point_add, notice_btn, agree_btn, userinfo_btn, logout_btn, question_btn, people_btn, drop_btn;
     private Boolean sync = false;
 
     private TextView setting_version;
+    public static AppCompatActivity settingactivity;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+
+        settingactivity = this;
+
         top_title = (TextView) findViewById(R.id.top_title);
         top_title.setText("설정");
 
@@ -73,6 +77,8 @@ public class SettingActivity extends AppCompatActivity {
 
         people_btn = (LinearLayout) findViewById(R.id.people_btn);
 
+        drop_btn = (LinearLayout) findViewById(R.id.drop_btn);
+
         point_add.setOnClickListener(onBtnClickListener);
         point_add.setOnTouchListener(onBtnTouchListener);
 
@@ -93,6 +99,9 @@ public class SettingActivity extends AppCompatActivity {
 
         people_btn.setOnTouchListener(onBtnTouchListener);
         people_btn.setOnClickListener(onBtnClickListener);
+
+        drop_btn.setOnTouchListener(onBtnTouchListener);
+        drop_btn.setOnClickListener(onBtnClickListener);
 
         pushdata();
 
@@ -255,6 +264,14 @@ public class SettingActivity extends AppCompatActivity {
                     }
                     break;
 
+                case R.id.drop_btn:
+                    if(event.getAction() == 2) {
+                        drop_btn.setBackgroundColor(Color.rgb(241,241,241));
+                    } else {
+                        drop_btn.setBackgroundColor(Color.rgb(255,255,255));
+                    }
+                    break;
+
             }
             return false;
         }
@@ -317,6 +334,12 @@ public class SettingActivity extends AppCompatActivity {
                 case R.id.people_btn:
                     intent = new Intent(SettingActivity.this, SubMyPagePeopleSync_Activity.class);
                     startActivityForResult(intent, 61);
+                    overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+                    break;
+
+                case R.id.drop_btn:
+                    intent = new Intent(SettingActivity.this, SubMyDrop_Activity.class);
+                    startActivity(intent);
                     overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
                     break;
 

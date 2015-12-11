@@ -486,6 +486,7 @@
     <string name="title_activity_survey_start">SurveyStartActivity</string>
     <string name="title_activity_survey_complate">SurveyComplateActivity</string>
     <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_activity_sub_my_drop_">SubMyDrop_Activity</string>
 
 
 </resources>
