@@ -851,8 +851,8 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
             public void onClick(View v) {
                 if(C_check == false) {
 
-                    if(C_cnt < 1) {
-                        Toast.makeText(getActivity(), "본인 포함 최소 1명 이상 진단된 경우에 볼 수 있습니다.\n진단 요청해주세요.", Toast.LENGTH_LONG).show();
+                    if(C_cnt < 2) {
+                        Toast.makeText(getActivity(), "2명 이상 진단된 경우에 볼 수 있습니다.\n진단 요청해주세요.", Toast.LENGTH_LONG).show();
                     } else {
                         String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
                         String people_type = C_people_type;
