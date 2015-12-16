@@ -26,7 +26,7 @@ public class KakaoLinkMainActivity extends BaseActivity {
     private final String imageSrc = "http://mud-kage.kakao.co.kr/14/dn/btqb9rFG3H5/esjGPSigv4Gv2qokXyTbGK/o.jpg";
     private final String weblink = "http://www.kakao.com/services/8";
     private final String inWeblink = "http://www.kakao.com/services/8";
-    private final String msg = "이 테스트 해봤어요?\n" +
+    private String msg = "이 테스트 해봤어요?\n" +
             "\n" +
             "나는 누구일까요? \n" +
             "다른 사람은 나를 어떻게 생각할까요?  \n" +
@@ -43,6 +43,11 @@ public class KakaoLinkMainActivity extends BaseActivity {
             kakaoTalkLinkMessageBuilder = kakaoLink.createKakaoTalkLinkMessageBuilder();
         } catch (KakaoParameterException e) {
             e.printStackTrace();
+        }
+
+        Intent intent = getIntent();
+        if(intent != null) {
+            msg = intent.getStringExtra("kakao_msg");
         }
 
         try {
