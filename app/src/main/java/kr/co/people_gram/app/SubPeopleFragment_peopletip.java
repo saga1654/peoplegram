@@ -190,19 +190,19 @@ public class SubPeopleFragment_peopletip extends Fragment {
 
         subpeople_menu1 = (LinearLayout) rootView.findViewById(R.id.subpeople_menu1);
         subpeople_menu2 = (LinearLayout) rootView.findViewById(R.id.subpeople_menu2);
-        subpeople_menu3 = (LinearLayout) rootView.findViewById(R.id.subpeople_menu3);
+        //subpeople_menu3 = (LinearLayout) rootView.findViewById(R.id.subpeople_menu3);
         subpeople_menu4 = (LinearLayout) rootView.findViewById(R.id.subpeople_menu4);
         subpeople_menu5 = (LinearLayout) rootView.findViewById(R.id.subpeople_menu5);
 
         you_type1 = (TextView) rootView.findViewById(R.id.you_type1);
         you_type2 = (TextView) rootView.findViewById(R.id.you_type2);
-        you_type3 = (TextView) rootView.findViewById(R.id.you_type3);
+        //you_type3 = (TextView) rootView.findViewById(R.id.you_type3);
         you_type4 = (TextView) rootView.findViewById(R.id.you_type4);
         you_type5 = (TextView) rootView.findViewById(R.id.you_type5);
 
         you_type1.setText(Html.fromHtml("가족들이 생각하는 <b color='#32354d;'>"+people_name+"</b>님의 타입"));
         you_type2.setText(Html.fromHtml("친구(지인)들이 생각하는 <b color='#32354d;'>"+people_name+"</b>님의 타입"));
-        you_type3.setText(Html.fromHtml("연인이 생각하는 <b color='#32354d;'>"+people_name+"</b>님의 타입"));
+        //you_type3.setText(Html.fromHtml("연인이 생각하는 <b color='#32354d;'>"+people_name+"</b>님의 타입"));
         you_type4.setText(Html.fromHtml("직장에서 생각하는 <b color='#32354d;'>"+people_name+"</b>님의 타입"));
         you_type5.setText(Html.fromHtml("고객들이 생각하는 <b color='#32354d;'>"+people_name+"</b>님의 타입"));
 
@@ -213,8 +213,8 @@ public class SubPeopleFragment_peopletip extends Fragment {
         subpeople_menu2.setOnTouchListener(onBtnTouchListener);
         subpeople_menu2.setOnClickListener(onBtnClickListener);
 
-        subpeople_menu3.setOnTouchListener(onBtnTouchListener);
-        subpeople_menu3.setOnClickListener(onBtnClickListener);
+        //subpeople_menu3.setOnTouchListener(onBtnTouchListener);
+        //subpeople_menu3.setOnClickListener(onBtnClickListener);
 
         subpeople_menu4.setOnTouchListener(onBtnTouchListener);
         subpeople_menu4.setOnClickListener(onBtnClickListener);
@@ -225,13 +225,13 @@ public class SubPeopleFragment_peopletip extends Fragment {
 
         peopletype_icon1 = (ImageView) rootView.findViewById(R.id.peopletype_icon1);
         peopletype_icon2 = (ImageView) rootView.findViewById(R.id.peopletype_icon2);
-        peopletype_icon3 = (ImageView) rootView.findViewById(R.id.peopletype_icon3);
+        //peopletype_icon3 = (ImageView) rootView.findViewById(R.id.peopletype_icon3);
         peopletype_icon4 = (ImageView) rootView.findViewById(R.id.peopletype_icon4);
         peopletype_icon5 = (ImageView) rootView.findViewById(R.id.peopletype_icon5);
 
         people1_cnt = (TextView) rootView.findViewById(R.id.people1_cnt);
         people2_cnt = (TextView) rootView.findViewById(R.id.people2_cnt);
-        people3_cnt = (TextView) rootView.findViewById(R.id.people3_cnt);
+        //people3_cnt = (TextView) rootView.findViewById(R.id.people3_cnt);
         people4_cnt = (TextView) rootView.findViewById(R.id.people4_cnt);
         people5_cnt = (TextView) rootView.findViewById(R.id.people5_cnt);
 
@@ -262,6 +262,7 @@ public class SubPeopleFragment_peopletip extends Fragment {
 
             @Override
             public void onSuccess(String response) {
+                Log.d("people_gram", response);
                 try {
                     Log.d("people_gram", response);
 
@@ -359,7 +360,7 @@ public class SubPeopleFragment_peopletip extends Fragment {
                     L_code = l_data.getString("code");
                     L_cnt = Integer.parseInt(l_data.getString("people_total"));
 
-                    people3_cnt.setText(String.valueOf(L_cnt));
+                    //people3_cnt.setText(String.valueOf(L_cnt));
 
                     L_my_speed = l_data.getString("my_speed");
                     L_my_control = l_data.getString("my_control");
@@ -381,7 +382,7 @@ public class SubPeopleFragment_peopletip extends Fragment {
                     L_DATA_TOTAL = l_data.getString("people_total");
 
                     if(L_code.equals("000") == false) {
-                        peopletype_icon3.setImageResource(R.drawable.item_no_key);
+                        //peopletype_icon3.setImageResource(R.drawable.item_no_key);
                     }
 
 
@@ -675,7 +676,7 @@ public class SubPeopleFragment_peopletip extends Fragment {
                     gubun1 = "S";
 
 
-                    if(C_code.equals("000")) {
+                    if(S_code.equals("000")) {
                         intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
                         intent.putExtra("mytype", my_type);
                         intent.putExtra("my_data1", MY_DATA1);

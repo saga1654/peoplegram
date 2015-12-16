@@ -386,7 +386,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="본인 제외 최소 3명 이상 진단된 경우에 볼 수 있습니다."
+                                android:text="2명 이상 진단된 경우에 볼 수 있습니다."
                                 android:textSize="9dp"
                                 android:textColor="#696969"/>
 
