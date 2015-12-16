@@ -69,9 +69,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="카톡을 통해 초대하기 하려고 합니다. 아래 해당 문구를 그대로 사용하시거나 변경 또는 수정하시고 아래 체크버튼을 클릭하시기 바랍니다."
-            android:textSize="15dp"
-            android:padding="20dp"
+            android:text="카톡을 통해 초대하기 하려고 합니다. 아래 해당 문구를 그대로 사용하시거나 수정 또는 추가 문구를 넣고 아래 체크버튼을 클릭하시기 바랍니다."
+            android:textSize="13dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:textColor="#4d4d4d"/>
     </LinearLayout>
     <LinearLayout
@@ -90,7 +93,7 @@
         android:paddingBottom="10dp">
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="140dp"
             android:background="#ffffff"
             android:fillViewport="false">
             <LinearLayout
