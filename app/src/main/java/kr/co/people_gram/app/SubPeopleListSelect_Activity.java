@@ -98,6 +98,9 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
     private PopupWindow mPopupWindow;
 
 
+    private Boolean fileSave = false;
+    private File newFile;
+
     private LinearLayout shareLinear;
 
     private void newPopup()
@@ -843,14 +846,18 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                 fos = new FileOutputStream(save);
                 captureView.compress(Bitmap.CompressFormat.JPEG, 100, fos); // 캡쳐
 
+                newFile = new File(save);
+
                 // 미디어 스캐너를 통해 모든 미디어 리스트를 갱신시킨다.
                 sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,
                         Uri.parse("file://" + Environment.getExternalStorageDirectory())));
+
+                fileSave = true;
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-            Toast.makeText(getApplicationContext(), dateString + ".jpeg 저장",
-                    Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(), dateString + ".jpeg 저장",
+            //        Toast.LENGTH_LONG).show();
 
             Intent it3=getIntent(); //파일명을 가져오기 위한 인텐트(에디트텍스트에서 이름입력받은 걸 파일명으로 쓰기 위해)
 
@@ -875,7 +882,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                 intentSend.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(sdCardPath.getPath() + "/" + folder + "/" + dateString + ".jpeg")));
                 Log.d("people_gram", sdCardPath.getPath() + "/" + folder + "/" + dateString + ".jpeg");
                 intentSend.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                startActivity(Intent.createChooser(intentSend, "공유")); //공유하기 창 띄우기
+                startActivityForResult(Intent.createChooser(intentSend, "공유"), 113); //공유하기 창 띄우기
             } else {
                 //파일이 없다면 저장을 해달라는 토스트메세지를 띄운다.
                 Toast.makeText(getApplicationContext(), "저장을 먼저 해주세요", Toast.LENGTH_LONG).show();
@@ -938,7 +945,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                     JSONObject jobj = new JSONObject(response);
                     JSONObject my_obj = new JSONObject(jobj.getString("my_data"));
                     JSONObject people_obj = new JSONObject(jobj.getString("you_data"));
-                    if(my_obj.getString("code").equals("000")) {
+                    if (my_obj.getString("code").equals("000")) {
                         my_sub_control = Float.valueOf(my_obj.getString("sumdata_control"));
                         my_sub_speed = Float.valueOf(my_obj.getString("sumdata_speed"));
                         my_sub_type = my_obj.getString("peopleType");
@@ -949,7 +956,7 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                         my_sub_type = "";
                     }
 
-                    if(people_obj.getString("code").equals("000")) {
+                    if (people_obj.getString("code").equals("000")) {
                         people_sub_control = Float.valueOf(people_obj.getString("sumdata_control"));
                         people_sub_speed = Float.valueOf(people_obj.getString("sumdata_speed"));
                         people_sub_type = people_obj.getString("peopleType");
@@ -960,9 +967,9 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                         people_sub_type = "";
                     }
 
-                    Log.d("people_gram", my_sub_control + ":::" + my_sub_speed + ":::" + people_sub_speed + ":::" + people_sub_control + ":::"+ my_sub_type + ":::" + people_sub_type);
+                    Log.d("people_gram", my_sub_control + ":::" + my_sub_speed + ":::" + people_sub_speed + ":::" + people_sub_control + ":::" + my_sub_type + ":::" + people_sub_type);
 
-                    if(jobj.getString("view_cnt").equals("0")) {
+                    if (jobj.getString("view_cnt").equals("0")) {
                         payment_result = false;
                     } else {
                         payment_result = true;

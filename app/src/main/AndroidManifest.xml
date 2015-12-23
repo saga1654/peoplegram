@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kr.co.people_gram.app"
-    android:versionCode="25"
-    android:versionName="1.1.13" >
+    android:versionCode="26"
+    android:versionName="1.1.14" >
 
     <!-- 결제 권한 -->
     <uses-permission android:name="com.android.vending.BILLING" />
@@ -532,6 +532,11 @@
         <activity
             android:name=".SubMyDrop_Activity"
             android:label="@string/title_activity_sub_my_drop_"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".KakaoMsgActivity"
+            android:label="@string/title_activity_kakao_msg"
             android:theme="@style/AppTheme" >
         </activity>
     </application>
