@@ -27,7 +27,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.10"
                 android:onClick="prev_btn"
-                android:gravity="center">
+                android:gravity="center"
+                android:paddingLeft="10dp">
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -50,13 +51,7 @@
                     android:id="@+id/top_title"
                     android:textColor="#ffffff"/>
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/sharebtn"
-                    android:paddingLeft="80dp"
-                    android:textSize="10dp"
-                    android:id="@+id/sharebtn"/>
+
             </LinearLayout>
 
             <LinearLayout
@@ -64,10 +59,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="0.10"
+                android:paddingRight="10dp"
                 android:gravity="center">
 
 
-
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/sharebtn"
+                    android:paddingLeft="80dp"
+                    android:textSize="10dp"
+                    android:id="@+id/sharebtn"/>
 
 
             </LinearLayout>
