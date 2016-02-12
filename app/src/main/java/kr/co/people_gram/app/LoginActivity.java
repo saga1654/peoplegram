@@ -1,24 +1,25 @@
 package kr.co.people_gram.app;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.os.Bundle;
 import android.widget.EditText;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.util.Log;
 import android.widget.Toast;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import com.loopj.android.http.*;
 
 
 
@@ -222,9 +223,6 @@ public class LoginActivity extends AppCompatActivity {
 
                             startActivity(intent);
                             finish();
-
-
-
 
 
                             break;
