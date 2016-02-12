@@ -41,8 +41,8 @@ public class MainActivity2 extends AppCompatActivity {
 
 
     Toolbar toolbar;
-    DrawerLayout dlDrawer;
-    ActionBarDrawerToggle dtToggle;
+    //DrawerLayout dlDrawer;
+    //ActionBarDrawerToggle dtToggle;
 
     private Intent intent;
     private TextView txtTitle;
@@ -71,8 +71,6 @@ public class MainActivity2 extends AppCompatActivity {
     private TextView menu_username, menu_point;
     private ImageView menu_mytype;
 
-    private Handler mHandler;
-    private Runnable mRunnable;
 
 
     @Override
@@ -84,18 +82,20 @@ public class MainActivity2 extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         txtTitle = (TextView) findViewById(R.id.txtTitle);
 
-        dlDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        //dlDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
+        /*
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
         if (null != ab) {
             ab.setDisplayHomeAsUpEnabled(true);
         }
+        */
 
 
 
 
-
+        /*
         dtToggle = new ActionBarDrawerToggle(this, dlDrawer, R.string.app_name, R.string.app_name) {
             @Override
             public void onDrawerClosed(View drawerView) {
@@ -110,11 +110,14 @@ public class MainActivity2 extends AppCompatActivity {
             }
         };
         dlDrawer.setDrawerListener(dtToggle);
+        */
 
         fragmentManager = getSupportFragmentManager();
         ft = fragmentManager.beginTransaction();
 
         txtTitle.setText("피플그램");
+
+        /*
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -161,6 +164,7 @@ public class MainActivity2 extends AppCompatActivity {
                 return false;
             }
         });
+        */
 
 
 
@@ -185,14 +189,15 @@ public class MainActivity2 extends AppCompatActivity {
         menu3 = (LinearLayout) findViewById(R.id.menu3);
         menu4 = (LinearLayout) findViewById(R.id.menu4);
 
-        menu_username = (TextView) findViewById(R.id.menu_username);
-        menu_username.setText(SharedPreferenceUtil.getSharedPreference(MainActivity2.this, "username"));
+        //menu_username = (TextView) findViewById(R.id.menu_username);
+        //menu_username.setText(SharedPreferenceUtil.getSharedPreference(MainActivity2.this, "username"));
 
-        menu_point = (TextView) findViewById(R.id.menu_point);
-        menu_point.setText(Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(MainActivity2.this, "point"))) + "p");
+        //menu_point = (TextView) findViewById(R.id.menu_point);
+        //menu_point.setText(Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(MainActivity2.this, "point"))) + "p");
 
-        menu_mytype = (ImageView) findViewById(R.id.menu_mytype);
+        //menu_mytype = (ImageView) findViewById(R.id.menu_mytype);
 
+        /*
         switch (SharedPreferenceUtil.getSharedPreference(MainActivity2.this, "mytype")) {
             case "A":
                 menu_mytype.setImageResource(R.mipmap.peoplelist_type_a);
@@ -214,6 +219,8 @@ public class MainActivity2 extends AppCompatActivity {
                 menu_mytype.setImageResource(R.mipmap.peoplelist_type_default);
                 break;
         }
+        */
+
 
         if(dpc.get_user_count() > 0) {
             menu_icon1.setImageResource(R.mipmap.top_01_on_new);
@@ -324,6 +331,8 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
+
                 if(menuType.equals("group") == false) {
 
                     dpc.set_user_count(0);
@@ -345,7 +354,7 @@ public class MainActivity2 extends AppCompatActivity {
                     fragmentManager = getSupportFragmentManager();
                     ft = fragmentManager.beginTransaction();
 
-                    SubGroupFragment subgroup_fragment = new SubGroupFragment();
+                    SubTypeFragment_new subgroup_fragment = new SubTypeFragment_new();
                     ft.replace(R.id.viewpager, subgroup_fragment);
                     ft.commit();
                     menuType = "group";
@@ -418,7 +427,7 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
     public void mainmenu_close_btn(View v) {
-        dlDrawer.closeDrawer(Gravity.LEFT);
+        //dlDrawer.closeDrawer(Gravity.LEFT);
     }
 
     @Override
@@ -432,13 +441,13 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occurred.
-        dtToggle.syncState();
+        //dtToggle.syncState();
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        dtToggle.onConfigurationChanged(newConfig);
+        //dtToggle.onConfigurationChanged(newConfig);
     }
 
     @Override
@@ -447,7 +456,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         switch (id) {
             case android.R.id.home:
-                dlDrawer.openDrawer(GravityCompat.START);
+                //dlDrawer.openDrawer(GravityCompat.START);
                 return true;
         }
 
@@ -667,7 +676,7 @@ public class MainActivity2 extends AppCompatActivity {
             }
         } else {
             /* 좌측메뉴 CLOSE */
-            dlDrawer.closeDrawer(Gravity.LEFT);
+            //dlDrawer.closeDrawer(Gravity.LEFT);
             return false;
         }
 

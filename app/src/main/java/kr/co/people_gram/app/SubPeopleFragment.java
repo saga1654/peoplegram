@@ -157,9 +157,10 @@ public class SubPeopleFragment extends Fragment {
 
         people_detail_view = (LinearLayout) rootView.findViewById(R.id.people_detail_view);
         people_detail_view_title = (LinearLayout) rootView.findViewById(R.id.people_detail_view_title);
-        myprofile_btn = (LinearLayout) rootView.findViewById(R.id.myprofile_btn);
-        myprofile_btn2 = (ImageView) rootView.findViewById(R.id.myprofile_btn2);
+        //myprofile_btn  = (LinearLayout) rootView.findViewById(R.id.myprofile_btn);
+        //myprofile_btn2 = (ImageView) rootView.findViewById(R.id.myprofile_btn2);
 
+        /*
         myprofile_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -168,6 +169,9 @@ public class SubPeopleFragment extends Fragment {
                 getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
+        */
+
+        /*
         myprofile_btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -176,6 +180,7 @@ public class SubPeopleFragment extends Fragment {
                 getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
+        */
 
 
 
