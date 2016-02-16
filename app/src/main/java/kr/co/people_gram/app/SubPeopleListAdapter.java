@@ -1,7 +1,6 @@
 package kr.co.people_gram.app;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,8 +78,17 @@ public class SubPeopleListAdapter extends BaseAdapter{
         //listview_people_list_email.setText(dto.get_profile_email().trim());
 
 
-        float my_speed = Float.parseFloat(SharedPreferenceUtil.getSharedPreference(mContext, "my_speed"));
-        float my_control = Float.parseFloat(SharedPreferenceUtil.getSharedPreference(mContext, "my_control"));
+        //Log.d("peoplegram", SharedPreferenceUtil.getSharedPreference(mContext, "my_speed") + ":::" + SharedPreferenceUtil.getSharedPreference(mContext, "my_control"));
+
+        float my_speed = 0;
+        if(SharedPreferenceUtil.getSharedPreference(mContext, "my_speed").equals("null") == false) {
+            my_speed = Float.parseFloat(SharedPreferenceUtil.getSharedPreference(mContext, "my_speed"));
+        }
+        float my_control = 0;
+        if(SharedPreferenceUtil.getSharedPreference(mContext, "my_control").equals("null") == false){
+            my_control = Float.parseFloat(SharedPreferenceUtil.getSharedPreference(mContext, "my_control"));
+        }
+
         float people_speed = dto.get_profile_speed();
         float people_control = dto.get_profile_control();
 

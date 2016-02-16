@@ -485,25 +485,28 @@ public class SubMypageFragment extends Fragment {
         @JavascriptInterface
         public void myList(String type)
         {
+            /*
             Intent intent = new Intent(getActivity(), SubMypage_PeopleList_Activity.class);
             intent.putExtra("searchType", type);
             intent.putExtra("list", "my");
             intent.putExtra("my_type", my_type);
             intent.putExtra("people_type", "");
             startActivity(intent);
-
+            */
             //Log.d("people_gram", "타입="+type);
         }
 
         @JavascriptInterface
         public void peopleList(String type)
         {
+            /*
             Intent intent = new Intent(getActivity(), SubMypage_PeopleList_Activity.class);
             intent.putExtra("searchType", type);
             intent.putExtra("list", "people");
             intent.putExtra("my_type", "");
             intent.putExtra("people_type", people_type);
             startActivity(intent);
+            */
             //Log.d("people_gram", "타입="+type);
         }
     }

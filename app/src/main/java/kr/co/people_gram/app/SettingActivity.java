@@ -7,9 +7,8 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -66,7 +65,7 @@ public class SettingActivity extends AppCompatActivity {
 
 
         push_switch = (Switch) findViewById(R.id.push_switch);
-        push_survey = (Switch) findViewById(R.id.push_survey);
+        //push_survey = (Switch) findViewById(R.id.push_survey);
 
         point_add = (LinearLayout) findViewById(R.id.point_add);
         notice_btn = (LinearLayout) findViewById(R.id.notice_btn);
@@ -79,8 +78,8 @@ public class SettingActivity extends AppCompatActivity {
 
         drop_btn = (LinearLayout) findViewById(R.id.drop_btn);
 
-        point_add.setOnClickListener(onBtnClickListener);
-        point_add.setOnTouchListener(onBtnTouchListener);
+       // point_add.setOnClickListener(onBtnClickListener);
+        //point_add.setOnTouchListener(onBtnTouchListener);
 
         notice_btn.setOnTouchListener(onBtnTouchListener);
         notice_btn.setOnClickListener(onBtnClickListener);
@@ -139,8 +138,8 @@ public class SettingActivity extends AppCompatActivity {
                 });
             }
         });
-
-        push_survey.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+/*
+       push_survey.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 String panel_push_yn = "N";
@@ -169,7 +168,7 @@ public class SettingActivity extends AppCompatActivity {
                     }
                 });
             }
-        });
+        });*/
     }
 
 
@@ -197,11 +196,13 @@ public class SettingActivity extends AppCompatActivity {
                         push_switch.setChecked(false);
                     }
 
+                    /*
                     if(jobj.getString("SURVEY_PUSH_YN").equals("Y")) {
                         push_survey.setChecked(true);
                     } else {
                         push_survey.setChecked(false);
                     }
+                    */
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -281,11 +282,13 @@ public class SettingActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.point_add:
+
+                /*case R.id.point_add:
                     intent = new Intent(SettingActivity.this, SubGramPoint.class);
                     startActivity(intent);
                     overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
                     break;
+                    */
                 case R.id.notice_btn:
                     intent = new Intent(SettingActivity.this, NoticeActivity.class);
                     startActivity(intent);

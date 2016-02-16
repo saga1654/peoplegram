@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -20,9 +19,6 @@ import com.loopj.android.http.RequestParams;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 
 public class MemberJoinStep2_Activity extends AppCompatActivity {
@@ -59,8 +55,9 @@ public class MemberJoinStep2_Activity extends AppCompatActivity {
         nextLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (emailCheck(et_email.getText()) == false) {
-                    Toast.makeText(MemberJoinStep2_Activity.this,"이메일을 확인해주세요.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MemberJoinStep2_Activity.this,"이메일 또는 아이디를 확인해주세요.", Toast.LENGTH_LONG).show();
                 } else {
                     emailData();
                 }
@@ -74,7 +71,7 @@ public class MemberJoinStep2_Activity extends AppCompatActivity {
                     if(enterCheck == false) {
                         enterCheck = true;
                         if (emailCheck(et_email.getText()) == false) {
-                            Toast.makeText(MemberJoinStep2_Activity.this,"이메일을 확인해주세요.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MemberJoinStep2_Activity.this,"이메일 또는 아이디를 확인해주세요.", Toast.LENGTH_LONG).show();
                         } else {
                             emailData();
                         }
@@ -141,10 +138,20 @@ public class MemberJoinStep2_Activity extends AppCompatActivity {
     }
 
     private Boolean emailCheck(CharSequence  email) {
-        String mail = "^[_a-zA-Z0-9-\\.]+@[\\.a-zA-Z0-9-]+\\.[a-zA-Z]+$";
-        Pattern p = Pattern.compile(mail);
-        Matcher m = p.matcher(email);
-        return m.matches();
+        //String mail = "^[_a-zA-Z0-9-\\.]+@[\\.a-zA-Z0-9-]+\\.[a-zA-Z]+$";
+
+        //Pattern p = Pattern.compile(mail);
+        //Matcher m = p.matcher(email);
+        //return m.matches();
+        if(email.length() > 0) {
+            if (email.length() < 6) {
+                Toast.makeText(MemberJoinStep2_Activity.this, "6자리 이상 입력해주세요.", Toast.LENGTH_LONG).show();
+            } else {
+
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

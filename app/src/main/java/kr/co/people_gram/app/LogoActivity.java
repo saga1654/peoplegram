@@ -1,26 +1,24 @@
 package kr.co.people_gram.app;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.AnimationDrawable;
-import android.net.Uri;
+import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.content.DialogInterface;
-import android.app.AlertDialog;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -33,9 +31,13 @@ import org.json.JSONObject;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
 public class LogoActivity extends AppCompatActivity {
 
+
+
+    /* 카카오 섹션 */
+    //private SessionCallback callback;
+    /* 카카오 섹션 */
 
     private Intent intent;
     private String uid, username;
@@ -156,6 +158,10 @@ public class LogoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //callback = new SessionCallback();
+        //Session.getCurrentSession().addCallback(callback);
+        //Session.getCurrentSession().checkAndImplicitOpen();
+
 
         dpc = new DataProfileCount();
 
@@ -259,7 +265,9 @@ public class LogoActivity extends AppCompatActivity {
                                         e.printStackTrace();
                                     }
 
-                                    if (jobj.getString("MYTYPE").equals("")) {
+                                    Log.d("peoplegram","마이타입:"+jobj.getString("MYTYPE"));
+
+                                    if (jobj.getString("MYTYPE").equals("N") || jobj.getString("MYTYPE").equals("")) {
                                         Intent intent = new Intent(LogoActivity.this, MemberComplate_Activity.class);
                                         startActivity(intent);
                                         overridePendingTransition(R.anim.speed_start_end, R.anim.speed_start_exit);

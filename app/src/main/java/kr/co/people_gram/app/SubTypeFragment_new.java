@@ -1,36 +1,23 @@
 package kr.co.people_gram.app;
 
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.LinearLayout;
 
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 
 
 /**
  * Created by 광희 on 2015-09-15.
+ * ADDED by 재철 on 2016-02-15.
  */
 public class SubTypeFragment_new extends Fragment {
-
+    private LinearLayout type_i, type_e, type_d, type_a;
 
     public SubTypeFragment_new() {
     }
@@ -39,10 +26,93 @@ public class SubTypeFragment_new extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.subtype_fragment_new, container, false);
 
+        type_i = (LinearLayout) rootView.findViewById(R.id.type_i);
+        type_d = (LinearLayout) rootView.findViewById(R.id.type_d);
+        type_e = (LinearLayout) rootView.findViewById(R.id.type_e);
+        type_a = (LinearLayout) rootView.findViewById(R.id.type_a);
+
+        type_i.setOnTouchListener(onBtnTouchListener);
+        type_i.setOnClickListener(onBtnClickListener);
+
+        type_d.setOnTouchListener(onBtnTouchListener);
+        type_d.setOnClickListener(onBtnClickListener);
+
+        type_e.setOnTouchListener(onBtnTouchListener);
+        type_e.setOnClickListener(onBtnClickListener);
+
+        type_a.setOnTouchListener(onBtnTouchListener);
+        type_a.setOnClickListener(onBtnClickListener);
+
         return rootView;
     }
-    public void peopleDelete()
-    {
 
-    }
+
+
+    private View.OnTouchListener onBtnTouchListener = new View.OnTouchListener() {
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            switch (v.getId()) {
+                case R.id.type_i:
+                    if(event.getAction() == 2) {
+                        type_i.setBackgroundColor(Color.rgb(241, 241, 241));
+                    } else {
+                        type_i.setBackgroundColor(Color.rgb(255,255,255));
+                    }
+                    break;
+                case R.id.type_d:
+                    if(event.getAction() == 2) {
+                        type_d.setBackgroundColor(Color.rgb(241, 241, 241));
+                    } else {
+                        type_d.setBackgroundColor(Color.rgb(255,255,255));
+                    }
+                    break;
+                case R.id.type_e:
+                    if(event.getAction() == 2) {
+                        type_e.setBackgroundColor(Color.rgb(241, 241, 241));
+                    } else {
+                        type_e.setBackgroundColor(Color.rgb(255,255,255));
+                    }
+                    break;
+                case R.id.type_a:
+                    if(event.getAction() == 2) {
+                        type_a.setBackgroundColor(Color.rgb(241, 241, 241));
+                    } else {
+                        type_a.setBackgroundColor(Color.rgb(255,255,255));
+                    }
+                    break;
+            }
+            return false;
+        }
+    };
+
+
+    private View.OnClickListener onBtnClickListener = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+
+
+
+            Intent intent = new Intent(getActivity(), SubMyType_Activity.class);
+            switch (v.getId()) {
+                case R.id.type_i:
+                    intent.putExtra("mytype", "I");
+                    break;
+                case R.id.type_d:
+                    intent.putExtra("mytype", "D");
+                    break;
+                case R.id.type_e:
+                    intent.putExtra("mytype", "E");
+                    break;
+                case R.id.type_a:
+                    intent.putExtra("mytype", "A");
+                    break;
+
+            }
+
+            startActivity(intent);
+            getActivity().overridePendingTransition(R.anim.start_enter, R.anim.start_exit);
+        }
+    };
+
 }

@@ -14,6 +14,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.kakao.auth.ISessionCallback;
+import com.kakao.auth.Session;
+import com.kakao.util.exception.KakaoException;
+import com.kakao.util.helper.log.Logger;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -22,8 +26,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-
 public class LoginActivity extends AppCompatActivity {
+
+    private SessionCallback callback;
+
 
     public static Activity loginActivity;
 
@@ -45,6 +51,13 @@ public class LoginActivity extends AppCompatActivity {
         AsyncHttpClient client = HttpClient.getInstance();
         ActivityContext = this;
         loginActivity = LoginActivity.this;
+
+
+        callback = new SessionCallback();
+        Session.getCurrentSession().addCallback(callback);
+        if (!Session.getCurrentSession().checkAndImplicitOpen()) {
+            //setContentView(R.layout.layout_common_kakao_login);
+        }
     }
 
     public void btn_login(View v) {
@@ -286,4 +299,39 @@ public class LoginActivity extends AppCompatActivity {
         //finish();
     }
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (Session.getCurrentSession().handleActivityResult(requestCode, resultCode, data)) {
+            return;
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private class SessionCallback implements ISessionCallback {
+
+        @Override
+        public void onSessionOpened() {
+           // Log.d("peoplegram", "카카오톡 연결");
+
+            //redirectSignupActivity();
+        }
+
+        @Override
+        public void onSessionOpenFailed(KakaoException exception) {
+            if(exception != null) {
+                Logger.e(exception);
+            }
+
+            //setContentView(R.layout.layout_common_kakao_login);
+        }
+    }
+    /*
+    protected void redirectSignupActivity() {
+        final Intent intent = new Intent(this, SampleSignupActivity.class);
+        startActivity(intent);
+        finish();
+    }
+    */
 }

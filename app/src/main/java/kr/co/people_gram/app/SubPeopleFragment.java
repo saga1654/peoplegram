@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -25,7 +23,6 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.plus.People;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
@@ -82,7 +79,7 @@ public class SubPeopleFragment extends Fragment {
 
     private TextView my_profile_i_now_cnt, my_profile_i_up_cnt, my_profile_d_now_cnt, my_profile_d_up_cnt, my_profile_e_now_cnt, my_profile_e_up_cnt, my_profile_a_now_cnt, my_profile_a_up_cnt;
     private TextView listview_people_all_cnt;
-    private ImageView my_profile_i_up_icon, my_profile_d_up_icon, my_profile_e_up_icon, my_profile_a_up_icon;
+    private ImageView my_profile_i_up_icon, my_profile_d_up_icon, my_profile_e_up_icon, my_profile_a_up_icon,re_test;
     private EditText serachText;
     private ImageView help_btn, panel_sign;
 
@@ -157,6 +154,7 @@ public class SubPeopleFragment extends Fragment {
 
         people_detail_view = (LinearLayout) rootView.findViewById(R.id.people_detail_view);
         people_detail_view_title = (LinearLayout) rootView.findViewById(R.id.people_detail_view_title);
+        re_test = (ImageView) rootView.findViewById(R.id.re_test);
         //myprofile_btn  = (LinearLayout) rootView.findViewById(R.id.myprofile_btn);
         //myprofile_btn2 = (ImageView) rootView.findViewById(R.id.myprofile_btn2);
 
@@ -169,7 +167,17 @@ public class SubPeopleFragment extends Fragment {
                 getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
             }
         });
+
+
         */
+        re_test.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MyQuestionRe_Activity.class);
+                startActivityForResult(intent, ACTIVITY_CODE);
+                getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+            }
+        });
 
         /*
         myprofile_btn2.setOnClickListener(new View.OnClickListener() {
@@ -333,7 +341,7 @@ public class SubPeopleFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SubMyType_Activity.class);
-                if(listview_youtype_switch.isChecked() == false) {
+                if (listview_youtype_switch.isChecked() == false) {
                     intent.putExtra("mytype", SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype"));
 
                 } else {

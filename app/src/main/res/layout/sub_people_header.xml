@@ -52,14 +52,14 @@
                 android:layout_weight="0.50"
                 android:gravity="right">
 
-                <!--
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/profile_btn"
-                    android:id="@+id/myprofile_btn2"
+                    android:src="@drawable/mytype_complate_remytype_off"
+                    android:id="@+id/re_test"
                     android:paddingRight="10dp"/>
-                    -->
+
 
             </LinearLayout>
 

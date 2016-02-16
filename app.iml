@@ -102,7 +102,9 @@
       <excludeFolder url="file://$MODULE_DIR$/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.5.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/7.5.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/app/build/intermediates/exploded-aar/com.kakao.sdk/auth/1.1.5/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/app/build/intermediates/exploded-aar/com.kakao.sdk/friends/1.1.5/jars" />
       <excludeFolder url="file://$MODULE_DIR$/app/build/intermediates/exploded-aar/com.kakao.sdk/kakaolink/1.1.5/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/app/build/intermediates/exploded-aar/com.kakao.sdk/kakaotalk/1.1.5/jars" />
       <excludeFolder url="file://$MODULE_DIR$/app/build/intermediates/exploded-aar/com.kakao.sdk/network/1.1.5/jars" />
       <excludeFolder url="file://$MODULE_DIR$/app/build/intermediates/exploded-aar/com.kakao.sdk/usermgmt/1.1.5/jars" />
       <excludeFolder url="file://$MODULE_DIR$/app/build/intermediates/exploded-aar/com.kakao.sdk/util/1.1.5/jars" />
@@ -118,6 +120,7 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 23 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="friends-1.1.5" level="project" />
     <orderEntry type="library" exported="" name="play-services-base-7.5.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-appinvite-7.5.0" level="project" />
     <orderEntry type="library" exported="" name="util-1.1.5" level="project" />
@@ -137,6 +140,7 @@
     <orderEntry type="library" exported="" name="play-services-analytics-7.5.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-7.5.0" level="project" />
     <orderEntry type="library" exported="" name="mediarouter-v7-22.0.0" level="project" />
+    <orderEntry type="library" exported="" name="kakaotalk-1.1.5" level="project" />
     <orderEntry type="library" exported="" name="play-services-wallet-7.5.0" level="project" />
     <orderEntry type="library" exported="" name="kakaolink-1.1.5" level="project" />
     <orderEntry type="library" exported="" name="play-services-identity-7.5.0" level="project" />

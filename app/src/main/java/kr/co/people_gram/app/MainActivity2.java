@@ -1,27 +1,16 @@
 package kr.co.people_gram.app;
 
 import android.app.AlertDialog;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,7 +18,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -467,7 +455,8 @@ public class MainActivity2 extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        menu_point.setText(Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(MainActivity2.this, "point"))) + "p");
+        //menu_point.setText(Utilities.comma(Integer.parseInt(SharedPreferenceUtil.getSharedPreference(MainActivity2.this, "point"))) + "p");
+        /*
         menu_mytype = (ImageView) findViewById(R.id.menu_mytype);
 
         switch (SharedPreferenceUtil.getSharedPreference(MainActivity2.this, "mytype")) {
@@ -491,6 +480,7 @@ public class MainActivity2 extends AppCompatActivity {
                 menu_mytype.setImageResource(R.mipmap.people_type_default);
                 break;
         }
+        */
 
 
         if (resultCode==RESULT_OK) {
