@@ -924,9 +924,9 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                         getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     }
                 } else {
-                    if(F_code.equals("999")) {
+                    if(L_code.equals("999")) {
                         Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n연인에게 요청해주세요.", Toast.LENGTH_LONG).show();
-                    } else if(F_code.equals("998")) {
+                    } else if(L_code.equals("998")) {
                         Toast.makeText(getActivity(), "평가한 인원수가 부족합니다\n연인에게 요청해주세요.", Toast.LENGTH_LONG).show();
                     } else {
                         String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
