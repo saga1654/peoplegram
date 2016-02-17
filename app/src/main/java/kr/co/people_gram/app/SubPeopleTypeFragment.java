@@ -269,11 +269,11 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
 
                     if(jobj_p.getString("p_code").equals("000")) {
                         P_check = true;
-                        P_point = Integer.parseInt(jobj_p.getString("point"));
+                        //P_point = Integer.parseInt(jobj_p.getString("point"));
                     } else {
                         P_check = false;
 
-                        P_point = Integer.parseInt(jobj_p.getString("point"));
+                        //P_point = Integer.parseInt(jobj_p.getString("point"));
                     }
 
                     P_code = p_data.getString("code");
@@ -309,10 +309,10 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
 
                     if(jobj_f.getString("f_code").equals("000")) {
                         F_check = true;
-                        F_point = Integer.parseInt(jobj_f.getString("point"));
+                        //F_point = Integer.parseInt(jobj_f.getString("point"));
                     } else {
                         F_check = false;
-                        F_point = Integer.parseInt(jobj_f.getString("point"));
+                       // F_point = Integer.parseInt(jobj_f.getString("point"));
                     }
 
                     Log.d("people_gram", "친구포인트="+F_point);
@@ -347,10 +347,10 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
 
                     if(jobj_l.getString("l_code").equals("000")) {
                         L_check = true;
-                        L_point = Integer.parseInt(jobj_l.getString("point"));
+                        //L_point = Integer.parseInt(jobj_l.getString("point"));
                     } else {
                         L_check = false;
-                        L_point = Integer.parseInt(jobj_l.getString("point"));
+                        //L_point = Integer.parseInt(jobj_l.getString("point"));
                     }
 
 
@@ -385,11 +385,11 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     if(jobj_c.getString("c_code").equals("000")) {
                         C_check = true;
                         C_cnt = Integer.parseInt(c_data.getString("people_total"));
-                        C_point = Integer.parseInt(jobj_c.getString("point"));
+                        //C_point = Integer.parseInt(jobj_c.getString("point"));
                     } else {
                         C_check = false;
                         C_cnt = Integer.parseInt(c_data.getString("people_total"));
-                        C_point = Integer.parseInt(jobj_c.getString("point"));
+                        //C_point = Integer.parseInt(jobj_c.getString("point"));
                     }
 
                     Log.d("people_gram", String.valueOf(c_data));
@@ -433,10 +433,10 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
 
                     if(jobj_s.getString("s_code").equals("000")) {
                         S_check = true;
-                        S_point = Integer.parseInt(jobj_s.getString("point"));
+                        //S_point = Integer.parseInt(jobj_s.getString("point"));
                     } else {
                         S_check = false;
-                        S_point = Integer.parseInt(jobj_s.getString("point"));
+                        //S_point = Integer.parseInt(jobj_s.getString("point"));
                     }
 
                     if(S_code.equals("000")) {
@@ -541,6 +541,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     if(P_cnt < 1) {
                         Toast.makeText(getActivity(), "본인 포함 최소 1명 이상 진단된 경우에 볼 수 있습니다.\n진단 요청해주세요.", Toast.LENGTH_LONG).show();
                     } else {
+                        /*
                         String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
                         String people_type = P_people_type;
                         String my_speed = P_my_speed;
@@ -581,6 +582,48 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                         intent.putExtra("people_data10", P_DATA10);
                         intent.putExtra("viewType", "my");
                         getActivity().startActivityForResult(intent, SubPeopleTypeFragmentCode);
+                        getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                        */
+                        String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
+                        String people_type = P_people_type;
+                        String my_speed = P_my_speed;
+                        String my_control = P_my_control;
+                        String people_speed = P_people_speed;
+                        String people_control = P_people_control;
+                        String gubun1 = "P";
+
+
+                        Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
+                        intent.putExtra("mytype", my_type);
+                        intent.putExtra("my_data1", MY_DATA1);
+                        intent.putExtra("my_data2", MY_DATA2);
+                        intent.putExtra("my_data3", MY_DATA3);
+                        intent.putExtra("my_data4", MY_DATA4);
+                        intent.putExtra("my_data5", MY_DATA5);
+                        intent.putExtra("my_data6", MY_DATA6);
+                        intent.putExtra("my_data7", MY_DATA7);
+                        intent.putExtra("my_data8", MY_DATA8);
+                        intent.putExtra("my_data9", MY_DATA9);
+                        intent.putExtra("my_data10", MY_DATA10);
+                        intent.putExtra("people_type", people_type);
+                        intent.putExtra("gubun1", gubun1);
+                        intent.putExtra("my_speed", my_speed);
+                        intent.putExtra("my_control", my_control);
+                        intent.putExtra("people_speed", people_speed);
+                        intent.putExtra("people_control", people_control);
+                        intent.putExtra("people_total", P_DATA_TOTAL);
+                        intent.putExtra("people_data1", P_DATA1);
+                        intent.putExtra("people_data2", P_DATA2);
+                        intent.putExtra("people_data3", P_DATA3);
+                        intent.putExtra("people_data4", P_DATA4);
+                        intent.putExtra("people_data5", P_DATA5);
+                        intent.putExtra("people_data6", P_DATA6);
+                        intent.putExtra("people_data7", P_DATA7);
+                        intent.putExtra("people_data8", P_DATA8);
+                        intent.putExtra("people_data9", P_DATA9);
+                        intent.putExtra("people_data10", P_DATA10);
+                        intent.putExtra("viewType", "my");
+                        startActivity(intent);
                         getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     }
                 } else {
@@ -644,6 +687,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     if(F_cnt < 1) {
                         Toast.makeText(getActivity(), "본인 포함 최소 1명 이상 진단된 경우에 볼 수 있습니다.\n진단 요청해주세요.", Toast.LENGTH_LONG).show();
                     } else {
+                        /*
                         String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
                         String people_type = F_people_type;
                         String my_speed = F_my_speed;
@@ -687,6 +731,48 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                         intent.putExtra("viewType", "my");
 
                         getActivity().startActivityForResult(intent, SubPeopleTypeFragmentCode);
+                        getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                        */
+                        String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
+                        String people_type = F_people_type;
+                        String my_speed = F_my_speed;
+                        String my_control = F_my_control;
+                        String people_speed = F_people_speed;
+                        String people_control = F_people_control;
+                        String gubun1 = "F";
+
+
+                        Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
+                        intent.putExtra("mytype", my_type);
+                        intent.putExtra("my_data1", MY_DATA1);
+                        intent.putExtra("my_data2", MY_DATA2);
+                        intent.putExtra("my_data3", MY_DATA3);
+                        intent.putExtra("my_data4", MY_DATA4);
+                        intent.putExtra("my_data5", MY_DATA5);
+                        intent.putExtra("my_data6", MY_DATA6);
+                        intent.putExtra("my_data7", MY_DATA7);
+                        intent.putExtra("my_data8", MY_DATA8);
+                        intent.putExtra("my_data9", MY_DATA9);
+                        intent.putExtra("my_data10", MY_DATA10);
+                        intent.putExtra("people_type", people_type);
+                        intent.putExtra("gubun1", gubun1);
+                        intent.putExtra("my_speed", my_speed);
+                        intent.putExtra("my_control", my_control);
+                        intent.putExtra("people_speed", people_speed);
+                        intent.putExtra("people_control", people_control);
+                        intent.putExtra("people_total", F_DATA_TOTAL);
+                        intent.putExtra("people_data1", F_DATA1);
+                        intent.putExtra("people_data2", F_DATA2);
+                        intent.putExtra("people_data3", F_DATA3);
+                        intent.putExtra("people_data4", F_DATA4);
+                        intent.putExtra("people_data5", F_DATA5);
+                        intent.putExtra("people_data6", F_DATA6);
+                        intent.putExtra("people_data7", F_DATA7);
+                        intent.putExtra("people_data8", F_DATA8);
+                        intent.putExtra("people_data9", F_DATA9);
+                        intent.putExtra("people_data10", F_DATA10);
+                        intent.putExtra("viewType", "my");
+                        startActivity(intent);
                         getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     }
                 } else {
@@ -749,6 +835,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     if(L_cnt < 1) {
                         Toast.makeText(getActivity(), "연인에게 진단을 요청해 주세요.", Toast.LENGTH_LONG).show();
                     } else {
+                        /*
                         String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
                         String people_type = L_people_type;
                         String my_speed = L_my_speed;
@@ -791,6 +878,49 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                         intent.putExtra("people_data10", L_DATA10);
                         intent.putExtra("viewType", "my");
                         getActivity().startActivityForResult(intent, SubPeopleTypeFragmentCode);
+                        getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                        */
+                        String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
+                        String people_type = L_people_type;
+                        String my_speed = L_my_speed;
+                        String my_control = L_my_control;
+                        String people_speed = L_people_speed;
+                        String people_control = L_people_control;
+                        String gubun1 = "L";
+
+
+                        Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
+                        intent.putExtra("mytype", my_type);
+                        intent.putExtra("my_data1", MY_DATA1);
+                        intent.putExtra("my_data2", MY_DATA2);
+                        intent.putExtra("my_data3", MY_DATA3);
+                        intent.putExtra("my_data4", MY_DATA4);
+                        intent.putExtra("my_data5", MY_DATA5);
+                        intent.putExtra("my_data6", MY_DATA6);
+                        intent.putExtra("my_data7", MY_DATA7);
+                        intent.putExtra("my_data8", MY_DATA8);
+                        intent.putExtra("my_data9", MY_DATA9);
+                        intent.putExtra("my_data10", MY_DATA10);
+                        intent.putExtra("people_type", people_type);
+                        intent.putExtra("gubun1", gubun1);
+                        intent.putExtra("my_speed", my_speed);
+                        intent.putExtra("my_control", my_control);
+                        intent.putExtra("people_speed", people_speed);
+                        intent.putExtra("people_control", people_control);
+
+                        intent.putExtra("people_total", L_DATA_TOTAL);
+                        intent.putExtra("people_data1", L_DATA1);
+                        intent.putExtra("people_data2", L_DATA2);
+                        intent.putExtra("people_data3", L_DATA3);
+                        intent.putExtra("people_data4", L_DATA4);
+                        intent.putExtra("people_data5", L_DATA5);
+                        intent.putExtra("people_data6", L_DATA6);
+                        intent.putExtra("people_data7", L_DATA7);
+                        intent.putExtra("people_data8", L_DATA8);
+                        intent.putExtra("people_data9", L_DATA9);
+                        intent.putExtra("people_data10", L_DATA10);
+                        intent.putExtra("viewType", "my");
+                        startActivity(intent);
                         getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     }
                 } else {
@@ -854,6 +984,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     if(C_cnt < 2) {
                         Toast.makeText(getActivity(), "2명 이상 진단된 경우에 볼 수 있습니다.\n진단 요청해주세요.", Toast.LENGTH_LONG).show();
                     } else {
+                        /*
                         String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
                         String people_type = C_people_type;
                         String my_speed = C_my_speed;
@@ -895,6 +1026,48 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                         intent.putExtra("people_data10", C_DATA10);
                         intent.putExtra("viewType", "my");
                         getActivity().startActivityForResult(intent, SubPeopleTypeFragmentCode);
+                        getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                        */
+                        String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
+                        String people_type = C_people_type;
+                        String my_speed = C_my_speed;
+                        String my_control = C_my_control;
+                        String people_speed = C_people_speed;
+                        String people_control = C_people_control;
+                        String gubun1 = "C";
+
+
+                        Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
+                        intent.putExtra("mytype", my_type);
+                        intent.putExtra("my_data1", MY_DATA1);
+                        intent.putExtra("my_data2", MY_DATA2);
+                        intent.putExtra("my_data3", MY_DATA3);
+                        intent.putExtra("my_data4", MY_DATA4);
+                        intent.putExtra("my_data5", MY_DATA5);
+                        intent.putExtra("my_data6", MY_DATA6);
+                        intent.putExtra("my_data7", MY_DATA7);
+                        intent.putExtra("my_data8", MY_DATA8);
+                        intent.putExtra("my_data9", MY_DATA9);
+                        intent.putExtra("my_data10", MY_DATA10);
+                        intent.putExtra("people_type", people_type);
+                        intent.putExtra("gubun1", gubun1);
+                        intent.putExtra("my_speed", my_speed);
+                        intent.putExtra("my_control", my_control);
+                        intent.putExtra("people_speed", people_speed);
+                        intent.putExtra("people_control", people_control);
+                        intent.putExtra("people_total", C_DATA_TOTAL);
+                        intent.putExtra("people_data1", C_DATA1);
+                        intent.putExtra("people_data2", C_DATA2);
+                        intent.putExtra("people_data3", C_DATA3);
+                        intent.putExtra("people_data4", C_DATA4);
+                        intent.putExtra("people_data5", C_DATA5);
+                        intent.putExtra("people_data6", C_DATA6);
+                        intent.putExtra("people_data7", C_DATA7);
+                        intent.putExtra("people_data8", C_DATA8);
+                        intent.putExtra("people_data9", C_DATA9);
+                        intent.putExtra("people_data10", C_DATA10);
+                        intent.putExtra("viewType", "my");
+                        startActivity(intent);
                         getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     }
                 } else {
@@ -957,6 +1130,7 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                     if(S_cnt < 1) {
                         Toast.makeText(getActivity(), "진단이 존재하지 않습니다.", Toast.LENGTH_LONG).show();
                     } else {
+                        /*
                         String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
                         String people_type = S_people_type;
                         String my_speed = S_my_speed;
@@ -964,7 +1138,6 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                         String people_speed = S_people_speed;
                         String people_control = S_people_control;
                         String gubun1 = "S";
-
 
                         Intent intent = new Intent(getActivity(), GramPopupActivity.class);
                         intent.putExtra("use_point", String.valueOf(S_point));
@@ -998,6 +1171,48 @@ public class SubPeopleTypeFragment extends Fragment implements View.OnClickListe
                         intent.putExtra("people_data10", S_DATA10);
                         intent.putExtra("viewType", "my");
                         getActivity().startActivityForResult(intent, SubPeopleTypeFragmentCode);
+                        getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
+                        */
+                        String my_type = SharedPreferenceUtil.getSharedPreference(getActivity(), "mytype");
+                        String people_type = S_people_type;
+                        String my_speed = S_my_speed;
+                        String my_control = S_my_control;
+                        String people_speed = S_people_speed;
+                        String people_control = S_people_control;
+                        String gubun1 = "S";
+
+
+                        Intent intent = new Intent(getActivity(), SubPeopleTypeContents_Activity.class);
+                        intent.putExtra("mytype", my_type);
+                        intent.putExtra("my_data1", MY_DATA1);
+                        intent.putExtra("my_data2", MY_DATA2);
+                        intent.putExtra("my_data3", MY_DATA3);
+                        intent.putExtra("my_data4", MY_DATA4);
+                        intent.putExtra("my_data5", MY_DATA5);
+                        intent.putExtra("my_data6", MY_DATA6);
+                        intent.putExtra("my_data7", MY_DATA7);
+                        intent.putExtra("my_data8", MY_DATA8);
+                        intent.putExtra("my_data9", MY_DATA9);
+                        intent.putExtra("my_data10", MY_DATA10);
+                        intent.putExtra("people_type", people_type);
+                        intent.putExtra("gubun1", gubun1);
+                        intent.putExtra("my_speed", my_speed);
+                        intent.putExtra("my_control", my_control);
+                        intent.putExtra("people_speed", people_speed);
+                        intent.putExtra("people_control", people_control);
+                        intent.putExtra("people_total", S_DATA_TOTAL);
+                        intent.putExtra("people_data1", S_DATA1);
+                        intent.putExtra("people_data2", S_DATA2);
+                        intent.putExtra("people_data3", S_DATA3);
+                        intent.putExtra("people_data4", S_DATA4);
+                        intent.putExtra("people_data5", S_DATA5);
+                        intent.putExtra("people_data6", S_DATA6);
+                        intent.putExtra("people_data7", S_DATA7);
+                        intent.putExtra("people_data8", S_DATA8);
+                        intent.putExtra("people_data9", S_DATA9);
+                        intent.putExtra("people_data10", S_DATA10);
+                        intent.putExtra("viewType", "my");
+                        startActivity(intent);
                         getActivity().overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
                     }
                 } else {

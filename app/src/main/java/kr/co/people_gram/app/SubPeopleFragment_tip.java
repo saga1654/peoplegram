@@ -3,13 +3,11 @@ package kr.co.people_gram.app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 
 /**
@@ -97,11 +95,11 @@ public class SubPeopleFragment_tip extends Fragment {
 
         @Override
         public void onClick(View v) {
-            String point_str = SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "point");
-            int point = Integer.parseInt(point_str);
+            //String point_str = SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "point");
+            //int point = Integer.parseInt(point_str);
             Intent intent;
 
-            point = 0;
+            //point = 0;
 
             /*
             if(point == 0) {

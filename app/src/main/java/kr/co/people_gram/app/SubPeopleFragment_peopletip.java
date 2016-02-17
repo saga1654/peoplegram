@@ -472,10 +472,10 @@ public class SubPeopleFragment_peopletip extends Fragment {
 
         @Override
         public void onClick(View v) {
-            String point_str = SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "point");
-            int point = Integer.parseInt(point_str);
+           // String point_str = SharedPreferenceUtil.getSharedPreference(getActivity().getBaseContext(), "point");
+           // int point = Integer.parseInt(point_str);
 
-            point = 0;
+           // point = 0;
 
 
             /*

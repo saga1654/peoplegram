@@ -1,24 +1,21 @@
 package kr.co.people_gram.app;
 
-import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
-
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -613,182 +610,47 @@ public class SubPeopleListSelect_Activity extends AppCompatActivity {
                     ft.commit();
                     break;
                     */
-
-                    if(payment_result == true) {
-                        /*
-                        li_tip1.setBackgroundColor(Color.rgb(241, 241, 241));
-                        tv_tip1.setTextColor(Color.rgb(0, 0, 0));
-                        li_tip2.setBackgroundColor(Color.rgb(77, 77, 77));
-                        tv_tip2.setTextColor(Color.rgb(255, 255, 255));
-                        li_tip3.setBackgroundColor(Color.rgb(241, 241, 241));
-                        tv_tip3.setTextColor(Color.rgb(0, 0, 0));
-                        */
-
-                        tv_tip1.setTextColor(Color.rgb(0,0,0));
-                        tv_tip2.setTextColor(Color.rgb(254, 23, 5));
-                        tv_tip3.setTextColor(Color.rgb(0, 0, 0));
-                        tip1_line.setBackgroundColor(Color.rgb(255, 255, 255));
-                        tip2_line.setBackgroundColor(Color.rgb(254, 23, 5));
-                        tip3_line.setBackgroundColor(Color.rgb(255,255,255));
+                    tv_tip1.setTextColor(Color.rgb(0,0,0));
+                    tv_tip2.setTextColor(Color.rgb(254, 23, 5));
+                    tv_tip3.setTextColor(Color.rgb(0, 0, 0));
+                    tip1_line.setBackgroundColor(Color.rgb(255, 255, 255));
+                    tip2_line.setBackgroundColor(Color.rgb(254, 23, 5));
+                    tip3_line.setBackgroundColor(Color.rgb(255,255,255));
 
 
-                        tip_view.setVisibility(View.VISIBLE);
+                    tip_view.setVisibility(View.VISIBLE);
 
-                        fragmentManager = getSupportFragmentManager();
-                        ft = fragmentManager.beginTransaction();
+                    fragmentManager = getSupportFragmentManager();
+                    ft = fragmentManager.beginTransaction();
 
-                        SubPeopleFragment_tip sub_tip_fragment = new SubPeopleFragment_tip();
-                        ft.replace(R.id.fragment_sub_people, sub_tip_fragment);
-                        ft.commit();
-
-                    } else {
-                        RequestParams params = new RequestParams();
-                        params.put("uid", SharedPreferenceUtil.getSharedPreference(SubPeopleListSelect_Activity.this, "uid"));
-                        params.put("people_uid", people_uid);
-                        params.put("gubun1", people_gubun1);
-                        params.put("gubun2", people_gubun2);
-                        HttpClient.post("/people/peopleMatchView", params, new AsyncHttpResponseHandler() {
-                            public void onStart() {
-                                dialog = ProgressDialog.show(SubPeopleListSelect_Activity.this, "", "데이터 수신중");
-                            }
-
-                            public void onFinish() {
-                                dialog.dismiss();
-                            }
-
-                            @Override
-                            public void onSuccess(String response) {
-
-                                try {
-                                    JSONObject jobj = new JSONObject(response);
-                                    Log.d("people_gram", jobj.getString("code"));
-                                    if (jobj.getString("code").equals("999")) {
+                    SubPeopleFragment_tip sub_tip_fragment = new SubPeopleFragment_tip();
+                    ft.replace(R.id.fragment_sub_people, sub_tip_fragment);
+                    ft.commit();
 
 
-                                        tv_tip1.setTextColor(Color.rgb(0, 0, 0));
-                                        tv_tip2.setTextColor(Color.rgb(254, 23, 5));
-                                        tv_tip3.setTextColor(Color.rgb(0, 0, 0));
-                                        tip1_line.setBackgroundColor(Color.rgb(255, 255, 255));
-                                        tip2_line.setBackgroundColor(Color.rgb(254, 23, 5));
-                                        tip3_line.setBackgroundColor(Color.rgb(255, 255, 255));
-
-
-                                        tip_view.setVisibility(View.VISIBLE);
-
-
-                                        fragmentManager = getSupportFragmentManager();
-                                        ft = fragmentManager.beginTransaction();
-
-                                        SubPeopleFragment_tip sub_tip_fragment = new SubPeopleFragment_tip();
-                                        ft.replace(R.id.fragment_sub_people, sub_tip_fragment);
-                                        ft.commit();
-                                    } else {
-                                        Intent intent = new Intent(SubPeopleListSelect_Activity.this, GramPopupActivity.class);
-                                        intent.putExtra("use_point", jobj.getString("point"));
-                                        intent.putExtra("people_uid", people_uid);
-                                        intent.putExtra("people_username", people_name);
-                                        intent.putExtra("gubun1", people_gubun1);
-                                        intent.putExtra("gubun2", people_gubun2);
-                                        intent.putExtra("viewType", "you");
-                                        startActivityForResult(intent, 1);
-                                        overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
-                                    }
-
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-
-                            }
-                        });
-                    }
 
                     break;
                 case R.id.li_tip3:
                     tip_view.setVisibility(View.GONE);
 
-                    if(payment_result == true) {
-                        /*
-                        li_tip1.setBackgroundColor(Color.rgb(241, 241, 241));
-                        tv_tip1.setTextColor(Color.rgb(0, 0, 0));
-                        li_tip2.setBackgroundColor(Color.rgb(241, 241, 241));
-                        tv_tip2.setTextColor(Color.rgb(0, 0, 0));
-                        li_tip3.setBackgroundColor(Color.rgb(77, 77, 77));
-                        tv_tip3.setTextColor(Color.rgb(255, 255, 255));
-                        */
-
-                        tv_tip1.setTextColor(Color.rgb(0,0,0));
-                        tv_tip2.setTextColor(Color.rgb(0, 0, 0));
-                        tv_tip3.setTextColor(Color.rgb(254, 23, 5));
-                        tip1_line.setBackgroundColor(Color.rgb(255, 255, 255));
-                        tip2_line.setBackgroundColor(Color.rgb(255,255,255));
-                        tip3_line.setBackgroundColor(Color.rgb(254, 23, 5));
+                    tv_tip1.setTextColor(Color.rgb(0,0,0));
+                    tv_tip2.setTextColor(Color.rgb(0, 0, 0));
+                    tv_tip3.setTextColor(Color.rgb(254, 23, 5));
+                    tip1_line.setBackgroundColor(Color.rgb(255, 255, 255));
+                    tip2_line.setBackgroundColor(Color.rgb(255,255,255));
+                    tip3_line.setBackgroundColor(Color.rgb(254, 23, 5));
 
 
 
 
-                        fragmentManager = getSupportFragmentManager();
-                        ft = fragmentManager.beginTransaction();
+                    fragmentManager = getSupportFragmentManager();
+                    ft = fragmentManager.beginTransaction();
 
-                        SubPeopleFragment_peopletip sub_peopletip_fragment = new SubPeopleFragment_peopletip();
-                        ft.replace(R.id.fragment_sub_people, sub_peopletip_fragment);
-                        ft.commit();
-
-                    } else {
-                        RequestParams params = new RequestParams();
-                        params.put("uid", SharedPreferenceUtil.getSharedPreference(SubPeopleListSelect_Activity.this, "uid"));
-                        params.put("people_uid", people_uid);
-                        params.put("gubun1", people_gubun1);
-                        params.put("gubun2", people_gubun2);
-
-                        HttpClient.post("/people/peopleMatchView", params, new AsyncHttpResponseHandler() {
-                            public void onStart() {
-                                dialog = ProgressDialog.show(SubPeopleListSelect_Activity.this, "", "데이터 수신중");
-                            }
-
-                            public void onFinish() {
-                                dialog.dismiss();
-                            }
-
-                            @Override
-                            public void onSuccess(String response) {
-
-                                try {
-                                    JSONObject jobj = new JSONObject(response);
-                                    Log.d("people_gram", jobj.getString("code"));
-                                    if (jobj.getString("code").equals("999")) {
-                                        tv_tip1.setTextColor(Color.rgb(0, 0, 0));
-                                        tv_tip2.setTextColor(Color.rgb(0, 0, 0));
-                                        tv_tip3.setTextColor(Color.rgb(254, 23, 5));
-                                        tip1_line.setBackgroundColor(Color.rgb(255, 255, 255));
-                                        tip2_line.setBackgroundColor(Color.rgb(255,255,255));
-                                        tip3_line.setBackgroundColor(Color.rgb(254, 23, 5));
+                    SubPeopleFragment_peopletip sub_peopletip_fragment = new SubPeopleFragment_peopletip();
+                    ft.replace(R.id.fragment_sub_people, sub_peopletip_fragment);
+                    ft.commit();
 
 
-                                        fragmentManager = getSupportFragmentManager();
-                                        ft = fragmentManager.beginTransaction();
-
-                                        SubPeopleFragment_peopletip sub_peopletip_fragment = new SubPeopleFragment_peopletip();
-                                        ft.replace(R.id.fragment_sub_people, sub_peopletip_fragment);
-                                        ft.commit();
-                                    } else {
-                                        Intent intent = new Intent(SubPeopleListSelect_Activity.this, GramPopupActivity.class);
-                                        intent.putExtra("use_point", jobj.getString("point"));
-                                        intent.putExtra("people_uid", people_uid);
-                                        intent.putExtra("people_username", people_name);
-                                        intent.putExtra("gubun1", people_gubun1);
-                                        intent.putExtra("gubun2", people_gubun2);
-                                        intent.putExtra("viewType", "you");
-                                        startActivityForResult(intent, 1);
-                                        overridePendingTransition(R.anim.slide_up_info, R.anim.slide_down_info);
-                                    }
-
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-
-                            }
-                        });
-                    }
 
                     break;
             }
