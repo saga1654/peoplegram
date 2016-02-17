@@ -14,10 +14,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
-import com.kakao.util.exception.KakaoException;
-import com.kakao.util.helper.log.Logger;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -28,7 +25,7 @@ import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private SessionCallback callback;
+    //private SessionCallback callback;
 
 
     public static Activity loginActivity;
@@ -52,12 +49,13 @@ public class LoginActivity extends AppCompatActivity {
         ActivityContext = this;
         loginActivity = LoginActivity.this;
 
-
+        /*
         callback = new SessionCallback();
         Session.getCurrentSession().addCallback(callback);
         if (!Session.getCurrentSession().checkAndImplicitOpen()) {
             //setContentView(R.layout.layout_common_kakao_login);
         }
+        */
     }
 
     public void btn_login(View v) {
@@ -308,7 +306,7 @@ public class LoginActivity extends AppCompatActivity {
 
         super.onActivityResult(requestCode, resultCode, data);
     }
-
+        /*
     private class SessionCallback implements ISessionCallback {
 
         @Override

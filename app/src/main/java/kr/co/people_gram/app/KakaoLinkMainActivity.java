@@ -1,15 +1,9 @@
 package kr.co.people_gram.app;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.TextView;
 
 import com.kakao.kakaolink.AppActionBuilder;
 import com.kakao.kakaolink.AppActionInfoBuilder;
@@ -32,7 +26,7 @@ public class KakaoLinkMainActivity extends BaseActivity {
             "다른 사람은 나를 어떻게 생각할까요?  \n" +
             "좋은 관계를 만들려면 어떻게 해야 할까요? \n" +
             "\n" +
-            "나와 다른 사람의 행동 유형이 궁금하다면 지금 진단해 보세요!\n\n(아이폰유저는 1월말 출시예정)";
+            "나와 다른 사람의 행동 유형이 궁금하다면 지금 진단해 보세요!\n";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

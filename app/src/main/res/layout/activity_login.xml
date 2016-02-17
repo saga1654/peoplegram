@@ -92,7 +92,7 @@
                             android:textColorHint="#ffffff"
                             android:singleLine="true"
                             android:lines="1"
-                            android:hint="이메일 또는 아이디" />
+                            android:hint="가입시 이메일 또는 아이디" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -177,16 +177,10 @@
                     android:background="@android:color/transparent" />
 
 
-                <com.kakao.usermgmt.LoginButton
-                    android:id="@+id/com_kakao_login"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginBottom="30dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"/>
+
             </LinearLayout>
         </LinearLayout>
+        -->
         <!--
         <LinearLayout
             android:orientation="vertical"
